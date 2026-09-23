@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from datajud_tcc import cli
+from datajud_tcc.bronze import BronzeStore
 
 
 def test_collect_refuses_missing_api_key(monkeypatch, capsys):
@@ -23,3 +24,16 @@ def test_collect_never_prints_key(monkeypatch, capsys):
     monkeypatch.setattr(cli, "Collector", FakeCollector)
     assert cli.main(["collect", "--config", "config/collection.example.yaml"]) == 0
     assert secret not in capsys.readouterr().out
+
+
+def test_report_command_writes_requested_output(tmp_path):
+    response = {
+        "hits": {
+            "total": {"value": 0, "relation": "eq"},
+            "hits": [],
+        }
+    }
+    BronzeStore(tmp_path).write_page(2019, 1, {"size": 100}, response)
+    output = tmp_path / "report.md"
+    assert cli.main(["report", "--run-root", str(tmp_path), "--output", str(output)]) == 0
+    assert output.exists()

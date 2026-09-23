@@ -13,6 +13,7 @@ from .catalog import Catalog
 from .client import DatajudClient, DatajudError
 from .collector import Collector
 from .config import CollectionConfig
+from .report import build_pilot_summary, write_markdown
 
 
 CATALOG_PATH = Path("config/catalogs/pvd_cnj_2025-07-17.yaml")
@@ -25,6 +26,9 @@ def _parser() -> argparse.ArgumentParser:
     collect.add_argument("--config", required=True, type=Path)
     collect.add_argument("--query-kind", choices=("main", "diagnostic"), default="main")
     collect.add_argument("--run-id")
+    report = subparsers.add_parser("report", help="gerar relatório agregado")
+    report.add_argument("--run-root", required=True, type=Path)
+    report.add_argument("--output", type=Path)
     return parser
 
 
@@ -55,10 +59,25 @@ def _collect(args: argparse.Namespace) -> int:
     return 3 if manifest["status"] == "failed" else 0
 
 
+def _report(args: argparse.Namespace) -> int:
+    try:
+        catalog = Catalog.load(CATALOG_PATH)
+        summary = build_pilot_summary(args.run_root, catalog)
+        destination = args.output or Path("outputs/pilot") / f"{args.run_root.name}.md"
+        write_markdown(summary, destination)
+    except (OSError, ValueError) as exc:
+        print(f"relatório não gerado: {exc}", file=sys.stderr)
+        return 3
+    print(f"report={destination}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     if args.command == "collect":
         return _collect(args)
+    if args.command == "report":
+        return _report(args)
     return 2
 
 
