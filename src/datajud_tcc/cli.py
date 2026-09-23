@@ -19,6 +19,26 @@ from .report import build_pilot_summary, write_markdown
 CATALOG_PATH = Path("config/catalogs/pvd_cnj_2025-07-17.yaml")
 
 
+def _load_dotenv(path: Path = Path(".env")) -> None:
+    """Carrega DATAJUD_API_KEY de um .env sem sobrescrever o ambiente."""
+    if os.getenv("DATAJUD_API_KEY", "").strip() or not path.is_file():
+        return
+
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("export "):
+            line = line[7:].lstrip()
+        key, separator, value = line.partition("=")
+        if separator and key.strip() == "DATAJUD_API_KEY":
+            value = value.strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+                value = value[1:-1]
+            os.environ.setdefault("DATAJUD_API_KEY", value)
+            return
+
+
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="datajud-tcc")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -33,6 +53,7 @@ def _parser() -> argparse.ArgumentParser:
 
 
 def _collect(args: argparse.Namespace) -> int:
+    _load_dotenv()
     api_key = os.getenv("DATAJUD_API_KEY", "")
     if not api_key.strip():
         print("DATAJUD_API_KEY não foi informado no ambiente.", file=sys.stderr)
