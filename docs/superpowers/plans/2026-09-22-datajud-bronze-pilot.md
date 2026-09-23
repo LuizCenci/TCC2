@@ -470,7 +470,7 @@ O valor digitado permanece somente no ambiente do processo PowerShell e deve ser
 
 Run: `python -m pytest tests/unit/test_cli.py -v`
 
-Run: `datajud-tcc --help`
+Run: `.\.venv\Scripts\datajud-tcc.exe --help`
 
 Expected: testes PASS e ajuda lista `collect`.
 
