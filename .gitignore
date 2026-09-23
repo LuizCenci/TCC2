@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+work/bronze/
+work/checkpoints/
+work/logs/
+outputs/pilot/*.json
+outputs/pilot/*.csv
+.superpowers/sdd/
