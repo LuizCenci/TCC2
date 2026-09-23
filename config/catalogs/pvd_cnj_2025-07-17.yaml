@@ -1,0 +1,20 @@
+versao: "2025-07-17"
+assuntos:
+  - {codigo: 10948, tipo: assunto, descricao: "Violência Doméstica contra a mulher - cível", natureza: civel, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD cível."}
+  - {codigo: 10949, tipo: assunto, descricao: "Violência Doméstica contra a mulher - penal", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD penal."}
+  - {codigo: 11979, tipo: assunto, descricao: "Violência Doméstica contra a mulher - infracional", natureza: infracional, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD infracional."}
+  - {codigo: 12194, tipo: assunto, descricao: "Lesão corporal decorrente de violência doméstica contra a mulher - penal", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código específico PVD penal."}
+  - {codigo: 12196, tipo: assunto, descricao: "Lesão corporal decorrente de violência doméstica contra a mulher - infracional", natureza: infracional, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código específico PVD infracional."}
+  - {codigo: 14097, tipo: assunto, descricao: "Violência doméstica e familiar contra a mulher - penal", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD penal."}
+  - {codigo: 14098, tipo: assunto, descricao: "Crimes de descumprimento de medida protetiva de urgência", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD penal."}
+  - {codigo: 14226, tipo: assunto, descricao: "Crimes previstos na Lei Maria da Penha", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD penal."}
+  - {codigo: 14227, tipo: assunto, descricao: "Crime de descumprimento de medida protetiva de urgência", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD penal."}
+  - {codigo: 14228, tipo: assunto, descricao: "Previstos na Lei Maria da Penha - infracional", natureza: infracional, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD infracional."}
+  - {codigo: 14229, tipo: assunto, descricao: "Descumprimento de medida protetiva de urgência - infracional", natureza: infracional, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código oficial PVD infracional."}
+  - {codigo: 14942, tipo: assunto, descricao: "Violência psicológica contra a mulher - penal", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código específico PVD penal."}
+  - {codigo: 14943, tipo: assunto, descricao: "Lesão cometida em razão da condição de mulher - penal", natureza: penal, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código específico PVD penal."}
+  - {codigo: 14944, tipo: assunto, descricao: "Análogo à violência psicológica contra a mulher - infracional", natureza: infracional, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código específico PVD infracional."}
+  - {codigo: 14945, tipo: assunto, descricao: "Análogo à lesão corporal em razão da condição de mulher - infracional", natureza: infracional, fonte: "Glossário Justiça pela Paz em Casa", consultado_em: "2026-09-22", vigencia: null, justificativa: "Código específico PVD infracional."}
+classes_diagnosticas:
+  - 1268
+  - 12423
