@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["hits"],
+  "properties": {
+    "timed_out": {"type": "boolean"},
+    "_shards": {
+      "type": "object",
+      "required": ["failed"],
+      "properties": {"failed": {"type": "integer", "minimum": 0}}
+    },
+    "hits": {
+      "type": "object",
+      "required": ["total", "hits"],
+      "properties": {
+        "total": {"type": "object", "required": ["value", "relation"]},
+        "hits": {"type": "array"}
+      }
+    }
+  }
+}
