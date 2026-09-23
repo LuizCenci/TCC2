@@ -31,7 +31,22 @@ class ManifestStore:
 
     def load_or_create(self, context: Mapping[str, Any]) -> dict[str, Any]:
         if self.path.exists():
-            return json.loads(self.path.read_text(encoding="utf-8"))
+            manifest = json.loads(self.path.read_text(encoding="utf-8"))
+            immutable = (
+                "endpoint",
+                "tribunal",
+                "grau",
+                "years",
+                "query_kind",
+                "catalog_version",
+                "catalog_source_hash",
+                "config_hash",
+                "page_size",
+            )
+            for key in immutable:
+                if key in context and manifest.get(key) != context[key]:
+                    raise ValueError(f"contexto imutável divergente no manifesto: {key}")
+            return manifest
         manifest = _sanitize(dict(context))
         manifest.setdefault("run_id", uuid4().hex)
         manifest.setdefault("created_at", datetime.now(timezone.utc).isoformat())

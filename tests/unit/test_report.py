@@ -66,3 +66,38 @@ def test_missing_fields_are_reported_and_gte_is_preserved(tmp_path):
     assert year["total_relation"] == "gte"
     assert year["missing_fields"]["movimentos"] == 1
     assert year["missing_fields"]["orgaoJulgador"] == 1
+
+
+def test_process_number_is_preferred_for_unique_counts(tmp_path):
+    write_response(
+        tmp_path,
+        response(
+            [
+                hit("record-a", [{"codigo": 10949}], numeroProcesso="0001"),
+                hit("record-b", [{"codigo": 10949}], numeroProcesso="0001"),
+            ]
+        ),
+    )
+    summary = build_pilot_summary(tmp_path, catalog())
+    assert summary.process_count == 1
+    assert summary.nature_counts == {"penal": 1}
+
+
+def test_report_includes_manifest_failures_and_missing_fields(tmp_path):
+    (tmp_path / "manifest.json").write_text(
+        json.dumps(
+            {
+                "run_id": "run-1",
+                "status": "failed",
+                "catalog_source_hash": catalog().source_hash,
+                "partitions": {
+                    "2019": {"status": "failed", "pages": 0, "records": 0},
+                    "2020": {"status": "complete", "pages": 0, "records": 0},
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    summary = build_pilot_summary(tmp_path, catalog())
+    assert summary.by_year["2019"]["status"] == "failed"
+    assert summary.by_year["2020"]["status"] == "complete"

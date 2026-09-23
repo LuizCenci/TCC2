@@ -7,6 +7,8 @@ from pathlib import Path
 from typing import Any, Mapping
 
 import yaml
+import hashlib
+import json
 
 
 DEFAULT_ENDPOINT = (
@@ -79,8 +81,14 @@ class CollectionConfig:
             return value
 
         endpoint = str(raw["endpoint"]).strip()
-        if not endpoint.startswith("https://"):
-            raise ValueError("endpoint deve usar HTTPS")
+        if endpoint != DEFAULT_ENDPOINT:
+            raise ValueError("endpoint deve ser o endpoint público do TJPR")
+        if str(raw["tribunal"]).strip() != "TJPR":
+            raise ValueError("tribunal do piloto deve ser TJPR")
+        if str(raw["grau"]).strip() != "G1":
+            raise ValueError("grau do piloto deve ser G1")
+        if output_root != Path("work"):
+            raise ValueError("output_root do piloto deve ser work")
 
         return cls(
             endpoint=endpoint,
@@ -103,3 +111,18 @@ class CollectionConfig:
         if not isinstance(raw, dict):
             raise ValueError("arquivo de configuração deve conter um objeto YAML")
         return cls.from_mapping(raw)
+
+    def fingerprint(self) -> str:
+        payload = {
+            "endpoint": self.endpoint,
+            "tribunal": self.tribunal,
+            "grau": self.grau,
+            "years": self.years,
+            "page_size": self.page_size,
+            "connect_timeout_seconds": self.connect_timeout_seconds,
+            "read_timeout_seconds": self.read_timeout_seconds,
+            "max_attempts": self.max_attempts,
+            "max_wait_seconds": self.max_wait_seconds,
+            "continue_on_partition_error": self.continue_on_partition_error,
+        }
+        return hashlib.sha256(json.dumps(payload, sort_keys=True, default=list).encode()).hexdigest()

@@ -36,6 +36,10 @@ def test_pilot_config_has_seven_years_and_one_page(tmp_path):
         {"page_size": 9},
         {"page_size": 10001},
         {"output_root": "../outside"},
+        {"output_root": "outputs"},
+        {"tribunal": "TJSP"},
+        {"grau": "G2"},
+        {"endpoint": "https://example.test/search"},
     ],
 )
 def test_invalid_collection_config_is_rejected(tmp_path, patch):

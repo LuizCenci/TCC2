@@ -12,7 +12,7 @@ from datajud_tcc.config import CollectionConfig
 def config(tmp_path, max_pages=1):
     return CollectionConfig.from_mapping(
         {
-            "endpoint": "https://api.example.test/search",
+            "endpoint": "https://api-publica.datajud.cnj.jus.br/api_publica_tjpr/_search",
             "tribunal": "TJPR",
             "grau": "G1",
             "years": [2019],
@@ -89,3 +89,45 @@ def test_invalid_response_does_not_advance_partition(tmp_path):
     partition = manifest["partitions"]["2019"]
     assert partition["status"] == "failed"
     assert partition["pages"] == 0
+
+
+def test_resume_reconciles_page_written_before_manifest_update(tmp_path):
+    run_root = tmp_path / "run"
+    first_client = FakeClient([page(100, 0)])
+    Collector(config(tmp_path, max_pages=1), catalog(), first_client, run_root=run_root).collect("run-1")
+    manifest_path = run_root / "manifest.json"
+    manifest_path.unlink()
+    second_client = FakeClient([page(1, 100)])
+    manifest = Collector(config(tmp_path, max_pages=2), catalog(), second_client, run_root=run_root).collect("run-1")
+    assert len(second_client.calls) == 1
+    assert second_client.calls[0]["search_after"] == ["id-99"]
+    assert manifest["partitions"]["2019"]["pages"] == 2
+
+
+def test_corrupt_existing_artifact_fails_before_new_request(tmp_path):
+    run_root = tmp_path / "run"
+    client = FakeClient([page(100, 0)])
+    Collector(config(tmp_path, max_pages=1), catalog(), client, run_root=run_root).collect("run-1")
+    response_path = next((run_root / "responses").rglob("*.gz"))
+    response_path.write_bytes(b"corrupt")
+    resumed = FakeClient([page(1, 100)])
+    manifest = Collector(config(tmp_path, max_pages=2), catalog(), resumed, run_root=run_root).collect("run-1")
+    assert resumed.calls == []
+    assert manifest["partitions"]["2019"]["status"] == "failed"
+
+
+def test_repeated_cursor_fails_without_looping(tmp_path):
+    repeated = page(100, 0)
+    repeated = type(repeated)(repeated.raw, repeated.hits, ["id-0"], repeated.total)
+    client = FakeClient([repeated, repeated])
+    manifest = Collector(config(tmp_path, max_pages=2), catalog(), client, run_root=tmp_path / "run").collect("run-1")
+    assert manifest["partitions"]["2019"]["status"] == "failed"
+
+
+def test_same_run_id_reuses_existing_date_partition(tmp_path):
+    cfg = config(tmp_path, max_pages=1)
+    cfg = replace(cfg, output_root=tmp_path)
+    existing = tmp_path / "bronze" / "datajud" / "tjpr" / "collected_at=2026-09-22" / "run_id=run-1"
+    existing.mkdir(parents=True)
+    collector = Collector(cfg, catalog(), FakeClient(), run_root=None)
+    assert collector._resolve_run_root("run-1") == existing

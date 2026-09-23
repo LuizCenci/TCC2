@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +28,7 @@ class CatalogEntry:
 @dataclass(frozen=True)
 class Catalog:
     version: str
+    source_hash: str
     entries: tuple[CatalogEntry, ...]
     diagnostic_classes: tuple[int, ...]
 
@@ -71,6 +73,7 @@ class Catalog:
         diagnostic_classes = tuple(sorted({int(code) for code in diagnostic}))
         return cls(
             version=str(raw.get("versao", "")).strip(),
+            source_hash=hashlib.sha256(path.read_bytes()).hexdigest(),
             entries=tuple(entries),
             diagnostic_classes=diagnostic_classes,
         )

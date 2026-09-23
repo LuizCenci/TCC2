@@ -57,6 +57,21 @@ class BronzeStore:
         with gzip.open(artifact.response_path, "rb") as handle:
             return json.loads(handle.read().decode("utf-8"))
 
+    def artifact_for(self, year: int, page_number: int) -> PageArtifact | None:
+        request_path = self.run_root / "requests" / f"year={year}" / f"page={page_number:06d}.request.json"
+        response_path = self.run_root / "responses" / f"year={year}" / f"page={page_number:06d}.response.json.gz"
+        if not request_path.exists() or not response_path.exists():
+            return None
+        digest = hashlib.sha256(response_path.read_bytes()).hexdigest()
+        return PageArtifact(year, page_number, request_path, response_path, digest)
+
+    def verify_artifact(self, artifact: PageArtifact, expected_sha256: str | None = None) -> None:
+        if not artifact.request_path.exists() or not artifact.response_path.exists():
+            raise ArtifactConflictError(f"artefato ausente: página {artifact.page_number}")
+        actual = hashlib.sha256(artifact.response_path.read_bytes()).hexdigest()
+        if expected_sha256 is not None and actual != expected_sha256:
+            raise ArtifactConflictError(f"hash divergente: página {artifact.page_number}")
+
     @staticmethod
     def _write_or_compare(path: Path, content: bytes) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)

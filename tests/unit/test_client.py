@@ -46,10 +46,12 @@ def client_factory(**kwargs):
 @responses.activate
 def test_search_sends_api_key_and_returns_page():
     responses.post(ENDPOINT, json=valid_response(), status=200)
-    page = client_factory().search({"size": 100})
+    client = client_factory()
+    page = client.search({"size": 100})
     assert page.next_cursor == ["TJPR_1"]
     assert page.total == {"value": 1, "relation": "eq"}
     assert responses.calls[0].request.headers["Authorization"] == "APIKey segredo-sintetico"
+    assert client.last_request_meta["attempts"] == 1
 
 
 @pytest.mark.parametrize(
@@ -80,3 +82,19 @@ def test_429_honors_retry_after():
     client = client_factory(sleep=waits.append)
     client.search({"size": 100})
     assert waits == [7.0]
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        {**valid_response(), "timed_out": "false"},
+        {**valid_response(), "_shards": {}},
+        {**valid_response(), "hits": {**valid_response()["hits"], "total": {}}},
+        {**valid_response(), "hits": {**valid_response()["hits"], "hits": [{"_source": {}, "sort": []}]}},
+    ],
+)
+@responses.activate
+def test_structurally_ambiguous_success_responses_are_rejected(body):
+    responses.post(ENDPOINT, json=body, status=200)
+    with pytest.raises(InvalidResponseError):
+        client_factory().search({"size": 100})

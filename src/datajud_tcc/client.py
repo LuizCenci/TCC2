@@ -59,6 +59,7 @@ class DatajudClient:
         self.max_wait_seconds = max_wait_seconds
         self.sleep = sleep
         self.session = session or requests.Session()
+        self.last_request_meta: dict[str, Any] = {}
 
     def search(self, body: dict[str, Any]) -> SearchPage:
         headers = {
@@ -82,22 +83,27 @@ class DatajudClient:
                 continue
 
             if response.status_code in (401, 403):
+                self.last_request_meta = {"attempts": attempt, "status_code": response.status_code}
                 raise AuthenticationError(f"Datajud recusou a autenticação (HTTP {response.status_code})")
             if response.status_code == 429:
                 if attempt == self.max_attempts:
+                    self.last_request_meta = {"attempts": attempt, "status_code": 429}
                     raise RateLimitError("Datajud manteve HTTP 429 após tentativas limitadas")
                 self.sleep(self._retry_after(response, attempt))
                 continue
             if response.status_code in (502, 503, 504):
                 if attempt == self.max_attempts:
+                    self.last_request_meta = {"attempts": attempt, "status_code": response.status_code}
                     raise TransientDatajudError(
                         f"falha transitória do Datajud (HTTP {response.status_code})"
                     )
                 self.sleep(self._backoff(attempt))
                 continue
             if response.status_code != 200:
+                self.last_request_meta = {"attempts": attempt, "status_code": response.status_code}
                 raise DatajudError(f"Datajud retornou HTTP {response.status_code}")
 
+            self.last_request_meta = {"attempts": attempt, "status_code": response.status_code}
             return self._parse_page(response)
 
         raise TransientDatajudError("requisição não concluída") from last_error
@@ -109,10 +115,16 @@ class DatajudClient:
             raise InvalidResponseError("resposta 200 não é JSON válido") from exc
         if not isinstance(raw, dict):
             raise InvalidResponseError("resposta JSON deve ser um objeto")
-        if raw.get("timed_out") is True:
+        if not isinstance(raw.get("timed_out"), bool) or raw["timed_out"] is True:
             raise InvalidResponseError("resposta indicou timed_out")
         shards = raw.get("_shards")
-        if not isinstance(shards, dict) or int(shards.get("failed", 0)) > 0:
+        if (
+            not isinstance(shards, dict)
+            or not isinstance(shards.get("failed"), int)
+            or not isinstance(shards.get("total"), int)
+            or not isinstance(shards.get("successful"), int)
+            or shards["failed"] > 0
+        ):
             raise InvalidResponseError("resposta indicou falha de shard")
         hits_obj = raw.get("hits")
         if not isinstance(hits_obj, dict):
@@ -121,10 +133,16 @@ class DatajudClient:
         total = hits_obj.get("total")
         if not isinstance(hits, list) or not isinstance(total, dict):
             raise InvalidResponseError("resposta sem hits.hits ou hits.total")
+        if (
+            not isinstance(total.get("value"), int)
+            or total.get("value") < 0
+            or total.get("relation") not in {"eq", "gte"}
+        ):
+            raise InvalidResponseError("hits.total inválido")
         for hit in hits:
             if not isinstance(hit, dict) or not isinstance(hit.get("_source"), dict):
                 raise InvalidResponseError("hit sem _source objeto")
-            if not isinstance(hit.get("sort"), list):
+            if not isinstance(hit.get("sort"), list) or not hit["sort"]:
                 raise InvalidResponseError("hit sem sort para paginação estável")
         cursor = list(hits[-1]["sort"]) if hits else None
         return SearchPage(raw=raw, hits=tuple(hits), next_cursor=cursor, total=total)
