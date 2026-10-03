@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Literal
@@ -13,6 +14,8 @@ from .config import CollectionConfig
 from .metadata import ManifestStore
 from .query import build_diagnostic_query, build_main_query
 from . import __version__
+
+logger = logging.getLogger(__name__)
 
 
 class Collector:
@@ -61,6 +64,10 @@ class Collector:
         manifest_store.save(manifest)
         bronze = BronzeStore(run_root)
         builder = build_main_query if query_kind == "main" else build_diagnostic_query
+        logger.info(
+            "coleta %s: consulta=%s anos=%s páginas/ano<=%d",
+            run_id, query_kind, list(self.config.years), self.config.max_pages_per_partition,
+        )
 
         for year in self.config.years:
             partition = manifest.setdefault("partitions", {}).setdefault(
@@ -76,6 +83,7 @@ class Collector:
             if partition.get("status") == "complete":
                 try:
                     self._verify_manifest_artifacts(bronze, partition, run_root)
+                    logger.info("ano %d: já concluído, pulando", year)
                     continue
                 except ArtifactConflictError as exc:
                     partition["status"] = "failed"
@@ -84,6 +92,11 @@ class Collector:
                     break
             partition["status"] = "running"
             cursor = partition.get("last_cursor")
+            logger.info(
+                "ano %d: iniciando%s",
+                year,
+                f" (retomando após página {partition.get('pages', 0)})" if cursor is not None else "",
+            )
             try:
                 self._verify_manifest_artifacts(bronze, partition, run_root)
                 cursor = self._reconcile_orphans(bronze, partition, year, run_root, cursor)
@@ -97,6 +110,11 @@ class Collector:
                     partition["pages"] = page_number
                     partition["records"] = int(partition.get("records", 0)) + len(page.hits)
                     partition["total"] = page.total
+                    logger.info(
+                        "ano %d: página %d, %d registros (acumulado %d, total=%s (%s))",
+                        year, page_number, len(page.hits), partition["records"],
+                        page.total.get("value"), page.total.get("relation"),
+                    )
                     partition["last_cursor"] = page.next_cursor
                     partition["response_meta"] = {
                         "took": page.raw.get("took"),
@@ -130,9 +148,15 @@ class Collector:
             except Exception as exc:
                 partition["status"] = "failed"
                 partition["error"] = {"type": type(exc).__name__, "message": str(exc)}
+                logger.error("ano %d: falhou: %s: %s", year, type(exc).__name__, exc)
                 manifest_store.save(manifest)
                 if not self.config.continue_on_partition_error:
                     break
+            if partition["status"] != "failed":
+                logger.info(
+                    "ano %d: %s, %d páginas, %d registros",
+                    year, partition["status"], partition.get("pages", 0), partition.get("records", 0),
+                )
             manifest_store.save(manifest)
 
         statuses = [item.get("status") for item in manifest["partitions"].values()]

@@ -131,3 +131,13 @@ def test_same_run_id_reuses_existing_date_partition(tmp_path):
     existing.mkdir(parents=True)
     collector = Collector(cfg, catalog(), FakeClient(), run_root=None)
     assert collector._resolve_run_root("run-1") == existing
+
+
+def test_collect_logs_progress_per_year(tmp_path, caplog):
+    client = FakeClient([page(100, 0)])
+    with caplog.at_level("INFO", logger="datajud_tcc"):
+        Collector(config(tmp_path), catalog(), client, run_root=tmp_path / "run").collect("run-1")
+    messages = [record.getMessage() for record in caplog.records]
+    assert any("ano 2019: iniciando" in m for m in messages)
+    assert any("ano 2019: página 1" in m and "total=101 (eq)" in m for m in messages)
+    assert any("ano 2019: limited" in m for m in messages)

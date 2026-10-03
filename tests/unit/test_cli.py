@@ -6,6 +6,7 @@ from datajud_tcc.bronze import BronzeStore
 
 def test_collect_refuses_missing_api_key(monkeypatch, capsys):
     monkeypatch.delenv("DATAJUD_API_KEY", raising=False)
+    monkeypatch.setattr(cli, "_load_dotenv", lambda: None)
     assert cli.main(["collect", "--config", "config/collection.example.yaml"]) == 2
     assert "DATAJUD_API_KEY" in capsys.readouterr().err
 

@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import logging
 import time
 from dataclasses import dataclass
 from typing import Any, Callable
 
 import requests
+
+logger = logging.getLogger(__name__)
 
 
 class DatajudError(RuntimeError):
@@ -79,7 +82,9 @@ class DatajudClient:
                 last_error = exc
                 if attempt == self.max_attempts:
                     raise TransientDatajudError("falha transitória após tentativas limitadas") from exc
-                self.sleep(self._backoff(attempt))
+                wait = self._backoff(attempt)
+                logger.warning("falha de conexão (%s); nova tentativa em %.0fs", type(exc).__name__, wait)
+                self.sleep(wait)
                 continue
 
             if response.status_code in (401, 403):
@@ -89,7 +94,9 @@ class DatajudClient:
                 if attempt == self.max_attempts:
                     self.last_request_meta = {"attempts": attempt, "status_code": 429}
                     raise RateLimitError("Datajud manteve HTTP 429 após tentativas limitadas")
-                self.sleep(self._retry_after(response, attempt))
+                wait = self._retry_after(response, attempt)
+                logger.warning("HTTP 429; nova tentativa em %.0fs", wait)
+                self.sleep(wait)
                 continue
             if response.status_code in (502, 503, 504):
                 if attempt == self.max_attempts:
@@ -97,7 +104,9 @@ class DatajudClient:
                     raise TransientDatajudError(
                         f"falha transitória do Datajud (HTTP {response.status_code})"
                     )
-                self.sleep(self._backoff(attempt))
+                wait = self._backoff(attempt)
+                logger.warning("HTTP %d; nova tentativa em %.0fs", response.status_code, wait)
+                self.sleep(wait)
                 continue
             if response.status_code != 200:
                 self.last_request_meta = {"attempts": attempt, "status_code": response.status_code}

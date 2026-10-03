@@ -18,8 +18,8 @@ def test_2019_query_is_half_open_and_keeps_full_source(tmp_path):
     assert {
         "range": {
             "dataAjuizamento": {
-                "gte": "2019-01-01T00:00:00Z",
-                "lt": "2020-01-01T00:00:00Z",
+                "gte": "20190101000000",
+                "lt": "20200101000000",
             }
         }
     } in filters
@@ -43,3 +43,9 @@ def test_diagnostic_query_excludes_main_subjects(tmp_path):
     filters = query["query"]["bool"]["filter"]
     assert {"terms": {"classe.codigo": [1268, 12423]}} in filters
     assert {"terms": {"assuntos.codigo": list(catalog.subject_codes)}} in query["query"]["bool"]["must_not"]
+
+
+def test_queries_request_exact_total(tmp_path):
+    config, catalog = objects(tmp_path)
+    assert build_main_query(config, catalog, 2019)["track_total_hits"] is True
+    assert build_diagnostic_query(config, catalog, 2019)["track_total_hits"] is True
