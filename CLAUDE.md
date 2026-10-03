@@ -1,12 +1,23 @@
-# AGENTS.md — Contexto e orientação do TCC
+# CLAUDE.md — Contexto e orientação do TCC
 
-Versão: **v1**, elaborada em **22/09/2026**.
+Versão: **v2**, atualizada em **03/10/2026** (v1 em 22/09/2026, como `AGENTS.md`).
 Idioma de trabalho: português do Brasil.
 Estado: orientação inicial para refinamento com o autor e o orientador.
 
 ## 1. Finalidade e precedência
 
-Este arquivo orienta agentes de IA que apoiem a pesquisa, implementação, análise e redação deste TCC. Consolida o conteúdo substantivo do projeto em PDF e as recomendações discutidas no chat. Não é uma transcrição literal do PDF.
+Este arquivo orienta agentes de IA que apoiem a pesquisa, implementação, análise e redação deste TCC. Consolida o conteúdo substantivo do projeto em PDF e as recomendações discutidas no chat. Não é uma transcrição literal do PDF. É o único arquivo de orientação de agentes do repositório; o antigo `AGENTS.md` foi substituído por ele.
+
+### Leitura obrigatória para agentes
+
+Antes de atuar, leia nesta ordem:
+
+1. Este `CLAUDE.md`: contexto, limites de interpretação (seção 4) e conduta (seção 18).
+2. `readme.md`: ambiente, chave da API (`.env`) e comandos `collect`/`report` vigentes.
+3. `docs/anotações tcc.md`: achados empíricos sobre a API que divergem da documentação oficial.
+4. `docs/superpowers/specs/2026-09-22-datajud-bronze-pilot-design.md` e `docs/superpowers/plans/2026-09-22-datajud-bronze-pilot.md`: desenho e plano do piloto Bronze.
+
+Código em `src/datajud_tcc/`, testes em `tests/`, configuração em `config/`. Não leia nem exponha o conteúdo de `.env`.
 
 - Siga as instruções atuais do usuário. Não transforme sugestões anteriores em decisões definitivamente aprovadas.
 - Diferencie sempre: proposta original, recomendação de trabalho, decisão aprovada e resultado empiricamente verificado.
@@ -100,7 +111,9 @@ Authorization: APIKey <chave pública vigente do CNJ>
 Content-Type: application/json
 ```
 
-No debate anterior foram consultados glossário, autenticação, endpoints e exemplos oficiais. As tentativas diretas enfrentaram problemas de conexão e a tentativa final retornou HTTP 429. **Não foi obtida uma amostra válida do TJPR, nem confirmados preenchimento, volume ou cobertura.** A lista abaixo é uma especificação documental.
+No debate anterior as tentativas diretas enfrentaram problemas de conexão e HTTP 429.
+
+**Atualização de 03/10/2026 (verificado):** a execução piloto `20261003T180513Z-d07a7d51` (G1, 2019–2025, uma página de 100 por ano) obteve resposta válida em todos os anos. Os 700 registros trouxeram `dataAjuizamento` com 14 dígitos no formato `YYYYMMDDHHMMSS`, dentro do ano consultado. O índice do TJPR não aceita limites ISO 8601 nesse campo; a consulta usa o formato observado (ver `docs/anotações tcc.md`). O total retornado foi `≥ 10.000` (`relation: gte`) por ano; a contagem exata via `track_total_hits` foi implementada, mas ainda não executada. **Preenchimento, volume exato e cobertura continuam não confirmados.** A lista abaixo segue sendo especificação documental.
 
 Uma tentativa usou o assunto 10949. Isso não valida esse código como filtro completo do estudo. Consultar TPU, hierarquias, vigências e parametrizações antes de definir a seleção.
 
@@ -321,8 +334,9 @@ Ao atuar:
 4. Diferencie achados, hipóteses, decisões e limitações em cada entrega.
 5. Não implemente coleta massiva, publicação ou mudanças de escopo apenas porque aparecem como possibilidades neste documento.
 6. Use `work/` para intermediários e `outputs/` para entregáveis. Não sobrescreva o PDF original.
-7. Mantenha este `AGENTS.md` na raiz como versão operacional. A cópia em `outputs/AGENTS.md` é o entregável para revisão; ao revisar, sincronize as duas.
+7. Mantenha este `CLAUDE.md` na raiz como única versão operacional. Registre achados empíricos sobre a API em `docs/anotações tcc.md` e resuma aqui apenas o que mudar o estado do projeto.
 
 ## Histórico
 
 - **v1 — 22/09/2026:** consolidação do PDF e das duas análises do chat. Nenhuma implementação ou coleta bem-sucedida é declarada. Recomendações de recorte, título e ferramentas permanecem abertas ao refinamento.
+- **v2 — 03/10/2026:** `AGENTS.md` renomeado para `CLAUDE.md`; removida a cópia em `outputs/AGENTS.md`; adicionada a leitura obrigatória; seção 6 atualizada com o piloto válido e o formato de `dataAjuizamento`.
