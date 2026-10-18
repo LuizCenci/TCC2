@@ -66,7 +66,7 @@ Estimativa: cerca de 720 requisições e de 6 a 8 h de coleta, sempre com uma re
 | Primeiras páginas (2019) | cerca de 21–37 s por página de 200; total exato de 2019 = 24.956 (`eq`), igual à validação prévia |
 | Log | `work/logs/bronze-20261018-9852486.log` |
 | 2019 | completo às 02:36:57: 125 páginas, **24.956 de 24.956** registros |
-| Situação | **em andamento**; resultado final a registrar ao término |
+| Situação | **concluída** às 07:19:21, com 143.337 registros e todos os anos completos; ver `06-resultado-coleta-bronze.md` |
 
 ### 6.1 Limite de requisições (HTTP 429) na virada da hora
 

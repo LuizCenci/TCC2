@@ -7,6 +7,7 @@ Esta pasta reúne a documentação e os relatórios que fundamentam a metodologi
 | [01-parametros-da-extracao.md](01-parametros-da-extracao.md) | **Referência da metodologia.** Todos os parâmetros da coleta Bronze: fonte, período (coleta 2019–2026, análise 2019–2025), grau, critério temático com todos os códigos TPU, paginação, robustez, volumes e reprodução. | Decidido (18/10/2026) |
 | [02-analise-exploratoria-parametros.md](02-analise-exploratoria-parametros.md) | Análise por agregações que fundamentou as escolhas do documento 01. | Verificado (17/10/2026) |
 | [03-desempenho-api-coleta.md](03-desempenho-api-coleta.md) | Latência da API, testes de isolamento e ajuste do tamanho de página. | Verificado (18/10/2026) |
+| [06-resultado-coleta-bronze.md](06-resultado-coleta-bronze.md) | Resultado da coleta Bronze definitiva: completude por ano, unicidade, integridade, ocorrências e execuções descartadas. | Verificado (18/10/2026) |
 | [../anotações tcc.md](../anotações%20tcc.md) | Divergência entre a documentação e o formato real de `dataAjuizamento`. | Verificado (03/10/2026) |
 | [04-sinan-exploracao-pr-2023-2024.md](04-sinan-exploracao-pr-2023-2024.md) | Exploração do SINAN Violência (DATASUS), PR 2023–2024. | Exploratório |
 | [05-quadro-comparativo-sinan-datajud.md](05-quadro-comparativo-sinan-datajud.md) | Quadro comparativo dos sistemas de registro e encaminhamentos do SINAN. | Recomendação (uso do SINAN pendente de aprovação do orientador) |
@@ -19,6 +20,7 @@ Esta pasta reúne a documentação e os relatórios que fundamentam a metodologi
 | `sgt_tpu_20261018/` | Nomes, hierarquia e glossário da TPU obtidos no webservice SGT/CNJ. |
 | `validacao_filtro_20261018/` | Contagem exata por ano com a consulta gerada pelo código e volumes por grupo do catálogo. |
 | `desempenho_api_20261018/` | Tempos do servidor por variante de consulta. |
+| `coleta_bronze_20261018/` | Verificação independente da coleta e manifesto sanitizado (sem identificadores). |
 | `scripts/` | Scripts que produziram as evidências. Executar a partir da raiz do projeto com `.venv`; os que importam `q`/`sgt` recebem `docs/artigo/evidencias/scripts` como primeiro argumento. Não imprimem a chave da API. |
 
 Dados brutos (Bronze, SINAN) ficam em `work/` e não são versionados.
