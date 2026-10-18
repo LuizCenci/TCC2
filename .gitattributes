@@ -1,0 +1,2 @@
+# Hashes de config são documentados em docs/artigo/01; manter LF para estabilidade.
+config/** text eol=lf
