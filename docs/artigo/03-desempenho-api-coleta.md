@@ -56,3 +56,13 @@ Os demais parâmetros e a consulta (filtro, ordenação, contagem exata) **não 
 **Retomada automática limitada.** Se uma partição falhar depois das 3 tentativas do cliente (por exemplo, por 504 persistente), a **mesma execução** é retomada a partir do checkpoint do manifesto, no máximo 5 vezes, com 2 minutos de pausa entre elas. Páginas já gravadas são verificadas por SHA-256 e não são baixadas de novo. Cada retomada fica registrada no log da execução.
 
 Estimativa: cerca de 720 requisições e de 6 a 8 h de coleta, sempre com uma requisição por vez.
+
+## 6. Execução definitiva
+
+| Item | Valor |
+|---|---|
+| `run_id` | `bronze-20261018-9852486` (commit `9852486`) |
+| Início | 18/10/2026 01:23:33 |
+| Primeiras páginas (2019) | cerca de 21–37 s por página de 200; total exato de 2019 = 24.956 (`eq`), igual à validação prévia |
+| Log | `work/logs/bronze-20261018-9852486.log` |
+| Situação | **em andamento**; resultado final a registrar ao término |
