@@ -34,6 +34,23 @@ def _base_filters(config: CollectionConfig, catalog: Catalog, year: int) -> list
     ]
 
 
+def _thematic_filter(catalog: Catalog) -> dict[str, Any]:
+    subjects = list(catalog.subject_codes) + list(catalog.extension_subject_codes)
+    classes = list(catalog.extension_class_codes)
+    if not classes:
+        return {"terms": {"assuntos.codigo": subjects}}
+    # Registro entra se tiver algum assunto do catálogo OU uma classe de extensão.
+    return {
+        "bool": {
+            "should": [
+                {"terms": {"assuntos.codigo": subjects}},
+                {"terms": {"classe.codigo": classes}},
+            ],
+            "minimum_should_match": 1,
+        }
+    }
+
+
 def _with_pagination(body: dict[str, Any], search_after: Sequence[Any] | None) -> dict[str, Any]:
     if search_after is not None:
         body["search_after"] = list(search_after)
@@ -47,7 +64,7 @@ def build_main_query(
     search_after: Sequence[Any] | None = None,
 ) -> dict[str, Any]:
     filters = _base_filters(config, catalog, year)
-    filters.append({"terms": {"assuntos.codigo": list(catalog.subject_codes)}})
+    filters.append(_thematic_filter(catalog))
     body: dict[str, Any] = {
         "size": config.page_size,
         "query": {"bool": {"filter": filters}},
@@ -64,6 +81,8 @@ def build_diagnostic_query(
     year: int,
     search_after: Sequence[Any] | None = None,
 ) -> dict[str, Any]:
+    if not catalog.diagnostic_classes:
+        raise ValueError("catálogo sem classes diagnósticas; use a consulta main")
     filters = _base_filters(config, catalog, year)
     filters.append({"terms": {"classe.codigo": list(catalog.diagnostic_classes)}})
     body: dict[str, Any] = {

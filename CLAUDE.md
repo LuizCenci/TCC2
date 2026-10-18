@@ -1,6 +1,6 @@
 # CLAUDE.md — Contexto e orientação do TCC
 
-Versão: **v2**, atualizada em **03/10/2026** (v1 em 22/09/2026, como `AGENTS.md`).
+Versão: **v4**, atualizada em **18/10/2026** (v1 em 22/09/2026, como `AGENTS.md`).
 Idioma de trabalho: português do Brasil.
 Estado: orientação inicial para refinamento com o autor e o orientador.
 
@@ -15,7 +15,8 @@ Antes de atuar, leia nesta ordem:
 1. Este `CLAUDE.md`: contexto, limites de interpretação (seção 4) e conduta (seção 18).
 2. `readme.md`: ambiente, chave da API (`.env`) e comandos `collect`/`report` vigentes.
 3. `docs/anotações tcc.md`: achados empíricos sobre a API que divergem da documentação oficial.
-4. `docs/superpowers/specs/2026-09-22-datajud-bronze-pilot-design.md` e `docs/superpowers/plans/2026-09-22-datajud-bronze-pilot.md`: desenho e plano do piloto Bronze.
+4. `docs/artigo/01-parametros-da-extracao.md`: parâmetros vigentes da coleta Bronze (fonte de verdade do recorte e do catálogo).
+5. `docs/superpowers/specs/2026-09-22-datajud-bronze-pilot-design.md` e `docs/superpowers/plans/2026-09-22-datajud-bronze-pilot.md`: desenho e plano do piloto Bronze (histórico; o catálogo e o filtro foram substituídos em 18/10/2026).
 
 Código em `src/datajud_tcc/`, testes em `tests/`, configuração em `config/`. Não leia nem exponha o conteúdo de `.env`.
 
@@ -84,7 +85,9 @@ Essas formulações são propostas para refinamento, não alterações já aprov
 
 ## 5. Escopo inicial e viabilidade
 
-Recomendação inicial: TJPR, primeiro grau e três anos completos. O intervalo exato, os graus e as categorias serão definidos após exploração dos dados e alinhamento com o orientador. Não presumir que esse recorte já foi aprovado.
+**Decisão do autor (18/10/2026):** TJPR, só G1, coleta 2019–2026 e **análise 2019–2025**. 2026 fica fora da análise por opção do autor (ano incompleto). O filtro temático é o catálogo `config/catalogs/tjpr_vcm_2026-10-18.yaml`: núcleo PVD mais extensões específicas, ambíguas e secundárias. Detalhes e justificativas: `docs/artigo/01-parametros-da-extracao.md`. A concordância do orientador com esse recorte ainda não foi registrada.
+
+Recomendação inicial (v1, substituída): TJPR, primeiro grau e três anos completos.
 
 A viabilidade técnica do pipeline e dashboard foi considerada favorável. A viabilidade espacial depende da localização disponível. A análise de tempo de resposta depende da identificação confiável dos eventos. O diagnóstico de toda a violência no Paraná excede o alcance comprovado da fonte.
 
@@ -118,6 +121,25 @@ No debate anterior as tentativas diretas enfrentaram problemas de conexão e HTT
 Uma tentativa usou o assunto 10949. Isso não valida esse código como filtro completo do estudo. Consultar TPU, hierarquias, vigências e parametrizações antes de definir a seleção.
 
 Não tratar arquivos de tentativas em `work/` como dados válidos. Verificar resposta, conteúdo e procedência. Não concluir, a partir de uma falha de acesso, que a fonte é permanentemente indisponível.
+
+### Fonte complementar: SINAN Violência (DATASUS) — recomendação, pendente de aprovação
+
+**Recomendação de trabalho (17/10/2026), não aprovada pelo orientador:** usar o SINAN Violência Interpessoal/Autoprovocada **apenas como fonte contextual**, com baixo esforço. Isso significa um quadro comparativo entre os dois sistemas de registro e as proporções de encaminhamento registradas no SINAN, sem segundo pipeline, sem números brutos municipais e sem integração ao núcleo de indicadores.
+
+**Justificativa:** o SINAN traz o que o Datajud não tem (perfil da vítima, vínculo com o autor, local e município do fato). Mas é outra porta de entrada, com outra unidade (notificação) e outros filtros. Serve para contextualizar a judicialização, não para medi-la.
+
+**Verificado na exploração de 2023–2024** (`docs/artigo/04-sinan-exploracao-pr-2023-2024.md`, `docs/artigo/05-quadro-comparativo-sinan-datajud.md`):
+
+- Microdados finais até 2024 no FTP do DATASUS; campos de geografia, perfil e vínculo preenchidos em mais de 99%.
+- `MPU` significa encaminhamento ao **Ministério Público**, não medida protetiva. O SINAN não registra medida protetiva.
+- `CICL_VID` refere-se ao autor. `NDUPLIC` vem vazio, então não é possível deduplicar pessoas.
+
+**Limites obrigatórios:**
+
+- **Não** há ligação individual possível entre SINAN e Datajud: não se calcula quantas notificações "viraram processo".
+- A etapa policial (BO/inquérito) não está em nenhuma das bases.
+- Razões entre contagens das duas fontes são razões entre registros, nunca "taxa de judicialização".
+- Encaminhamento registrado não comprova comparecimento nem abertura de processo.
 
 ## 7. Campos a extrair
 
@@ -319,12 +341,13 @@ O debate apontou referências com `[Nome da Instituição]`, necessidade de conf
 - ANPD, pesquisas acadêmicas: https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-tratamento-de-dados-pessoais-para-fins-academicos-e-para-a-realizacao-de-estudos-e-pesquisas
 - Prefect: https://docs.prefect.io/v3/how-to-guides/workflows/retries
 - Streamlit: https://docs.streamlit.io/get-started/tutorials
+- SINAN Violência, microdados: ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/ (`VIOLBR{AA}.dbc`); dicionário e ficha em `SINAN/DOCS/Docs_TAB_SINAN.zip` (`VIOLEN_DIC_DADOS.pdf`, `VIOLEN_FICHA.pdf`)
 
 Consultar versões vigentes quando implementar. Selecionar e registrar a fonte específica do IBGE e eventual correspondência do TJPR na fase de enriquecimento. Não armazenar a chave pública da API neste arquivo: ela pode mudar.
 
 ## 18. Próximas decisões e conduta dos agentes
 
-Pendências: período exato, estágios já concluídos, prazo, recorte temático, graus incluídos, catálogo TPU, unidade de contagem, viabilidade dos movimentos, granularidade territorial, tecnologia final do dashboard e condições de compartilhamento dos dados.
+Decididos pelo autor em 18/10/2026 (§5): período, graus e catálogo TPU da coleta. Pendências: aval do orientador ao recorte, estágios já concluídos, prazo, regras de categorização na Silver (séries estrita × ampliada), unidade de contagem, viabilidade dos movimentos, granularidade territorial, tecnologia final do dashboard, condições de compartilhamento dos dados e uso do SINAN como fonte contextual (seção 6).
 
 Ao atuar:
 
@@ -333,10 +356,12 @@ Ao atuar:
 3. Priorize a coleta piloto antes de prometer indicadores ou dimensionar infraestrutura.
 4. Diferencie achados, hipóteses, decisões e limitações em cada entrega.
 5. Não implemente coleta massiva, publicação ou mudanças de escopo apenas porque aparecem como possibilidades neste documento.
-6. Use `work/` para intermediários e `outputs/` para entregáveis. Não sobrescreva o PDF original.
+6. Use `work/` para intermediários e `outputs/` para entregáveis técnicos. **Documentação e relatórios relevantes para o artigo ficam em `docs/artigo/`**, com evidências em `docs/artigo/evidencias/`; todo parâmetro de extração deve estar documentado ali (pedido do autor, 18/10/2026). Não sobrescreva o PDF original.
 7. Mantenha este `CLAUDE.md` na raiz como única versão operacional. Registre achados empíricos sobre a API em `docs/anotações tcc.md` e resuma aqui apenas o que mudar o estado do projeto.
 
 ## Histórico
 
 - **v1 — 22/09/2026:** consolidação do PDF e das duas análises do chat. Nenhuma implementação ou coleta bem-sucedida é declarada. Recomendações de recorte, título e ferramentas permanecem abertas ao refinamento.
 - **v2 — 03/10/2026:** `AGENTS.md` renomeado para `CLAUDE.md`; removida a cópia em `outputs/AGENTS.md`; adicionada a leitura obrigatória; seção 6 atualizada com o piloto válido e o formato de `dataAjuizamento`.
+- **v3 — 17/10/2026:** exploração do SINAN Violência PR 2023–2024 (`outputs/sinan/`); registrada na seção 6 a recomendação, ainda não aprovada, de usá-lo só como fonte contextual, com seus limites; fonte acrescentada à seção 17 e pendência à seção 18.
+- **v4 — 18/10/2026:** recorte decidido pelo autor (§5): G1, coleta 2019–2026, análise 2019–2025; novo catálogo `tjpr_vcm_2026-10-18` (núcleo PVD + extensões), validado em 143.337 registros; criada `docs/artigo/` com a documentação dos parâmetros e as evidências; relatórios do SINAN movidos para lá.

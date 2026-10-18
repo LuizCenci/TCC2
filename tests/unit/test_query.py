@@ -49,3 +49,37 @@ def test_queries_request_exact_total(tmp_path):
     config, catalog = objects(tmp_path)
     assert build_main_query(config, catalog, 2019)["track_total_hits"] is True
     assert build_diagnostic_query(config, catalog, 2019)["track_total_hits"] is True
+
+
+def vcm_objects(tmp_path):
+    config = CollectionConfig.from_mapping(valid_mapping(tmp_path))
+    catalog = Catalog.load(__import__("pathlib").Path("config/catalogs/tjpr_vcm_2026-10-18.yaml"))
+    return config, catalog
+
+
+def test_main_query_with_extensions_matches_subjects_or_classes(tmp_path):
+    config, catalog = vcm_objects(tmp_path)
+    query = build_main_query(config, catalog, 2019)
+    filters = query["query"]["bool"]["filter"]
+    thematic = filters[-1]["bool"]
+    assert thematic["minimum_should_match"] == 1
+    assert {
+        "terms": {"assuntos.codigo": list(catalog.subject_codes) + list(catalog.extension_subject_codes)}
+    } in thematic["should"]
+    assert {"terms": {"classe.codigo": list(catalog.extension_class_codes)}} in thematic["should"]
+    assert {"term": {"grau.keyword": "G1"}} in filters
+    assert "_source" not in query
+
+
+def test_pvd_catalog_main_query_is_unchanged(tmp_path):
+    config, catalog = objects(tmp_path)
+    filters = build_main_query(config, catalog, 2019)["query"]["bool"]["filter"]
+    assert {"terms": {"assuntos.codigo": list(catalog.subject_codes)}} in filters
+
+
+def test_diagnostic_query_requires_diagnostic_classes(tmp_path):
+    import pytest
+
+    config, catalog = vcm_objects(tmp_path)
+    with pytest.raises(ValueError, match="diagnóstic"):
+        build_diagnostic_query(config, catalog, 2019)

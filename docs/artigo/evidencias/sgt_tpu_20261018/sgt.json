@@ -1,0 +1,613 @@
+{
+ "A10948": {
+  "codigo": 10948,
+  "tabela": "A",
+  "nome": "Violência Doméstica Contra a Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto precipuamente complementar, obrigat&oacute;rio para registro de a&ccedil;&otilde;es c&iacute;veis previstas na Lei 11.340/2006 (Lei Maria da Penha) e que tenham fundamento em viol&ecirc;ncia contra a mulher.</p>",
+  "raw_len": 723,
+  "pais": [
+   {
+    "codigo": 899,
+    "nome": "DIREITO CIVIL"
+   },
+   {
+    "codigo": 5626,
+    "nome": "Família"
+   }
+  ]
+ },
+ "A10949": {
+  "codigo": 10949,
+  "tabela": "A",
+  "nome": "Violência Doméstica Contra a Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto precipuamente complementar, obrigat&oacute;rio para registro em a&ccedil;&otilde;es criminais decorrentes de viol&ecirc;ncia dom&eacute;stica contra a mulher (Lei 11.340/2006 - Lei Maria da Penha).</p>",
+  "raw_len": 712,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   }
+  ]
+ },
+ "A11979": {
+  "codigo": 11979,
+  "tabela": "A",
+  "nome": "Violência Doméstica Contra a Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto precipuamente complementar, obrigat&oacute;rio para registro de a&ccedil;&otilde;es c&iacute;veis previstas na Lei 11.340/2006 (Lei Maria da Penha) e que tenham fundamento em viol&ecirc;ncia contra a mulher.</p>",
+  "raw_len": 723,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   }
+  ]
+ },
+ "A12194": {
+  "codigo": 12194,
+  "tabela": "A",
+  "nome": "Contra a Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tArt. 129. Ofender a integridade corporal ou a sa&uacute;de de outrem: Pena - deten&ccedil;&atilde;o, de tr&ecirc;s meses a um ano. &sect; 9o Se a les&atilde;o for praticada contra ascendente, descendente, irm&atilde;o, c&ocirc;njuge ou companheiro, ou com quem conviva ou tenha convivido, ou, ainda, prevalecendo-se o agente das rela&ccedil;&otilde;es dom&eacute;sticas, de coabita&ccedil;&atilde;o ou de hospitalidade: (Reda&ccedil;&atilde;o dada pela Lei n&ordm; 11.340, de 2006) Pena - deten&ccedil;&atilde;o, de 3 (tr&ecirc;s) meses a 3 (tr&ecirc;s) anos. (Reda&ccedil;&atilde;o dada pela Lei n&ordm; 11.340, de 2006) &sect; 11. Na hip&oacute;tese do &sect; 9o deste artigo, a pena ser&aacute; aumentada de um ter&ccedil;o se o crime for cometido contra pessoa portadora de defici&ecirc;ncia. (Inclu&iacute;do pela Lei n&ordm; 11.340, de 2006)</p>\n<p>\n\t&nbsp;</p>\n<p>\n\tEste assunto deve ser utilizado quando a v&iacute;tima da agress&atilde;o se identificar como mulher.</p>",
+  "raw_len": 1602,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3385,
+    "nome": "Lesão Corporal"
+   },
+   {
+    "codigo": 5560,
+    "nome": "Decorrente de Violência Doméstica"
+   }
+  ]
+ },
+ "A12196": {
+  "codigo": 12196,
+  "tabela": "A",
+  "nome": "Contra a mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tOfender a integridade corporal ou a sa&uacute;de de outrem.&sect; 9o&nbsp;Se a les&atilde;o for praticada contra ascendente, descendente, irm&atilde;o, c&ocirc;njuge ou companheiro, ou com quem conviva ou tenha convivido, ou, ainda, prevalecendo-se o agente das rela&ccedil;&otilde;es dom&eacute;sticas, de coabita&ccedil;&atilde;o ou de hospitalidade.&sect; 11. Na hip&oacute;tese do &sect; 9&ordm; deste artigo, a pena ser&aacute; aumentada de um ter&ccedil;o se o crime for cometido contra pessoa portadora de defici&ecirc;ncia.</p>\n<p>\n\tEste assunto deve ser utilizado quando a v&iacute;tima se identificar como mulher.</p>",
+  "raw_len": 1179,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9641,
+    "nome": "Lesões Corporais"
+   },
+   {
+    "codigo": 9647,
+    "nome": "Decorrente de Violência Doméstica"
+   }
+  ]
+ },
+ "A14097": {
+  "codigo": 14097,
+  "tabela": "A",
+  "nome": "Violência Doméstica e Familiar contra a Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto precipuamente complementar, obrigat&oacute;rio para registro em a&ccedil;&otilde;es criminais decorrentes de viol&ecirc;ncia dom&eacute;stica contra a mulher (Lei 11.340/2006 - Lei Maria da Penha).</p>",
+  "raw_len": 725,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 10949,
+    "nome": "Violência Doméstica Contra a Mulher"
+   }
+  ]
+ },
+ "A14098": {
+  "codigo": 14098,
+  "tabela": "A",
+  "nome": "Crimes de Descumprimento de Medida Protetiva de Urgência",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "",
+  "raw_len": 488,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 10949,
+    "nome": "Violência Doméstica Contra a Mulher"
+   }
+  ]
+ },
+ "A14226": {
+  "codigo": 14226,
+  "tabela": "A",
+  "nome": "Crimes Previstos na Lei Maria da Penha",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto pai para crimes tipificados na Lei Maria da Penha. N&atilde;o deve ser usado para crimes onde a aplica&ccedil;&atilde;o da Lei Maria da Penha n&atilde;o tipifica, mas t&atilde;o somente agrava tipo penal definido no CPP ou em outra lei penal. Nestes casos, usar o assunto 10949 - Viol&ecirc;ncia Dom&eacute;stica contra a Mulher.</p>",
+  "raw_len": 856,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3603,
+    "nome": "Crimes Previstos na Legislação Extravagante"
+   }
+  ]
+ },
+ "A14227": {
+  "codigo": 14227,
+  "tabela": "A",
+  "nome": "Crime de Descumprimento de Medida Protetiva  de Urgência",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\tDescumprimento de Medidas Protetivas de Urg&ecirc;ncia</p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\" style=\"color: rgb(0, 0, 0);\">Art. 24-A. Descumprir decis&atilde;o judicial que defere medidas protetivas de urg&ecirc;ncia previstas nesta Lei:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font></p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\" style=\"color: rgb(0, 0, 0);\">Pena &ndash; reclus&atilde;o, de 2 (dois) a 5 (cinco) anos, e multa.</font></p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\" style=\"color: rgb(0, 0, 0);\">&sect; 1&ordm; A configura&ccedil;&atilde;o do crime independe da compet&ecirc;ncia civil ou criminal do juiz que deferiu as medidas.&nbsp; &nbsp; &nbsp; &nbsp;</font></p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<span style=\"color: rgb(0, 0, 0); font-family: Arial; font-size: small; text-indent: 1cm;\">&sect; 2&ordm; Na hip&oacute;tese de pris&atilde;o em flagrante, apenas a autoridade judicial poder&aacute; conceder fian&ccedil;a.&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>\n<p class=\"texto1\" style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\">&sect; 3&ordm; O disposto neste artigo n&atilde;o exclui a aplica&ccedil;&atilde;o de outras san&ccedil;&otilde;es cab&iacute;veis.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p>\n<p class=\"texto1\" style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t&sect; 4&ordm;&nbsp; A pena ser&aacute; aumentada de 1/3 (um ter&ccedil;o) at&eacute; a metade se o descumprimento decorrer da viola&ccedil;&atilde;o das &aacute;reas de exclus&atilde;o monitoradas eletronicamente ou da remo&ccedil;&atilde;o, viola&ccedil;&atilde;o ou altera&ccedil;&atilde;o do dispostivo de monitora&ccedil;&atilde;o sem autoriza&ccedil;&atilde;o judicial.</p>",
+  "raw_len": 3187,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3603,
+    "nome": "Crimes Previstos na Legislação Extravagante"
+   },
+   {
+    "codigo": 14226,
+    "nome": "Crimes Previstos na Lei Maria da Penha"
+   }
+  ]
+ },
+ "A14228": {
+  "codigo": 14228,
+  "tabela": "A",
+  "nome": "Previstos na Lei Maria da Penha",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto pai para atos infracionals an&aacute;logos crimes tipificados na Lei Maria da Penha. N&atilde;o deve ser usado para atos infracionais an&aacute;logos a crimes onde a aplica&ccedil;&atilde;o da Lei Maria da Penha n&atilde;o tipifica, mas t&atilde;o somente agrava tipo penal definido no CPP ou em outra lei penal. Nestes casos, usar o assunto 11979 - Viol&ecirc;ncia Dom&eacute;stica contra a Mulher.</p>",
+  "raw_len": 927,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9847,
+    "nome": "Previstos na Legislação Extravagante"
+   }
+  ]
+ },
+ "A14229": {
+  "codigo": 14229,
+  "tabela": "A",
+  "nome": "Descumprimento de Medida Protetiva de Urgência",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\tLei n&ordm; 11.340/2006</p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\tDescumprimento de Medidas Protetivas de Urg&ecirc;ncia</p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\" style=\"color: rgb(0, 0, 0);\">Art. 24-A. Descumprir decis&atilde;o judicial que defere medidas protetivas de urg&ecirc;ncia previstas nesta Lei:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font></p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\" style=\"color: rgb(0, 0, 0);\">Pena &ndash; reclus&atilde;o, de 2 (dois) a 5 (cinco) anos, e multa.</font></p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\" style=\"color: rgb(0, 0, 0);\">&sect; 1&ordm; A configura&ccedil;&atilde;o do crime independe da compet&ecirc;ncia civil ou criminal do juiz que deferiu as medidas.&nbsp; &nbsp; &nbsp; &nbsp;</font></p>\n<p class=\"texto1\" style=\"text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<span style=\"color: rgb(0, 0, 0); font-family: Arial; font-size: small; text-indent: 1cm;\">&sect; 2&ordm; Na hip&oacute;tese de pris&atilde;o em flagrante, apenas a autoridade judicial poder&aacute; conceder fian&ccedil;a.&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>\n<p class=\"texto1\" style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<font face=\"Arial\" size=\"2\">&sect; 3&ordm; O disposto neste artigo n&atilde;o exclui a aplica&ccedil;&atilde;o de outras san&ccedil;&otilde;es cab&iacute;veis.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p>\n<p class=\"texto1\" style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t&sect; 4&ordm;&nbsp; A pena ser&aacute; aumentada de 1/3 (um ter&ccedil;o) at&eacute; a metade se o descumprimento decorrer da viola&ccedil;&atilde;o das &aacute;reas de exclus&atilde;o monitoradas eletronicamente ou da remo&ccedil;&atilde;o, viola&ccedil;&atilde;o ou altera&ccedil;&atilde;o do dispostivo de monitora&ccedil;&atilde;o sem autoriza&ccedil;&atilde;o judicial.</p>\n<p class=\"texto1\" style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<span style=\"text-indent: 1cm;\">Estatuto da Crian&ccedil;a e do Adolescente</span></p>\n<p class=\"texto1\" style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t<span style=\"font-family: Arial; font-size: small; text-align: justify; text-indent: 35px;\">Art. 103. Considera-se ato infracional a conduta descrita como crime ou contraven&ccedil;&atilde;o penal.</span></p>\n<p class=\"texto1\" style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; text-indent: 1cm; margin-top: 20px; margin-bottom: 20px;\">\n\t&nbsp;</p>",
+  "raw_len": 4214,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9847,
+    "nome": "Previstos na Legislação Extravagante"
+   },
+   {
+    "codigo": 14228,
+    "nome": "Previstos na Lei Maria da Penha"
+   }
+  ]
+ },
+ "A14942": {
+  "codigo": 14942,
+  "tabela": "A",
+  "nome": "Violência Psicológica contra a Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tArt. 147-B. Causar dano emocional &agrave; mulher que a prejudique e perturbe seu pleno desenvolvimento ou que vise a degradar ou a controlar suas a&ccedil;&otilde;es, comportamentos, cren&ccedil;as e decis&otilde;es, mediante amea&ccedil;a, constrangimento, humilha&ccedil;&atilde;o, manipula&ccedil;&atilde;o, isolamento, chantagem, ridiculariza&ccedil;&atilde;o, limita&ccedil;&atilde;o do direito de ir e vir ou qualquer outro meio que cause preju&iacute;zo &agrave; sua sa&uacute;de psicol&oacute;gica e autodetermina&ccedil;&atilde;o:<br />\n\tPena - reclus&atilde;o, de 6 (seis) meses a 2 (dois) anos, e multa, se a conduta n&atilde;o constitui crime mais grave.</p>",
+  "raw_len": 1251,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3400,
+    "nome": "Crimes contra a liberdade pessoal"
+   }
+  ]
+ },
+ "A14943": {
+  "codigo": 14943,
+  "tabela": "A",
+  "nome": "Lesão Cometida em Razão da Condição de Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\t&sect; 13. Se a les&atilde;o for praticada contra a mulher, por raz&otilde;es da condi&ccedil;&atilde;o do sexo feminino, nos termos do &sect; 2&ordm;-A do art. 121 deste C&oacute;digo:<br />\n\tPena - reclus&atilde;o, de 1 (um) a 4 (quatro anos)</p>",
+  "raw_len": 784,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3385,
+    "nome": "Lesão Corporal"
+   }
+  ]
+ },
+ "A14944": {
+  "codigo": 14944,
+  "tabela": "A",
+  "nome": "Análogo à Violência Psicológica contra a Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\t&quot;Viol&ecirc;ncia psicol&oacute;gica contra a mulher<br />\n\t<br />\n\tArt. 147-B. Causar dano emocional &agrave; mulher que a prejudique e perturbe seu pleno desenvolvimento ou que vise a degradar ou a controlar suas a&ccedil;&otilde;es, comportamentos, cren&ccedil;as e decis&otilde;es, mediante amea&ccedil;a, constrangimento, humilha&ccedil;&atilde;o, manipula&ccedil;&atilde;o, isolamento, chantagem, ridiculariza&ccedil;&atilde;o, limita&ccedil;&atilde;o do direito de ir e vir ou qualquer outro meio que cause preju&iacute;zo &agrave; sua sa&uacute;de psicol&oacute;gica e autodetermina&ccedil;&atilde;o:<br />\n\tPena - reclus&atilde;o, de 6 (seis) meses a 2 (dois) anos, e multa, se a conduta n&atilde;o constitui crime mais grave.&quot; (CP)<br />\n\t&quot;Art. 103. Considera-se ato infracional a conduta descrita como crime ou contraven&ccedil;&atilde;o penal.&quot;(ECA)</p>",
+  "raw_len": 1524,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9659,
+    "nome": "Contra a liberdade pessoal"
+   }
+  ]
+ },
+ "A14945": {
+  "codigo": 14945,
+  "tabela": "A",
+  "nome": "Análogo à Lesão Corporal em Razão da Condição de Mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\t&quot;Art. 129. ..............................................................</p>\n<p>\n\t...............................................................................<br />\n\t<br />\n\t&sect; 13. Se a les&atilde;o for praticada contra a mulher, por raz&otilde;es da condi&ccedil;&atilde;o do sexo feminino, nos termos do &sect; 2&ordm;-A do art. 121 deste C&oacute;digo:<br />\n\tPena - reclus&atilde;o, de 1 (um) a 4 (quatro anos).&quot; (CP)<br />\n\t<br />\n\t&quot;Art. 103. Considera-se ato infracional a conduta descrita como crime ou contraven&ccedil;&atilde;o penal.&quot;(ECA)</p>",
+  "raw_len": 1187,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9641,
+    "nome": "Lesões Corporais"
+   }
+  ]
+ },
+ "A12091": {
+  "codigo": 12091,
+  "tabela": "A",
+  "nome": "Feminicídio",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tArt. 121. Matar algu&eacute;m:</p>\n<p>\n\t......</p>\n<p>\n\t&sect; 2&ordm; Se o homic&iacute;dio &eacute; cometido:</p>\n<p>\n\t.....</p>\n<p>\n\tFeminic&iacute;dio</p>\n<p>\n\tVI - contra a mulher por raz&otilde;es da condi&ccedil;&atilde;o de sexo feminino:</p>\n<p>\n\t......</p>\n<p>\n\tPena - reclus&atilde;o, de doze a trinta anos.</p>\n<p>\n\t&sect;2&ordm;-A Considera-se que h&aacute; raz&otilde;es de condi&ccedil;&atilde;o de sexo feminino quando o crime envolve:</p>\n<p>\n\tI - viol&ecirc;ncia dom&eacute;stica e familiar;</p>\n<p>\n\tII - menosprezo ou discrimina&ccedil;&atilde;o &agrave; condi&ccedil;&atilde;o de mulher.</p>\n<p>\n\t&nbsp;</p>",
+  "raw_len": 1316,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3369,
+    "nome": "Crimes contra a vida"
+   }
+  ]
+ },
+ "A5560": {
+  "codigo": 5560,
+  "tabela": "A",
+  "nome": "Decorrente de Violência Doméstica",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tArt. 129. Ofender a integridade corporal ou a sa&uacute;de de outrem: Pena - deten&ccedil;&atilde;o, de tr&ecirc;s meses a um ano. &sect; 9o Se a les&atilde;o for praticada contra ascendente, descendente, irm&atilde;o, c&ocirc;njuge ou companheiro, ou com quem conviva ou tenha convivido, ou, ainda, prevalecendo-se o agente das rela&ccedil;&otilde;es dom&eacute;sticas, de coabita&ccedil;&atilde;o ou de hospitalidade: (Reda&ccedil;&atilde;o dada pela Lei n&ordm; 11.340, de 2006) Pena - deten&ccedil;&atilde;o, de 3 (tr&ecirc;s) meses a 3 (tr&ecirc;s) anos. (Reda&ccedil;&atilde;o dada pela Lei n&ordm; 11.340, de 2006) &sect; 11. Na hip&oacute;tese do &sect; 9o deste artigo, a pena ser&aacute; aumentada de um ter&ccedil;o se o crime for cometido contra pessoa portadora de defici&ecirc;ncia. (Inclu&iacute;do pela Lei n&ordm; 11.340, de 2006)</p>",
+  "raw_len": 1456,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3385,
+    "nome": "Lesão Corporal"
+   }
+  ]
+ },
+ "A14684": {
+  "codigo": 14684,
+  "tabela": "A",
+  "nome": "Perseguição",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">Persegui&ccedil;&atilde;o</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">Art. 147-A. Perseguir algu&eacute;m, reiteradamente e por qualquer meio, amea&ccedil;ando-lhe a integridade f&iacute;sica ou psicol&oacute;gica, restringindo-lhe a capacidade de locomo&ccedil;&atilde;o ou, de qualquer forma, invadindo ou perturbando sua esfera de liberdade ou privacidade.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">Pena %u2013 reclus&atilde;o, de 6 (seis) meses a 2 (dois) anos, e multa.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">&sect; 1&ordm; A pena &eacute; aumentada de metade se o crime &eacute; cometido:</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">I %u2013 contra crian&ccedil;a, adolescente ou idoso;</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">II %u2013 contra mulher por raz&otilde;es da condi&ccedil;&atilde;o de sexo feminino, nos termos do &sect; 2&ordm;-A do art. 121 deste C&oacute;digo;</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">III %u2013 mediante concurso de 2 (duas) ou mais pessoas ou com o emprego de arma.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">&sect; 2&ordm; As penas deste artigo s&atilde;o aplic&aacute;veis sem preju&iacute;zo das correspondentes &agrave; viol&ecirc;ncia.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">&sect; 3&ordm; Somente se procede mediante representa&ccedil;&atilde;o.</span></p>",
+  "raw_len": 4205,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3400,
+    "nome": "Crimes contra a liberdade pessoal"
+   }
+  ]
+ },
+ "A14686": {
+  "codigo": 14686,
+  "tabela": "A",
+  "nome": "Perseguição (art. 147-A)",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">Persegui&ccedil;&atilde;o</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">Art. 147-A. Perseguir algu&eacute;m, reiteradamente e por qualquer meio, amea&ccedil;ando-lhe a integridade f&iacute;sica ou psicol&oacute;gica, restringindo-lhe a capacidade de locomo&ccedil;&atilde;o ou, de qualquer forma, invadindo ou perturbando sua esfera de liberdade ou privacidade.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">Pena %u2013 reclus&atilde;o, de 6 (seis) meses a 2 (dois) anos, e multa.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">&sect; 1&ordm; A pena &eacute; aumentada de metade se o crime &eacute; cometido:</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">I %u2013 contra crian&ccedil;a, adolescente ou idoso;</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">II %u2013 contra mulher por raz&otilde;es da condi&ccedil;&atilde;o de sexo feminino, nos termos do &sect; 2&ordm;-A do art. 121 deste C&oacute;digo;</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">III %u2013 mediante concurso de 2 (duas) ou mais pessoas ou com o emprego de arma.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">&sect; 2&ordm; As penas deste artigo s&atilde;o aplic&aacute;veis sem preju&iacute;zo das correspondentes &agrave; viol&ecirc;ncia.</span><br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<br style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif;\" />\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">&sect; 3&ordm; Somente se procede mediante representa&ccedil;&atilde;o.</span></p>",
+  "raw_len": 4219,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9659,
+    "nome": "Contra a liberdade pessoal"
+   }
+  ]
+ },
+ "A12195": {
+  "codigo": 12195,
+  "tabela": "A",
+  "nome": "Contra pessoas não identificadas como mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tArt. 129. Ofender a integridade corporal ou a sa&uacute;de de outrem: Pena - deten&ccedil;&atilde;o, de tr&ecirc;s meses a um ano. &sect; 9o Se a les&atilde;o for praticada contra ascendente, descendente, irm&atilde;o, c&ocirc;njuge ou companheiro, ou com quem conviva ou tenha convivido, ou, ainda, prevalecendo-se o agente das rela&ccedil;&otilde;es dom&eacute;sticas, de coabita&ccedil;&atilde;o ou de hospitalidade: (Reda&ccedil;&atilde;o dada pela Lei n&ordm; 11.340, de 2006) Pena - deten&ccedil;&atilde;o, de 3 (tr&ecirc;s) meses a 3 (tr&ecirc;s) anos. (Reda&ccedil;&atilde;o dada pela Lei n&ordm; 11.340, de 2006) &sect; 11. Na hip&oacute;tese do &sect; 9o deste artigo, a pena ser&aacute; aumentada de um ter&ccedil;o se o crime for cometido contra pessoa portadora de defici&ecirc;ncia. (Inclu&iacute;do pela Lei n&ordm; 11.340, de 2006)</p>\n<p>\n\tEste assunto deve ser utilizado quando a v&iacute;tima n&atilde;o se identificar como mulher.</p>",
+  "raw_len": 1591,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3385,
+    "nome": "Lesão Corporal"
+   },
+   {
+    "codigo": 5560,
+    "nome": "Decorrente de Violência Doméstica"
+   }
+  ]
+ },
+ "A9647": {
+  "codigo": 9647,
+  "tabela": "A",
+  "nome": "Decorrente de Violência Doméstica",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "Ofender a integridade corporal ou a saúde de outrem.§ 9o Se a lesão for praticada contra ascendente, descendente, irmão, cônjuge ou companheiro, ou com quem conviva ou tenha convivido, ou, ainda, prevalecendo-se o agente das relações domésticas, de coabitação ou de hospitalidade.§ 11. Na hipótese do § 9º deste artigo, a pena será aumentada de um terço se o crime for cometido contra pessoa portadora de deficiência.",
+  "raw_len": 886,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9641,
+    "nome": "Lesões Corporais"
+   }
+  ]
+ },
+ "C1268": {
+  "codigo": 1268,
+  "tabela": "C",
+  "nome": "Medidas Protetivas de Urgência (Lei Maria da Penha)  - Criminal",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tClasse utilizada para cadastramento de a&ccedil;&otilde;es de medida protetiva prevista na Lei Maria da Penha quando o autor da viol&ecirc;ncia dom&eacute;stica for maior.</p>",
+  "raw_len": 701,
+  "pais": [
+   {
+    "codigo": 268,
+    "nome": "PROCESSO CRIMINAL"
+   },
+   {
+    "codigo": 308,
+    "nome": "Medidas Cautelares"
+   }
+  ]
+ },
+ "A12358": {
+  "codigo": 12358,
+  "tabela": "A",
+  "nome": "Feminicídio",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tArt 121. Matar alguem: Pena - reclus&atilde;o, de seis a vinte anos.&nbsp;</p>\n<p>\n\t<font face=\"Arial\" size=\"2\">&sect; 2&deg; Se o homic&iacute;dio &eacute; cometido: </font></p>\n<p align=\"justify\" class=\"texto2\" style=\"text-indent: 30px; margin-top: 20px; margin-bottom: 20px\">\n\t<span style=\"color: black\"><b>Feminic&iacute;dio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b></span></p>\n<p align=\"justify\" class=\"texto2\" style=\"text-indent: 30px; margin-top: 20px; margin-bottom: 20px\">\n\t<span style=\"color: black\">VI - contra a mulher por raz&otilde;es da condi&ccedil;&atilde;o de sexo feminino:</span></p>\n<p align=\"justify\" class=\"texto2\" style=\"text-indent: 30px; margin-top: 20px; margin-bottom: 20px\">\n\t<span style=\"color: black\"><font face=\"Arial\" size=\"2\"><font size=\"2\">Pena - reclus&atilde;o, de doze a trinta anos.</font></font></span></p>\n<p align=\"justify\" class=\"texto2\" style=\"text-indent: 30px; margin-top: 20px; margin-bottom: 20px\">\n\tECA</p>\n<p align=\"justify\" class=\"texto2\" style=\"text-indent: 30px; margin-top: 20px; margin-bottom: 20px\">\n\t<span style=\"color: black\"><font face=\"Arial\" size=\"2\">Art. 103. Considera-se ato infracional a conduta descrita como crime ou contraven&ccedil;&atilde;o penal.</font></span></p>\n<p align=\"justify\" style=\"text-indent: 35px\">\n\t<font face=\"Arial\" size=\"2\"><a name=\"art104\"></a>Art. 104. S&atilde;o penalmente inimput&aacute;veis os menores de dezoito anos, sujeitos &agrave;s medidas previstas nesta Lei.</font></p>\n<p align=\"justify\" style=\"text-indent: 35px\">\n\t<font face=\"Arial\" size=\"2\"><a name=\"art104p\"></a>Par&aacute;grafo &uacute;nico. Para os efeitos desta Lei, deve ser considerada a idade do adolescente &agrave; data do fato.</font></p>\n<p align=\"justify\" class=\"texto2\" style=\"text-indent: 30px; margin-top: 20px; margin-bottom: 20px\">\n\t&nbsp;</p>\n<p>\n\t&nbsp;</p>",
+  "raw_len": 2674,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9635,
+    "nome": "Contra a vida"
+   }
+  ]
+ },
+ "A15511": {
+  "codigo": 15511,
+  "tabela": "A",
+  "nome": "Medidas Protetivas de Urgência (Lei Maria da Penha) - Cível",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto a ser utilizado com a classe &ldquo;15309 &ndash; Medidas Protetivas de Urg&ecirc;ncia (Lei Maria da Penha) &ndash; C&iacute;vel&rdquo; para cadastramento de a&ccedil;&otilde;es de medida protetiva C&Iacute;VEL prevista na Lei Maria da Penha (11.340/2006), quando n&atilde;o associada a um tipo penal espec&iacute;fico. N&atilde;o deve ser usado associado a processos n&atilde;o pertencentes &agrave; classe acima descrita.</p>",
+  "raw_len": 999,
+  "pais": [
+   {
+    "codigo": 8826,
+    "nome": "DIREITO PROCESSUAL CIVIL E DO TRABALHO"
+   },
+   {
+    "codigo": 9192,
+    "nome": "Tutela Provisória"
+   }
+  ]
+ },
+ "A12197": {
+  "codigo": 12197,
+  "tabela": "A",
+  "nome": "Contra pessoas não identificadas como mulher",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tOfender a integridade corporal ou a sa&uacute;de de outrem.&sect; 9o&nbsp;Se a les&atilde;o for praticada contra ascendente, descendente, irm&atilde;o, c&ocirc;njuge ou companheiro, ou com quem conviva ou tenha convivido, ou, ainda, prevalecendo-se o agente das rela&ccedil;&otilde;es dom&eacute;sticas, de coabita&ccedil;&atilde;o ou de hospitalidade.&sect; 11. Na hip&oacute;tese do &sect; 9&ordm; deste artigo, a pena ser&aacute; aumentada de um ter&ccedil;o se o crime for cometido contra pessoa portadora de defici&ecirc;ncia.</p>\n<p>\n\t&nbsp;</p>\n<p>\n\tEste assunto deve ser utilizado quando a v&iacute;tima N&Atilde;O se identificar como mulher.</p>",
+  "raw_len": 1255,
+  "pais": [
+   {
+    "codigo": 9633,
+    "nome": "DIREITO DA CRIANÇA E DO ADOLESCENTE"
+   },
+   {
+    "codigo": 9634,
+    "nome": "Ato Infracional"
+   },
+   {
+    "codigo": 9641,
+    "nome": "Lesões Corporais"
+   },
+   {
+    "codigo": 9647,
+    "nome": "Decorrente de Violência Doméstica"
+   }
+  ]
+ },
+ "A15174": {
+  "codigo": 15174,
+  "tabela": "A",
+  "nome": "Violência Doméstica e Familiar contra Criança e Adolescente",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto complementar a ser registrado em casos criminais envolvendo viol&ecirc;ncia dom&eacute;stica e familiar contra crian&ccedil;a e/ou adolescente.</p>",
+  "raw_len": 674,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   }
+  ]
+ },
+ "A15180": {
+  "codigo": 15180,
+  "tabela": "A",
+  "nome": "Descumprimento de Medida Protetiva (Lei Henry Borel)",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tAssunto para registrar procedimentos para investiga&ccedil;&atilde;o e julgamento do crime de descumprimento de medida protetiva interposta com fundamento sob a Ley Henry Borel.</p>",
+  "raw_len": 691,
+  "pais": [
+   {
+    "codigo": 287,
+    "nome": "DIREITO PENAL"
+   },
+   {
+    "codigo": 3603,
+    "nome": "Crimes Previstos na Legislação Extravagante"
+   },
+   {
+    "codigo": 15179,
+    "nome": "Crimes Previstos na Lei Henry Borel"
+   }
+  ]
+ },
+ "C15309": {
+  "codigo": 15309,
+  "tabela": "C",
+  "nome": "Medidas Protetivas de Urgência (Lei Maria da Penha) - Cível",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\t<span style=\"color: rgb(0, 51, 102); font-family: Arial, Helvetica, sans-serif; background-color: rgb(243, 247, 248);\">Classe utilizada para cadastramento de a&ccedil;&otilde;es de medida protetiva C&Iacute;VEL prevista na Lei Maria da Penha (11.340/2006)</span></p>",
+  "raw_len": 797,
+  "pais": [
+   {
+    "codigo": 2,
+    "nome": "PROCESSO CÍVEL E DO TRABALHO"
+   },
+   {
+    "codigo": 214,
+    "nome": "Outros Procedimentos"
+   }
+  ]
+ },
+ "C12423": {
+  "codigo": 12423,
+  "tabela": "C",
+  "nome": "Medidas Protetivas de Urgência (Lei Maria da Penha) - Infracional",
+  "dispositivo_legal": null,
+  "artigo": null,
+  "glossario": "<p>\n\tClasse utilizada para cadastramento de a&ccedil;&otilde;es de medida protetiva prevista na Lei Maria da Penha quando o autor da viol&ecirc;ncia dom&eacute;stica for adolescente.</p>",
+  "raw_len": 712,
+  "pais": [
+   {
+    "codigo": 547,
+    "nome": "PROCEDIMENTOS DE INFÂNCIA E JUVENTUDE"
+   },
+   {
+    "codigo": 1459,
+    "nome": "Seção Infracional"
+   },
+   {
+    "codigo": 12071,
+    "nome": "Procedimentos Cautelares"
+   }
+  ]
+ }
+}

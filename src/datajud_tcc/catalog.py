@@ -11,6 +11,8 @@ import yaml
 
 
 NATURES = frozenset({"civel", "penal", "infracional"})
+EXTENSION_TYPES = frozenset({"assunto", "classe"})
+EXTENSION_GROUPS = frozenset({"especifica", "ambigua", "secundaria"})
 
 
 @dataclass(frozen=True)
@@ -23,6 +25,31 @@ class CatalogEntry:
     consultado_em: str
     vigencia: str | None
     justificativa: str
+    grupo: str | None = None
+
+
+def _entry(item: Any) -> CatalogEntry:
+    if not isinstance(item, dict):
+        raise ValueError("entrada de catálogo inválida")
+    code = int(item["codigo"])
+    nature = str(item["natureza"])
+    if nature not in NATURES:
+        raise ValueError(f"natureza inválida: {nature}")
+    required = ("tipo", "descricao", "fonte", "consultado_em", "justificativa")
+    if any(not str(item.get(key, "")).strip() for key in required):
+        raise ValueError(f"entrada incompleta: {code}")
+    grupo = item.get("grupo")
+    return CatalogEntry(
+        codigo=code,
+        tipo=str(item["tipo"]),
+        descricao=str(item["descricao"]),
+        natureza=nature,
+        fonte=str(item["fonte"]),
+        consultado_em=str(item["consultado_em"]),
+        vigencia=item.get("vigencia"),
+        justificativa=str(item["justificativa"]),
+        grupo=None if grupo is None else str(grupo),
+    )
 
 
 @dataclass(frozen=True)
@@ -31,6 +58,7 @@ class Catalog:
     source_hash: str
     entries: tuple[CatalogEntry, ...]
     diagnostic_classes: tuple[int, ...]
+    extensions: tuple[CatalogEntry, ...] = ()
 
     @classmethod
     def load(cls, path: Path) -> "Catalog":
@@ -44,30 +72,26 @@ class Catalog:
         entries: list[CatalogEntry] = []
         seen: set[int] = set()
         for item in entries_raw:
-            if not isinstance(item, dict):
-                raise ValueError("entrada de catálogo inválida")
-            code = int(item["codigo"])
-            if code in seen:
-                raise ValueError(f"código duplicado: {code}")
-            nature = str(item["natureza"])
-            if nature not in NATURES:
-                raise ValueError(f"natureza inválida: {nature}")
-            required = ("tipo", "descricao", "fonte", "consultado_em", "justificativa")
-            if any(not str(item.get(key, "")).strip() for key in required):
-                raise ValueError(f"entrada incompleta: {code}")
-            entries.append(
-                CatalogEntry(
-                    codigo=code,
-                    tipo=str(item["tipo"]),
-                    descricao=str(item["descricao"]),
-                    natureza=nature,
-                    fonte=str(item["fonte"]),
-                    consultado_em=str(item["consultado_em"]),
-                    vigencia=item.get("vigencia"),
-                    justificativa=str(item["justificativa"]),
-                )
-            )
-            seen.add(code)
+            entry = _entry(item)
+            if entry.codigo in seen:
+                raise ValueError(f"código duplicado: {entry.codigo}")
+            entries.append(entry)
+            seen.add(entry.codigo)
+
+        # Extensões ampliam o filtro principal além do núcleo; assuntos e classes
+        # têm numerações independentes na TPU, por isso a unicidade é por tipo.
+        extensions: list[CatalogEntry] = []
+        seen_by_type: dict[str, set[int]] = {"assunto": set(seen), "classe": set()}
+        for item in raw.get("extensoes") or []:
+            entry = _entry(item)
+            if entry.tipo not in EXTENSION_TYPES:
+                raise ValueError(f"tipo de extensão inválido: {entry.tipo}")
+            if entry.grupo not in EXTENSION_GROUPS:
+                raise ValueError(f"grupo de extensão inválido: {entry.grupo}")
+            if entry.codigo in seen_by_type[entry.tipo]:
+                raise ValueError(f"código duplicado: {entry.codigo}")
+            extensions.append(entry)
+            seen_by_type[entry.tipo].add(entry.codigo)
 
         diagnostic = raw.get("classes_diagnosticas", [])
         diagnostic_classes = tuple(sorted({int(code) for code in diagnostic}))
@@ -76,11 +100,20 @@ class Catalog:
             source_hash=hashlib.sha256(path.read_bytes()).hexdigest(),
             entries=tuple(entries),
             diagnostic_classes=diagnostic_classes,
+            extensions=tuple(extensions),
         )
 
     @property
     def subject_codes(self) -> tuple[int, ...]:
         return tuple(entry.codigo for entry in self.entries)
+
+    @property
+    def extension_subject_codes(self) -> tuple[int, ...]:
+        return tuple(entry.codigo for entry in self.extensions if entry.tipo == "assunto")
+
+    @property
+    def extension_class_codes(self) -> tuple[int, ...]:
+        return tuple(entry.codigo for entry in self.extensions if entry.tipo == "classe")
 
     def natures_for(self, codes: set[int]) -> frozenset[str]:
         return frozenset(entry.natureza for entry in self.entries if entry.codigo in codes)

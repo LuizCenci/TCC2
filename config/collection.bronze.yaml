@@ -1,0 +1,17 @@
+# Coleta Bronze definitiva — TJPR, G1, 2019–2026.
+# Parâmetros documentados em docs/artigo/01-parametros-da-extracao.md.
+# 2026 é coletado mas excluído da análise por decisão do autor (ano incompleto).
+endpoint: "https://api-publica.datajud.cnj.jus.br/api_publica_tjpr/_search"
+tribunal: "TJPR"
+grau: "G1"
+years: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+# Tamanho de página validado no piloto de 03/10/2026.
+page_size: 100
+# Limite de segurança: o maior ano tem ~25 mil registros (~250 páginas).
+max_pages_per_partition: 1000
+connect_timeout_seconds: 10
+read_timeout_seconds: 60
+max_attempts: 3
+max_wait_seconds: 30
+output_root: "work"
+continue_on_partition_error: false

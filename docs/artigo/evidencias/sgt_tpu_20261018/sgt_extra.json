@@ -1,0 +1,101 @@
+{
+ "15174": {
+  "nome": "Violência Doméstica e Familiar contra Criança e Adolescente",
+  "pais": [
+   [
+    287,
+    "DIREITO PENAL"
+   ]
+  ]
+ },
+ "15180": {
+  "nome": "Descumprimento de Medida Protetiva (Lei Henry Borel)",
+  "pais": [
+   [
+    287,
+    "DIREITO PENAL"
+   ],
+   [
+    3603,
+    "Crimes Previstos na Legislação Extravagante"
+   ],
+   [
+    15179,
+    "Crimes Previstos na Lei Henry Borel"
+   ]
+  ]
+ },
+ "7792": {
+  "nome": "Pena de Multa",
+  "pais": [
+   [
+    1209,
+    "DIREITO PROCESSUAL PENAL"
+   ],
+   [
+    7942,
+    "Execução Penal e de Medidas Alternativas"
+   ]
+  ]
+ },
+ "7793": {
+  "nome": "Medidas de Segurança",
+  "pais": [
+   [
+    1209,
+    "DIREITO PROCESSUAL PENAL"
+   ],
+   [
+    7942,
+    "Execução Penal e de Medidas Alternativas"
+   ]
+  ]
+ },
+ "14238": {
+  "nome": "Produção Antecipada de Provas",
+  "pais": [
+   [
+    1209,
+    "DIREITO PROCESSUAL PENAL"
+   ],
+   [
+    4263,
+    "Ação Penal"
+   ],
+   [
+    10925,
+    "Provas"
+   ]
+  ]
+ },
+ "14958": {
+  "nome": "Destruição ou Destinação das Coisas Apreendidas",
+  "pais": [
+   [
+    1209,
+    "DIREITO PROCESSUAL PENAL"
+   ],
+   [
+    14880,
+    "Questões Incidentes"
+   ],
+   [
+    14881,
+    "Destinação de Bens e Mercadorias/Coisas Apreendidas"
+   ]
+  ]
+ },
+ "10606": {
+  "nome": "Cerceamento de Defesa",
+  "pais": [
+   [
+    1209,
+    "DIREITO PROCESSUAL PENAL"
+   ],
+   [
+    10604,
+    "Investigação Penal"
+   ]
+  ]
+ }
+}

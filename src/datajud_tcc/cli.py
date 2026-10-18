@@ -17,7 +17,7 @@ from .config import CollectionConfig
 from .report import build_pilot_summary, write_markdown
 
 
-CATALOG_PATH = Path("config/catalogs/pvd_cnj_2025-07-17.yaml")
+CATALOG_PATH = Path("config/catalogs/tjpr_vcm_2026-10-18.yaml")
 
 
 def _load_dotenv(path: Path = Path(".env")) -> None:
@@ -47,9 +47,11 @@ def _parser() -> argparse.ArgumentParser:
     collect.add_argument("--config", required=True, type=Path)
     collect.add_argument("--query-kind", choices=("main", "diagnostic"), default="main")
     collect.add_argument("--run-id")
+    collect.add_argument("--catalog", type=Path, default=CATALOG_PATH)
     report = subparsers.add_parser("report", help="gerar relatório agregado")
     report.add_argument("--run-root", required=True, type=Path)
     report.add_argument("--output", type=Path)
+    report.add_argument("--catalog", type=Path, default=CATALOG_PATH)
     return parser
 
 
@@ -61,7 +63,7 @@ def _collect(args: argparse.Namespace) -> int:
         return 2
     try:
         config = CollectionConfig.from_yaml(args.config)
-        catalog = Catalog.load(CATALOG_PATH)
+        catalog = Catalog.load(args.catalog)
         client = DatajudClient(
             endpoint=config.endpoint,
             api_key=api_key,
@@ -83,7 +85,7 @@ def _collect(args: argparse.Namespace) -> int:
 
 def _report(args: argparse.Namespace) -> int:
     try:
-        catalog = Catalog.load(CATALOG_PATH)
+        catalog = Catalog.load(args.catalog)
         summary = build_pilot_summary(args.run_root, catalog)
         destination = args.output or Path("outputs/pilot") / f"{args.run_root.name}.md"
         write_markdown(summary, destination)
