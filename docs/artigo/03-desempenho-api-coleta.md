@@ -65,4 +65,15 @@ Estimativa: cerca de 720 requisições e de 6 a 8 h de coleta, sempre com uma re
 | Início | 18/10/2026 01:23:33 |
 | Primeiras páginas (2019) | cerca de 21–37 s por página de 200; total exato de 2019 = 24.956 (`eq`), igual à validação prévia |
 | Log | `work/logs/bronze-20261018-9852486.log` |
+| 2019 | completo às 02:36:57: 125 páginas, **24.956 de 24.956** registros |
 | Situação | **em andamento**; resultado final a registrar ao término |
+
+### 6.1 Limite de requisições (HTTP 429) na virada da hora
+
+Houve HTTP 429 **exatamente às 02:00:14 e às 03:00:00**. Às 02:00 a nova tentativa funcionou; a falha seguinte, às 02:01, foi um 504 isolado, também superado. Às 03:00 as três tentativas do cliente (pausas de 1 s e 2 s, porque a resposta não trazia `Retry-After`) se esgotaram. O ano de 2020 terminou com `RateLimitError`. O script de retomada esperou 2 min e, às 03:02:03, retomou a **mesma execução** a partir da página 51 de 2020, sem baixar de novo páginas já gravadas.
+
+Hipótese, não confirmada: a API aplica uma cota por janela horária ou faz manutenção no início de cada hora. Se o padrão se repetir, as retomadas previstas (5) devem bastar para as horas restantes. Caso se esgotem, a coleta é retomada manualmente com `bash scripts/coletar_bronze.sh bronze-20261018-9852486`.
+
+### 6.2 Computador acordado durante a coleta
+
+Para evitar que a suspensão por inatividade interrompa a coleta, `scripts/manter_acordado.ps1` chama `SetThreadExecutionState` do Windows (`ES_CONTINUOUS | ES_SYSTEM_REQUIRED`) enquanto o log não registrar o fim da execução. Ele **não altera** as configurações de energia e libera o pedido ao terminar. Isso não impede a suspensão por fechamento da tampa ou por comando manual; nesses casos, a retomada do checkpoint continua válida.
