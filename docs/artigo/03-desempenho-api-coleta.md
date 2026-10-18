@@ -27,15 +27,32 @@ Os testes foram feitos com requisições isoladas, partindo da consulta da pági
 ## 3. Conclusões
 
 1. **Latência fixa de cerca de 22–33 s por consulta.** Ela aparece mesmo na consulta mais simples (só grau) e não é explicada pela contagem exata, pela ordenação, pela leitura do `_source`, pelo filtro de data nem pelo filtro temático. Provavelmente é carga ou configuração do servidor público (hipótese, sem acesso à infraestrutura do CNJ).
-2. **Páginas maiores diluem a latência.** Com 1.000 registros, a vazão foi de cerca de 8,1 registros/s, contra cerca de 3,5 registros/s com 100: um ganho de cerca de 2,3×. A estimativa da coleta completa cai de cerca de 12 h para cerca de 5 h.
+2. **Páginas maiores diluem a latência.** Com 1.000 registros, a vazão foi de cerca de 8,1 registros/s, contra cerca de 3,5 registros/s com 100: um ganho de cerca de 2,3×. Essa estimativa (cerca de 5 h) foi revista na §5, depois do corte de 60 s do gateway.
 3. **A consulta não precisou mudar.** Filtro, ordenação e contagem exata continuam idênticos aos documentados em `01-parametros-da-extracao.md`. Assim, o conjunto selecionado é o mesmo; muda apenas o número de registros por requisição.
 
-## 4. Ajustes aplicados em `config/collection.bronze.yaml`
+## 4. Segunda tentativa: corte de 60 s no gateway (HTTP 504)
 
-| Parâmetro | Antes | Depois | Motivo |
-|---|---:|---:|---|
-| `page_size` | 100 | 1.000 | Diluir a latência fixa (§3). |
-| `max_pages_per_partition` | 1.000 | 100 | Teto de segurança proporcional: o maior ano tem cerca de 25 páginas de 1.000. |
-| `read_timeout_seconds` | 60 | 180 | O servidor levou 56 s para começar a responder uma página de 1.000 registros, perto do limite anterior. |
+A execução `bronze-20261018-12748ce`, com `page_size = 1.000`, recebeu **HTTP 504 em três tentativas consecutivas** na primeira página de 2019, cada uma após exatos cerca de 60 s (01:16:58–01:20:02). Ela terminou com `status = failed` e **nenhuma página gravada**. O intervalo constante indica que o gateway da API pública **interrompe consultas que passam de 60 s**. A página de 1.000 com contagem exata ultrapassa esse limite; no teste anterior, sem contagem, ela havia levado 56 s.
 
-Os demais parâmetros não mudaram. A carga sobre a API **diminui**: são cerca de 145 requisições, em vez de 1.435, sempre uma por vez.
+Nova medição, primeira página de 2019 com a consulta completa (`track_total_hits: true`), às 01:21–01:22:
+
+| `size` | `took` (s) | Tempo total (s) | Resposta (descomprimida) |
+|---:|---:|---:|---:|
+| 500 | 55,7 | 56,6 | 16,7 MB |
+| 250 | 46,2 | 47,0 | 8,6 MB |
+
+O custo cresce com o tamanho da página, porque o servidor precisa ler o `_source` completo, que inclui os movimentos. Com 500 não sobra margem sob os 60 s. Como os tempos com 100 registros variaram entre 16 e 42 s, **200 registros por página** (cerca de 40 s estimados) foi escolhido para equilibrar vazão e risco de 504.
+
+## 5. Parâmetros finais em `config/collection.bronze.yaml`
+
+| Parâmetro | Piloto / 1ª execução | 2ª execução (falhou) | **Final** | Motivo |
+|---|---:|---:|---:|---|
+| `page_size` | 100 | 1.000 | **200** | Diluir a latência fixa sem ultrapassar o corte de 60 s do gateway. |
+| `max_pages_per_partition` | 1.000 | 100 | **300** | Teto de segurança: o maior ano tem cerca de 125 páginas de 200. |
+| `read_timeout_seconds` | 60 | 180 | **90** | Acima do corte do gateway, para que o 504 do servidor seja o sinal de falha. |
+
+Os demais parâmetros e a consulta (filtro, ordenação, contagem exata) **não mudaram**.
+
+**Retomada automática limitada.** Se uma partição falhar depois das 3 tentativas do cliente (por exemplo, por 504 persistente), a **mesma execução** é retomada a partir do checkpoint do manifesto, no máximo 5 vezes, com 2 minutos de pausa entre elas. Páginas já gravadas são verificadas por SHA-256 e não são baixadas de novo. Cada retomada fica registrada no log da execução.
+
+Estimativa: cerca de 720 requisições e de 6 a 8 h de coleta, sempre com uma requisição por vez.

@@ -5,14 +5,15 @@ endpoint: "https://api-publica.datajud.cnj.jus.br/api_publica_tjpr/_search"
 tribunal: "TJPR"
 grau: "G1"
 years: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
-# 1000 registros/página: a API tem latência fixa de ~22-33 s por consulta,
-# então páginas maiores rendem ~2,3x mais (docs/artigo/03-desempenho-api-coleta.md).
-page_size: 1000
-# Limite de segurança: o maior ano tem ~25 mil registros (~25 páginas).
-max_pages_per_partition: 100
+# 200 registros/página: a API tem latência fixa de ~22-33 s por consulta e o
+# gateway corta em 60 s (HTTP 504); 200 dá ~40 s com folga
+# (docs/artigo/03-desempenho-api-coleta.md).
+page_size: 200
+# Limite de segurança: o maior ano tem ~25 mil registros (~125 páginas).
+max_pages_per_partition: 300
 connect_timeout_seconds: 10
-# O servidor levou até 56 s para responder uma página de 1000 registros.
-read_timeout_seconds: 180
+# Acima do corte de 60 s do gateway, para que o 504 do servidor seja o sinal.
+read_timeout_seconds: 90
 max_attempts: 3
 max_wait_seconds: 30
 output_root: "work"
