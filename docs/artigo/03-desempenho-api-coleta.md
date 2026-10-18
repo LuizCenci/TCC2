@@ -79,3 +79,51 @@ Hipótese, não confirmada: a API aplica uma cota por janela horária ou faz man
 Para evitar que a suspensão por inatividade interrompa a coleta, `scripts/manter_acordado.ps1` chama `SetThreadExecutionState` do Windows (`ES_CONTINUOUS | ES_SYSTEM_REQUIRED`) enquanto o log não registrar o fim da execução. Ele **não altera** as configurações de energia e libera o pedido ao terminar. Isso não impede a suspensão por fechamento da tampa ou por comando manual; nesses casos, a retomada do checkpoint continua válida.
 
 **Verificado pelo autor** com `powercfg /requests` (prompt elevado), em 18/10/2026: pedido `SYSTEM` ativo para `powershell.exe` (o script) e pedido `EXECUÇÃO` para o aplicativo Claude; nenhum pedido em `DISPLAY` (a tela pode apagar, o que não afeta a coleta).
+
+## 7. Paralelismo: avaliado, não adotado — proposta para implementação futura
+
+Status: **avaliação e proposta** (18/10/2026). Nada disto foi implementado ou medido. A coleta definitiva (§6) usou **uma requisição por vez**.
+
+### 7.1 Por que a coleta definitiva foi sequencial
+
+1. **O limite de requisições apareceu mesmo sem concorrência.** Houve cinco HTTP 429, e um deles interrompeu uma partição (§6.1). Requisições simultâneas tendem a atingir o limite com mais frequência ou a provocar um bloqueio temporário da chave, que é compartilhada por todos os usuários da API pública.
+2. **A natureza da latência é desconhecida.** A espera fixa de cerca de 22–33 s (§3) pode ser **fila**, e nesse caso o paralelismo reduziria o tempo total. Pode também ser **processamento**, e então requisições simultâneas ficariam individualmente mais lentas e o ganho diminuiria. Só a medição separa as duas hipóteses.
+3. **Conduta.** CLAUDE.md §8 orienta não sobrecarregar a infraestrutura do CNJ. A coleta sequencial é a posição mais conservadora e fácil de justificar no artigo.
+4. **Custo e risco.** O manifesto e o checkpoint atuais foram desenhados para um único processo. O tempo de coleta (cerca de 6 h, com retomada automática) foi aceitável para uma coleta única.
+
+### 7.2 Hipótese a testar
+
+> **H1:** uma requisição concorrente por ano (até 8 workers), com controle global de ritmo, reduz o tempo total da coleta sem aumentar de forma relevante a taxa de HTTP 429/504 e sem alterar o conjunto coletado.
+
+Cada ano é uma partição independente, com consulta e cursor `search_after` próprios. A paginação **dentro** de um ano continua sequencial, porque cada página depende do cursor da anterior. O ganho máximo teórico é limitado pelo ano mais longo: 2019, com cerca de 125 páginas, ou aproximadamente 1 h a 1 h 15 no ritmo observado, contra cerca de 6 h sequenciais. Isso só vale se a latência for fila (§7.1, item 2).
+
+Variante para equilibrar a carga, caso os anos fiquem desiguais: subdividir cada ano em meses (filtro `dataAjuizamento` mensal) e distribuir as partições numa fila de trabalho.
+
+### 7.3 Desenho proposto
+
+| Componente | Proposta |
+|---|---|
+| Concorrência | `ThreadPoolExecutor` com `max_workers` configurável (`parallel_partitions` no YAML; padrão 1 = comportamento atual). Uma partição (ano) por tarefa. |
+| Cliente HTTP | Um `requests.Session` **por thread**, porque `Session` não é garantidamente seguro entre threads. |
+| Ritmo global | Limitador compartilhado (*token bucket*) com teto de requisições em andamento e intervalo mínimo entre inícios de requisição, configuráveis. |
+| Reação a 429 | **Pausa global:** um 429 suspende todos os workers pelo `Retry-After` (ou recuo exponencial compartilhado) e reduz temporariamente a concorrência efetiva (por exemplo, pela metade), restaurando-a de forma gradual. |
+| Janela horária | Opcional: evitar iniciar requisições entre hh:59:30 e hh:00:30, onde os 429 se concentraram (§6.1), se o padrão se confirmar. |
+| Manifesto | Escrita protegida por `threading.Lock`, ou um arquivo de estado **por partição** (`partitions/year=AAAA.json`) consolidado ao final, que elimina a disputa pelo manifesto. |
+| Bronze | Sem mudança: os caminhos já são separados por ano e as escritas são idempotentes, com comparação de conteúdo. |
+| Falhas | A falha de um ano não cancela os demais; o status final segue as regras atuais (`complete`, `failed`, `limited`). A retomada continua por checkpoint de cada partição. |
+| Logs | Cada linha identifica o ano e o worker; métricas por requisição (`took`, tempo total, status HTTP). |
+
+### 7.4 Protocolo de comparação
+
+Para que a comparação seja válida e possa ser relatada:
+
+1. **Mesmo recorte:** mesmo catálogo, configuração e consulta. Usar um subconjunto, por exemplo os 20 primeiros páginas de cada ano, para não repetir a coleta inteira.
+2. **Tratamentos:** 1, 2, 4 e 8 workers, intercalados e repetidos (ao menos 2 vezes cada), em horários semelhantes, para reduzir o efeito da carga variável do servidor.
+3. **Métricas:** tempo total; registros por segundo; distribuição de `took` (mediana e percentil 90); número de 429 e 504; retomadas.
+4. **Critério de equivalência:** cada tratamento deve produzir **o mesmo conjunto de `_id` e as mesmas contagens por ano** que a coleta sequencial (`06-resultado-coleta-bronze.md`).
+5. **Critério de adoção:** adotar concorrência apenas se o ganho de tempo for relevante **e** a taxa de 429 não crescer de forma material. Caso contrário, manter a coleta sequencial e registrar o resultado como achado sobre a API.
+6. **Limite de conduta:** nunca mais de 8 requisições simultâneas, sem rotação de chave ou identidade, e interromper o experimento se surgirem bloqueios ou 429 persistentes.
+
+### 7.5 Uso no artigo
+
+Se o experimento for feito, ele pode compor uma seção curta de **avaliação do pipeline** (CLAUDE.md §12): tempo de coleta sequencial *versus* concorrente, custo em limites de requisição e equivalência dos dados coletados. Se não for feito, este registro justifica a escolha da coleta sequencial.
