@@ -77,3 +77,5 @@ Hipótese, não confirmada: a API aplica uma cota por janela horária ou faz man
 ### 6.2 Computador acordado durante a coleta
 
 Para evitar que a suspensão por inatividade interrompa a coleta, `scripts/manter_acordado.ps1` chama `SetThreadExecutionState` do Windows (`ES_CONTINUOUS | ES_SYSTEM_REQUIRED`) enquanto o log não registrar o fim da execução. Ele **não altera** as configurações de energia e libera o pedido ao terminar. Isso não impede a suspensão por fechamento da tampa ou por comando manual; nesses casos, a retomada do checkpoint continua válida.
+
+**Verificado pelo autor** com `powercfg /requests` (prompt elevado), em 18/10/2026: pedido `SYSTEM` ativo para `powershell.exe` (o script) e pedido `EXECUÇÃO` para o aplicativo Claude; nenhum pedido em `DISPLAY` (a tela pode apagar, o que não afeta a coleta).
