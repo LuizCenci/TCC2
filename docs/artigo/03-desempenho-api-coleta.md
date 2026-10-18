@@ -117,7 +117,7 @@ Variante para equilibrar a carga, caso os anos fiquem desiguais: subdividir cada
 
 Para que a comparação seja válida e possa ser relatada:
 
-1. **Mesmo recorte:** mesmo catálogo, configuração e consulta. Usar um subconjunto, por exemplo os 20 primeiros páginas de cada ano, para não repetir a coleta inteira.
+1. **Mesmo recorte:** mesmo catálogo, configuração e consulta. Usar um subconjunto, por exemplo as 20 primeiras páginas de cada ano, para não repetir a coleta inteira.
 2. **Tratamentos:** 1, 2, 4 e 8 workers, intercalados e repetidos (ao menos 2 vezes cada), em horários semelhantes, para reduzir o efeito da carga variável do servidor.
 3. **Métricas:** tempo total; registros por segundo; distribuição de `took` (mediana e percentil 90); número de 429 e 504; retomadas.
 4. **Critério de equivalência:** cada tratamento deve produzir **o mesmo conjunto de `_id` e as mesmas contagens por ano** que a coleta sequencial (`06-resultado-coleta-bronze.md`).
