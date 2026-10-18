@@ -1,0 +1,26 @@
+[
+ {
+  "variante": "sem_range",
+  "status": 200,
+  "took_ms": 32290,
+  "wall_s": 33.0,
+  "hits": 100,
+  "quando": "2026-10-18T01:14:22"
+ },
+ {
+  "variante": "so_range_e_grau",
+  "status": 200,
+  "took_ms": 25989,
+  "wall_s": 26.7,
+  "hits": 100,
+  "quando": "2026-10-18T01:14:52"
+ },
+ {
+  "variante": "sem_tematico_sem_range",
+  "status": 200,
+  "took_ms": 21851,
+  "wall_s": 22.6,
+  "hits": 100,
+  "quando": "2026-10-18T01:15:18"
+ }
+]

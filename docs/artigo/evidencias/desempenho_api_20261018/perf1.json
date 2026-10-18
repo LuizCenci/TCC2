@@ -1,0 +1,34 @@
+[
+ {
+  "variante": "igual",
+  "status": 200,
+  "took_ms": 27349,
+  "wall_s": 28.2,
+  "hits": 100,
+  "mod": {},
+  "quando": "2026-10-18T01:09:14"
+ },
+ {
+  "variante": "sem_track_total",
+  "status": 200,
+  "took_ms": 25753,
+  "wall_s": 26.5,
+  "hits": 100,
+  "mod": {
+   "track_total_hits": false
+  },
+  "quando": "2026-10-18T01:09:43"
+ },
+ {
+  "variante": "size1000_sem_track",
+  "status": 200,
+  "took_ms": 56115,
+  "wall_s": 123.0,
+  "hits": 1000,
+  "mod": {
+   "track_total_hits": false,
+   "size": 1000
+  },
+  "quando": "2026-10-18T01:11:49"
+ }
+]

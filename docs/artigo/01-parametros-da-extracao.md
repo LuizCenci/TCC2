@@ -4,9 +4,9 @@ Documento de referência para a seção de metodologia do artigo. Registra **tod
 
 | Item | Valor |
 |---|---|
-| Versão do documento | 1.0 — 18/10/2026 |
+| Versão do documento | 1.1 — 18/10/2026 (tamanho de página e timeout ajustados; ver `03-desempenho-api-coleta.md`) |
 | Catálogo temático | `config/catalogs/tjpr_vcm_2026-10-18.yaml` — versão `tjpr-vcm-2026-10-18`, SHA-256 `df83d3ab…2f245035` |
-| Configuração da coleta | `config/collection.bronze.yaml` — SHA-256 `65746108…ce7c7769` |
+| Configuração da coleta | `config/collection.bronze.yaml` — SHA-256 `14ecfbbc…58485062` |
 | Código que monta a consulta | `src/datajud_tcc/query.py` (`build_main_query`, `_thematic_filter`) |
 | Status | Parâmetros **decididos pelo autor** em 18/10/2026. Volumes **verificados** na API em 17–18/10/2026, antes da coleta. |
 
@@ -156,11 +156,11 @@ Os totais são do índice em 18/10/2026. Como o índice é atualizado continuame
 
 | Parâmetro | Valor | Justificativa |
 |---|---|---|
-| Tamanho da página (`size`) | 100 | Validado no piloto de 03/10/2026. |
+| Tamanho da página (`size`) | 1.000 | A API tem latência fixa de cerca de 22–33 s por consulta; páginas de 1.000 rendem cerca de 2,3× mais que as de 100 (`03-desempenho-api-coleta.md`). |
 | Ordenação | `id.keyword` ascendente | Chave única por registro: ordem determinística e sem empates. |
 | Paginação | `search_after` com o `sort` do último registro | Método documentado pelo CNJ para percorrer além de 10.000 resultados. |
 | Contagem | `track_total_hits: true` | Sem isso o Elasticsearch para em 10.000 (`relation: gte`). |
-| Limite de páginas por ano | 1.000 | Teto de segurança. O maior ano tem cerca de 250 páginas; atingir o teto marca a partição como `limited`, nunca como completa. |
+| Limite de páginas por ano | 100 | Teto de segurança. O maior ano tem cerca de 25 páginas; atingir o teto marca a partição como `limited`, nunca como completa. |
 | Fim da partição | Página vazia ou com menos de `size` registros | — |
 | Proteção contra laço | Erro se um cursor `search_after` se repetir | — |
 | Campos retornados | `_source` completo, sem projeção | Preserva assuntos, movimentos e complementos para a Silver. |
@@ -171,7 +171,7 @@ Os totais são do índice em 18/10/2026. Como o índice é atualizado continuame
 
 | Parâmetro | Valor |
 |---|---|
-| Timeout de conexão / leitura | 10 s / 60 s |
+| Timeout de conexão / leitura | 10 s / 180 s (o servidor levou até 56 s para responder uma página de 1.000) |
 | Tentativas por requisição | até 3 |
 | HTTP 429 | Espera o `Retry-After` informado, limitado a 30 s |
 | HTTP 502/503/504 e falhas de conexão | Recuo exponencial (1 s, 2 s…), limitado a 30 s |
@@ -203,7 +203,7 @@ Os totais são do índice em 18/10/2026. Como o índice é atualizado continuame
 Catálogo:     config/catalogs/tjpr_vcm_2026-10-18.yaml
               sha256 df83d3abad719b373da7b97b0e917432dcb1c5a292447d8519c69fef2f245035
 Configuração: config/collection.bronze.yaml
-              sha256 6574610826021b59dcfada70acf9dc6054a0d4abdbd1c233ec9737e3ce7c7769
+              sha256 14ecfbbc277b8a2ca4fb9c017c1acb9a479bece06394b46fd957574058485062
 Catálogo PVD original (inalterado): config/catalogs/pvd_cnj_2025-07-17.yaml
               sha256 d0a96c176c891d851360f0f08c291dfa6052f3e50249d9bd3825f2d0d29c72a5
 ```
@@ -232,3 +232,4 @@ A consulta completa de exemplo (ano 2019) está em `evidencias/validacao_filtro_
 | 22/09/2026 | Núcleo PVD (15 assuntos) e classes 1268/12423 como diagnóstico | Desenho do piloto |
 | 03/10/2026 | Formato `YYYYMMDDHHMMSS` para `dataAjuizamento` | Verificação empírica |
 | 18/10/2026 | Filtro = núcleo + extensões (específicas, ambíguas, secundárias); só G1; coleta 2019–2026; **análise 2019–2025, com 2026 excluído por opção do autor**; sem partição diagnóstica por órgão | Decisão do autor, com base em `02-analise-exploratoria-parametros.md` |
+| 18/10/2026 | `page_size` 100 → 1.000, teto 1.000 → 100 páginas/ano, timeout de leitura 60 → 180 s. Primeira execução (`bronze-20261018-24c258c`) interrompida após 26 páginas e descartada. Filtro inalterado. | Medição de desempenho, `03-desempenho-api-coleta.md` |

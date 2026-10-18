@@ -1,0 +1,26 @@
+[
+ {
+  "variante": "sort_id_sem_source",
+  "status": 200,
+  "took_ms": 32513,
+  "wall_s": 33.0,
+  "hits": 100,
+  "quando": "2026-10-18T01:12:41"
+ },
+ {
+  "variante": "sem_sort_com_source",
+  "status": 200,
+  "took_ms": 23941,
+  "wall_s": 24.7,
+  "hits": 100,
+  "quando": "2026-10-18T01:13:09"
+ },
+ {
+  "variante": "sort_doc_com_source",
+  "status": 200,
+  "took_ms": 21850,
+  "wall_s": 22.6,
+  "hits": 100,
+  "quando": "2026-10-18T01:13:34"
+ }
+]
