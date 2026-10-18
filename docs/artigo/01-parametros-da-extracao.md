@@ -6,7 +6,7 @@ Documento de referência para a seção de metodologia do artigo. Registra **tod
 |---|---|
 | Versão do documento | 1.2 — 18/10/2026 (tamanho de página, teto e timeout ajustados; ver `03-desempenho-api-coleta.md`) |
 | Catálogo temático | `config/catalogs/tjpr_vcm_2026-10-18.yaml` — versão `tjpr-vcm-2026-10-18`, SHA-256 `df83d3ab…2f245035` |
-| Configuração da coleta | `config/collection.bronze.yaml` — SHA-256 `801994e8…5034cc9a` |
+| Configuração da coleta | `config/collection.bronze.yaml` — SHA-256 `e33374d7…b29aee6b` |
 | Código que monta a consulta | `src/datajud_tcc/query.py` (`build_main_query`, `_thematic_filter`) |
 | Status | Parâmetros **decididos pelo autor** em 18/10/2026. Volumes **verificados** na API em 17–18/10/2026, antes da coleta. |
 
@@ -203,7 +203,7 @@ Os totais são do índice em 18/10/2026. Como o índice é atualizado continuame
 Catálogo:     config/catalogs/tjpr_vcm_2026-10-18.yaml
               sha256 df83d3abad719b373da7b97b0e917432dcb1c5a292447d8519c69fef2f245035
 Configuração: config/collection.bronze.yaml
-              sha256 801994e89b3b415e2860bb4fce6d52ba0d2a2ceeb44692f860b4e8e05034cc9a
+              sha256 e33374d768f1e5db10b5330d2877597704fd9bac2088dc0e373e923bb29aee6b
 Catálogo PVD original (inalterado): config/catalogs/pvd_cnj_2025-07-17.yaml
               sha256 d0a96c176c891d851360f0f08c291dfa6052f3e50249d9bd3825f2d0d29c72a5
 ```
