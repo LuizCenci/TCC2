@@ -76,3 +76,15 @@ Na implementação do pipeline:
 Uma agregação `min`/`max` sobre o campo produziu datas interpretadas entre 1970 e 4568. Isso indica que o mecanismo de indexação pode estar tratando as strings numéricas como milissegundos desde a época Unix, e reforça a necessidade de não confiar diretamente no tipo aparente do campo sem validar o valor bruto retornado no `_source`.
 
 Essa hipótese deve ser confirmada com novas consultas e não deve ser apresentada como característica geral da API sem verificar outros tribunais ou versões do índice.
+
+## Estrutura real dos registros do TJPR (inventário de 24/10/2026)
+
+Inventário de todos os campos nos 143.337 registros da coleta `bronze-20261018-9852486`. Detalhes em `docs/exemplos/exemplos_json_por_codigo.md` e `docs/exemplos/campos_api.json`. Divergências em relação ao glossário oficial:
+
+- O órgão julgador **dentro dos movimentos** usa as chaves `codigo` e `nome`, e não `codigoOrgao` e `nomeOrgao`. Ele aparece em 99,25% dos registros.
+- `movimentos[].orgaoJulgador.codigo` é **texto**, enquanto `orgaoJulgador.codigo` da capa é **inteiro**. A junção exige conversão.
+- `classe.codigo` vem como texto `"-1"` (nome "Inválido") em 17 registros.
+- `assuntos` vem como **lista aninhada** (lista dentro da lista) em 14 registros. A API filtra esses registros corretamente, mas a leitura precisa achatar a estrutura.
+- Em 23 registros nenhum assunto tem `nome`; códigos recentes como 15174 e 15180 chegam sem nome.
+- `_score` e `hits.max_score` são sempre nulos por causa da ordenação explícita.
+- Não existem campos de vínculo entre processos, de local do fato ou de partes.

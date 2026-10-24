@@ -263,7 +263,7 @@ erDiagram
 | `controle.pagina_bronze` | página da Bronze | 721 | Rastreabilidade e verificação por SHA-256 |
 | `silver.registro` | registro da API (`_id`) | 143 mil | Unidade técnica; classe e órgão são os **atuais** (`07` §3, CLAUDE.md §4.6) |
 | `restrito.identificador` | registro | 143 mil | Número do processo isolado (privacidade); `ano_numero_cnj` permite checagens como a de `08` §7.2 |
-| `silver.registro_assunto` | registro × assunto | ~270 mil | Multirrótulo (1,9 por registro); `veio_aninhado` marca os ~8 casos de lista aninhada (`07` §1) |
+| `silver.registro_assunto` | registro × assunto | ~270 mil | Multirrótulo (1,9 por registro); `veio_aninhado` marca os 14 registros com lista aninhada (`07` §1) |
 | `silver.movimento` | movimento | ~13,5 mi | Ordem original **e** cronológica (CLAUDE.md §7); órgão do movimento original (texto) e normalizado (inteiro) |
 | `silver.complemento_movimento` | complemento | ~6–9 mi | Medidas e beneficiário da MPU (`07` §5); motivo da redistribuição |
 
@@ -298,12 +298,13 @@ erDiagram
 | `marcador_nao_mulher` | assunto 12195 ou 12197 | `07` §1 |
 | `marcador_crianca` | assunto 15174 ou 15180 | `07` §1 |
 | `infracional_em_classe_criminal` | código infracional em classe criminal comum | `07` §1 |
-| `assunto_aninhado` | `assuntos` em lista aninhada | `07` §1 |
+| `assunto_aninhado` | `assuntos` em lista aninhada (14 registros) | `07` §1; `docs/exemplos/campos_api.json` |
 | `numero_multiplo` | número de processo com mais de um registro | `07` §3 (70 números) |
 | `inicio_documento` | primeiro movimento = 581 "Documento" | `08` §7.2 |
 | `carta_pico_2019_2020` | carta precatória entre jul/2019 e dez/2020 | `08` §7.1 |
 | `movimento_antes_ajuizamento` | algum movimento anterior ao ajuizamento | `08` §1 (24 casos) |
 | `assunto_sem_nome` | nome ausente na API (15174, 15180) | `07` §1 |
+| `classe_invalida` | `classe.codigo` = texto `"-1"` (17 registros) | `docs/exemplos/campos_api.json` |
 
 ## 7. Fluxo de carga
 

@@ -43,7 +43,7 @@ Observações:
 - **10948 (cível):** tem só 20 registros, quase todos ações de **indenização por dano moral** ou material, além de alguns casos criminais classificados como cíveis. É marginal.
 - **Infracionais (11979, 12196, 14944, 14945, 14686, 9647):** apesar do nome "ato infracional", aparecem majoritariamente em classes **criminais comuns** (ação penal, carta precatória, MPU) e em varas criminais. Isso sugere uso desses códigos fora do contexto de adolescente autor. É uma inconsistência de classificação a tratar na Silver.
 - **Marcadores:** 12195 ("não identificadas como mulher") aparece junto com códigos específicos de mulher (14943, 12091), uma classificação contraditória. Os códigos 15174 e 15180 (Lei Henry Borel) chegam **sem nome** na API.
-- **Assuntos aninhados:** cerca de 8 registros têm `assuntos` em estrutura aninhada (lista dentro de lista), como alertado no CLAUDE.md §7. Eles foram selecionados corretamente pela API, mas exigem normalização na Silver. Por isso as contagens por grupo da §2 diferem em até 8 registros das da `01-parametros-da-extracao.md` §5.
+- **Assuntos aninhados:** 14 registros (inventário em `docs/exemplos/campos_api.json`) têm `assuntos` em estrutura aninhada (lista dentro de lista), como alertado no CLAUDE.md §7. Eles foram selecionados corretamente pela API, mas exigem normalização na Silver. Por isso as contagens por grupo da §2 diferem em até 8 registros das da `01-parametros-da-extracao.md` §5 (o script da §2 não lia os aninhados).
 
 ## 2. Achado central: cada código traz vários tipos de procedimento
 

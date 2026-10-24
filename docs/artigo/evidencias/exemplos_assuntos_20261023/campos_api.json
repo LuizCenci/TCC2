@@ -1,0 +1,272 @@
+{
+ "registros_analisados": 143337,
+ "campos": {
+  "_id": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_index": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.@timestamp": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.assuntos": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "list": 143337
+   }
+  },
+  "_source.assuntos[]": {
+   "registros_com_valor": 14,
+   "pct": 0.01,
+   "tipos": {
+    "list": 14
+   }
+  },
+  "_source.assuntos[].codigo": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143337
+   }
+  },
+  "_source.assuntos[].nome": {
+   "registros_com_valor": 143314,
+   "pct": 99.98,
+   "tipos": {
+    "str": 143314
+   }
+  },
+  "_source.assuntos[][].codigo": {
+   "registros_com_valor": 14,
+   "pct": 0.01,
+   "tipos": {
+    "int": 14
+   }
+  },
+  "_source.assuntos[][].nome": {
+   "registros_com_valor": 14,
+   "pct": 0.01,
+   "tipos": {
+    "str": 14
+   }
+  },
+  "_source.classe.codigo": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143320,
+    "str": 17
+   }
+  },
+  "_source.classe.nome": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.dataAjuizamento": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.dataHoraUltimaAtualizacao": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.formato.codigo": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143337
+   }
+  },
+  "_source.formato.nome": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.grau": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.id": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.movimentos": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "list": 143337
+   }
+  },
+  "_source.movimentos[].codigo": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143337
+   }
+  },
+  "_source.movimentos[].complementosTabelados": {
+   "registros_com_valor": 143333,
+   "pct": 100.0,
+   "tipos": {
+    "list": 143333
+   }
+  },
+  "_source.movimentos[].complementosTabelados[].codigo": {
+   "registros_com_valor": 143333,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143333
+   }
+  },
+  "_source.movimentos[].complementosTabelados[].descricao": {
+   "registros_com_valor": 143333,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143333
+   }
+  },
+  "_source.movimentos[].complementosTabelados[].nome": {
+   "registros_com_valor": 143333,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143333
+   }
+  },
+  "_source.movimentos[].complementosTabelados[].valor": {
+   "registros_com_valor": 143333,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143333
+   }
+  },
+  "_source.movimentos[].dataHora": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.movimentos[].nome": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.movimentos[].orgaoJulgador.codigo": {
+   "registros_com_valor": 142269,
+   "pct": 99.25,
+   "tipos": {
+    "str": 142269
+   }
+  },
+  "_source.movimentos[].orgaoJulgador.nome": {
+   "registros_com_valor": 142269,
+   "pct": 99.25,
+   "tipos": {
+    "str": 142269
+   }
+  },
+  "_source.nivelSigilo": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143337
+   }
+  },
+  "_source.numeroProcesso": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.orgaoJulgador.codigo": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143337
+   }
+  },
+  "_source.orgaoJulgador.codigoMunicipioIBGE": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143337
+   }
+  },
+  "_source.orgaoJulgador.nome": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.sistema.codigo": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "int": 143337
+   }
+  },
+  "_source.sistema.nome": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "_source.tribunal": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  },
+  "sort": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "list": 143337
+   }
+  },
+  "sort[]": {
+   "registros_com_valor": 143337,
+   "pct": 100.0,
+   "tipos": {
+    "str": 143337
+   }
+  }
+ }
+}
