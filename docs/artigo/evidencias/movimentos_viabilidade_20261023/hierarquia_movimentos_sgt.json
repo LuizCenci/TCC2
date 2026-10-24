@@ -1,0 +1,2716 @@
+{
+ "581": {
+  "nome_api": "Documento",
+  "nome_sgt": "Documento",
+  "ocorrencias": 2051946,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 67,
+    "nome": "Juntada"
+   }
+  ]
+ },
+ "60": {
+  "nome_api": "Expedição de documento",
+  "nome_sgt": "Expedição de documento",
+  "ocorrencias": 1546356,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "132": {
+  "nome_api": "Recebimento",
+  "nome_sgt": "Recebimento",
+  "ocorrencias": 1242735,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "11383": {
+  "nome_api": "Ato ordinatório",
+  "nome_sgt": "Ato ordinatório",
+  "ocorrencias": 1209876,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12283": {
+  "nome_api": "Confirmada",
+  "nome_sgt": "Confirmada",
+  "ocorrencias": 1008986,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 12281,
+    "nome": "Comunicação eletrônica"
+   }
+  ]
+ },
+ "493": {
+  "nome_api": "Entrega em carga/vista",
+  "nome_sgt": "Entrega em carga/vista",
+  "ocorrencias": 693715,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "85": {
+  "nome_api": "Petição",
+  "nome_sgt": "Petição",
+  "ocorrencias": 567571,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 67,
+    "nome": "Juntada"
+   }
+  ]
+ },
+ "12293": {
+  "nome_api": "Ato cumprido pela parte ou interessado (sem atributo)",
+  "nome_sgt": "Ato cumprido pela parte ou interessado (sem atributo)",
+  "ocorrencias": 502955,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 12292,
+    "nome": "Ato cumprido pela parte ou interessado"
+   }
+  ]
+ },
+ "51": {
+  "nome_api": "Conclusão",
+  "nome_sgt": "Conclusão",
+  "ocorrencias": 499907,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "106": {
+  "nome_api": "Mandado",
+  "nome_sgt": "Mandado",
+  "ocorrencias": 419960,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 104,
+    "nome": "Oficial de Justiça"
+   },
+   {
+    "codigo": 105,
+    "nome": "Devolução"
+   }
+  ]
+ },
+ "123": {
+  "nome_api": "Remessa",
+  "nome_sgt": "Remessa",
+  "ocorrencias": 411942,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12266": {
+  "nome_api": "Confirmada",
+  "nome_sgt": "Confirmada",
+  "ocorrencias": 390193,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 12263,
+    "nome": "Intimação"
+   },
+   {
+    "codigo": 12264,
+    "nome": "Eletrônica"
+   }
+  ]
+ },
+ "848": {
+  "nome_api": "Trânsito em julgado",
+  "nome_sgt": "Trânsito em julgado",
+  "ocorrencias": 191007,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "11010": {
+  "nome_api": "Mero expediente",
+  "nome_sgt": "Mero expediente",
+  "ocorrencias": 133776,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 11009,
+    "nome": "Despacho"
+   }
+  ]
+ },
+ "1051": {
+  "nome_api": "Decurso de Prazo",
+  "nome_sgt": "Decurso de Prazo",
+  "ocorrencias": 122018,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "26": {
+  "nome_api": "Distribuição",
+  "nome_sgt": "Distribuição",
+  "ocorrencias": 118431,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 18,
+    "nome": "Distribuidor"
+   }
+  ]
+ },
+ "246": {
+  "nome_api": "Definitivo",
+  "nome_sgt": "Definitivo",
+  "ocorrencias": 114719,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 861,
+    "nome": "Arquivamento"
+   }
+  ]
+ },
+ "12750": {
+  "nome_api": "de Instrução e Julgamento",
+  "nome_sgt": "de Instrução e Julgamento",
+  "ocorrencias": 101003,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "12143": {
+  "nome_api": "Mudança de Assunto Processual",
+  "nome_sgt": "Mudança de Assunto Processual",
+  "ocorrencias": 100467,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "391": {
+  "nome_api": "Denúncia",
+  "nome_sgt": "Denúncia",
+  "ocorrencias": 95474,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 160,
+    "nome": "Recebimento"
+   }
+  ]
+ },
+ "135": {
+  "nome_api": "Apensamento",
+  "nome_sgt": "Apensamento",
+  "ocorrencias": 91866,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "36": {
+  "nome_api": "Redistribuição",
+  "nome_sgt": "Redistribuição",
+  "ocorrencias": 69955,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 18,
+    "nome": "Distribuidor"
+   }
+  ]
+ },
+ "14739": {
+  "nome_api": "Evolução da Classe Processual",
+  "nome_sgt": "Evolução da Classe Processual",
+  "ocorrencias": 65048,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12749": {
+  "nome_api": "de Instrução",
+  "nome_sgt": "de Instrução",
+  "ocorrencias": 59160,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "12742": {
+  "nome_api": "de Custódia",
+  "nome_sgt": "de Custódia",
+  "ocorrencias": 48214,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "12164": {
+  "nome_api": "Outras Decisões",
+  "nome_sgt": "Outras Decisões",
+  "ocorrencias": 45308,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "10966": {
+  "nome_api": "Mudança de Classe Processual",
+  "nome_sgt": "Mudança de Classe Processual",
+  "ocorrencias": 44918,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "898": {
+  "nome_api": "Por decisão judicial",
+  "nome_sgt": "Por decisão judicial",
+  "ocorrencias": 41390,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 25,
+    "nome": "Suspensão ou Sobrestamento"
+   }
+  ]
+ },
+ "12066": {
+  "nome_api": "Cumprimento de Levantamento da Suspensão ",
+  "nome_sgt": "Cumprimento de Levantamento da Suspensão",
+  "ocorrencias": 37524,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "818": {
+  "nome_api": "Liberdade provisória",
+  "nome_sgt": "Liberdade provisória",
+  "ocorrencias": 34096,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 817,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "14999": {
+  "nome_api": "Iniciada Tramitação Direta entre MP e Autoridade Policial",
+  "nome_sgt": "Iniciada Tramitação Direta entre MP e Autoridade Policial",
+  "ocorrencias": 33251,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12444": {
+  "nome_api": "deferimento",
+  "nome_sgt": "deferimento",
+  "ocorrencias": 33078,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "15000": {
+  "nome_api": "Finalizada Tramitação Direta entre MP e Autoridade Policial",
+  "nome_sgt": "Finalizada Tramitação Direta entre MP e Autoridade Policial",
+  "ocorrencias": 30747,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "219": {
+  "nome_api": "Procedência",
+  "nome_sgt": "Procedência",
+  "ocorrencias": 22362,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "12753": {
+  "nome_api": "Preliminar",
+  "nome_sgt": "Preliminar",
+  "ocorrencias": 22092,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "12387": {
+  "nome_api": "Decisão de Saneamento e Organização",
+  "nome_sgt": "Decisão de Saneamento e Organização",
+  "ocorrencias": 22070,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "12291": {
+  "nome_api": "Movimentação processual",
+  "nome_sgt": "Movimentação processual",
+  "ocorrencias": 18266,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 12289,
+    "nome": "Cancelamento"
+   }
+  ]
+ },
+ "12282": {
+  "nome_api": "Expedida/Certificada",
+  "nome_sgt": "Expedida/Certificada",
+  "ocorrencias": 16241,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 12281,
+    "nome": "Comunicação eletrônica"
+   }
+  ]
+ },
+ "1055": {
+  "nome_api": "Cadastramento",
+  "nome_sgt": "Cadastramento",
+  "ocorrencias": 15147,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 1052,
+    "nome": "Bens Apreendidos"
+   }
+  ]
+ },
+ "12430": {
+  "nome_api": "Arquivamento",
+  "nome_sgt": "Arquivamento",
+  "ocorrencias": 13409,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 1013,
+    "nome": "Determinação"
+   }
+  ]
+ },
+ "11423": {
+  "nome_api": "Medida protetiva",
+  "nome_sgt": "Medida protetiva",
+  "ocorrencias": 12848,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 817,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "12745": {
+  "nome_api": "do art. 16 da Lei 11.340",
+  "nome_sgt": "do art. 16 da Lei 11.340",
+  "ocorrencias": 11349,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "12455": {
+  "nome_api": "Indeferimento",
+  "nome_sgt": "Indeferimento",
+  "ocorrencias": 11033,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "220": {
+  "nome_api": "Improcedência",
+  "nome_sgt": "Improcedência",
+  "ocorrencias": 10442,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "12548": {
+  "nome_api": "Expedição de alvará de levantamento",
+  "nome_sgt": "Expedição de alvará de levantamento",
+  "ocorrencias": 10058,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 11009,
+    "nome": "Despacho"
+   }
+  ]
+ },
+ "14736": {
+  "nome_api": "Inclusão no Juízo 100% Digital",
+  "nome_sgt": "Inclusão no Juízo 100% Digital",
+  "ocorrencias": 9585,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12648": {
+  "nome_api": "Determinação de Diligência",
+  "nome_sgt": "Determinação de Diligência",
+  "ocorrencias": 9408,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 1013,
+    "nome": "Determinação"
+   }
+  ]
+ },
+ "394": {
+  "nome_api": "Com efeito suspensivo",
+  "nome_sgt": "Com efeito suspensivo",
+  "ocorrencias": 7469,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 160,
+    "nome": "Recebimento"
+   },
+   {
+    "codigo": 1060,
+    "nome": "Recurso"
+   }
+  ]
+ },
+ "12185": {
+  "nome_api": "Decisão Interlocutória de Mérito",
+  "nome_sgt": "Decisão Interlocutória de Mérito",
+  "ocorrencias": 7380,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "12303": {
+  "nome_api": "Defensor Dativo",
+  "nome_sgt": "Defensor Dativo",
+  "ocorrencias": 7260,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 12300,
+    "nome": "Nomeação"
+   }
+  ]
+ },
+ "849": {
+  "nome_api": "Reativação",
+  "nome_sgt": "Reativação",
+  "ocorrencias": 6405,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "982": {
+  "nome_api": "Remessa",
+  "nome_sgt": "Remessa",
+  "ocorrencias": 5888,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 18,
+    "nome": "Distribuidor"
+   }
+  ]
+ },
+ "14738": {
+  "nome_api": "Retificação de Classe Processual",
+  "nome_sgt": "Retificação de Classe Processual",
+  "ocorrencias": 5765,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12140": {
+  "nome_api": "Prisão em Flagrante em Prisão Preventiva",
+  "nome_sgt": "Prisão em Flagrante em Prisão Preventiva",
+  "ocorrencias": 5516,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 7,
+    "nome": "Conversão"
+   }
+  ]
+ },
+ "14702": {
+  "nome_api": "Incidente ou Cautelar - Procedimento Resolvido",
+  "nome_sgt": "Incidente ou Cautelar - Procedimento Resolvido",
+  "ocorrencias": 5497,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "221": {
+  "nome_api": "Procedência em Parte",
+  "nome_sgt": "Procedência em Parte",
+  "ocorrencias": 5492,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "11879": {
+  "nome_api": "Decadência ou perempção",
+  "nome_sgt": "Decadência ou perempção",
+  "ocorrencias": 5480,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "1063": {
+  "nome_api": "Determinação de arquivamento de procedimentos investigatórios",
+  "nome_sgt": "Determinação de arquivamento de procedimentos investigatórios",
+  "ocorrencias": 5232,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 1013,
+    "nome": "Determinação"
+   }
+  ]
+ },
+ "1053": {
+  "nome_api": "Destinação",
+  "nome_sgt": "Destinação",
+  "ocorrencias": 5201,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 1052,
+    "nome": "Bens Apreendidos"
+   }
+  ]
+ },
+ "11426": {
+  "nome_api": "Medida protetiva",
+  "nome_sgt": "Medida protetiva",
+  "ocorrencias": 4939,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "175": {
+  "nome_api": "Prisão em flagrante",
+  "nome_sgt": "Prisão em flagrante",
+  "ocorrencias": 4838,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 378,
+    "nome": "Homologação"
+   }
+  ]
+ },
+ "11878": {
+  "nome_api": "Prescrição",
+  "nome_sgt": "Prescrição",
+  "ocorrencias": 4496,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "941": {
+  "nome_api": "Incompetência",
+  "nome_sgt": "Incompetência",
+  "ocorrencias": 4172,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 11,
+    "nome": "Declaração"
+   }
+  ]
+ },
+ "137": {
+  "nome_api": "Desapensamento",
+  "nome_sgt": "Desapensamento",
+  "ocorrencias": 3728,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "402": {
+  "nome_api": "Denúncia",
+  "nome_sgt": "Denúncia",
+  "ocorrencias": 3381,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 138,
+    "nome": "Rejeição"
+   }
+  ]
+ },
+ "893": {
+  "nome_api": "Desarquivamento",
+  "nome_sgt": "Desarquivamento",
+  "ocorrencias": 3332,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "1054": {
+  "nome_api": "Destinação Parcial",
+  "nome_sgt": "Destinação Parcial",
+  "ocorrencias": 3232,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 1052,
+    "nome": "Bens Apreendidos"
+   }
+  ]
+ },
+ "12295": {
+  "nome_api": "Depósito de Bens/Dinheiro",
+  "nome_sgt": "Depósito de Bens/Dinheiro",
+  "ocorrencias": 3187,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 12292,
+    "nome": "Ato cumprido pela parte ou interessado"
+   }
+  ]
+ },
+ "15032": {
+  "nome_api": "Manutenção da Prisão Preventiva",
+  "nome_sgt": "Manutenção da Prisão Preventiva",
+  "ocorrencias": 3096,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 108,
+    "nome": "Decretação de Prisão Criminal"
+   }
+  ]
+ },
+ "1059": {
+  "nome_api": "Sem efeito suspensivo",
+  "nome_sgt": "Sem efeito suspensivo",
+  "ocorrencias": 2730,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 160,
+    "nome": "Recebimento"
+   },
+   {
+    "codigo": 1060,
+    "nome": "Recurso"
+   }
+  ]
+ },
+ "263": {
+  "nome_api": "Réu revel citado por edital ",
+  "nome_sgt": "Réu revel citado por edital",
+  "ocorrencias": 2498,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 25,
+    "nome": "Suspensão ou Sobrestamento"
+   }
+  ]
+ },
+ "461": {
+  "nome_api": "Ausência das condições da ação",
+  "nome_sgt": "Ausência das condições da ação",
+  "ocorrencias": 2403,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 218,
+    "nome": "Sem Resolução de Mérito"
+   },
+   {
+    "codigo": 456,
+    "nome": "Extinção"
+   }
+  ]
+ },
+ "12743": {
+  "nome_api": "de Interrogatório",
+  "nome_sgt": "de Interrogatório",
+  "ocorrencias": 2306,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "128": {
+  "nome_api": "Prisão",
+  "nome_sgt": "Prisão",
+  "ocorrencias": 2274,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "11008": {
+  "nome_api": "Desmembramento de Feitos",
+  "nome_sgt": "Desmembramento de Feitos",
+  "ocorrencias": 2098,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "388": {
+  "nome_api": "Aditamento da denúncia",
+  "nome_sgt": "Aditamento da denúncia",
+  "ocorrencias": 2086,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 160,
+    "nome": "Recebimento"
+   }
+  ]
+ },
+ "14733": {
+  "nome_api": "Prorrogação de Medida Protetiva",
+  "nome_sgt": "Prorrogação de Medida Protetiva",
+  "ocorrencias": 2043,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "1042": {
+  "nome_api": "Morte do agente",
+  "nome_sgt": "Morte do agente",
+  "ocorrencias": 2005,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "313": {
+  "nome_api": "Sessão do Tribunal do Júri",
+  "nome_sgt": "Sessão do Tribunal do Júri",
+  "ocorrencias": 1827,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "11022": {
+  "nome_api": "Julgamento em Diligência",
+  "nome_sgt": "Julgamento em Diligência",
+  "ocorrencias": 1773,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 11009,
+    "nome": "Despacho"
+   },
+   {
+    "codigo": 11021,
+    "nome": "Conversão"
+   }
+  ]
+ },
+ "11424": {
+  "nome_api": "Medida protetiva",
+  "nome_sgt": "Medida protetiva",
+  "ocorrencias": 1682,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 888,
+    "nome": "Concessão em parte"
+   }
+  ]
+ },
+ "787": {
+  "nome_api": "Gratuidade da Justiça",
+  "nome_sgt": "Gratuidade da Justiça",
+  "ocorrencias": 1406,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 817,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "12741": {
+  "nome_api": "de Acolhimento",
+  "nome_sgt": "de Acolhimento",
+  "ocorrencias": 1268,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "1046": {
+  "nome_api": "Renúncia do queixoso ou perdão aceito ",
+  "nome_sgt": "Renúncia do queixoso ou perdão aceito",
+  "ocorrencias": 1119,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "12307": {
+  "nome_api": "Decretação de revelia",
+  "nome_sgt": "Decretação de revelia",
+  "ocorrencias": 1116,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "11425": {
+  "nome_api": "Medida protetiva",
+  "nome_sgt": "Medida protetiva",
+  "ocorrencias": 1007,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 968,
+    "nome": "Não-Concessão"
+   }
+  ]
+ },
+ "198": {
+  "nome_api": "Acolhimento de Embargos de Declaração",
+  "nome_sgt": "Acolhimento de Embargos de Declaração",
+  "ocorrencias": 947,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "11020": {
+  "nome_api": "Requisição de Informações",
+  "nome_sgt": "Requisição de Informações",
+  "ocorrencias": 892,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 11009,
+    "nome": "Despacho"
+   }
+  ]
+ },
+ "12146": {
+  "nome_api": "Liberdade Provisória",
+  "nome_sgt": "Liberdade Provisória",
+  "ocorrencias": 860,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 968,
+    "nome": "Não-Concessão"
+   }
+  ]
+ },
+ "12747": {
+  "nome_api": "Inicial",
+  "nome_sgt": "Inicial",
+  "ocorrencias": 838,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "11411": {
+  "nome_api": "Cumprimento da suspensão condicional do processo",
+  "nome_sgt": "Cumprimento da suspensão condicional do processo",
+  "ocorrencias": 784,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "12740": {
+  "nome_api": "de Conciliação",
+  "nome_sgt": "de Conciliação",
+  "ocorrencias": 767,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "1047": {
+  "nome_api": "Retratação do agente",
+  "nome_sgt": "Retratação do agente",
+  "ocorrencias": 737,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "14737": {
+  "nome_api": "Exclusão do Juízo 100% Digital",
+  "nome_sgt": "Exclusão do Juízo 100% Digital",
+  "ocorrencias": 701,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "10953": {
+  "nome_api": "Pronúncia",
+  "nome_sgt": "Pronúncia",
+  "ocorrencias": 670,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 218,
+    "nome": "Sem Resolução de Mérito"
+   }
+  ]
+ },
+ "11019": {
+  "nome_api": "Ordenação de entrega de autos",
+  "nome_sgt": "Ordenação de entrega de autos",
+  "ocorrencias": 577,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 11009,
+    "nome": "Despacho"
+   }
+  ]
+ },
+ "12141": {
+  "nome_api": "Relaxamento do Flagrante",
+  "nome_sgt": "Relaxamento do Flagrante",
+  "ocorrencias": 554,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "245": {
+  "nome_api": "Provisório",
+  "nome_sgt": "Provisório",
+  "ocorrencias": 545,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 861,
+    "nome": "Arquivamento"
+   }
+  ]
+ },
+ "264": {
+  "nome_api": "Suspensão Condicional do Processo",
+  "nome_sgt": "Suspensão Condicional do Processo",
+  "ocorrencias": 542,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 25,
+    "nome": "Suspensão ou Sobrestamento"
+   }
+  ]
+ },
+ "12744": {
+  "nome_api": "de Justificação",
+  "nome_sgt": "de Justificação",
+  "ocorrencias": 542,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "15086": {
+  "nome_api": "Deferimento em Parte",
+  "nome_sgt": "Deferimento em Parte",
+  "ocorrencias": 470,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "15188": {
+  "nome_api": "Audiência de Depoimento Especial",
+  "nome_sgt": "Audiência de Depoimento Especial",
+  "ocorrencias": 466,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "460": {
+  "nome_api": "Perempção, litispendência ou coisa julgada",
+  "nome_sgt": "Perempção, litispendência ou coisa julgada",
+  "ocorrencias": 456,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 218,
+    "nome": "Sem Resolução de Mérito"
+   },
+   {
+    "codigo": 456,
+    "nome": "Extinção"
+   }
+  ]
+ },
+ "200": {
+  "nome_api": "Não-Acolhimento de Embargos de Declaração",
+  "nome_sgt": "Não-Acolhimento de Embargos de Declaração",
+  "ocorrencias": 422,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "1050": {
+  "nome_api": "Cumprimento da Pena",
+  "nome_sgt": "Cumprimento da Pena",
+  "ocorrencias": 399,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "945": {
+  "nome_api": "Decisão anterior",
+  "nome_sgt": "Decisão anterior",
+  "ocorrencias": 373,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "471": {
+  "nome_api": "Pronúncia de Decadência ou Prescrição",
+  "nome_sgt": "Pronúncia de Decadência ou Prescrição",
+  "ocorrencias": 352,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "12739": {
+  "nome_api": "Admonitória",
+  "nome_sgt": "Admonitória",
+  "ocorrencias": 347,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "11876": {
+  "nome_api": "Absolvição Sumária do art. 397-CPP",
+  "nome_sgt": "Absolvição Sumária do art. 397-CPP",
+  "ocorrencias": 347,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "463": {
+  "nome_api": "Desistência",
+  "nome_sgt": "Desistência",
+  "ocorrencias": 341,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 218,
+    "nome": "Sem Resolução de Mérito"
+   },
+   {
+    "codigo": 456,
+    "nome": "Extinção"
+   }
+  ]
+ },
+ "12472": {
+  "nome_api": "Devolução dos autos à origem ",
+  "nome_sgt": "Devolução dos autos à origem",
+  "ocorrencias": 312,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 1013,
+    "nome": "Determinação"
+   }
+  ]
+ },
+ "11024": {
+  "nome_api": "Assistência Judiciária Gratuita",
+  "nome_sgt": "Assistência Judiciária Gratuita",
+  "ocorrencias": 302,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 11009,
+    "nome": "Despacho"
+   },
+   {
+    "codigo": 11023,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "12646": {
+  "nome_api": "Determinada a Redistribuição",
+  "nome_sgt": "Determinada a Redistribuição",
+  "ocorrencias": 302,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 1013,
+    "nome": "Determinação"
+   }
+  ]
+ },
+ "15162": {
+  "nome_api": "Acolhimento de Embargos de Declaração",
+  "nome_sgt": "Acolhimento de Embargos de Declaração",
+  "ocorrencias": 297,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "459": {
+  "nome_api": "Ausência de pressupostos processuais",
+  "nome_sgt": "Ausência de pressupostos processuais",
+  "ocorrencias": 277,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 218,
+    "nome": "Sem Resolução de Mérito"
+   },
+   {
+    "codigo": 456,
+    "nome": "Extinção"
+   }
+  ]
+ },
+ "15102": {
+  "nome_api": "Sessão Restaurativa",
+  "nome_sgt": "Sessão Restaurativa",
+  "ocorrencias": 273,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12737": {
+  "nome_api": "Revogação da Suspensão Condicional do Processo",
+  "nome_sgt": "Revogação da Suspensão Condicional do Processo",
+  "ocorrencias": 272,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "381": {
+  "nome_api": "Recurso",
+  "nome_sgt": "Recurso",
+  "ocorrencias": 256,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 151,
+    "nome": "Concessão de efeito suspensivo"
+   }
+  ]
+ },
+ "146": {
+  "nome_api": "Não-Homologação de prisão em flagrante",
+  "nome_sgt": "Não-Homologação de prisão em flagrante",
+  "ocorrencias": 207,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "393": {
+  "nome_api": "Queixa",
+  "nome_sgt": "Queixa",
+  "ocorrencias": 202,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 160,
+    "nome": "Recebimento"
+   }
+  ]
+ },
+ "455": {
+  "nome_api": "Renúncia ao direito pelo autor",
+  "nome_sgt": "Renúncia ao direito pelo autor",
+  "ocorrencias": 201,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "83": {
+  "nome_api": "Cancelamento da distribuição",
+  "nome_sgt": "Cancelamento da distribuição",
+  "ocorrencias": 197,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "804": {
+  "nome_api": "Recurso",
+  "nome_sgt": "Recurso",
+  "ocorrencias": 191,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 163,
+    "nome": "Não-Recebimento"
+   }
+  ]
+ },
+ "944": {
+  "nome_api": "Desistência de Recurso",
+  "nome_sgt": "Desistência de Recurso",
+  "ocorrencias": 187,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 378,
+    "nome": "Homologação"
+   }
+  ]
+ },
+ "12467": {
+  "nome_api": "Desistência de pedido",
+  "nome_sgt": "Desistência de pedido",
+  "ocorrencias": 184,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 378,
+    "nome": "Homologação"
+   }
+  ]
+ },
+ "15164": {
+  "nome_api": "Não Acolhimento de Embargos de Declaração",
+  "nome_sgt": "Não Acolhimento de Embargos de Declaração",
+  "ocorrencias": 169,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "190": {
+  "nome_api": "Reforma de decisão anterior",
+  "nome_sgt": "Reforma de decisão anterior",
+  "ocorrencias": 168,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "272": {
+  "nome_api": "A depender do julgamento de outra causa, de outro juízo ou declaração incidente",
+  "nome_sgt": "A depender do julgamento de outra causa, de outro juízo ou declaração incidente",
+  "ocorrencias": 165,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 25,
+    "nome": "Suspensão ou Sobrestamento"
+   }
+  ]
+ },
+ "488": {
+  "nome_api": "Cancelamento de Distribuição",
+  "nome_sgt": "Cancelamento de Distribuição",
+  "ocorrencias": 143,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 18,
+    "nome": "Distribuidor"
+   }
+  ]
+ },
+ "12151": {
+  "nome_api": "Suspeição",
+  "nome_sgt": "Suspeição",
+  "ocorrencias": 141,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 11,
+    "nome": "Declaração"
+   }
+  ]
+ },
+ "12614": {
+  "nome_api": "Remessa para o CEJUSC ou Centros de Conciliação/Mediação",
+  "nome_sgt": "Remessa para o CEJUSC ou Centros de Conciliação/Mediação",
+  "ocorrencias": 139,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "12619": {
+  "nome_api": "Recebimento do CEJUSC ou Centros de Conciliação/Mediação",
+  "nome_sgt": "Recebimento do CEJUSC ou Centros de Conciliação/Mediação",
+  "ocorrencias": 139,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "1043": {
+  "nome_api": "Anistia, graça ou indulto",
+  "nome_sgt": "Anistia, graça ou indulto",
+  "ocorrencias": 131,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "12065": {
+  "nome_api": "Cumprimento de Suspensão ou Sobrestamento",
+  "nome_sgt": "Cumprimento de Suspensão ou Sobrestamento",
+  "ocorrencias": 128,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "961": {
+  "nome_api": "Suscitação de Conflito de Competência",
+  "nome_sgt": "Suscitação de Conflito de Competência",
+  "ocorrencias": 123,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "11002": {
+  "nome_api": "Revogação da Suspensão do Processo",
+  "nome_sgt": "Revogação da Suspensão do Processo",
+  "ocorrencias": 109,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "12621": {
+  "nome_api": "Recebimento no CEJUSC ou Centros de Conciliação/Mediação",
+  "nome_sgt": "Recebimento no CEJUSC ou Centros de Conciliação/Mediação",
+  "ocorrencias": 108,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "404": {
+  "nome_api": "Queixa",
+  "nome_sgt": "Queixa",
+  "ocorrencias": 107,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 138,
+    "nome": "Rejeição"
+   }
+  ]
+ },
+ "11877": {
+  "nome_api": "Absolvição sumária - crimes dolosos contra a vida",
+  "nome_sgt": "Absolvição sumária - crimes dolosos contra a vida",
+  "ocorrencias": 99,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "12459": {
+  "nome_api": "Prejudicado",
+  "nome_sgt": "Prejudicado",
+  "ocorrencias": 97,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 218,
+    "nome": "Sem Resolução de Mérito"
+   }
+  ]
+ },
+ "339": {
+  "nome_api": "Liminar",
+  "nome_sgt": "Liminar",
+  "ocorrencias": 91,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 817,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "12735": {
+  "nome_api": "Extinção de Punibilidade em Razão do Cumprimento de Acordo de Não Persecução Penal",
+  "nome_sgt": "Cumprimento de ANPP",
+  "ocorrencias": 91,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "1044": {
+  "nome_api": "Retroatividade de lei",
+  "nome_sgt": "Retroatividade de lei",
+  "ocorrencias": 90,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "12752": {
+  "nome_api": "de Mediação",
+  "nome_sgt": "de Mediação",
+  "ocorrencias": 88,
+  "caminho": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ },
+ "871": {
+  "nome_api": "Acolhimento em parte de Embargos de Declaração",
+  "nome_sgt": "Acolhimento em parte de Embargos de Declaração",
+  "ocorrencias": 86,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "237": {
+  "nome_api": "Provimento",
+  "nome_sgt": "Provimento",
+  "ocorrencias": 85,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   }
+  ]
+ },
+ "371": {
+  "nome_api": "Incompetência",
+  "nome_sgt": "Incompetência",
+  "ocorrencias": 84,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 133,
+    "nome": "Acolhimento de exceção"
+   }
+  ]
+ },
+ "1049": {
+  "nome_api": "Pagamento integral do débito",
+  "nome_sgt": "Pagamento integral do débito",
+  "ocorrencias": 80,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 193,
+    "nome": "Julgamento"
+   },
+   {
+    "codigo": 385,
+    "nome": "Com Resolução do Mérito"
+   },
+   {
+    "codigo": 973,
+    "nome": "Extinção da Punibilidade ou da Pena"
+   }
+  ]
+ },
+ "12150": {
+  "nome_api": "Impedimento",
+  "nome_sgt": "Impedimento",
+  "ocorrencias": 79,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 11,
+    "nome": "Declaração"
+   }
+  ]
+ },
+ "12306": {
+  "nome_api": "Perito",
+  "nome_sgt": "Perito",
+  "ocorrencias": 79,
+  "caminho": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 12300,
+    "nome": "Nomeação"
+   }
+  ]
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "numeros_invalidos": 0,
+ "relacao_ano_numero_x_ajuizamento": {
+  "2019|carta|outro": {
+   "mesmo_ano": 3528
+  },
+  "2019|mpu|Documento(581)": {
+   "mesmo_ano": 3
+  },
+  "2019|mpu|outro": {
+   "mesmo_ano": 3168
+  },
+  "2019|outros|Documento(581)": {
+   "mesmo_ano": 5
+  },
+  "2019|outros|outro": {
+   "mesmo_ano": 1230
+  },
+  "2019|principal|Documento(581)": {
+   "mesmo_ano": 5048
+  },
+  "2019|principal|outro": {
+   "mesmo_ano": 11974
+  },
+  "2020|carta|outro": {
+   "mesmo_ano": 9605
+  },
+  "2020|mpu|outro": {
+   "mesmo_ano": 2438
+  },
+  "2020|outros|Documento(581)": {
+   "mesmo_ano": 2
+  },
+  "2020|outros|outro": {
+   "mesmo_ano": 1998
+  },
+  "2020|principal|Documento(581)": {
+   "mesmo_ano": 3854
+  },
+  "2020|principal|outro": {
+   "mesmo_ano": 6869
+  },
+  "2021|carta|outro": {
+   "mesmo_ano": 1493
+  },
+  "2021|mpu|outro": {
+   "mesmo_ano": 2283
+  },
+  "2021|outros|Documento(581)": {
+   "mesmo_ano": 1
+  },
+  "2021|outros|outro": {
+   "mesmo_ano": 1901
+  },
+  "2021|principal|outro": {
+   "mesmo_ano": 9442
+  },
+  "2022|carta|outro": {
+   "mesmo_ano": 1332
+  },
+  "2022|mpu|outro": {
+   "mesmo_ano": 2344
+  },
+  "2022|outros|outro": {
+   "mesmo_ano": 2021
+  },
+  "2022|principal|outro": {
+   "mesmo_ano": 8795
+  },
+  "2023|carta|outro": {
+   "mesmo_ano": 1486
+  },
+  "2023|mpu|outro": {
+   "mesmo_ano": 2437
+  },
+  "2023|outros|outro": {
+   "mesmo_ano": 2613
+  },
+  "2023|principal|outro": {
+   "mesmo_ano": 9487
+  },
+  "2024|carta|outro": {
+   "mesmo_ano": 1710
+  },
+  "2024|mpu|outro": {
+   "mesmo_ano": 2444
+  },
+  "2024|outros|outro": {
+   "mesmo_ano": 3036
+  },
+  "2024|principal|outro": {
+   "mesmo_ano": 10441
+  },
+  "2025|carta|outro": {
+   "mesmo_ano": 1803
+  },
+  "2025|mpu|outro": {
+   "mesmo_ano": 2458
+  },
+  "2025|outros|outro": {
+   "mesmo_ano": 3739
+  },
+  "2025|principal|outro": {
+   "mesmo_ano": 11507
+  }
+ },
+ "anos_de_diferenca_quando_anterior": {}
+}

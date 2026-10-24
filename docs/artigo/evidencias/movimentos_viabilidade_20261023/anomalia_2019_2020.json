@@ -1,0 +1,510 @@
+{
+ "por_mes": {
+  "2019-01": {
+   "principal": 1506,
+   "mpu": 287,
+   "carta": 76,
+   "outros": 66
+  },
+  "2019-02": {
+   "principal": 1563,
+   "outros": 73,
+   "mpu": 166,
+   "carta": 81
+  },
+  "2019-03": {
+   "principal": 1558,
+   "outros": 91,
+   "mpu": 239,
+   "carta": 102
+  },
+  "2019-04": {
+   "principal": 1598,
+   "mpu": 266,
+   "carta": 108,
+   "outros": 90
+  },
+  "2019-05": {
+   "principal": 1779,
+   "outros": 113,
+   "carta": 164,
+   "mpu": 225
+  },
+  "2019-06": {
+   "principal": 1332,
+   "carta": 153,
+   "mpu": 231,
+   "outros": 99
+  },
+  "2019-07": {
+   "principal": 1746,
+   "mpu": 289,
+   "outros": 114,
+   "carta": 275
+  },
+  "2019-08": {
+   "carta": 318,
+   "principal": 1404,
+   "mpu": 292,
+   "outros": 109
+  },
+  "2019-09": {
+   "principal": 1347,
+   "carta": 348,
+   "mpu": 286,
+   "outros": 138
+  },
+  "2019-10": {
+   "principal": 1275,
+   "carta": 527,
+   "mpu": 344,
+   "outros": 111
+  },
+  "2019-11": {
+   "principal": 990,
+   "carta": 642,
+   "mpu": 294,
+   "outros": 133
+  },
+  "2019-12": {
+   "principal": 924,
+   "mpu": 252,
+   "carta": 734,
+   "outros": 98
+  },
+  "2020-01": {
+   "principal": 1063,
+   "carta": 1147,
+   "mpu": 319,
+   "outros": 153
+  },
+  "2020-02": {
+   "carta": 1173,
+   "principal": 882,
+   "mpu": 261,
+   "outros": 117
+  },
+  "2020-03": {
+   "mpu": 201,
+   "carta": 1223,
+   "principal": 945,
+   "outros": 209
+  },
+  "2020-04": {
+   "principal": 848,
+   "carta": 931,
+   "mpu": 144,
+   "outros": 135
+  },
+  "2020-05": {
+   "principal": 842,
+   "carta": 777,
+   "mpu": 143,
+   "outros": 152
+  },
+  "2020-06": {
+   "mpu": 120,
+   "principal": 818,
+   "carta": 614,
+   "outros": 176
+  },
+  "2020-07": {
+   "principal": 885,
+   "carta": 626,
+   "mpu": 149,
+   "outros": 158
+  },
+  "2020-08": {
+   "principal": 802,
+   "outros": 183,
+   "carta": 485,
+   "mpu": 190
+  },
+  "2020-09": {
+   "principal": 914,
+   "carta": 645,
+   "mpu": 241,
+   "outros": 157
+  },
+  "2020-10": {
+   "carta": 777,
+   "principal": 982,
+   "mpu": 234,
+   "outros": 191
+  },
+  "2020-11": {
+   "principal": 845,
+   "mpu": 225,
+   "carta": 727,
+   "outros": 157
+  },
+  "2020-12": {
+   "principal": 897,
+   "carta": 480,
+   "mpu": 211,
+   "outros": 212
+  },
+  "2021-01": {
+   "principal": 861,
+   "mpu": 209,
+   "outros": 165,
+   "carta": 221
+  },
+  "2021-02": {
+   "carta": 167,
+   "principal": 728,
+   "outros": 182,
+   "mpu": 185
+  },
+  "2021-03": {
+   "principal": 779,
+   "mpu": 188,
+   "outros": 197,
+   "carta": 160
+  },
+  "2021-04": {
+   "principal": 836,
+   "mpu": 193,
+   "outros": 127,
+   "carta": 101
+  },
+  "2021-05": {
+   "mpu": 151,
+   "principal": 725,
+   "carta": 92,
+   "outros": 157
+  },
+  "2021-06": {
+   "principal": 586,
+   "outros": 162,
+   "mpu": 157,
+   "carta": 93
+  },
+  "2021-07": {
+   "principal": 768,
+   "mpu": 180,
+   "outros": 174,
+   "carta": 140
+  },
+  "2021-08": {
+   "principal": 795,
+   "outros": 156,
+   "mpu": 223,
+   "carta": 120
+  },
+  "2021-09": {
+   "principal": 793,
+   "mpu": 185,
+   "carta": 118,
+   "outros": 141
+  },
+  "2021-10": {
+   "outros": 138,
+   "principal": 771,
+   "mpu": 202,
+   "carta": 115
+  },
+  "2021-11": {
+   "outros": 159,
+   "principal": 842,
+   "mpu": 191,
+   "carta": 91
+  },
+  "2021-12": {
+   "principal": 958,
+   "outros": 144,
+   "mpu": 219,
+   "carta": 75
+  }
+ },
+ "assuntos_cartas_2020": [
+  [
+   5560,
+   5067
+  ],
+  [
+   3402,
+   2320
+  ],
+  [
+   10949,
+   2200
+  ],
+  [
+   12194,
+   2170
+  ],
+  [
+   3386,
+   415
+  ],
+  [
+   3397,
+   378
+  ],
+  [
+   12091,
+   332
+  ],
+  [
+   14227,
+   267
+  ]
+ ],
+ "orgaos_top": {
+  "principal_2019": [
+   [
+    "FOZ DO IGUAÇU - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    1187
+   ],
+   [
+    "CASCAVEL - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    985
+   ],
+   [
+    "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    964
+   ],
+   [
+    "SÃO JOSÉ DOS PINHAIS - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    580
+   ],
+   [
+    "PONTA GROSSA - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    436
+   ],
+   [
+    "LONDRINA - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    378
+   ],
+   [
+    "CURITIBA - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",
+    375
+   ],
+   [
+    "LONDRINA - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    343
+   ]
+  ],
+  "carta_2020": [
+   [
+    "CURITIBA - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",
+    511
+   ],
+   [
+    "CURITIBA - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",
+    485
+   ],
+   [
+    "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    387
+   ],
+   [
+    "PINHAIS - VARA CRIMINAL",
+    345
+   ],
+   [
+    "CASCAVEL - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    337
+   ],
+   [
+    "CURITIBA - 3º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER  CASA DA MULHER BRASILEIRA",
+    270
+   ],
+   [
+    "SÃO JOSÉ DOS PINHAIS - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    265
+   ],
+   [
+    "FOZ DO IGUAÇU - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+    232
+   ]
+  ]
+ },
+ "primeiro_movimento": {
+  "carta_2019": [
+   [
+    85,
+    3528
+   ]
+  ],
+  "carta_2020": [
+   [
+    85,
+    9605
+   ]
+  ],
+  "carta_2021": [
+   [
+    85,
+    1492
+   ],
+   [
+    60,
+    1
+   ]
+  ],
+  "mpu_2019": [
+   [
+    85,
+    3108
+   ],
+   [
+    581,
+    42
+   ],
+   [
+    60,
+    8
+   ],
+   [
+    11008,
+    8
+   ]
+  ],
+  "mpu_2020": [
+   [
+    85,
+    2421
+   ],
+   [
+    123,
+    8
+   ],
+   [
+    11008,
+    5
+   ],
+   [
+    581,
+    2
+   ]
+  ],
+  "mpu_2021": [
+   [
+    85,
+    2263
+   ],
+   [
+    123,
+    7
+   ],
+   [
+    581,
+    7
+   ],
+   [
+    60,
+    4
+   ]
+  ],
+  "outros_2019": [
+   [
+    85,
+    1218
+   ],
+   [
+    581,
+    5
+   ],
+   [
+    11008,
+    5
+   ],
+   [
+    60,
+    4
+   ]
+  ],
+  "outros_2020": [
+   [
+    85,
+    1972
+   ],
+   [
+    11008,
+    11
+   ],
+   [
+    581,
+    8
+   ],
+   [
+    60,
+    4
+   ]
+  ],
+  "outros_2021": [
+   [
+    85,
+    1856
+   ],
+   [
+    11008,
+    33
+   ],
+   [
+    581,
+    7
+   ],
+   [
+    123,
+    4
+   ]
+  ],
+  "principal_2019": [
+   [
+    85,
+    11939
+   ],
+   [
+    581,
+    5056
+   ],
+   [
+    123,
+    12
+   ],
+   [
+    11008,
+    10
+   ]
+  ],
+  "principal_2020": [
+   [
+    85,
+    6833
+   ],
+   [
+    581,
+    3864
+   ],
+   [
+    11008,
+    11
+   ],
+   [
+    123,
+    9
+   ]
+  ],
+  "principal_2021": [
+   [
+    85,
+    9401
+   ],
+   [
+    123,
+    19
+   ],
+   [
+    581,
+    10
+   ],
+   [
+    11008,
+    5
+   ]
+  ]
+ }
+}

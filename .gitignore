@@ -11,3 +11,4 @@ outputs/pilot/*.json
 outputs/pilot/*.csv
 .superpowers/sdd/
 work/sinan/
+work/analise/

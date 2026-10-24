@@ -1,0 +1,358 @@
+{
+ "definicoes": {
+  "julgamento_codigos": [
+   219,
+   220,
+   221,
+   455,
+   459,
+   460,
+   461,
+   463,
+   471,
+   1042,
+   1043,
+   1044,
+   1046,
+   1047,
+   1049,
+   1050,
+   11411,
+   11876,
+   11877,
+   11878,
+   11879,
+   12735
+  ],
+  "arquivamento_definitivo_codigos": [
+   246
+  ],
+  "baixa_definitiva_codigos": [],
+  "transito": [
+   848
+  ],
+  "reabertura": [
+   849,
+   893
+  ],
+  "fim": "primeiro arquivamento definitivo ou baixa definitiva; sem fim = censurado na data da coleta (18/10/2026)"
+ },
+ "qualidade_datas": {
+  "registros": 132495,
+  "movimentos": 12526626,
+  "mov_sem_data": 0,
+  "mov_antes_ajuizamento": 24
+ },
+ "eventos_por_tipo_e_serie": {
+  "cooperacao_carta|ampliada_apenas": {
+   "n": 6694,
+   "com_arquivamento_definitivo": 6693,
+   "com_julgamento": 0,
+   "com_transito": 0,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 163,
+   "pct_arquivamento_definitivo": 100.0,
+   "pct_julgamento": 0.0,
+   "pct_transito": 0.0,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 2.4
+  },
+  "cooperacao_carta|estrita": {
+   "n": 14263,
+   "com_arquivamento_definitivo": 14138,
+   "com_julgamento": 2,
+   "com_transito": 1,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 777,
+   "pct_arquivamento_definitivo": 99.1,
+   "pct_julgamento": 0.0,
+   "pct_transito": 0.0,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 5.4
+  },
+  "incidente_cautelar|ampliada_apenas": {
+   "n": 1658,
+   "com_arquivamento_definitivo": 1614,
+   "com_julgamento": 41,
+   "com_transito": 81,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 95,
+   "pct_arquivamento_definitivo": 97.3,
+   "pct_julgamento": 2.5,
+   "pct_transito": 4.9,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 5.7
+  },
+  "incidente_cautelar|estrita": {
+   "n": 14296,
+   "com_arquivamento_definitivo": 13441,
+   "com_julgamento": 368,
+   "com_transito": 565,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 1029,
+   "pct_arquivamento_definitivo": 94.0,
+   "pct_julgamento": 2.6,
+   "pct_transito": 4.0,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 7.2
+  },
+  "medida_protetiva|estrita": {
+   "n": 17575,
+   "com_arquivamento_definitivo": 16327,
+   "com_julgamento": 2871,
+   "com_transito": 748,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 1936,
+   "pct_arquivamento_definitivo": 92.9,
+   "pct_julgamento": 16.3,
+   "pct_transito": 4.3,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 11.0
+  },
+  "outros|ampliada_apenas": {
+   "n": 43,
+   "com_arquivamento_definitivo": 38,
+   "com_julgamento": 5,
+   "com_transito": 4,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 3,
+   "pct_arquivamento_definitivo": 88.4,
+   "pct_julgamento": 11.6,
+   "pct_transito": 9.3,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 7.0
+  },
+  "outros|estrita": {
+   "n": 549,
+   "com_arquivamento_definitivo": 463,
+   "com_julgamento": 93,
+   "com_transito": 124,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 41,
+   "pct_arquivamento_definitivo": 84.3,
+   "pct_julgamento": 16.9,
+   "pct_transito": 22.6,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 7.5
+  },
+  "principal|ampliada_apenas": {
+   "n": 4230,
+   "com_arquivamento_definitivo": 3867,
+   "com_julgamento": 2656,
+   "com_transito": 2509,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 351,
+   "pct_arquivamento_definitivo": 91.4,
+   "pct_julgamento": 62.8,
+   "pct_transito": 59.3,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 8.3
+  },
+  "principal|estrita": {
+   "n": 73187,
+   "com_arquivamento_definitivo": 49163,
+   "com_julgamento": 47973,
+   "com_transito": 47196,
+   "com_baixa_definitiva": 0,
+   "com_reabertura": 4058,
+   "pct_arquivamento_definitivo": 67.2,
+   "pct_julgamento": 65.5,
+   "pct_transito": 64.5,
+   "pct_baixa_definitiva": 0.0,
+   "pct_reabertura": 5.5
+  }
+ },
+ "km_por_tipo": {
+  "principal": {
+   "mediana_dias": 1037,
+   "encerrados_ate_1a": 0.151,
+   "ate_2a": 0.338,
+   "ate_3a": 0.532,
+   "n": 77417,
+   "eventos": 53030
+  },
+  "medida_protetiva": {
+   "mediana_dias": 197,
+   "encerrados_ate_1a": 0.694,
+   "ate_2a": 0.859,
+   "ate_3a": 0.941,
+   "n": 17575,
+   "eventos": 16327
+  },
+  "cooperacao_carta": {
+   "mediana_dias": 63,
+   "encerrados_ate_1a": 0.898,
+   "ate_2a": 0.979,
+   "ate_3a": 0.996,
+   "n": 20957,
+   "eventos": 20831
+  },
+  "incidente_cautelar": {
+   "mediana_dias": 53,
+   "encerrados_ate_1a": 0.879,
+   "ate_2a": 0.949,
+   "ate_3a": 0.977,
+   "n": 15954,
+   "eventos": 15055
+  },
+  "outros": {
+   "mediana_dias": 250,
+   "encerrados_ate_1a": 0.624,
+   "ate_2a": 0.8,
+   "ate_3a": 0.876,
+   "n": 592,
+   "eventos": 501
+  }
+ },
+ "km_principal_por_ano": {
+  "2019": {
+   "mediana_dias": 1211,
+   "encerrados_ate_1a": 0.119,
+   "ate_2a": 0.266,
+   "ate_3a": 0.432,
+   "n": 17022,
+   "eventos": 16228
+  },
+  "2020": {
+   "mediana_dias": 1065,
+   "encerrados_ate_1a": 0.139,
+   "ate_2a": 0.31,
+   "ate_3a": 0.52,
+   "n": 10723,
+   "eventos": 9985
+  },
+  "2021": {
+   "mediana_dias": 940,
+   "encerrados_ate_1a": 0.155,
+   "ate_2a": 0.363,
+   "ate_3a": 0.595,
+   "n": 9442,
+   "eventos": 8259
+  },
+  "2022": {
+   "mediana_dias": 848,
+   "encerrados_ate_1a": 0.191,
+   "ate_2a": 0.42,
+   "ate_3a": 0.645,
+   "n": 8795,
+   "eventos": 6943
+  },
+  "2023": {
+   "mediana_dias": 886,
+   "encerrados_ate_1a": 0.178,
+   "ate_2a": 0.411,
+   "ate_3a": 0.583,
+   "n": 9487,
+   "eventos": 5712
+  },
+  "2024": {
+   "mediana_dias": null,
+   "encerrados_ate_1a": 0.186,
+   "ate_2a": 0.38,
+   "ate_3a": 0.432,
+   "n": 10441,
+   "eventos": 4231
+  },
+  "2025": {
+   "mediana_dias": null,
+   "encerrados_ate_1a": 0.121,
+   "ate_2a": 0.174,
+   "ate_3a": 0.174,
+   "n": 11507,
+   "eventos": 1672
+  }
+ },
+ "movimentos_por_tipo": {
+  "principal": {
+   "mediana": 130,
+   "p25": 68,
+   "p75": 183
+  },
+  "medida_protetiva": {
+   "mediana": 49,
+   "p25": 35,
+   "p75": 72
+  },
+  "cooperacao_carta": {
+   "mediana": 16,
+   "p25": 14,
+   "p75": 21
+  },
+  "incidente_cautelar": {
+   "mediana": 28.0,
+   "p25": 24,
+   "p75": 40
+  },
+  "outros": {
+   "mediana": 30.0,
+   "p25": 18,
+   "p75": 58
+  }
+ },
+ "procedimentos_por_ano_e_tipo": {
+  "2019": {
+   "principal": 17022,
+   "medida_protetiva": 3171,
+   "cooperacao_carta": 3528,
+   "incidente_cautelar": 1179,
+   "outros": 56
+  },
+  "2020": {
+   "principal": 10723,
+   "cooperacao_carta": 9605,
+   "medida_protetiva": 2438,
+   "incidente_cautelar": 1946,
+   "outros": 54
+  },
+  "2021": {
+   "principal": 9442,
+   "medida_protetiva": 2283,
+   "incidente_cautelar": 1817,
+   "cooperacao_carta": 1493,
+   "outros": 85
+  },
+  "2022": {
+   "principal": 8795,
+   "medida_protetiva": 2344,
+   "incidente_cautelar": 1935,
+   "cooperacao_carta": 1332,
+   "outros": 86
+  },
+  "2023": {
+   "principal": 9487,
+   "incidente_cautelar": 2520,
+   "medida_protetiva": 2437,
+   "cooperacao_carta": 1486,
+   "outros": 93
+  },
+  "2024": {
+   "medida_protetiva": 2444,
+   "principal": 10441,
+   "cooperacao_carta": 1710,
+   "incidente_cautelar": 2935,
+   "outros": 101
+  },
+  "2025": {
+   "principal": 11507,
+   "medida_protetiva": 2458,
+   "cooperacao_carta": 1803,
+   "incidente_cautelar": 3622,
+   "outros": 117
+  }
+ },
+ "sedes": {
+  "sedes": 163,
+  "principais_por_sede_total": {
+   "mediana": 201,
+   "min": 12,
+   "max": 8138,
+   "p25": 113,
+   "p75": 440
+  },
+  "sedes_com_>=30_por_ano_em_todos_os_anos": 43,
+  "sedes_com_>=100_no_periodo": 127,
+  "sedes_com_>=300_no_periodo": 60,
+  "sedes_com_>=50_encerramentos": 144,
+  "sedes_com_mediana_km_estimavel": 163
+ }
+}
