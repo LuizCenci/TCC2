@@ -1,0 +1,352 @@
+{
+ "15730": {
+  "nome": "Acompanhamento de Medida Protetiva de Urgência - Lei Maria da Penha",
+  "pais": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   }
+  ]
+ },
+ "15587": {
+  "nome": "Descumprimento de Medida Protetiva da Lei Henry Borel",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "14681": {
+  "nome": "Descumprimento de Medida Protetiva da Lei Maria Penha",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "11426": {
+  "nome": "Medida protetiva",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "11425": {
+  "nome": "Medida protetiva",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 968,
+    "nome": "Não-Concessão"
+   }
+  ]
+ },
+ "11423": {
+  "nome": "Medida protetiva",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 817,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "11424": {
+  "nome": "Medida protetiva",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 888,
+    "nome": "Concessão em parte"
+   }
+  ]
+ },
+ "15494": {
+  "nome": "Medida Protetiva da Lei Henry Borel",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "15491": {
+  "nome": "Medida Protetiva da Lei Henry Borel",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 817,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "15492": {
+  "nome": "Medida Protetiva da Lei Henry Borel",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 888,
+    "nome": "Concessão em parte"
+   }
+  ]
+ },
+ "15493": {
+  "nome": "Medida Protetiva da Lei Henry Borel",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 968,
+    "nome": "Não-Concessão"
+   }
+  ]
+ },
+ "15486": {
+  "nome": "Medida Protetiva da Lei Maria da Penha",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 817,
+    "nome": "Concessão"
+   }
+  ]
+ },
+ "15487": {
+  "nome": "Medida Protetiva da Lei Maria da Penha",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 888,
+    "nome": "Concessão em parte"
+   }
+  ]
+ },
+ "15488": {
+  "nome": "Medida Protetiva da Lei Maria da Penha",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 968,
+    "nome": "Não-Concessão"
+   }
+  ]
+ },
+ "15489": {
+  "nome": "Medida Protetiva da Lei Maria da Penha",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "12476": {
+  "nome": "Medida Protetiva da Lei Maria da Penha Determinada por Autoridade Policial",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 378,
+    "nome": "Homologação"
+   }
+  ]
+ },
+ "12479": {
+  "nome": "Medida Protetiva da Lei Maria da Penha Determinada por Autoridade Policial",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 157,
+    "nome": "Revogação"
+   }
+  ]
+ },
+ "12478": {
+  "nome": "Medida protetiva determinada por autoridade policia",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   },
+   {
+    "codigo": 12477,
+    "nome": "Não-Homologação"
+   }
+  ]
+ },
+ "14733": {
+  "nome": "Prorrogação de Medida Protetiva",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "15495": {
+  "nome": "Prorrogação de Medida Protetiva da Lei Henry Borel",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "15490": {
+  "nome": "Prorrogação de Medida Protetiva da Lei Maria da Penha",
+  "pais": [
+   {
+    "codigo": 1,
+    "nome": "Magistrado"
+   },
+   {
+    "codigo": 3,
+    "nome": "Decisão"
+   }
+  ]
+ },
+ "15049": {
+  "nome": "Audiência Concentrada Protetiva",
+  "pais": [
+   {
+    "codigo": 14,
+    "nome": "Serventuário"
+   },
+   {
+    "codigo": 48,
+    "nome": "Escrivão/Diretor de Secretaria/Secretário Jurídico"
+   },
+   {
+    "codigo": 970,
+    "nome": "Audiência"
+   }
+  ]
+ }
+}

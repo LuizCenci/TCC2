@@ -1,0 +1,277 @@
+{
+ "registros": 132495,
+ "grupo_x_tipo_classe": {
+  "1_nucleo": {
+   "principal": 72796,
+   "medida_protetiva": 14652,
+   "cooperacao_carta": 13928,
+   "incidente_cautelar": 12596,
+   "outros": 471,
+   "civel": 40
+  },
+  "2_especifica": {
+   "principal": 385,
+   "medida_protetiva": 2923,
+   "incidente_cautelar": 1700,
+   "outros": 37,
+   "cooperacao_carta": 335
+  },
+  "3_ambigua": {
+   "principal": 3743,
+   "cooperacao_carta": 6663,
+   "incidente_cautelar": 1467,
+   "outros": 24
+  },
+  "4_secundaria": {
+   "principal": 493,
+   "incidente_cautelar": 191,
+   "outros": 19,
+   "cooperacao_carta": 31,
+   "civel": 1
+  }
+ },
+ "tipo_classe_total": {
+  "principal": 77417,
+  "cooperacao_carta": 20957,
+  "incidente_cautelar": 15954,
+  "outros": 551,
+  "medida_protetiva": 17575,
+  "civel": 41
+ },
+ "outros_top": [
+  [
+   "426 Recurso em Sentido Estrito",
+   203
+  ],
+  [
+   "1291 Reabilitação",
+   55
+  ],
+  [
+   "300 Procedimento Especial da Lei Antitóxicos",
+   44
+  ],
+  [
+   "1733 Procedimento Investigatório Criminal (PIC-MP) ",
+   38
+  ],
+  [
+   "319 Exceção de Incompetência de Juízo",
+   34
+  ],
+  [
+   "1715 Embargos do Acusado",
+   18
+  ],
+  [
+   "318 Exceção de Suspeição",
+   14
+  ],
+  [
+   "1719 Avaliação para atestar dependência de drogas",
+   14
+  ],
+  [
+   "322 Exceção de Coisa Julgada",
+   12
+  ],
+  [
+   "1717 Alienação de Bens do Acusado",
+   12
+  ],
+  [
+   "-1 Inválido",
+   12
+  ],
+  [
+   "193 Produção Antecipada da Prova",
+   10
+  ],
+  [
+   "291 Restauração de Autos Criminal",
+   10
+  ],
+  [
+   "418 Carta Testemunhável",
+   9
+  ],
+  [
+   "310 Pedido de Quebra de Sigilo de Dados e/ou Telefônico",
+   9
+  ]
+ ],
+ "apensamento_com_complemento": {
+  "False": 91866
+ },
+ "evolucao_classe_complementos": [
+  [
+   "TJBA",
+   32052
+  ],
+  [
+   "TJCE",
+   31666
+  ],
+  [
+   "TJAM",
+   481
+  ],
+  [
+   "TJGO",
+   118
+  ],
+  [
+   "TRF4",
+   54
+  ],
+  [
+   "TST",
+   37
+  ],
+  [
+   "TJES",
+   20
+  ],
+  [
+   "TRF5",
+   8
+  ],
+  [
+   "TRT7",
+   8
+  ],
+  [
+   "TJSE",
+   7
+  ]
+ ],
+ "movimentos_protetiva": {
+  "Medida protetiva": 20476,
+  "_classe1268_total": 17575,
+  "_classe1268_com_movimento_protetiva": 14549,
+  "Prorrogação de Medida Protetiva": 2043,
+  "Medida protetiva determinada por autoridade policial": 34,
+  "Descumprimento de Medida Protetiva": 22
+ },
+ "beneficiario": [
+  [
+   "A mulher",
+   18389
+  ],
+  [
+   "A criança ou adolescente",
+   298
+  ],
+  [
+   "O idoso",
+   163
+  ]
+ ],
+ "medidas_top": [
+  [
+   "Proibição de contato com a ofendida",
+   16391
+  ],
+  [
+   "Proibição de aproximação da ofendida",
+   15924
+  ],
+  [
+   "Proibição de frequência de determinados lugares",
+   5183
+  ],
+  [
+   "Afastamento do lar ou domicílio",
+   3659
+  ],
+  [
+   "Comparecimento do agressor a programas de recuperação e reeducação (art. 22",
+   2283
+  ],
+  [
+   "Acompanhamento psicossocial do agressor",
+   1798
+  ],
+  [
+   "Proibição de condutas quaisquer",
+   1043
+  ],
+  [
+   "outras medidas protetivas de urgência (art. 22",
+   614
+  ],
+  [
+   "Restrição ou suspensão de visitas aos dependentes menores",
+   581
+  ],
+  [
+   "utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº",
+   577
+  ],
+  [
+   "Orientação",
+   568
+  ],
+  [
+   "Suspensão da posse ou restrição do porte de armas",
+   553
+  ],
+  [
+   "Prestação de alimentos provisionais ou provisórios",
+   518
+  ],
+  [
+   "Acolhimento institucional",
+   287
+  ],
+  [
+   "inclusão em serviços e programas oficiais ou comunitários de proteção",
+   259
+  ]
+ ],
+ "agrupamento_classes": {
+  "principal": [
+   272,
+   278,
+   279,
+   282,
+   283,
+   288,
+   10943,
+   10944
+  ],
+  "medida_protetiva": [
+   1268,
+   12423,
+   15309
+  ],
+  "incidente_cautelar": [
+   275,
+   280,
+   305,
+   306,
+   307,
+   309,
+   313,
+   325,
+   326,
+   333,
+   419,
+   1199,
+   1710,
+   1727,
+   10967,
+   11788,
+   11793,
+   14123
+  ],
+  "cooperacao_carta": [
+   335,
+   355
+  ],
+  "civel": [
+   7,
+   156
+  ]
+ }
+}

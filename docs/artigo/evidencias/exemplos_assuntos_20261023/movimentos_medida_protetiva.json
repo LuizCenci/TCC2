@@ -1,0 +1,85 @@
+{
+ "classe1268_registros": 17575,
+ "movimentos": {
+  "11423": {
+   "nome": "Medida protetiva",
+   "ocorrencias_total": 12848,
+   "ocorrencias_em_1268": 12192,
+   "registros_1268_com_o_movimento": 11506,
+   "dias_ate_primeiro_mediana": 0.0,
+   "dias_p25": 0,
+   "dias_p75": 1,
+   "dias_negativos": 0
+  },
+  "11426": {
+   "nome": "Medida protetiva",
+   "ocorrencias_total": 4939,
+   "ocorrencias_em_1268": 4148,
+   "registros_1268_com_o_movimento": 4071,
+   "dias_ate_primeiro_mediana": 197,
+   "dias_p25": 52,
+   "dias_p75": 414,
+   "dias_negativos": 0
+  },
+  "14733": {
+   "nome": "Prorrogação de Medida Protetiva",
+   "ocorrencias_total": 2043,
+   "ocorrencias_em_1268": 1968,
+   "registros_1268_com_o_movimento": 1279,
+   "dias_ate_primeiro_mediana": 246,
+   "dias_p25": 189,
+   "dias_p75": 390,
+   "dias_negativos": 0
+  },
+  "11424": {
+   "nome": "Medida protetiva",
+   "ocorrencias_total": 1682,
+   "ocorrencias_em_1268": 1655,
+   "registros_1268_com_o_movimento": 1650,
+   "dias_ate_primeiro_mediana": 0.0,
+   "dias_p25": 0,
+   "dias_p75": 1,
+   "dias_negativos": 0
+  },
+  "11425": {
+   "nome": "Medida protetiva",
+   "ocorrencias_total": 1007,
+   "ocorrencias_em_1268": 987,
+   "registros_1268_com_o_movimento": 984,
+   "dias_ate_primeiro_mediana": 0.0,
+   "dias_p25": 0,
+   "dias_p75": 3,
+   "dias_negativos": 0
+  },
+  "12476": {
+   "nome": "Medida protetiva determinada por autoridade policial",
+   "ocorrencias_total": 23,
+   "ocorrencias_em_1268": 0,
+   "registros_1268_com_o_movimento": 0,
+   "dias_ate_primeiro_mediana": null,
+   "dias_p25": null,
+   "dias_p75": null,
+   "dias_negativos": 0
+  },
+  "14681": {
+   "nome": "Descumprimento de Medida Protetiva",
+   "ocorrencias_total": 22,
+   "ocorrencias_em_1268": 15,
+   "registros_1268_com_o_movimento": 14,
+   "dias_ate_primeiro_mediana": 58.0,
+   "dias_p25": 31,
+   "dias_p75": 128,
+   "dias_negativos": 0
+  },
+  "12479": {
+   "nome": "Medida protetiva determinada por autoridade policial",
+   "ocorrencias_total": 11,
+   "ocorrencias_em_1268": 10,
+   "registros_1268_com_o_movimento": 10,
+   "dias_ate_primeiro_mediana": 198.0,
+   "dias_p25": 119,
+   "dias_p75": 205,
+   "dias_negativos": 0
+  }
+ }
+}

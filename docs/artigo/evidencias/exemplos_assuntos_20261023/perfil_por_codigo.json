@@ -1,0 +1,1193 @@
+{
+ "global": {
+  "registros_2019_2025": 132495,
+  "numeros_processo_distintos": 132425,
+  "numeros_com_mais_de_um_registro": 70,
+  "registros_sem_movimentos": 0,
+  "mediana_movimentos": 65,
+  "movimentos_ligacao": {
+   "Apensamento": 91866,
+   "Desapensamento": 3728,
+   "Evolução da Classe Processual": 65048,
+   "Devolução dos autos à origem ": 312,
+   "Devolução da carta rogatória ao juízo rogante": 6
+  }
+ },
+ "perfil": {
+  "assunto:10948": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Violência Doméstica Contra a Mulher",
+   "registros": 20,
+   "classes_top": [
+    [
+     "7 Procedimento Comum Cível",
+     8
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     5
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     2
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     1
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     1
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10433 Indenização por Dano Moral",
+     6
+    ],
+    [
+     "3402 Ameaça ",
+     4
+    ],
+    [
+     "10439 Indenização por Dano Material",
+     4
+    ],
+    [
+     "12345 Vias de fato",
+     3
+    ],
+    [
+     "7779 Indenização por Dano Moral",
+     2
+    ],
+    [
+     "7677 Reconhecimento / Dissolução",
+     1
+    ]
+   ],
+   "pct_orgao_jvdfm": 5.0,
+   "mediana_movimentos": 69.5
+  },
+  "assunto:10949": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Violência Doméstica Contra a Mulher",
+   "registros": 61110,
+   "classes_top": [
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     18069
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     12261
+    ],
+    [
+     "279 Inquérito Policial",
+     12222
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     11664
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     3832
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "3402 Ameaça ",
+     29212
+    ],
+    [
+     "12194 Contra a Mulher",
+     9485
+    ],
+    [
+     "14943 Lesão Cometida em Razão da Condição de Mulher",
+     8183
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     7233
+    ],
+    [
+     "12345 Vias de fato",
+     6758
+    ],
+    [
+     "12544 Simples",
+     5394
+    ]
+   ],
+   "pct_orgao_jvdfm": 33.8,
+   "mediana_movimentos": 83.0
+  },
+  "assunto:11979": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Violência Doméstica Contra a Mulher",
+   "registros": 5660,
+   "classes_top": [
+    [
+     "355 Carta Precatória Criminal",
+     2008
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     1553
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     694
+    ],
+    [
+     "279 Inquérito Policial",
+     412
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     298
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "3402 Ameaça ",
+     695
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     225
+    ],
+    [
+     "12345 Vias de fato",
+     186
+    ],
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     133
+    ],
+    [
+     "12194 Contra a Mulher",
+     100
+    ],
+    [
+     "11238 Lesão leve",
+     92
+    ]
+   ],
+   "pct_orgao_jvdfm": 35.5,
+   "mediana_movimentos": 47.0
+  },
+  "assunto:12194": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Contra a Mulher",
+   "registros": 48008,
+   "classes_top": [
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     15591
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     8891
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     7028
+    ],
+    [
+     "279 Inquérito Policial",
+     6237
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     3918
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     9485
+    ],
+    [
+     "3402 Ameaça ",
+     8605
+    ],
+    [
+     "12544 Simples",
+     1829
+    ],
+    [
+     "12345 Vias de fato",
+     1594
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     1412
+    ],
+    [
+     "14943 Lesão Cometida em Razão da Condição de Mulher",
+     1000
+    ]
+   ],
+   "pct_orgao_jvdfm": 31.5,
+   "mediana_movimentos": 90.0
+  },
+  "assunto:12196": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Contra a mulher",
+   "registros": 1439,
+   "classes_top": [
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     446
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     340
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     258
+    ],
+    [
+     "279 Inquérito Policial",
+     162
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     76
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "3402 Ameaça ",
+     253
+    ],
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     168
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     63
+    ],
+    [
+     "12345 Vias de fato",
+     53
+    ],
+    [
+     "12544 Simples",
+     46
+    ],
+    [
+     "11238 Lesão leve",
+     29
+    ]
+   ],
+   "pct_orgao_jvdfm": 12.1,
+   "mediana_movimentos": 78
+  },
+  "assunto:14097": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Violência Doméstica e Familiar contra a Mulher",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "assunto:14098": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Crimes de Descumprimento de Medida Protetiva de Urgência",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "assunto:14226": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Crimes Previstos na Lei Maria da Penha",
+   "registros": 1,
+   "classes_top": [
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     1
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "3402 Ameaça ",
+     1
+    ]
+   ],
+   "pct_orgao_jvdfm": 0.0,
+   "mediana_movimentos": 112
+  },
+  "assunto:14227": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Crime de Descumprimento de Medida Protetiva de Urgência",
+   "registros": 12766,
+   "classes_top": [
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     4289
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     2419
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     2019
+    ],
+    [
+     "279 Inquérito Policial",
+     1651
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     566
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     7233
+    ],
+    [
+     "3402 Ameaça ",
+     2526
+    ],
+    [
+     "12194 Contra a Mulher",
+     1412
+    ],
+    [
+     "3406 Violação de domicílio ",
+     526
+    ],
+    [
+     "12345 Vias de fato",
+     377
+    ],
+    [
+     "12544 Simples",
+     323
+    ]
+   ],
+   "pct_orgao_jvdfm": 37.4,
+   "mediana_movimentos": 89.0
+  },
+  "assunto:14228": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Previstos na Lei Maria da Penha",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "assunto:14229": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Descumprimento de Medida Protetiva de Urgência",
+   "registros": 54,
+   "classes_top": [
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     16
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     11
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     9
+    ],
+    [
+     "279 Inquérito Policial",
+     5
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     4
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     21
+    ],
+    [
+     "12194 Contra a Mulher",
+     11
+    ],
+    [
+     "3402 Ameaça ",
+     7
+    ],
+    [
+     "14782 Maus Tratos",
+     2
+    ],
+    [
+     "3406 Violação de domicílio ",
+     1
+    ],
+    [
+     "10948 Violência Doméstica Contra a Mulher",
+     1
+    ]
+   ],
+   "pct_orgao_jvdfm": 9.3,
+   "mediana_movimentos": 61.5
+  },
+  "assunto:14942": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Violência Psicológica contra a Mulher",
+   "registros": 1646,
+   "classes_top": [
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     617
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     269
+    ],
+    [
+     "279 Inquérito Policial",
+     261
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     256
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     51
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     667
+    ],
+    [
+     "3402 Ameaça ",
+     326
+    ],
+    [
+     "14943 Lesão Cometida em Razão da Condição de Mulher",
+     154
+    ],
+    [
+     "12194 Contra a Mulher",
+     119
+    ],
+    [
+     "12345 Vias de fato",
+     102
+    ],
+    [
+     "12544 Simples",
+     80
+    ]
+   ],
+   "pct_orgao_jvdfm": 44.2,
+   "mediana_movimentos": 56.0
+  },
+  "assunto:14943": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Lesão Cometida em Razão da Condição de Mulher",
+   "registros": 12127,
+   "classes_top": [
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     5687
+    ],
+    [
+     "279 Inquérito Policial",
+     2373
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     1117
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     1019
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     416
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     8183
+    ],
+    [
+     "3402 Ameaça ",
+     3080
+    ],
+    [
+     "12194 Contra a Mulher",
+     1000
+    ],
+    [
+     "12544 Simples",
+     751
+    ],
+    [
+     "12345 Vias de fato",
+     333
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     291
+    ]
+   ],
+   "pct_orgao_jvdfm": 35.8,
+   "mediana_movimentos": 85
+  },
+  "assunto:14944": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Análogo à Violência Psicológica contra a Mulher",
+   "registros": 68,
+   "classes_top": [
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     33
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     8
+    ],
+    [
+     "156 Cumprimento de sentença",
+     5
+    ],
+    [
+     "1727 Petição Criminal",
+     3
+    ],
+    [
+     "279 Inquérito Policial",
+     3
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     4
+    ],
+    [
+     "10433 Indenização por Dano Moral",
+     3
+    ],
+    [
+     "3402 Ameaça ",
+     1
+    ],
+    [
+     "3386 Leve",
+     1
+    ],
+    [
+     "14238 Produção Antecipada de Provas",
+     1
+    ],
+    [
+     "14692 Estelionato contra Idoso",
+     1
+    ]
+   ],
+   "pct_orgao_jvdfm": 26.5,
+   "mediana_movimentos": 42.5
+  },
+  "assunto:14945": {
+   "grupo": "nucleo_pvd",
+   "descricao": "Análogo à Lesão Corporal em Razão da Condição de Mulher",
+   "registros": 135,
+   "classes_top": [
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     38
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     29
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     25
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     15
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     12
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     27
+    ],
+    [
+     "12194 Contra a Mulher",
+     24
+    ],
+    [
+     "3402 Ameaça ",
+     22
+    ],
+    [
+     "11979 Violência Doméstica Contra a Mulher",
+     5
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     5
+    ],
+    [
+     "12196 Contra a mulher",
+     4
+    ]
+   ],
+   "pct_orgao_jvdfm": 42.2,
+   "mediana_movimentos": 50
+  },
+  "classe:1268": {
+   "grupo": "especifica",
+   "descricao": "Medidas Protetivas de Urgência (Lei Maria da Penha) - Criminal",
+   "registros": 17575,
+   "classes_top": [
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     17575
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     11664
+    ],
+    [
+     "3402 Ameaça ",
+     8833
+    ],
+    [
+     "12194 Contra a Mulher",
+     3918
+    ],
+    [
+     "12544 Simples",
+     2070
+    ],
+    [
+     "5560 Decorrente de Violência Doméstica",
+     1123
+    ],
+    [
+     "3397 Injúria",
+     860
+    ]
+   ],
+   "pct_orgao_jvdfm": 24.8,
+   "mediana_movimentos": 49
+  },
+  "classe:15309": {
+   "grupo": "especifica",
+   "descricao": "Medidas Protetivas de Urgência (Lei Maria da Penha) - Cível",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "classe:12423": {
+   "grupo": "especifica",
+   "descricao": "Medidas Protetivas de Urgência (Lei Maria da Penha) - Infracional",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "assunto:12091": {
+   "grupo": "especifica",
+   "descricao": "Feminicídio",
+   "registros": 3289,
+   "classes_top": [
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     831
+    ],
+    [
+     "282 Ação Penal de Competência do Júri",
+     779
+    ],
+    [
+     "355 Carta Precatória Criminal",
+     519
+    ],
+    [
+     "1727 Petição Criminal",
+     229
+    ],
+    [
+     "333 Insanidade Mental do Acusado",
+     155
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     699
+    ],
+    [
+     "5555 Crime Tentado",
+     227
+    ],
+    [
+     "3372 Homicídio Qualificado",
+     185
+    ],
+    [
+     "3402 Ameaça ",
+     97
+    ],
+    [
+     "5560 Decorrente de Violência Doméstica",
+     91
+    ],
+    [
+     "12194 Contra a Mulher",
+     81
+    ]
+   ],
+   "pct_orgao_jvdfm": 7.3,
+   "mediana_movimentos": 34
+  },
+  "assunto:12358": {
+   "grupo": "especifica",
+   "descricao": "Feminicídio (ato infracional)",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "assunto:15511": {
+   "grupo": "especifica",
+   "descricao": "Medidas Protetivas de Urgência (Lei Maria da Penha) - Cível",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "assunto:5560": {
+   "grupo": "ambigua",
+   "descricao": "Lesão Corporal Decorrente de Violência Doméstica",
+   "registros": 13993,
+   "classes_top": [
+    [
+     "355 Carta Precatória Criminal",
+     7163
+    ],
+    [
+     "279 Inquérito Policial",
+     1971
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     1778
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     1160
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     1123
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "3402 Ameaça ",
+     2514
+    ],
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     1688
+    ],
+    [
+     "3397 Injúria",
+     813
+    ],
+    [
+     "3386 Leve",
+     503
+    ],
+    [
+     "12345 Vias de fato",
+     224
+    ],
+    [
+     "3692 Contravenções Penais",
+     195
+    ]
+   ],
+   "pct_orgao_jvdfm": 17.0,
+   "mediana_movimentos": 25
+  },
+  "assunto:9647": {
+   "grupo": "ambigua",
+   "descricao": "Lesões Corporais Decorrentes de Violência Doméstica (ato infracional)",
+   "registros": 93,
+   "classes_top": [
+    [
+     "355 Carta Precatória Criminal",
+     52
+    ],
+    [
+     "279 Inquérito Policial",
+     16
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     13
+    ],
+    [
+     "305 Liberdade Provisória com ou sem fiança",
+     3
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     3
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "3402 Ameaça ",
+     26
+    ],
+    [
+     "3397 Injúria",
+     7
+    ],
+    [
+     "3566 Resistência ",
+     6
+    ],
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     5
+    ],
+    [
+     "5560 Decorrente de Violência Doméstica",
+     4
+    ],
+    [
+     "12345 Vias de fato",
+     4
+    ]
+   ],
+   "pct_orgao_jvdfm": 20.4,
+   "mediana_movimentos": 26
+  },
+  "assunto:14684": {
+   "grupo": "secundaria",
+   "descricao": "Perseguição",
+   "registros": 1444,
+   "classes_top": [
+    [
+     "279 Inquérito Policial",
+     340
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     303
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     268
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     149
+    ],
+    [
+     "272 Representação Criminal/Notícia de Crime",
+     86
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     657
+    ],
+    [
+     "3402 Ameaça ",
+     385
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     124
+    ],
+    [
+     "12544 Simples",
+     124
+    ],
+    [
+     "12194 Contra a Mulher",
+     88
+    ],
+    [
+     "3396 Difamação",
+     77
+    ]
+   ],
+   "pct_orgao_jvdfm": 33.0,
+   "mediana_movimentos": 68.0
+  },
+  "assunto:14686": {
+   "grupo": "secundaria",
+   "descricao": "Perseguição (art. 147-A, ato infracional)",
+   "registros": 256,
+   "classes_top": [
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     47
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     44
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     36
+    ],
+    [
+     "272 Representação Criminal/Notícia de Crime",
+     33
+    ],
+    [
+     "279 Inquérito Policial",
+     28
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     61
+    ],
+    [
+     "3402 Ameaça ",
+     44
+    ],
+    [
+     "14227 Crime de Descumprimento de Medida Protetiva  de Urgência",
+     13
+    ],
+    [
+     "12544 Simples",
+     11
+    ],
+    [
+     "3396 Difamação",
+     10
+    ],
+    [
+     "14942 Violência Psicológica contra a Mulher",
+     9
+    ]
+   ],
+   "pct_orgao_jvdfm": 21.5,
+   "mediana_movimentos": 59.5
+  },
+  "assunto:12195": {
+   "grupo": "marcador",
+   "descricao": "Contra pessoas não identificadas como mulher (filho de 5560)",
+   "registros": 129,
+   "classes_top": [
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     37
+    ],
+    [
+     "279 Inquérito Policial",
+     37
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     31
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     11
+    ],
+    [
+     "1727 Petição Criminal",
+     3
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     88
+    ],
+    [
+     "3402 Ameaça ",
+     45
+    ],
+    [
+     "14943 Lesão Cometida em Razão da Condição de Mulher",
+     36
+    ],
+    [
+     "12194 Contra a Mulher",
+     30
+    ],
+    [
+     "12345 Vias de fato",
+     23
+    ],
+    [
+     "12544 Simples",
+     9
+    ]
+   ],
+   "pct_orgao_jvdfm": 47.3,
+   "mediana_movimentos": 102
+  },
+  "assunto:12197": {
+   "grupo": "marcador",
+   "descricao": "Contra pessoas não identificadas como mulher (filho de 9647, infracional)",
+   "registros": 0,
+   "classes_top": [],
+   "coassuntos_top": [],
+   "pct_orgao_jvdfm": null,
+   "mediana_movimentos": null
+  },
+  "assunto:15174": {
+   "grupo": "marcador",
+   "descricao": "Violência Doméstica e Familiar contra Criança e Adolescente",
+   "registros": 89,
+   "classes_top": [
+    [
+     "279 Inquérito Policial",
+     32
+    ],
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     29
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     9
+    ],
+    [
+     "-1 Inválido",
+     6
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     5
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     46
+    ],
+    [
+     "14943 Lesão Cometida em Razão da Condição de Mulher",
+     26
+    ],
+    [
+     "12194 Contra a Mulher",
+     25
+    ],
+    [
+     "3402 Ameaça ",
+     22
+    ],
+    [
+     "12345 Vias de fato",
+     11
+    ],
+    [
+     "10508 Maus Tratos",
+     6
+    ]
+   ],
+   "pct_orgao_jvdfm": 52.8,
+   "mediana_movimentos": 75
+  },
+  "assunto:15180": {
+   "grupo": "marcador",
+   "descricao": "Descumprimento de Medida Protetiva (Lei Henry Borel)",
+   "registros": 47,
+   "classes_top": [
+    [
+     "283 Ação Penal - Procedimento Ordinário",
+     14
+    ],
+    [
+     "279 Inquérito Policial",
+     13
+    ],
+    [
+     "10943 Ação Penal - Procedimento Sumário",
+     12
+    ],
+    [
+     "1268 Medidas Protetivas de urgência (Lei Maria da Penha) Criminal",
+     7
+    ],
+    [
+     "1727 Petição Criminal",
+     1
+    ]
+   ],
+   "coassuntos_top": [
+    [
+     "10949 Violência Doméstica Contra a Mulher",
+     30
+    ],
+    [
+     "3402 Ameaça ",
+     13
+    ],
+    [
+     "12194 Contra a Mulher",
+     8
+    ],
+    [
+     "14943 Lesão Cometida em Razão da Condição de Mulher",
+     4
+    ],
+    [
+     "3406 Violação de domicílio ",
+     3
+    ],
+    [
+     "15174 None",
+     2
+    ]
+   ],
+   "pct_orgao_jvdfm": 53.2,
+   "mediana_movimentos": 128
+  }
+ }
+}
