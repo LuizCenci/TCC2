@@ -318,7 +318,7 @@ As referências abaixo foram identificadas no PDF; sua existência, metadados co
 - Klen et al. (2020): jurimetria, IA e LawTechs; barreiras de captura e padronização.
 - Mariano Junior (2021): acesso à Justiça, automação, IA e mineração de dados; consta nas referências.
 - Montenegro (2021): violência contra a mulher antes/durante a pandemia e limitações de registros públicos.
-- Moroskoski et al. (2025): feminicídio e análise espacial no Paraná.
+- Moroskoski et al. (2025): feminicídio e análise espacial no Paraná. **Busca de 01/11/2026 não localizou este trabalho**; foi encontrado Moroskoski, Brito e Oliveira (2022, *Rev. Latino-Am. Enfermagem*), sobre violência letal no Brasil (SIM), que não trata de medidas protetivas. Ver `docs/artigo/11-revisao-literatura.md`.
 - Patricio et al. (2024): exploração visual de dados governamentais, Ligue 180 e Disque 100.
 - Raj et al. (2020): modelagem de pipelines de dados.
 - Rios et al. (2023): homicídios femininos em Porto Alegre, 2010–2016.
