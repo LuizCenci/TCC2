@@ -42,6 +42,7 @@ class ManifestStore:
                 "catalog_source_hash",
                 "config_hash",
                 "page_size",
+                "updated_since",
             )
             for key in immutable:
                 if key in context and manifest.get(key) != context[key]:

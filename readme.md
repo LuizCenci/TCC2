@@ -52,4 +52,26 @@ Todos os parâmetros da extração estão documentados em `docs/artigo/01-parame
 
 Para relatar execuções antigas do piloto, passe `--catalog config/catalogs/pvd_cnj_2025-07-17.yaml`: o relatório recusa um catálogo diferente do registrado no manifesto.
 
-O piloto limita cada partição anual a uma página de 100 registros; a coleta definitiva, a 1.000 páginas por ano (teto de segurança).
+O piloto limita cada partição anual a uma página de 100 registros; a coleta definitiva, a 300 páginas de 200 registros por ano (teto de segurança).
+
+## Orquestração (base operacional)
+
+Coletas incrementais automáticas com Prefect, **fora da base do artigo** (ver `docs/artigo/15-orquestracao-prefect.md`). Instale o extra opcional:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[dev,orquestracao]"
+```
+
+Primeira execução manual, informando a marca d'água inicial (a maior `dataHoraUltimaAtualizacao` já coletada, em ISO 8601):
+
+```powershell
+.\.venv\Scripts\python.exe -c "from datajud_tcc.orquestracao.fluxos import coleta_incremental; print(coleta_incremental(marca_inicial='2026-10-05T18:00:31.594Z'))"
+```
+
+As seguintes partem da marca gravada em `work/estado/marca_dagua_tjpr.json`. Para manter o agendamento semanal ativo (só roda com o computador ligado e este processo aberto):
+
+```powershell
+.\.venv\Scripts\python.exe -m datajud_tcc.orquestracao.servir
+```
+
+Os testes do orquestrador usam um servidor Prefect temporário e um cliente falso; sem o extra instalado, eles são ignorados.

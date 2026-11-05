@@ -1,0 +1,17 @@
+# Coleta incremental (base operacional, fora da análise) — TJPR, G1.
+# Executada pelo orquestrador (src/datajud_tcc/orquestracao/fluxos.py). A marca d'água
+# (updated_since) não fica aqui: é lida do estado do orquestrador a cada execução.
+# Documentação: docs/artigo/15-orquestracao-prefect.md.
+endpoint: "https://api-publica.datajud.cnj.jus.br/api_publica_tjpr/_search"
+tribunal: "TJPR"
+grau: "G1"
+# Todos os anos do recorte: processos antigos também são reenviados ao Datajud.
+years: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+page_size: 200
+max_pages_per_partition: 300
+connect_timeout_seconds: 10
+read_timeout_seconds: 90
+max_attempts: 3
+max_wait_seconds: 30
+output_root: "work"
+continue_on_partition_error: false

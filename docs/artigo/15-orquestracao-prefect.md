@@ -1,6 +1,6 @@
-# Orquestração com Prefect — escopo proposto
+# Orquestração com Prefect
 
-Data: 05/11/2026. Status: **proposta de trabalho**, ainda não implementada. Discutida com o autor; o Prefect está previsto no projeto original (CLAUDE.md §9).
+Data: 05/11/2026. Status: escopo **aprovado pelo autor** (incluindo a construção da Gold no orquestrador) e **coleta incremental implementada e testada com dados simulados** (§6). As etapas Silver e Gold estão como interfaces, a implementar com o banco de dados. O Prefect está previsto no projeto original (CLAUDE.md §9).
 
 ## 1. Princípio
 
@@ -42,3 +42,36 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
 - Reexecução sem crescimento indevido de contagens: mesma execução da Bronze carregada duas vezes.
 - Retomada após interrupção simulada: coleta interrompida e retomada pelo fluxo.
 - Registro de erros, tempos e tentativas por execução (histórico do Prefect).
+
+## 6. Implementação (05/11/2026)
+
+**Janela incremental resolvida.** O teste de 05/11/2026 mostrou que a API aceita filtro por `dataHoraUltimaAtualizacao`, mas **só em ISO 8601**. O campo marca **cargas em lote** do TJPR ao Datajud, não movimentos (`docs/anotações tcc.md`). Ele é usado como **marca d'água**: cada execução coleta os registros com atualização **posterior** à maior data já coletada. Isso traz processos novos e antigos reenviados; dos 14.875 atualizados em outubro/2026, 9.085 tinham ajuizamento entre 2019 e 2025.
+
+| Componente | Arquivo | Função |
+|---|---|---|
+| Configuração | `config/collection.incremental.yaml` | Mesmo recorte da coleta definitiva (G1, 2019–2026, catálogo `tjpr-vcm-2026-10-18`), sem marca fixa |
+| Filtro | `src/datajud_tcc/query.py` | Com `updated_since`, acrescenta `range dataHoraUltimaAtualizacao gt <marca>`; sem ele, a consulta é idêntica à da coleta definitiva |
+| Marca d'água | `src/datajud_tcc/orquestracao/marca_dagua.py` | Estado em `work/estado/marca_dagua_tjpr.json` (fora do git), com histórico; **não pode recuar** |
+| Fluxos | `src/datajud_tcc/orquestracao/fluxos.py` | `coleta-incremental` → `verificar-completude` → atualização da marca → *artifact*; `carga-silver`; `construcao-gold`; `pipeline-incremental` (encadeia os três e **não carrega a Silver se a coleta falhar**) |
+| Etapas | `src/datajud_tcc/orquestracao/etapas.py` | Interfaces `carregar_silver` e `construir_gold` (ainda `NotImplementedError`) |
+| Agendamento | `src/datajud_tcc/orquestracao/servir.py` | Coleta semanal às segundas, 03:17 (fora da virada da hora); pipeline sob demanda; uma execução por vez |
+
+**Proteções:**
+- as execuções vão para `work/bronze/datajud/tjpr/incremental/`, separadas da base do artigo;
+- uma única nova tentativa da tarefa de coleta, após 10 min, retomando do checkpoint do coletor;
+- a marca d'água só é gravada depois da verificação de completude;
+- primeira execução exige `marca_inicial` explícita.
+
+**Marca inicial sugerida:** a maior `dataHoraUltimaAtualizacao` das execuções definitivas, para que a primeira coleta incremental traga só o que mudou depois delas.
+
+**Testes** (`tests/integration/test_orquestracao.py`, `tests/unit/test_marca_dagua.py`, `test_config_incremental.py`, `test_query_incremental.py`), com cliente falso e servidor Prefect temporário (`prefect_test_harness`), **sem chamar a API**:
+- a marca inicial vira filtro;
+- a marca avança e é usada na execução seguinte;
+- sem marca, falha sem chamar a API;
+- o pipeline encadeia Silver e Gold;
+- coleta com falha não dispara a Silver;
+- a marca nunca recua.
+
+Resultado: 75 testes passando (1 ignorado, o teste ao vivo).
+
+**Pendente:** implementar `carregar_silver` e `construir_gold` com o PostgreSQL local (`10`) e testar o pipeline completo com dados simulados.

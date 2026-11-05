@@ -28,10 +28,14 @@ def _base_filters(config: CollectionConfig, catalog: Catalog, year: int) -> list
     if year not in config.years:
         raise ValueError(f"ano não configurado: {year}")
     start, end = year_bounds(year)
-    return [
+    filters: list[dict[str, Any]] = [
         {"range": {"dataAjuizamento": {"gte": start, "lt": end}}},
         {"term": {"grau.keyword": config.grau}},
     ]
+    if config.updated_since is not None:
+        # Este campo aceita ISO 8601, ao contrário de dataAjuizamento.
+        filters.append({"range": {"dataHoraUltimaAtualizacao": {"gt": config.updated_since}}})
+    return filters
 
 
 def _thematic_filter(catalog: Catalog) -> dict[str, Any]:

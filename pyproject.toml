@@ -18,6 +18,10 @@ dev = [
   "pytest>=8,<10",
   "responses>=0.25,<1",
 ]
+# Orquestração da base operacional (docs/artigo/15-orquestracao-prefect.md).
+orquestracao = [
+  "prefect>=3.9,<4",
+]
 
 [project.scripts]
 datajud-tcc = "datajud_tcc.cli:main"

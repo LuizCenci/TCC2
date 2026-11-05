@@ -57,6 +57,7 @@ class Collector:
                 "collector_version": __version__,
                 "page_size": self.config.page_size,
                 "max_pages_per_partition": self.config.max_pages_per_partition,
+                "updated_since": self.config.updated_since,
                 "partitions": {},
             }
         )
@@ -169,6 +170,10 @@ class Collector:
         manifest["finished_at"] = datetime.now(timezone.utc).isoformat()
         manifest_store.save(manifest)
         return manifest
+
+    def resolve_run_root(self, run_id: str) -> Path:
+        """Diretório da execução na Bronze (o mesmo usado por collect)."""
+        return self._resolve_run_root(run_id)
 
     def _resolve_run_root(self, run_id: str) -> Path:
         if self.run_root is not None:

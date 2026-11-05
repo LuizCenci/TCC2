@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -14,6 +15,19 @@ import json
 DEFAULT_ENDPOINT = (
     "https://api-publica.datajud.cnj.jus.br/api_publica_tjpr/_search"
 )
+
+
+def _iso_8601_or_none(value: Any) -> str | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    try:
+        if "T" not in text and not (len(text) == 10 and text[4] == "-"):
+            raise ValueError
+        datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        raise ValueError("updated_since deve estar em ISO 8601 (ex.: 2026-10-05T18:00:31.594Z)") from None
+    return text
 
 
 @dataclass(frozen=True)
@@ -30,6 +44,10 @@ class CollectionConfig:
     max_wait_seconds: float
     output_root: Path
     continue_on_partition_error: bool = False
+    # Marca d'água da coleta incremental: só registros com dataHoraUltimaAtualizacao
+    # posterior a este instante (ISO 8601). O campo marca cargas em lote do tribunal
+    # ao Datajud, não movimentos (docs/anotações tcc.md).
+    updated_since: str | None = None
 
     @classmethod
     def from_mapping(cls, raw: Mapping[str, Any]) -> "CollectionConfig":
@@ -103,6 +121,7 @@ class CollectionConfig:
             max_wait_seconds=positive_float("max_wait_seconds"),
             output_root=output_root,
             continue_on_partition_error=bool(raw.get("continue_on_partition_error", False)),
+            updated_since=_iso_8601_or_none(raw.get("updated_since")),
         )
 
     @classmethod
@@ -125,4 +144,8 @@ class CollectionConfig:
             "max_wait_seconds": self.max_wait_seconds,
             "continue_on_partition_error": self.continue_on_partition_error,
         }
+        # Só entra na impressão digital quando definida, para não alterar o hash
+        # das configurações e execuções já existentes.
+        if self.updated_since is not None:
+            payload["updated_since"] = self.updated_since
         return hashlib.sha256(json.dumps(payload, sort_keys=True, default=list).encode()).hexdigest()
