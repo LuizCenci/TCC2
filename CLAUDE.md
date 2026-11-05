@@ -360,6 +360,7 @@ Ao atuar:
 5. Não implemente coleta massiva, publicação ou mudanças de escopo apenas porque aparecem como possibilidades neste documento.
 6. Use `work/` para intermediários e `outputs/` para entregáveis técnicos. **Documentação e relatórios relevantes para o artigo ficam em `docs/artigo/`**, com evidências em `docs/artigo/evidencias/`; todo parâmetro de extração deve estar documentado ali (pedido do autor, 18/10/2026). Não sobrescreva o PDF original.
 7. Mantenha este `CLAUDE.md` na raiz como única versão operacional. Registre achados empíricos sobre a API em `docs/anotações tcc.md` e resuma aqui apenas o que mudar o estado do projeto.
+8. **Implementação (combinado com o autor em 05/11/2026):** todo pedido de implementação começa com um **plano registrado via SDD** (superpowers: writing-plans, em `docs/superpowers/plans/`) e é **executado por subagente com o modelo Sonnet**. O agente principal (Opus) planeja, delega, revisa e reporta, mas **não implementa**. **Todo o trabalho é feito na branch `master`**, sem novas branches ou worktrees.
 
 ## Histórico
 

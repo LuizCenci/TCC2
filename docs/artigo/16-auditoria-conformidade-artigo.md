@@ -92,7 +92,13 @@ O cronograma do artigo previa a Silver e a Gold concluídas até outubro; em nov
 | CLAUDE.md §9: "primeiro um fluxo pequeno de ponta a ponta; depois Prefect" | ⚠️ o orquestrador veio antes da Silver, por decisão do autor; está documentado (`15` §7) |
 | Branches | `master` contém tudo; `datajud-bronze-pilot` e `orquestrador` estão atrás ou integradas; nada enviado ao GitHub |
 
-## 8. Prioridades sugeridas
+## 8. Decisões do autor após a auditoria (05/11/2026)
+
+- **Número do processo:** manter **isolado** em esquema restrito, como no modelo (`10`), por enquanto. O texto do artigo sobre "descarte" fica a ajustar.
+- **PostGIS:** será usado **na Gold** (geometrias do IBGE e mapa), como prevê o artigo (§3.2).
+- **Forma de trabalho:** implementação por plano SDD executado por subagente Sonnet, sempre na `master` (CLAUDE.md §18, item 8).
+
+## 9. Prioridades sugeridas
 
 1. **Revisar o texto do artigo** (§2 e §5): reformular de "violência" para **"judicialização no acervo público"**; acrescentar período, recorte e as limitações novas, sobretudo o sigilo. A formulação de título e pergunta proposta no CLAUDE.md §3 já vai nessa direção.
 2. **Decidir o tratamento do número do processo** (descarte × isolamento) antes de implementar a Silver.
