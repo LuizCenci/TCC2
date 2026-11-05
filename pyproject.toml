@@ -40,3 +40,6 @@ markers = [
   "live: teste que acessa a API real (opt-in)",
   "banco: teste que usa o PostgreSQL local (pulado sem DATABASE_URL/psycopg)",
 ]
+
+[tool.setuptools.package-data]
+"datajud_tcc.silver" = ["*.sql"]
