@@ -20,9 +20,9 @@ from .report import build_pilot_summary, write_markdown
 CATALOG_PATH = Path("config/catalogs/tjpr_vcm_2026-10-18.yaml")
 
 
-def _load_dotenv(path: Path = Path(".env")) -> None:
-    """Carrega DATAJUD_API_KEY de um .env sem sobrescrever o ambiente."""
-    if os.getenv("DATAJUD_API_KEY", "").strip() or not path.is_file():
+def _load_dotenv(path: Path = Path(".env"), chave: str = "DATAJUD_API_KEY") -> None:
+    """Carrega `chave` (padrão DATAJUD_API_KEY) de um .env sem sobrescrever o ambiente."""
+    if os.getenv(chave, "").strip() or not path.is_file():
         return
 
     for raw_line in path.read_text(encoding="utf-8").splitlines():
@@ -32,11 +32,11 @@ def _load_dotenv(path: Path = Path(".env")) -> None:
         if line.startswith("export "):
             line = line[7:].lstrip()
         key, separator, value = line.partition("=")
-        if separator and key.strip() == "DATAJUD_API_KEY":
+        if separator and key.strip() == chave:
             value = value.strip()
             if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
                 value = value[1:-1]
-            os.environ.setdefault("DATAJUD_API_KEY", value)
+            os.environ.setdefault(chave, value)
             return
 
 

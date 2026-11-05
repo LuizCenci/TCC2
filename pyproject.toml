@@ -23,6 +23,11 @@ orquestracao = [
   "prefect>=3.9,<4",
 ]
 
+# Silver em PostgreSQL local (carga a partir da Bronze).
+banco = [
+  "psycopg[binary]>=3.2,<4",
+]
+
 [project.scripts]
 datajud-tcc = "datajud_tcc.cli:main"
 
@@ -33,4 +38,5 @@ where = ["src"]
 testpaths = ["tests"]
 markers = [
   "live: teste que acessa a API real (opt-in)",
+  "banco: teste que usa o PostgreSQL local (pulado sem DATABASE_URL/psycopg)",
 ]
