@@ -155,7 +155,7 @@ Preservar a resposta original na Bronze. Os caminhos abaixo partem de `_source`;
 | Datas | `dataAjuizamento`, `dataHoraUltimaAtualizacao`, `@timestamp` | Série de entrada e controle de atualização |
 | Órgão atual | `orgaoJulgador.codigo`, `orgaoJulgador.nome`, `orgaoJulgador.codigoMunicipioIBGE` | Localização judicial e identificação da unidade |
 | Movimento | `movimentos[].codigo`, `movimentos[].nome`, `movimentos[].dataHora` | Identificação e ordenação dos eventos |
-| Órgão do movimento | `movimentos[].orgaoJulgador.codigoOrgao`, `movimentos[].orgaoJulgador.nomeOrgao` | Unidade associada ao evento |
+| Órgão do movimento | `movimentos[].orgaoJulgador.codigo`, `movimentos[].orgaoJulgador.nome` (no TJPR, o glossário diz `codigoOrgao`/`nomeOrgao`; ver `docs/anotações tcc.md`) | Unidade associada ao evento |
 | Complementos | `movimentos[].complementosTabelados[].codigo`, `.descricao`, `.valor`, `.nome` | Interpretação da variável e opção complementar |
 | Sistema | `sistema.codigo`, `sistema.nome` | Diagnóstico de origem e qualidade |
 | Formato | `formato.codigo`, `formato.nome` | Estratificação e diagnóstico histórico |
@@ -320,7 +320,7 @@ As referências abaixo foram identificadas no PDF; sua existência, metadados co
 - Klen et al. (2020): jurimetria, IA e LawTechs; barreiras de captura e padronização.
 - Mariano Junior (2021): acesso à Justiça, automação, IA e mineração de dados; consta nas referências.
 - Montenegro (2021): violência contra a mulher antes/durante a pandemia e limitações de registros públicos.
-- Moroskoski et al. (2025): feminicídio e análise espacial no Paraná. **Busca de 01/11/2026 não localizou este trabalho**; foi encontrado Moroskoski, Brito e Oliveira (2022, *Rev. Latino-Am. Enfermagem*), sobre violência letal no Brasil (SIM), que não trata de medidas protetivas. Ver `docs/artigo/11-revisao-literatura.md`.
+- Moroskoski et al. (2025): *Feminicídio: análise espacial e fatores associados aos crimes de gênero no Paraná, Brasil*. Ciência & Saúde Coletiva, v. 30, n. 10, e10862025. DOI 10.1590/1413-812320253010.10862025. **Verificado em 05/11/2026** (a nota de 01/11 dizendo que não foi localizado estava errada). Base: denúncias de feminicídio do MP-PR, 2015–2022 (1.672); o dado "82% sem MPU" refere-se a vítimas de feminicídio dessa base.
 - Patricio et al. (2024): exploração visual de dados governamentais, Ligue 180 e Disque 100.
 - Raj et al. (2020): modelagem de pipelines de dados.
 - Rios et al. (2023): homicídios femininos em Porto Alegre, 2010–2016.

@@ -220,7 +220,7 @@ erDiagram
         text grupo_inclusao
         bool serie_estrita
         bool serie_ampliada
-        bool em_analise "2019-2025"
+        bool em_analise "2019-2026"
         bool registro_canonico "dedup por numero"
     }
     deriv_registro_categoria {
@@ -285,7 +285,7 @@ erDiagram
 
 | Tabela | Conteúdo | Origem da regra |
 |---|---|---|
-| `classificacao` | Tipo de procedimento, grupo de inclusão, série estrita/ampliada, `em_analise` (2019–2025), registro canônico | `01`, `07` |
+| `classificacao` | Tipo de procedimento, grupo de inclusão, série estrita/ampliada, `em_analise` (2019–2026; partições da base do artigo conforme `13` §6), registro canônico | `01`, `07` |
 | `registro_categoria` | Categorias multirrótulo com motivo | `07` §8 |
 | `evento` | Eventos identificados por código: decisão de MPU (concessão, em parte, não-concessão), revogação, prorrogação, julgamento, trânsito, arquivamento definitivo, reabertura | `07` §5, `08` §2 |
 | `tempo` | Primeira decisão de MPU, fim, `status_observacao` (encerrado/censurado/sem dados), tempo de acompanhamento | `08` §4; campos sugeridos no CLAUDE.md §11 |

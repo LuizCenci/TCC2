@@ -17,6 +17,7 @@ Esta pasta reúne a documentação e os relatórios que fundamentam a metodologi
 | [13-recoleta-2026.md](13-recoleta-2026.md) | Recoleta da partição 2026 (05/11/2026): completude, comparação com a coleta de 18/10, atraso de indexação e composição da base 2019–2026. | Verificado (05/11/2026) |
 | [14-viabilidade-trajetorias.md](14-viabilidade-trajetorias.md) | Desfecho derivado por código de movimento, trajetórias multicanal e clusterização: viabilidade e cuidados. | Verificado (§1–3) + proposta, 05/11/2026 |
 | [15-orquestracao-prefect.md](15-orquestracao-prefect.md) | Orquestração com Prefect: escopo, coleta incremental por marca d'água e implementação. | Implementado (coleta) + interfaces (Silver/Gold), 05/11/2026 |
+| [16-auditoria-conformidade-artigo.md](16-auditoria-conformidade-artigo.md) | Auditoria do que está implementado e documentado em relação ao artigo (fonte oficial) e ao CLAUDE.md: conformidades, divergências e prioridades. | Verificado (05/11/2026) |
 | [../exemplos/exemplos_json_por_codigo.md](../exemplos/exemplos_json_por_codigo.md) | Inventário de todos os campos da API e os 3 primeiros registros de cada código no JSON original (só identificadores mascarados). | Verificado (24/10/2026) |
 | [../anotações tcc.md](../anotações%20tcc.md) | Divergência entre a documentação e o formato real de `dataAjuizamento`. | Verificado (03/10/2026) |
 | [04-sinan-exploracao-pr-2023-2024.md](04-sinan-exploracao-pr-2023-2024.md) | Exploração do SINAN Violência (DATASUS), PR 2023–2024. | Exploratório |
