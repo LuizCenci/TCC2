@@ -75,3 +75,16 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
 Resultado: 75 testes passando (1 ignorado, o teste ao vivo).
 
 **Pendente:** implementar `carregar_silver` e `construir_gold` com o PostgreSQL local (`10`) e testar o pipeline completo com dados simulados.
+
+## 7. Sequência de implantação (decidida com o autor em 05/11/2026)
+
+O autor optou por **não** generalizar a carga da Silver para execuções pendentes: cada execução do pipeline carrega só a coleta que acabou de fazer. Daí a ordem obrigatória:
+
+1. implementar o PostgreSQL local e `carregar_silver`;
+2. **carga inicial manual**, fora do orquestrador, das execuções da base do artigo, com `em_analise = true`: `bronze-20261018-9852486` (partições 2019–2025) e `bronze2026-20261105-b67187c` (2026). A partição 2026 da execução de 18/10 não é carregada como base de análise, por ter sido substituída (`13`);
+3. marca d'água inicial = maior `dataHoraUltimaAtualizacao` dessas execuções (esperado `2026-10-05T18:00:31.594Z`, a confirmar no momento);
+4. só então ligar a orquestração (`servir.py`). Cada execução: coleta incremental → Silver (`em_analise = false`) → Gold, que **falha** até ser implementada. A Bronze e a Silver já ficam atualizadas antes dessa falha.
+
+**Não ligar o agendamento antes da Silver.** Coletas feitas antes dela não seriam carregadas depois.
+
+**Versões do mesmo processo.** Execuções incrementais trazem processos antigos reenviados, que já estão na base congelada. Com a chave `(run_id, api_id)`, as versões convivem na Silver; a análise usa só as execuções com `em_analise = true`, e uma visão operacional pode selecionar a versão mais recente de cada processo.
