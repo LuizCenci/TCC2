@@ -1,0 +1,28 @@
+{
+ "run_id": "bronze2026-20261105-b67187c",
+ "status": "complete",
+ "catalog_version": "tjpr-vcm-2026-10-18",
+ "catalog_source_hash": "df83d3abad719b373da7b97b0e917432dcb1c5a292447d8519c69fef2f245035",
+ "config_hash": "323a4998f7e64442254bd9a40602ef08a2e9d334238237b0bdd6a29df8ad0cd8",
+ "collector_version": "0.1.0",
+ "finished_at": "2026-11-05T22:39:36.874178+00:00",
+ "anos": {
+  "2026": {
+   "status": "complete",
+   "paginas": 73,
+   "registros_manifesto": 14507,
+   "registros_lidos": 14507,
+   "ids_unicos": 14507,
+   "ids_repetidos_no_ano": 0,
+   "total_api": 14507,
+   "relation": "eq",
+   "data_fora_do_ano": 0,
+   "sem_data": 0,
+   "sha256_divergentes": 0
+  }
+ },
+ "total_registros": 14507,
+ "ids_unicos_global": 14507,
+ "ids_repetidos_entre_anos": 0,
+ "hashes_ok": true
+}

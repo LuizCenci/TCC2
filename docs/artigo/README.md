@@ -4,7 +4,7 @@ Esta pasta reúne a documentação e os relatórios que fundamentam a metodologi
 
 | Documento | Conteúdo | Status |
 |---|---|---|
-| [01-parametros-da-extracao.md](01-parametros-da-extracao.md) | **Referência da metodologia.** Todos os parâmetros da coleta Bronze: fonte, período (coleta 2019–2026, análise 2019–2025), grau, critério temático com todos os códigos TPU, paginação, robustez, volumes e reprodução. | Decidido (18/10/2026) |
+| [01-parametros-da-extracao.md](01-parametros-da-extracao.md) | **Referência da metodologia.** Todos os parâmetros da coleta Bronze: fonte, período (coleta e análise 2019–2026; até 18/10 a análise era 2019–2025), grau, critério temático com todos os códigos TPU, paginação, robustez, volumes e reprodução. | Decidido (18/10/2026) |
 | [02-analise-exploratoria-parametros.md](02-analise-exploratoria-parametros.md) | Análise por agregações que fundamentou as escolhas do documento 01. | Verificado (17/10/2026) |
 | [03-desempenho-api-coleta.md](03-desempenho-api-coleta.md) | Latência da API, testes de isolamento e ajuste do tamanho de página. | Verificado (18/10/2026) |
 | [06-resultado-coleta-bronze.md](06-resultado-coleta-bronze.md) | Resultado da coleta Bronze definitiva: completude por ano, unicidade, integridade, ocorrências e execuções descartadas. | Verificado (18/10/2026) |
@@ -13,6 +13,10 @@ Esta pasta reúne a documentação e os relatórios que fundamentam a metodologi
 | [09-roteiro-consulta-juridica.md](09-roteiro-consulta-juridica.md) | Roteiro de consulta a advogado(a)/servidor(a) do TJPR, perguntas priorizadas, lacunas da análise e tabela para registrar as respostas. | Roteiro (23/10/2026) |
 | [10-modelo-dados-silver.md](10-modelo-dados-silver.md) | Proposta de modelo de dados da Silver: esquemas, diagramas ER (Mermaid), dicionário, flags de qualidade, fluxo de carga e decisões em aberto. | Proposta (23/10/2026) |
 | [11-revisao-literatura.md](11-revisao-literatura.md) | Levantamento inicial de trabalhos relacionados (Datajud/jurimetria, SINAN/SIM, BOs), com grau de verificação e lacunas. | Levantamento (01/11/2026) |
+| [12-resumo-cnj-2022-medidas-protetivas.md](12-resumo-cnj-2022-medidas-protetivas.md) | Resumo do relatório CNJ/Instituto Avon/Consórcio LMP (2022) sobre MPUs no Datajud; números do TJPR (≈83% em sigilo nível 2; só ≈5% públicos) e implicações para o TCC. | Resumo (01/11/2026) |
+| [13-recoleta-2026.md](13-recoleta-2026.md) | Recoleta da partição 2026 (05/11/2026): completude, comparação com a coleta de 18/10, atraso de indexação e composição da base 2019–2026. | Verificado (05/11/2026) |
+| [14-viabilidade-trajetorias.md](14-viabilidade-trajetorias.md) | Desfecho derivado por código de movimento, trajetórias multicanal e clusterização: viabilidade e cuidados. | Verificado (§1–3) + proposta, 05/11/2026 |
+| [15-orquestracao-prefect.md](15-orquestracao-prefect.md) | Orquestração com Prefect: escopo, coleta incremental por marca d'água e implementação. | Implementado (coleta) + interfaces (Silver/Gold), 05/11/2026 |
 | [../exemplos/exemplos_json_por_codigo.md](../exemplos/exemplos_json_por_codigo.md) | Inventário de todos os campos da API e os 3 primeiros registros de cada código no JSON original (só identificadores mascarados). | Verificado (24/10/2026) |
 | [../anotações tcc.md](../anotações%20tcc.md) | Divergência entre a documentação e o formato real de `dataAjuizamento`. | Verificado (03/10/2026) |
 | [04-sinan-exploracao-pr-2023-2024.md](04-sinan-exploracao-pr-2023-2024.md) | Exploração do SINAN Violência (DATASUS), PR 2023–2024. | Exploratório |
@@ -29,6 +33,9 @@ Esta pasta reúne a documentação e os relatórios que fundamentam a metodologi
 | `coleta_bronze_20261018/` | Verificação independente da coleta e manifesto sanitizado (sem identificadores). |
 | `exemplos_assuntos_20261023/` | Exemplos sem identificadores, perfis por código, tipo de classe × grupo, movimentos de medida protetiva. |
 | `movimentos_viabilidade_20261023/` | Hierarquia SGT dos movimentos, eventos, Kaplan-Meier, N por sede e investigação das anomalias de 2019–2020 (só agregados). |
+| `coleta_bronze_2026_20261105/` | Verificação da recoleta de 2026, comparação com a partição anterior e manifesto sanitizado. |
+| `teste_ultima_atualizacao_20261105/` | Teste do filtro por `dataHoraUltimaAtualizacao` e distribuição das cargas em lote. |
+| `trajetorias_viabilidade_20261105/` | Desfechos derivados e variantes de trajetória (só agregados). |
 | `scripts/` | Scripts que produziram as evidências. Executar a partir da raiz do projeto com `.venv`; os que importam `q`/`sgt` recebem `docs/artigo/evidencias/scripts` como primeiro argumento. Não imprimem a chave da API. |
 
 Dados brutos (Bronze, SINAN) ficam em `work/` e não são versionados.

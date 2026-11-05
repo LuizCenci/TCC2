@@ -1,6 +1,6 @@
 # CLAUDE.md — Contexto e orientação do TCC
 
-Versão: **v4**, atualizada em **18/10/2026** (v1 em 22/09/2026, como `AGENTS.md`).
+Versão: **v5**, atualizada em **05/11/2026** (v1 em 22/09/2026, como `AGENTS.md`).
 Idioma de trabalho: português do Brasil.
 Estado: orientação inicial para refinamento com o autor e o orientador.
 
@@ -85,7 +85,9 @@ Essas formulações são propostas para refinamento, não alterações já aprov
 
 ## 5. Escopo inicial e viabilidade
 
-**Decisão do autor (18/10/2026):** TJPR, só G1, coleta 2019–2026 e **análise 2019–2025**. 2026 fica fora da análise por opção do autor (ano incompleto). O filtro temático é o catálogo `config/catalogs/tjpr_vcm_2026-10-18.yaml`: núcleo PVD mais extensões específicas, ambíguas e secundárias. Detalhes e justificativas: `docs/artigo/01-parametros-da-extracao.md`. A concordância do orientador com esse recorte ainda não foi registrada.
+**Decisão do autor (05/11/2026):** TJPR, só G1, coleta e **análise 2019–2026**. 2026 é parcial: partição recoletada em 05/11/2026 (`bronze2026-20261105-b67187c`), com ajuizamentos até 30/09/2026 e setembro incompleto; comparações anuais devem usar o mesmo intervalo de meses (jan–ago) ou séries mensais. Detalhes: `docs/artigo/01-parametros-da-extracao.md` §2 e `docs/artigo/13-recoleta-2026.md`. O filtro temático é o catálogo `config/catalogs/tjpr_vcm_2026-10-18.yaml`: núcleo PVD mais extensões específicas, ambíguas e secundárias. A concordância do orientador com esse recorte ainda não foi registrada.
+
+*Decisão anterior (18/10/2026, substituída):* TJPR, só G1, coleta 2019–2026 e **análise 2019–2025**. 2026 fica fora da análise por opção do autor (ano incompleto). O filtro temático é o catálogo `config/catalogs/tjpr_vcm_2026-10-18.yaml`: núcleo PVD mais extensões específicas, ambíguas e secundárias. Detalhes e justificativas: `docs/artigo/01-parametros-da-extracao.md`. A concordância do orientador com esse recorte ainda não foi registrada.
 
 Recomendação inicial (v1, substituída): TJPR, primeiro grau e três anos completos.
 
@@ -116,7 +118,7 @@ Content-Type: application/json
 
 No debate anterior as tentativas diretas enfrentaram problemas de conexão e HTTP 429.
 
-**Atualização de 03/10/2026 (verificado):** a execução piloto `20261003T180513Z-d07a7d51` (G1, 2019–2025, uma página de 100 por ano) obteve resposta válida em todos os anos. Os 700 registros trouxeram `dataAjuizamento` com 14 dígitos no formato `YYYYMMDDHHMMSS`, dentro do ano consultado. O índice do TJPR não aceita limites ISO 8601 nesse campo; a consulta usa o formato observado (ver `docs/anotações tcc.md`). O total retornado foi `≥ 10.000` (`relation: gte`) por ano; a contagem exata via `track_total_hits` foi implementada, mas ainda não executada. **Atualização de 18/10/2026 (verificado):** coleta Bronze definitiva `bronze-20261018-9852486` concluída (G1, 2019–2026, catálogo `tjpr-vcm-2026-10-18`): 143.337 registros, todos os anos completos, sem `_id` repetido; ver `docs/artigo/06-resultado-coleta-bronze.md`. **Preenchimento dos campos e cobertura (sigilo, classificação) ainda serão avaliados na Silver.** A lista abaixo segue sendo especificação documental.
+**Atualização de 03/10/2026 (verificado):** a execução piloto `20261003T180513Z-d07a7d51` (G1, 2019–2025, uma página de 100 por ano) obteve resposta válida em todos os anos. Os 700 registros trouxeram `dataAjuizamento` com 14 dígitos no formato `YYYYMMDDHHMMSS`, dentro do ano consultado. O índice do TJPR não aceita limites ISO 8601 nesse campo; a consulta usa o formato observado (ver `docs/anotações tcc.md`). O total retornado foi `≥ 10.000` (`relation: gte`) por ano; a contagem exata via `track_total_hits` foi implementada, mas ainda não executada. **Atualização de 18/10/2026 (verificado):** coleta Bronze definitiva `bronze-20261018-9852486` concluída (G1, 2019–2026, catálogo `tjpr-vcm-2026-10-18`): 143.337 registros, todos os anos completos, sem `_id` repetido; ver `docs/artigo/06-resultado-coleta-bronze.md`. **Atualização de 05/11/2026 (verificado):** partição 2026 recoletada (`bronze2026-20261105-b67187c`, 14.507 registros, completa); base de análise 2019–2026 = 147.002 registros (`docs/artigo/13-recoleta-2026.md`). O índice público tem atraso de 1–2 meses e não é estático (18 registros de 2026 saíram entre 18/10 e 05/11). **Preenchimento dos campos e cobertura (sigilo, classificação) ainda serão avaliados na Silver.** A lista abaixo segue sendo especificação documental.
 
 Uma tentativa usou o assunto 10949. Isso não valida esse código como filtro completo do estudo. Consultar TPU, hierarquias, vigências e parametrizações antes de definir a seleção.
 
@@ -365,3 +367,4 @@ Ao atuar:
 - **v2 — 03/10/2026:** `AGENTS.md` renomeado para `CLAUDE.md`; removida a cópia em `outputs/AGENTS.md`; adicionada a leitura obrigatória; seção 6 atualizada com o piloto válido e o formato de `dataAjuizamento`.
 - **v3 — 17/10/2026:** exploração do SINAN Violência PR 2023–2024 (`outputs/sinan/`); registrada na seção 6 a recomendação, ainda não aprovada, de usá-lo só como fonte contextual, com seus limites; fonte acrescentada à seção 17 e pendência à seção 18.
 - **v4 — 18/10/2026:** recorte decidido pelo autor (§5): G1, coleta 2019–2026, análise 2019–2025; novo catálogo `tjpr_vcm_2026-10-18` (núcleo PVD + extensões), validado em 143.337 registros; criada `docs/artigo/` com a documentação dos parâmetros e as evidências; relatórios do SINAN movidos para lá. Coleta Bronze definitiva concluída e verificada (§6).
+- **v5 — 05/11/2026:** período de análise passa a 2019–2026 por decisão do autor (§5), com recoleta da partição 2026; orquestrador Prefect implementado na `master` (coleta incremental por marca d'água em `dataHoraUltimaAtualizacao`; Silver e Gold como interfaces), ver `docs/artigo/15-orquestracao-prefect.md`; branch da Bronze integrada na `master`.

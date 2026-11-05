@@ -1,0 +1,558 @@
+{
+ "catalog_source_hash": "df83d3abad719b373da7b97b0e917432dcb1c5a292447d8519c69fef2f245035",
+ "catalog_version": "tjpr-vcm-2026-10-18",
+ "collector_version": "0.1.0",
+ "config_hash": "323a4998f7e64442254bd9a40602ef08a2e9d334238237b0bdd6a29df8ad0cd8",
+ "created_at": "2026-11-05T21:52:39.406396+00:00",
+ "endpoint": "https://api-publica.datajud.cnj.jus.br/api_publica_tjpr/_search",
+ "finished_at": "2026-11-05T22:39:36.874178+00:00",
+ "grau": "G1",
+ "max_pages_per_partition": 300,
+ "page_size": 200,
+ "partitions": {
+  "2026": {
+   "artifacts": [
+    {
+     "page": 1,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000001.request.json",
+     "response": "responses\\year=2026\\page=000001.response.json.gz",
+     "sha256": "7eeb477b220c937925b002872afa3b89fffc126642d5b0680092db75794c625c"
+    },
+    {
+     "page": 2,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000002.request.json",
+     "response": "responses\\year=2026\\page=000002.response.json.gz",
+     "sha256": "0e40bf074ebc3f0175e48d405156b8b8a93ffd8aa5bcfdeb5475ce0c70d77e18"
+    },
+    {
+     "page": 3,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000003.request.json",
+     "response": "responses\\year=2026\\page=000003.response.json.gz",
+     "sha256": "58c04d2e0d72bd3a7611bf86a47fa4989350ab4d318dedc2dfda372306f151dd"
+    },
+    {
+     "page": 4,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000004.request.json",
+     "response": "responses\\year=2026\\page=000004.response.json.gz",
+     "sha256": "c21e533c23be35e52876d34e024064947dc52a7a6450a0c33f3ed4e25823a53b"
+    },
+    {
+     "page": 5,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000005.request.json",
+     "response": "responses\\year=2026\\page=000005.response.json.gz",
+     "sha256": "5fa7c56fc238423b4ab24101ee5241bc3e752172492c8fc0d7331b89e04193d3"
+    },
+    {
+     "page": 6,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000006.request.json",
+     "response": "responses\\year=2026\\page=000006.response.json.gz",
+     "sha256": "ce911891999c87d6f4ab91aa0e3e5d7ddbb709bcaf9fae2042d6e6ac02e3b36e"
+    },
+    {
+     "page": 7,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000007.request.json",
+     "response": "responses\\year=2026\\page=000007.response.json.gz",
+     "sha256": "aa360daa85765992be720a9f2335b87af4c0bf82b66161e1f13720dd282e1e5e"
+    },
+    {
+     "page": 8,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000008.request.json",
+     "response": "responses\\year=2026\\page=000008.response.json.gz",
+     "sha256": "1d772e8c9821b2a21cd1e950427deb4089573002b6e6a0eaeb0544c71084cdba"
+    },
+    {
+     "page": 9,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000009.request.json",
+     "response": "responses\\year=2026\\page=000009.response.json.gz",
+     "sha256": "0f976cb2f781740cd97d616d3769d1c2de67cf35b66b00bbae99001c74403945"
+    },
+    {
+     "page": 10,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000010.request.json",
+     "response": "responses\\year=2026\\page=000010.response.json.gz",
+     "sha256": "9d9e96ff048953e6331f7a0a60982712e300249a049c2c5dea6b3c823fafa955"
+    },
+    {
+     "page": 11,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000011.request.json",
+     "response": "responses\\year=2026\\page=000011.response.json.gz",
+     "sha256": "92a895aaf4794460e104071928ee56895fdf821832dee27a08f6079962956698"
+    },
+    {
+     "page": 12,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000012.request.json",
+     "response": "responses\\year=2026\\page=000012.response.json.gz",
+     "sha256": "451f14b81da3f6014b32079cac3cb3a91d3b0724c9d6c7dd01c535349dbd6073"
+    },
+    {
+     "page": 13,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000013.request.json",
+     "response": "responses\\year=2026\\page=000013.response.json.gz",
+     "sha256": "3e0ac5e22e3a2b9765559085d6db1bfd1325c4d229e7734deca409423166c6db"
+    },
+    {
+     "page": 14,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000014.request.json",
+     "response": "responses\\year=2026\\page=000014.response.json.gz",
+     "sha256": "d54a36cf236144a612d5c6afef7098d940979e40c1093d7ba2e999b96045ba70"
+    },
+    {
+     "page": 15,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000015.request.json",
+     "response": "responses\\year=2026\\page=000015.response.json.gz",
+     "sha256": "6bea8cd60c13c451c2b3b8bdf050467ec69b56a07d44b8ed4f52b881e393dff4"
+    },
+    {
+     "page": 16,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000016.request.json",
+     "response": "responses\\year=2026\\page=000016.response.json.gz",
+     "sha256": "9c5ffbdc33f6d4ccf08043622c181c721099b359bd6263ba2c8878fea452f261"
+    },
+    {
+     "page": 17,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000017.request.json",
+     "response": "responses\\year=2026\\page=000017.response.json.gz",
+     "sha256": "85ccfa431e071c8b288cf66d7bcf74c9af438910fed8174f0babb6dbe29f6ec2"
+    },
+    {
+     "page": 18,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000018.request.json",
+     "response": "responses\\year=2026\\page=000018.response.json.gz",
+     "sha256": "5774310b28c40df816dbf0ef05d417c0e8d42b98309c41db06dbe98a8341feb8"
+    },
+    {
+     "page": 19,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000019.request.json",
+     "response": "responses\\year=2026\\page=000019.response.json.gz",
+     "sha256": "e14353731c3ec244502b0bf712631490de7fbc2dbc7e6fce030eb76b0cacd6e1"
+    },
+    {
+     "page": 20,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000020.request.json",
+     "response": "responses\\year=2026\\page=000020.response.json.gz",
+     "sha256": "84c525e58f02402c973c97a2a06e0c72b345701b5207d19be812f58325558476"
+    },
+    {
+     "page": 21,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000021.request.json",
+     "response": "responses\\year=2026\\page=000021.response.json.gz",
+     "sha256": "35f8990ccb437d923cc7c0843859c299f3d39d2f74685461b8967bac63a7c2d3"
+    },
+    {
+     "page": 22,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000022.request.json",
+     "response": "responses\\year=2026\\page=000022.response.json.gz",
+     "sha256": "3ce37477cc5938d32be7f8b16708cd014c5952c6df3aa1570be8024374ecd8ae"
+    },
+    {
+     "page": 23,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000023.request.json",
+     "response": "responses\\year=2026\\page=000023.response.json.gz",
+     "sha256": "6bff4f5e86e87dfefb8faa1ddd7682a49e6b790028f444026a9043164cd63401"
+    },
+    {
+     "page": 24,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000024.request.json",
+     "response": "responses\\year=2026\\page=000024.response.json.gz",
+     "sha256": "35354351de46ce1da802d0db29348cd01a164abbceb9c9ba0be131849f87c638"
+    },
+    {
+     "page": 25,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000025.request.json",
+     "response": "responses\\year=2026\\page=000025.response.json.gz",
+     "sha256": "7fa20e0a443738860b760d662c96b529ba9692dfc0b5adff27c52f5fb66d3725"
+    },
+    {
+     "page": 26,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000026.request.json",
+     "response": "responses\\year=2026\\page=000026.response.json.gz",
+     "sha256": "8dc4da7741c3ca8d57f5290373b6784c65cb5ce79230bf9e95bd5a0e3cb1b83d"
+    },
+    {
+     "page": 27,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000027.request.json",
+     "response": "responses\\year=2026\\page=000027.response.json.gz",
+     "sha256": "2d2f73cc4b6c1f9b2eed42c52219f575804b6f0c5a3c89a5091784b841620dea"
+    },
+    {
+     "page": 28,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000028.request.json",
+     "response": "responses\\year=2026\\page=000028.response.json.gz",
+     "sha256": "126a14a7a8cc3da8a15f24aef2fc4842b4197b294fe5f67357ccfca24a6491cd"
+    },
+    {
+     "page": 29,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000029.request.json",
+     "response": "responses\\year=2026\\page=000029.response.json.gz",
+     "sha256": "81396ce8575259d9b047a87539a818cde5b76b6d6abd78fd9d52da7827f6129a"
+    },
+    {
+     "page": 30,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000030.request.json",
+     "response": "responses\\year=2026\\page=000030.response.json.gz",
+     "sha256": "ab66e447e219c2495ec770f59cc178fb8d8514d924cd4e3bff62d919793d569c"
+    },
+    {
+     "page": 31,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000031.request.json",
+     "response": "responses\\year=2026\\page=000031.response.json.gz",
+     "sha256": "cef8bf58c32a71c0f5d6e79d00ca0fd26a7e6fb1a325536c9af747fddad53627"
+    },
+    {
+     "page": 32,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000032.request.json",
+     "response": "responses\\year=2026\\page=000032.response.json.gz",
+     "sha256": "73e5784f85dd310a6393cb74d8f76bd7fc5563289f8e865065f7ac1e51404106"
+    },
+    {
+     "page": 33,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000033.request.json",
+     "response": "responses\\year=2026\\page=000033.response.json.gz",
+     "sha256": "0983469184386b69b9a0c3867dca0c80f56310cc8c16b22949ab8d89ddb9dba4"
+    },
+    {
+     "page": 34,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000034.request.json",
+     "response": "responses\\year=2026\\page=000034.response.json.gz",
+     "sha256": "7bdabcd0354c3433913ae5e77c5806c7dee09583062cf8f27761986565100f78"
+    },
+    {
+     "page": 35,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000035.request.json",
+     "response": "responses\\year=2026\\page=000035.response.json.gz",
+     "sha256": "d05a878bf13400283dc94f43d7567ad78c242574a491823995868b11fb3424ca"
+    },
+    {
+     "page": 36,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000036.request.json",
+     "response": "responses\\year=2026\\page=000036.response.json.gz",
+     "sha256": "0ca0651f6fb6d4f6113d03d0f6cb96700017f1fe5b99e07740251c533c0822be"
+    },
+    {
+     "page": 37,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000037.request.json",
+     "response": "responses\\year=2026\\page=000037.response.json.gz",
+     "sha256": "f4a176ce502764524ac5ec222d1619e8a9b320e7b88fc876ccbebb689021236d"
+    },
+    {
+     "page": 38,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000038.request.json",
+     "response": "responses\\year=2026\\page=000038.response.json.gz",
+     "sha256": "4aebaddfec018a3bd1408f2ceb5db31d4bb4a85f833e333e8d2f803b410328e0"
+    },
+    {
+     "page": 39,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000039.request.json",
+     "response": "responses\\year=2026\\page=000039.response.json.gz",
+     "sha256": "9d944373a97d4e06b66debaa6d5f542aca24d9eb4b9b1b1e370ac128676db2a8"
+    },
+    {
+     "page": 40,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000040.request.json",
+     "response": "responses\\year=2026\\page=000040.response.json.gz",
+     "sha256": "65ecc505db6f18e2215fc953815d86b9ebdef2f01f643ab586e4b6ab172e83c7"
+    },
+    {
+     "page": 41,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000041.request.json",
+     "response": "responses\\year=2026\\page=000041.response.json.gz",
+     "sha256": "f6aa76d921cf74e1f7a20e863ede63af1e8444803818659df997eae11b6dde20"
+    },
+    {
+     "page": 42,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000042.request.json",
+     "response": "responses\\year=2026\\page=000042.response.json.gz",
+     "sha256": "d4be85cce2253c5bff705e83d04704ba288d2d8f4134e28d0bc9496b7365a604"
+    },
+    {
+     "page": 43,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000043.request.json",
+     "response": "responses\\year=2026\\page=000043.response.json.gz",
+     "sha256": "12755896e9bf192c7b1e130c1c62497fc5b27e7154ee51355d293198f8e65022"
+    },
+    {
+     "page": 44,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000044.request.json",
+     "response": "responses\\year=2026\\page=000044.response.json.gz",
+     "sha256": "147e6709938a473229566449071bb616ec1652c165f5aae3ff82a57d93c87154"
+    },
+    {
+     "page": 45,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000045.request.json",
+     "response": "responses\\year=2026\\page=000045.response.json.gz",
+     "sha256": "bae36455b71d4fc3524755264b22e6c2a467c74793298b88755d8f5742ca5ffe"
+    },
+    {
+     "page": 46,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000046.request.json",
+     "response": "responses\\year=2026\\page=000046.response.json.gz",
+     "sha256": "cefa2d5f5dac7ab5901e60eab2e22a3a42c9ee3957a826089c553492e7af6e5e"
+    },
+    {
+     "page": 47,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000047.request.json",
+     "response": "responses\\year=2026\\page=000047.response.json.gz",
+     "sha256": "c303f6774c03a30f6a9774e32f4c5e20d006d9f770af97656f21302ee0c8a58c"
+    },
+    {
+     "page": 48,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000048.request.json",
+     "response": "responses\\year=2026\\page=000048.response.json.gz",
+     "sha256": "3be694ba3e1f53de48f46d1b6272b0dfd6426061a4169160f397e3bdb0cb9553"
+    },
+    {
+     "page": 49,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000049.request.json",
+     "response": "responses\\year=2026\\page=000049.response.json.gz",
+     "sha256": "60f99d75c1b752263669ead3c25f062b096ccd93f186ea36e88965c1e6d60857"
+    },
+    {
+     "page": 50,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000050.request.json",
+     "response": "responses\\year=2026\\page=000050.response.json.gz",
+     "sha256": "c63cdc94ad9810a7b6fddcb8d77ea3dcbee88522ed8f552947d20fd9d64bb335"
+    },
+    {
+     "page": 51,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000051.request.json",
+     "response": "responses\\year=2026\\page=000051.response.json.gz",
+     "sha256": "08f7bc8fd7fdad6ab1130e4b1871749974fa63e5fae1cabb6b5719eb5723fc7a"
+    },
+    {
+     "page": 52,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000052.request.json",
+     "response": "responses\\year=2026\\page=000052.response.json.gz",
+     "sha256": "fb6ef2e6fa83a8e8bdcf706940321af4f124ac87f57b1197e0b400f820093b42"
+    },
+    {
+     "page": 53,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000053.request.json",
+     "response": "responses\\year=2026\\page=000053.response.json.gz",
+     "sha256": "f2c07022a10c079aaf1fb831ffde0d97561092e0d5665747ef123f2196481ad2"
+    },
+    {
+     "page": 54,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000054.request.json",
+     "response": "responses\\year=2026\\page=000054.response.json.gz",
+     "sha256": "21b4ecfb14ea7cf776b69daedd16f316988f8c73812afc4ae42d75562eb22c71"
+    },
+    {
+     "page": 55,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000055.request.json",
+     "response": "responses\\year=2026\\page=000055.response.json.gz",
+     "sha256": "14158a4b14f5a5d757d8eb19a42b71d5b2a56f076dd3a1141864597c3cbc916b"
+    },
+    {
+     "page": 56,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000056.request.json",
+     "response": "responses\\year=2026\\page=000056.response.json.gz",
+     "sha256": "0f1d3fb317790fc960bdaaced50c950da5896447b855eb25c1de37dc3ae8b30a"
+    },
+    {
+     "page": 57,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000057.request.json",
+     "response": "responses\\year=2026\\page=000057.response.json.gz",
+     "sha256": "092b8958331884a89a4331d9ef408ed0e488b3a9442c2181ecd6cf8434796bae"
+    },
+    {
+     "page": 58,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000058.request.json",
+     "response": "responses\\year=2026\\page=000058.response.json.gz",
+     "sha256": "aba2f69df535e59930fd6a0f1430dbb290005eeee221723dea6b7a3e15e46bca"
+    },
+    {
+     "page": 59,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000059.request.json",
+     "response": "responses\\year=2026\\page=000059.response.json.gz",
+     "sha256": "552d47041525828cba02f808fa650bbe5bfb7ec0b8f89e0acc21043a132d7cff"
+    },
+    {
+     "page": 60,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000060.request.json",
+     "response": "responses\\year=2026\\page=000060.response.json.gz",
+     "sha256": "93c8642cc968472289e02a795dbeea86c65bbedd9e60b3dee3d1610390944832"
+    },
+    {
+     "page": 61,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000061.request.json",
+     "response": "responses\\year=2026\\page=000061.response.json.gz",
+     "sha256": "4274dbea1a3735cd07b0861f96b9b28039a96cae36790e9d7fa0c8a84f885e90"
+    },
+    {
+     "page": 62,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000062.request.json",
+     "response": "responses\\year=2026\\page=000062.response.json.gz",
+     "sha256": "bc630308e388ee42b3568392be7e041c86dea4ebea952a837e66e246e9d50cbf"
+    },
+    {
+     "page": 63,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000063.request.json",
+     "response": "responses\\year=2026\\page=000063.response.json.gz",
+     "sha256": "bc3fe9a92791a7f4943954e524e12303f719111832cb34af65bef7cb0cc6a7b1"
+    },
+    {
+     "page": 64,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000064.request.json",
+     "response": "responses\\year=2026\\page=000064.response.json.gz",
+     "sha256": "83900b32e2a53ff99d5d941dd3a000c34e3ac954948e4bb410e2fbe2b5072fdf"
+    },
+    {
+     "page": 65,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000065.request.json",
+     "response": "responses\\year=2026\\page=000065.response.json.gz",
+     "sha256": "06a829ebd73b4a81577838d5159df74c6537e4d9ad8941ce51190aa61038c340"
+    },
+    {
+     "page": 66,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000066.request.json",
+     "response": "responses\\year=2026\\page=000066.response.json.gz",
+     "sha256": "a484e788a3fa500911535f571d741b2fa8721b3eba586d990afd7b79d70d8b16"
+    },
+    {
+     "page": 67,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000067.request.json",
+     "response": "responses\\year=2026\\page=000067.response.json.gz",
+     "sha256": "62a0641ce388c11c70b615f71f3787b0e8f93ee8ae43ac8c1072c40cc011b545"
+    },
+    {
+     "page": 68,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000068.request.json",
+     "response": "responses\\year=2026\\page=000068.response.json.gz",
+     "sha256": "3a4456bf46ae37112112717ace1d5ed1389bafc93f04e7b88752a1ac140b9bf3"
+    },
+    {
+     "page": 69,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000069.request.json",
+     "response": "responses\\year=2026\\page=000069.response.json.gz",
+     "sha256": "9a5401b1b15b4bd5b98738879a1ab65110457371c73297de34e1e9cbacb9a412"
+    },
+    {
+     "page": 70,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000070.request.json",
+     "response": "responses\\year=2026\\page=000070.response.json.gz",
+     "sha256": "fccd41922337930e69b3cb5b9ac0b127665164c01d052dd1d0fd9e79133a2544"
+    },
+    {
+     "page": 71,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000071.request.json",
+     "response": "responses\\year=2026\\page=000071.response.json.gz",
+     "sha256": "766db9e6d49364b51cc59eae2f1d93372f1f5a29f3dc676ff176abc8608d2e38"
+    },
+    {
+     "page": 72,
+     "records": 200,
+     "request": "requests\\year=2026\\page=000072.request.json",
+     "response": "responses\\year=2026\\page=000072.response.json.gz",
+     "sha256": "263d10fd73bbf2283f2fb09dd48473f145b372c9c4488cad25980dbe4b99da77"
+    },
+    {
+     "page": 73,
+     "records": 107,
+     "request": "requests\\year=2026\\page=000073.request.json",
+     "response": "responses\\year=2026\\page=000073.response.json.gz",
+     "sha256": "60dc42fe79b020f903390c4354c9c7bd9c47a6acc61e6907d596578279e71259"
+    }
+   ],
+   "error": {
+    "message": "Datajud manteve HTTP 429 após tentativas limitadas",
+    "type": "RateLimitError"
+   },
+   "pages": 73,
+   "records": 14507,
+   "request_meta": {
+    "attempts": 1,
+    "status_code": 200
+   },
+   "response_meta": {
+    "shards_failed": 0,
+    "timed_out": false,
+    "took": 38787
+   },
+   "status": "complete",
+   "total": {
+    "relation": "eq",
+    "value": 14507
+   },
+   "year": 2026
+  }
+ },
+ "query_kind": "main",
+ "run_id": "bronze2026-20261105-b67187c",
+ "status": "complete",
+ "tribunal": "TJPR",
+ "years": [
+  2026
+ ],
+ "_nota": "Cópia sanitizada para docs/: 'last_cursor' removido (contém identificador de processo). Original em work/bronze/."
+}

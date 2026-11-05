@@ -4,7 +4,7 @@ Documento de referência para a seção de metodologia do artigo. Registra **tod
 
 | Item | Valor |
 |---|---|
-| Versão do documento | 1.2 — 18/10/2026 (tamanho de página, teto e timeout ajustados; ver `03-desempenho-api-coleta.md`) |
+| Versão do documento | 1.3 — 05/11/2026 (período analisado passa a 2019–2026; recoleta de 2026, `13-recoleta-2026.md`) |
 | Catálogo temático | `config/catalogs/tjpr_vcm_2026-10-18.yaml` — versão `tjpr-vcm-2026-10-18`, SHA-256 `df83d3ab…2f245035` |
 | Configuração da coleta | `config/collection.bronze.yaml` — SHA-256 `e33374d7…b29aee6b` |
 | Código que monta a consulta | `src/datajud_tcc/query.py` (`build_main_query`, `_thematic_filter`) |
@@ -32,9 +32,16 @@ Os hashes completos estão na §10. Cada execução de coleta grava no seu `mani
 | Formato do campo no índice | `YYYYMMDDHHMMSS` (14 dígitos), **diferente** do ISO 8601 do glossário oficial (ver `docs/anotações tcc.md`) |
 | Partição | Um intervalo por ano civil, semiaberto: `gte YYYY0101000000`, `lt (YYYY+1)0101000000` |
 | **Período coletado** | **2019–2026** |
-| **Período analisado** | **2019–2025** |
+| **Período analisado** | **2019–2026** (decisão do autor em 05/11/2026; 2026 parcial: ajuizamentos até 30/09/2026, com setembro incompleto) |
+| Origem das partições | 2019–2025: `bronze-20261018-9852486` (índice em 18/10/2026); 2026: `bronze2026-20261105-b67187c` (índice em 05/11/2026) |
 
-**Exclusão de 2026 da análise — opção do autor.** O ano de 2026 é coletado e mantido na Bronze, mas fica **fora de todas as análises e indicadores** por decisão do autor, porque o ano estava incompleto na data da coleta (outubro de 2026). Essa exclusão não decorre de falha ou inconsistência nos dados.
+**2026 incluído na análise — decisão do autor (05/11/2026).** Substitui a decisão de 18/10/2026, que excluía 2026 por ser um ano incompleto. A partição de 2026 foi **recoletada em 05/11/2026** (`13-recoleta-2026.md`) e chega a ajuizamentos de **30/09/2026**, porque o índice público tem atraso de um a dois meses. Setembro está incompleto (969 registros, contra 1.484–2.058 em janeiro–agosto). Consequências para a análise:
+
+- comparações anuais com 2026 devem usar **o mesmo intervalo de meses** (por exemplo, janeiro–agosto de cada ano) ou séries **mensais**, nunca o total anual;
+- as coortes de 2026 têm acompanhamento muito curto (censura nos tempos e desfechos, `08` §4 e `14` §2);
+- as partições vêm de **retratos do índice em datas diferentes** (18/10 para 2019–2025; 05/11 para 2026).
+
+*Decisão anterior (18/10/2026, substituída):* coletar 2026, mas excluí-lo da análise.
 
 **Por que começar em 2019:** entre 2015 e 2018 o volume de registros com assuntos de violência doméstica quadruplica (4.442 → 18.603, todos os graus). Isso é compatível com a adoção progressiva dos códigos da TPU, e não necessariamente com mais processos (hipótese). A partir de 2019 a série é mais estável (§8).
 
@@ -146,11 +153,11 @@ Contagem exata (`track_total_hits: true`, `relation: eq`) obtida com a **mesma c
 | 2023 | 16.023 | 15.145 | 732 | 5 | 141 |
 | 2024 | 17.631 | 16.687 | 738 | 0 | 206 |
 | 2025 | 19.507 | 18.357 | 894 | 0 | 256 |
-| **2019–2025 (analisado)** | **132.495** | **114.491** | **5.379** | **11.897** | **728** |
-| 2026 (coletado, fora da análise) | 10.842 | 10.153 | 556 | 1 | 132 |
+| **2019–2025** | **132.495** | **114.491** | **5.379** | **11.897** | **728** |
+| 2026 (coleta de 18/10, substituída) | 10.842 | 10.153 | 556 | 1 | 132 |
 | **Total coletado** | **143.337** | **124.644** | **5.935** | **11.898** | **860** |
 
-Os totais são do índice em 18/10/2026. Como o índice é atualizado continuamente, a contagem efetiva da coleta é registrada no manifesto de cada execução e pode diferir ligeiramente.
+Os totais são do índice em 18/10/2026. A partição de 2026 usada na análise vem da recoleta de 05/11/2026: **14.507 registros** (`13-recoleta-2026.md`); a base analisada soma **147.002** registros (132.495 + 14.507). Como o índice é atualizado continuamente, a contagem efetiva da coleta é registrada no manifesto de cada execução e pode diferir ligeiramente.
 
 ## 6. Paginação e completude
 
@@ -185,7 +192,7 @@ Os totais são do índice em 18/10/2026. Como o índice é atualizado continuame
 
 1. **Mudança de codificação em 2021.** O assunto 5560 aparece sozinho em cerca de 5–6 mil registros por ano em 2019–2020 e desaparece em 2022. No mesmo período o 14943 (Lei 14.188/2021) passa de 51 registros (2019) para 4.121 (2025). Séries por assunto devem considerar essa transição.
 2. **Queda em 2021–2022.** Mesmo com as extensões, o total cai de cerca de 25 mil (2019–2020) para cerca de 15 mil (2021). Hipóteses a investigar: pandemia, migração de sistema, mudança de codificação. Não deve ser interpretada como redução da violência.
-3. **Sem processos sigilosos.** `nivelSigilo = 0` em 100% dos registros. O índice público não inclui processos em segredo de justiça, e isso é uma **limitação de cobertura**.
+3. **Sem processos sigilosos.** `nivelSigilo = 0` em 100% dos registros. O índice público não inclui processos em segredo de justiça, e isso é uma **limitação de cobertura**. Segundo o CNJ (2022), só **4,9%** dos registros de MPU do TJPR (jan/2020–mai/2022) tinham sigilo 0; cerca de 83% estavam em sigilo nível 2. A base corresponde à fatia pública do acervo (`docs/artigo/12-resumo-cnj-2022-medidas-protetivas.md`).
 4. **Localização.** `orgaoJulgador.codigoMunicipioIBGE` está sempre preenchido, mas com só 163 municípios: as **sedes dos órgãos julgadores**, não o local do fato.
 5. **Sistema e formato.** `sistema` é 99% "Eproc" inclusive em 2019 (reflete o sistema atual, não o de origem). `formato` é 100% eletrônico. Nenhum dos dois serve para estratificação histórica.
 6. **Multiplicidade de assuntos.** São 1,9 assunto por registro em média (máximo 12), o que reforça a necessidade de tabelas separadas na Silver (CLAUDE.md §9).
@@ -235,3 +242,4 @@ A consulta completa de exemplo (ano 2019) está em `evidencias/validacao_filtro_
 | 18/10/2026 | `page_size` 100 → 1.000, teto 1.000 → 100 páginas/ano, timeout de leitura 60 → 180 s. Primeira execução (`bronze-20261018-24c258c`) interrompida após 26 páginas e descartada. Filtro inalterado. | Medição de desempenho, `03-desempenho-api-coleta.md` |
 | 18/10/2026 | Execução com 1.000 por página (`bronze-20261018-12748ce`) falhou por HTTP 504 (corte de 60 s do gateway), sem páginas gravadas. Final: `page_size` 200, teto 300 páginas/ano, timeout 90 s, retomada automática limitada a 5 vezes. | `03-desempenho-api-coleta.md`, §4–5 |
 | 18/10/2026 | Coleta definitiva `bronze-20261018-9852486` concluída: 143.337 registros, todos os anos completos (`eq`), sem duplicatas. | `06-resultado-coleta-bronze.md` |
+| 05/11/2026 | **Período analisado passa a 2019–2026** (substitui a exclusão de 2026). Partição 2026 recoletada em `bronze2026-20261105-b67187c` (14.507 registros, completa); 2019–2025 continuam de `bronze-20261018-9852486`. | Decisão do autor; `13-recoleta-2026.md` |
