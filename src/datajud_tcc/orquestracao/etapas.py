@@ -10,9 +10,27 @@ from pathlib import Path
 from typing import Any
 
 
-def carregar_silver(run_root: Path) -> dict[str, Any]:
-    """Carrega uma execução da Bronze na Silver; retorna contagens por tabela."""
-    raise NotImplementedError("Silver ainda não implementada (docs/artigo/10-modelo-dados-silver.md)")
+def carregar_silver(run_root: Path, conn: Any = None) -> dict[str, int]:
+    """Carrega uma execução da Bronze na Silver; retorna contagens por tabela.
+
+    Sem `conn`, abre a conexão, aplica o esquema, faz commit e fecha. Com `conn`,
+    o chamador controla a transação (nenhum commit aqui).
+    """
+    from datajud_tcc.silver import carga, conexao, esquema
+
+    if conn is not None:
+        return carga.carregar_execucao(conn, Path(run_root))
+    propria = conexao.conectar()
+    try:
+        esquema.aplicar_esquema(propria)
+        contagens = carga.carregar_execucao(propria, Path(run_root))
+        propria.commit()
+        return contagens
+    except BaseException:
+        propria.rollback()
+        raise
+    finally:
+        propria.close()
 
 
 def construir_gold(versao_regras: str) -> dict[str, Any]:

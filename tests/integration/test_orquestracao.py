@@ -115,8 +115,6 @@ def test_pipeline_nao_carrega_silver_se_coleta_falhar(ambiente, monkeypatch):
     assert chamadas == []
 
 
-def test_etapas_silver_e_gold_ainda_nao_implementadas():
-    with pytest.raises(NotImplementedError):
-        etapas.carregar_silver(Path("x"))
+def test_etapa_gold_ainda_nao_implementada():
     with pytest.raises(NotImplementedError):
         etapas.construir_gold("v1")

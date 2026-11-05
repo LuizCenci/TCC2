@@ -52,6 +52,14 @@ def _parser() -> argparse.ArgumentParser:
     report.add_argument("--run-root", required=True, type=Path)
     report.add_argument("--output", type=Path)
     report.add_argument("--catalog", type=Path, default=CATALOG_PATH)
+    subparsers.add_parser("silver-esquema", help="aplicar o esquema da Silver")
+    silver_carregar = subparsers.add_parser(
+        "silver-carregar", help="carregar uma execução Bronze na Silver"
+    )
+    silver_carregar.add_argument("--run-root", required=True, type=Path)
+    subparsers.add_parser(
+        "silver-marca-dagua", help="imprimir a maior data de atualização da Silver"
+    )
     return parser
 
 
@@ -96,6 +104,79 @@ def _report(args: argparse.Namespace) -> int:
     return 0
 
 
+def _silver_esquema(args: argparse.Namespace) -> int:
+    from .silver import conexao, esquema
+
+    try:
+        conn = conexao.conectar()
+    except Exception:  # a mensagem pode conter o DSN; não exibir
+        print("não foi possível conectar ao banco (verifique DATABASE_URL).", file=sys.stderr)
+        return 3
+    try:
+        esquema.aplicar_esquema(conn)
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        print("esquema da Silver não aplicado.", file=sys.stderr)
+        return 3
+    finally:
+        conn.close()
+    print("esquema aplicado")
+    return 0
+
+
+def _silver_carregar(args: argparse.Namespace) -> int:
+    from .silver import carga, conexao, esquema
+
+    try:
+        conn = conexao.conectar()
+    except Exception:  # a mensagem pode conter o DSN; não exibir
+        print("não foi possível conectar ao banco (verifique DATABASE_URL).", file=sys.stderr)
+        return 3
+    try:
+        esquema.aplicar_esquema(conn)
+        contagens = carga.carregar_execucao(conn, args.run_root)
+        conn.commit()
+    except carga.ExecucaoInvalida as exc:
+        conn.rollback()
+        print(f"execução inválida: {exc}", file=sys.stderr)
+        return 3
+    except Exception:
+        conn.rollback()
+        print("carga na Silver não concluída (erro inesperado).", file=sys.stderr)
+        return 3
+    finally:
+        conn.close()
+    print(" ".join(f"{chave}={valor}" for chave, valor in contagens.items()))
+    return 0
+
+
+def _silver_marca_dagua(args: argparse.Namespace) -> int:
+    from .silver import conexao, esquema
+
+    try:
+        conn = conexao.conectar()
+    except Exception:  # a mensagem pode conter o DSN; não exibir
+        print("não foi possível conectar ao banco (verifique DATABASE_URL).", file=sys.stderr)
+        return 3
+    try:
+        esquema.aplicar_esquema(conn)
+        conn.commit()
+        marca = conn.execute("SELECT max(data_ultima_atualizacao) FROM silver.registro").fetchone()[0]
+    except Exception:
+        conn.rollback()
+        print("marca d'água não obtida (erro inesperado).", file=sys.stderr)
+        return 3
+    finally:
+        conn.close()
+    if marca is None:
+        print("Silver sem registros com data de atualização: marca d'água indisponível.", file=sys.stderr)
+        return 3
+    marca = marca.astimezone(timezone.utc)
+    print(marca.strftime("%Y-%m-%dT%H:%M:%S.") + f"{marca.microsecond // 1000:03d}Z")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     logging.basicConfig(
@@ -105,6 +186,12 @@ def main(argv: list[str] | None = None) -> int:
         return _collect(args)
     if args.command == "report":
         return _report(args)
+    if args.command == "silver-esquema":
+        return _silver_esquema(args)
+    if args.command == "silver-carregar":
+        return _silver_carregar(args)
+    if args.command == "silver-marca-dagua":
+        return _silver_marca_dagua(args)
     return 2
 
 
