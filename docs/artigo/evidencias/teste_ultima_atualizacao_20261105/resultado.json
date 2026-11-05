@@ -1,0 +1,63 @@
+{
+ "consultado_em": "2026-11-05T19:12:08",
+ "testes": {
+  "A_iso_completo_out2026": {
+   "status": 200,
+   "total": {
+    "value": 14875,
+    "relation": "eq"
+   },
+   "took": 10507,
+   "aggs": {
+    "min": {
+     "value": 1791213891642.0,
+     "value_as_string": "2026-10-05T15:24:51.642Z"
+    },
+    "max": {
+     "value": 1791223231594.0,
+     "value_as_string": "2026-10-05T18:00:31.594Z"
+    },
+    "semana": {
+     "buckets": [
+      {
+       "key_as_string": "2026-10-05T00:00:00.000Z",
+       "key": 1791158400000,
+       "doc_count": 14875
+      }
+     ]
+    }
+   },
+   "erro": null
+  },
+  "B_so_data_out2026": {
+   "status": 200,
+   "total": {
+    "value": 14875,
+    "relation": "eq"
+   },
+   "took": 18858,
+   "aggs": null,
+   "erro": null
+  },
+  "C_formato_ajuizamento_out2026": {
+   "status": 200,
+   "total": {
+    "value": 0,
+    "relation": "eq"
+   },
+   "took": 21725,
+   "aggs": null,
+   "erro": null
+  },
+  "D_iso_out2026_ajuizados_2019_2025": {
+   "status": 200,
+   "total": {
+    "value": 9085,
+    "relation": "eq"
+   },
+   "took": 17635,
+   "aggs": null,
+   "erro": null
+  }
+ }
+}

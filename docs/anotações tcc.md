@@ -97,3 +97,24 @@ Hierarquia conferida no SGT/CNJ; ver `docs/artigo/evidencias/movimentos_viabilid
 - Fases (inquérito, instrução, sentença) são **inferidas** entre marcos escolhidos por código: 26 Distribuição; 391 Recebimento da denúncia; 12750 Audiência de instrução e julgamento; 219/220/221 Julgamento; 848 Trânsito em julgado; 246 Arquivamento definitivo.
 - A TPU separa os movimentos de **magistrado** (decisões, despachos, julgamentos) dos de **serventuário** (juntadas, remessas, conclusões, audiências, trânsito, arquivamento). A maior parte do volume é rotina de cartório: 581 Juntada de documento tem 2,05 milhões de ocorrências.
 - Nomes compartilhados por códigos de sentido oposto: "Medida protetiva" (11423 concessão, 11424 em parte, 11425 não-concessão, 11426 revogação) e **"Denúncia" (391 recebimento, 402 rejeição)**. Classificar sempre pelo código.
+
+## Cobertura da API pública: processos sigilosos ficam de fora (05/11/2026)
+
+Fonte: CNJ; Instituto Avon; Consórcio Lei Maria da Penha (2022), com acesso aos dados completos do Datajud, inclusive sigilosos. Resumo e números em `docs/artigo/12-resumo-cnj-2022-medidas-protetivas.md`.
+
+- A API pública retorna **apenas registros com `nivelSigilo = 0`**. Na coleta do TCC, 100% dos 143.337 registros têm sigilo 0.
+- No relatório do CNJ, entre jan/2020 e mai/2022, o TJPR tinha **89.404 registros de MPU** (classe 1268, 1º grau). Deles, só **4.420 (4,9%) com sigilo 0** e **74.035 (≈83%) com sigilo 2**. Nacionalmente, 29,2% dos registros de MPU são públicos.
+- **Convergência com a coleta:** a API pública trouxe cerca de 2.350 registros da classe 1268 por ano em 2020–2022; o relatório indica cerca de 1.800 públicos por ano no TJPR. É a mesma ordem de grandeza: **a base do TCC corresponde à fatia pública, cerca de 5%, das MPUs do TJPR.**
+- Para os processos de violência doméstica em geral, o relatório conta 132.172 no TJPR em 29 meses (cerca de 55 mil por ano), contra 14–25 mil registros por ano na coleta do TCC. A cobertura dos demais procedimentos também é parcial, em grau ainda não medido.
+- **Não há critério uniforme de sigilo entre os tribunais.** O principal fundamento é o Enunciado 34 do FONAVID (MPUs em segredo de justiça). A fatia pública pode não ser aleatória.
+- **Consequência:** contagens do TCC descrevem o **acervo público**, não o volume real de processos. Comparações com painéis oficiais do CNJ exigem considerar o universo (todos × só públicos). Esta é a **principal limitação de cobertura** do trabalho (CLAUDE.md §4.2).
+
+## `dataHoraUltimaAtualizacao` marca cargas em lote, não atividade processual (05/11/2026)
+
+Teste com consultas de contagem (`size: 0`) no recorte temático G1. Evidências em `docs/artigo/evidencias/teste_ultima_atualizacao_20261105/`; scripts `teste_ultima_atualizacao*.py`.
+
+- O filtro `range` em `dataHoraUltimaAtualizacao` **funciona com datas ISO 8601** (`2026-10-01T00:00:00.000Z` ou `2026-10-01`; mesmo resultado). Com o formato `YYYYMMDDHHMMSS` de `dataAjuizamento` retorna **zero**: os dois campos de data têm formatos diferentes no índice.
+- Os valores se concentram em **poucos dias**: 01/09/2026 (112.284 dos 147.548 registros do recorte), 14–15/09 e 28/09 (≈12 mil), 05/10/2026 (14.358, todos entre 15h24 e 18h00), e lotes mensais menores (cerca de 500–1.500) antes disso. `@timestamp` acompanha o mesmo padrão.
+- Interpretação: o campo registra quando o **tribunal reenviou o registro ao Datajud**, não quando houve movimento no processo. Isso confirma o CLAUDE.md §4.7: atualização do índice não equivale a evento judicial.
+- **Uso possível:** marca d'água para coleta incremental. "Registros com `dataHoraUltimaAtualizacao` posterior à última carga coletada" traz processos novos **e antigos reenviados**: dos 14.875 atualizados em outubro/2026, 9.085 tinham ajuizamento entre 2019 e 2025. Custo: cada lote vem inteiro, e recargas completas como a de 01/09 trazem quase toda a base.
+- Entre 18/10 e 05/11/2026 o recorte temático G1 (2019–2026) passou de 143.337 para 147.548 registros.

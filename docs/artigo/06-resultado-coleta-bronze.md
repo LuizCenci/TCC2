@@ -39,6 +39,8 @@ Constatações:
 - **Datas:** todos os `dataAjuizamento` estão preenchidos e caem no ano da partição.
 - **Integridade:** o SHA-256 de todas as 721 páginas confere com o registrado no manifesto.
 
+**Completude não é cobertura.** "Completo" significa que todos os registros que a **API pública** oferece foram coletados. A API só expõe processos sem sigilo (`nivelSigilo = 0`), e no TJPR a maior parte dos processos de violência doméstica é sigilosa: só cerca de 4,9% dos registros de MPU eram públicos em 2020–2022 (CNJ, 2022). A base, portanto, é o **acervo público**, não o acervo total. Ver `docs/artigo/12-resumo-cnj-2022-medidas-protetivas.md` e `docs/anotações tcc.md`.
+
 A unicidade vale para o `_id` do registro na API. Ela **não** comprova unicidade por número de processo nem equivale a contagem de vítimas (CLAUDE.md §4.1). A deduplicação analítica será definida na Silver.
 
 ## 3. Ocorrências durante a coleta

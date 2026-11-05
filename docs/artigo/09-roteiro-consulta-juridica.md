@@ -42,6 +42,7 @@ As afirmações jurídicas deste roteiro (§3) são **pontos de partida a confir
 ### B. Cobertura — o que não está nos dados
 
 6. Os processos de violência doméstica tramitam **em segredo de justiça** por padrão no TJPR? Todos os 143 mil registros coletados têm `nivelSigilo = 0`. **Que fração dos casos fica fora do índice público?** Essa é provavelmente a maior lacuna de cobertura.
+   - *Resposta documental parcial (05/11/2026):* o relatório CNJ/Instituto Avon/Consórcio LMP (2022) mostra que, no TJPR, **≈83% dos registros de MPU estão em sigilo nível 2 e só 4,9% são públicos**, com base no Enunciado 34 do FONAVID e sem critério uniforme entre tribunais (`docs/artigo/12-resumo-cnj-2022-medidas-protetivas.md`). **Perguntar ainda:** a regra vale para os demais processos de violência doméstica (inquéritos, ações penais)? Há norma do TJPR que defina o nível de sigilo?
 7. Há tipos de procedimento que nunca aparecem nos dados públicos, como medidas protetivas sigilosas ou casos com vítima criança?
 
 ### C. Fluxo processual e unidade de contagem

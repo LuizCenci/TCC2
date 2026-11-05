@@ -1,0 +1,317 @@
+{
+ "procedimentos_principais": 77417,
+ "primeiro_desfecho": {
+  "condenacao": 20276,
+  "sem_desfecho_observado": 17397,
+  "absolvicao": 9606,
+  "condenacao_parcial": 5113,
+  "arquivamento_investigacao": 5052,
+  "extincao_prescricao": 3880,
+  "extincao_decadencia_perempcao": 3795,
+  "arquivamento_determinado": 3415,
+  "sem_merito": 2293,
+  "denuncia_rejeitada": 2001,
+  "extincao_morte_agente": 1566,
+  "extincao_renuncia_perdao": 1041,
+  "extincao_cumprimento_sursis": 726,
+  "extincao_retratacao": 695,
+  "absolvicao_sumaria": 415,
+  "extincao_outras": 83,
+  "extincao_cumprimento_anpp": 63
+ },
+ "primeiro_desfecho_por_ano": {
+  "2019": {
+   "condenacao": 4695,
+   "extincao_retratacao": 291,
+   "condenacao_parcial": 795,
+   "extincao_prescricao": 2118,
+   "absolvicao": 2181,
+   "extincao_decadencia_perempcao": 1229,
+   "extincao_cumprimento_sursis": 329,
+   "arquivamento_investigacao": 1026,
+   "denuncia_rejeitada": 339,
+   "sem_desfecho_observado": 1003,
+   "sem_merito": 983,
+   "extincao_morte_agente": 451,
+   "extincao_renuncia_perdao": 362,
+   "arquivamento_determinado": 1062,
+   "absolvicao_sumaria": 110,
+   "extincao_outras": 42,
+   "extincao_cumprimento_anpp": 6
+  },
+  "2020": {
+   "condenacao": 3256,
+   "condenacao_parcial": 756,
+   "sem_desfecho_observado": 673,
+   "absolvicao": 1479,
+   "extincao_prescricao": 834,
+   "extincao_decadencia_perempcao": 911,
+   "arquivamento_determinado": 521,
+   "extincao_retratacao": 116,
+   "arquivamento_investigacao": 771,
+   "extincao_renuncia_perdao": 127,
+   "absolvicao_sumaria": 82,
+   "extincao_morte_agente": 278,
+   "denuncia_rejeitada": 310,
+   "sem_merito": 407,
+   "extincao_cumprimento_sursis": 167,
+   "extincao_outras": 20,
+   "extincao_cumprimento_anpp": 15
+  },
+  "2021": {
+   "extincao_prescricao": 485,
+   "extincao_renuncia_perdao": 190,
+   "condenacao_parcial": 786,
+   "absolvicao": 1455,
+   "condenacao": 2925,
+   "sem_desfecho_observado": 883,
+   "extincao_morte_agente": 264,
+   "arquivamento_investigacao": 624,
+   "extincao_decadencia_perempcao": 465,
+   "sem_merito": 282,
+   "absolvicao_sumaria": 66,
+   "arquivamento_determinado": 499,
+   "denuncia_rejeitada": 311,
+   "extincao_cumprimento_anpp": 16,
+   "extincao_retratacao": 63,
+   "extincao_cumprimento_sursis": 110,
+   "extincao_outras": 18
+  },
+  "2022": {
+   "arquivamento_investigacao": 651,
+   "absolvicao": 1381,
+   "condenacao": 2905,
+   "sem_desfecho_observado": 1026,
+   "extincao_decadencia_perempcao": 313,
+   "condenacao_parcial": 734,
+   "extincao_prescricao": 251,
+   "arquivamento_determinado": 393,
+   "extincao_cumprimento_sursis": 78,
+   "extincao_morte_agente": 173,
+   "sem_merito": 183,
+   "absolvicao_sumaria": 46,
+   "denuncia_rejeitada": 433,
+   "extincao_renuncia_perdao": 175,
+   "extincao_retratacao": 44,
+   "extincao_cumprimento_anpp": 7,
+   "extincao_outras": 2
+  },
+  "2023": {
+   "condenacao": 2861,
+   "sem_merito": 186,
+   "absolvicao": 1341,
+   "sem_desfecho_observado": 2145,
+   "extincao_cumprimento_anpp": 12,
+   "arquivamento_determinado": 365,
+   "extincao_decadencia_perempcao": 346,
+   "condenacao_parcial": 811,
+   "absolvicao_sumaria": 46,
+   "denuncia_rejeitada": 176,
+   "extincao_morte_agente": 172,
+   "extincao_renuncia_perdao": 106,
+   "arquivamento_investigacao": 676,
+   "extincao_retratacao": 61,
+   "extincao_cumprimento_sursis": 40,
+   "extincao_prescricao": 142,
+   "extincao_outras": 1
+  },
+  "2024": {
+   "absolvicao": 1196,
+   "sem_desfecho_observado": 3821,
+   "condenacao": 2380,
+   "arquivamento_investigacao": 752,
+   "extincao_morte_agente": 150,
+   "condenacao_parcial": 766,
+   "extincao_retratacao": 96,
+   "denuncia_rejeitada": 288,
+   "extincao_decadencia_perempcao": 351,
+   "absolvicao_sumaria": 38,
+   "arquivamento_determinado": 336,
+   "extincao_prescricao": 43,
+   "sem_merito": 160,
+   "extincao_renuncia_perdao": 57,
+   "extincao_cumprimento_anpp": 5,
+   "extincao_cumprimento_sursis": 2
+  },
+  "2025": {
+   "sem_desfecho_observado": 7846,
+   "condenacao_parcial": 465,
+   "condenacao": 1254,
+   "extincao_morte_agente": 78,
+   "absolvicao": 573,
+   "arquivamento_investigacao": 552,
+   "extincao_decadencia_perempcao": 180,
+   "arquivamento_determinado": 239,
+   "denuncia_rejeitada": 144,
+   "sem_merito": 92,
+   "extincao_retratacao": 24,
+   "absolvicao_sumaria": 27,
+   "extincao_renuncia_perdao": 24,
+   "extincao_cumprimento_anpp": 2,
+   "extincao_prescricao": 7
+  }
+ },
+ "primeiro_desfecho_por_categoria": {
+  "lesao": {
+   "condenacao": 11985,
+   "sem_desfecho_observado": 9871,
+   "absolvicao": 5800,
+   "condenacao_parcial": 3100,
+   "arquivamento_investigacao": 2813,
+   "extincao_prescricao": 2116,
+   "extincao_decadencia_perempcao": 1906,
+   "arquivamento_determinado": 1868,
+   "sem_merito": 1194,
+   "denuncia_rejeitada": 995,
+   "extincao_morte_agente": 902,
+   "extincao_renuncia_perdao": 605,
+   "extincao_cumprimento_sursis": 463,
+   "extincao_retratacao": 377,
+   "absolvicao_sumaria": 224,
+   "extincao_cumprimento_anpp": 33,
+   "extincao_outras": 17
+  },
+  "outros": {
+   "sem_desfecho_observado": 5784,
+   "condenacao": 5514,
+   "absolvicao": 2806,
+   "extincao_decadencia_perempcao": 1700,
+   "arquivamento_investigacao": 1653,
+   "extincao_prescricao": 1574,
+   "condenacao_parcial": 1292,
+   "arquivamento_determinado": 1281,
+   "sem_merito": 959,
+   "denuncia_rejeitada": 782,
+   "extincao_morte_agente": 473,
+   "extincao_renuncia_perdao": 421,
+   "extincao_retratacao": 303,
+   "extincao_cumprimento_sursis": 251,
+   "absolvicao_sumaria": 121,
+   "extincao_outras": 53,
+   "extincao_cumprimento_anpp": 29
+  },
+  "feminicidio": {
+   "condenacao": 360,
+   "sem_desfecho_observado": 248,
+   "condenacao_parcial": 119,
+   "absolvicao": 47,
+   "extincao_morte_agente": 42,
+   "arquivamento_determinado": 24,
+   "absolvicao_sumaria": 22,
+   "arquivamento_investigacao": 18,
+   "sem_merito": 7,
+   "extincao_prescricao": 4,
+   "denuncia_rejeitada": 2,
+   "extincao_renuncia_perdao": 1,
+   "extincao_decadencia_perempcao": 1
+  },
+  "descumprimento_mpu": {
+   "condenacao": 2321,
+   "sem_desfecho_observado": 1286,
+   "absolvicao": 903,
+   "condenacao_parcial": 571,
+   "arquivamento_investigacao": 519,
+   "arquivamento_determinado": 222,
+   "denuncia_rejeitada": 193,
+   "extincao_prescricao": 172,
+   "extincao_decadencia_perempcao": 154,
+   "extincao_morte_agente": 142,
+   "sem_merito": 122,
+   "absolvicao_sumaria": 48,
+   "extincao_retratacao": 13,
+   "extincao_outras": 13,
+   "extincao_cumprimento_sursis": 11,
+   "extincao_renuncia_perdao": 9
+  },
+  "psicologica": {
+   "sem_desfecho_observado": 208,
+   "condenacao": 96,
+   "absolvicao": 50,
+   "arquivamento_investigacao": 49,
+   "extincao_decadencia_perempcao": 34,
+   "condenacao_parcial": 31,
+   "denuncia_rejeitada": 29,
+   "arquivamento_determinado": 20,
+   "extincao_prescricao": 14,
+   "sem_merito": 11,
+   "extincao_morte_agente": 7,
+   "extincao_renuncia_perdao": 5,
+   "extincao_retratacao": 2,
+   "extincao_cumprimento_anpp": 1,
+   "extincao_cumprimento_sursis": 1
+  }
+ },
+ "dias_ate_desfecho_mediana": {
+  "condenacao": 514.0,
+  "extincao_retratacao": 349,
+  "condenacao_parcial": 505,
+  "extincao_prescricao": 1270.0,
+  "absolvicao": 637.0,
+  "extincao_decadencia_perempcao": 308,
+  "extincao_cumprimento_sursis": 1120.5,
+  "arquivamento_investigacao": 202.0,
+  "denuncia_rejeitada": 381,
+  "sem_merito": 258,
+  "extincao_morte_agente": 527.0,
+  "extincao_renuncia_perdao": 200,
+  "arquivamento_determinado": 160,
+  "absolvicao_sumaria": 518,
+  "extincao_outras": 799,
+  "extincao_cumprimento_anpp": 526
+ },
+ "eventos_semanticos_por_processo": {
+  "mediana": 10,
+  "distintos_mediana": 6
+ },
+ "variantes_distintas_8_primeiros": 12570,
+ "variantes_top": [
+  [
+   "distribuicao > denuncia_recebida > audiencia_instrucao_julgamento > julgamento:condenacao > transito_julgado > arquivamento_definitivo",
+   1404
+  ],
+  [
+   "distribuicao > denuncia_recebida > audiencia_instrucao_julgamento > julgamento:absolvicao > transito_julgado > arquivamento_definitivo",
+   1104
+  ],
+  [
+   "distribuicao > redistribuicao > liberdade_provisoria > denuncia_recebida > audiencia_instrucao_julgamento",
+   1068
+  ],
+  [
+   "distribuicao > denuncia_recebida > audiencia_instrucao > julgamento:condenacao > transito_julgado > arquivamento_definitivo",
+   932
+  ],
+  [
+   "distribuicao > redistribuicao > liberdade_provisoria",
+   888
+  ],
+  [
+   "distribuicao > liberdade_provisoria > redistribuicao > denuncia_recebida > audiencia_instrucao_julgamento",
+   849
+  ],
+  [
+   "distribuicao > redistribuicao > liberdade_provisoria > denuncia_recebida",
+   835
+  ],
+  [
+   "julgamento:arquivamento_investigacao > transito_julgado > arquivamento_definitivo",
+   814
+  ],
+  [
+   "distribuicao > denuncia_recebida > audiencia_instrucao_julgamento",
+   795
+  ],
+  [
+   "distribuicao > liberdade_provisoria > redistribuicao > denuncia_recebida",
+   765
+  ],
+  [
+   "distribuicao > liberdade_provisoria > redistribuicao",
+   760
+  ],
+  [
+   "",
+   758
+  ]
+ ]
+}
