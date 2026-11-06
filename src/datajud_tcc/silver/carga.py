@@ -5,9 +5,13 @@ from __future__ import annotations
 import gzip
 import hashlib
 import json
+import logging
+import time
 from pathlib import Path
 
 from datajud_tcc.silver.normalizacao import normalizar_hit
+
+log = logging.getLogger(__name__)
 
 
 class ExecucaoInvalida(ValueError):
@@ -67,11 +71,16 @@ def carregar_execucao(conn, run_root: Path) -> dict[str, int]:
         raise ExecucaoInvalida("execução não está completa")
     run_id = manifesto["run_id"]
     paginas = _paginas_do_manifesto(manifesto, raiz)
+    inicio = time.perf_counter()
+    log.info("carga %s: %d páginas, %d registros esperados pelo manifesto", run_id, len(paginas),
+             sum(a["records"] for _, a, _ in paginas))
     _verificar_hashes(paginas)
+    log.info("carga %s: SHA-256 verificado em %.1f s", run_id, time.perf_counter() - inicio)
 
     if conn.execute(
         "SELECT 1 FROM controle.execucao_coleta WHERE run_id = %s", (run_id,)
     ).fetchone():
+        log.info("carga %s: execução já carregada; nada foi gravado", run_id)
         return _contagens(conn, run_id)
 
     conn.execute(
@@ -85,7 +94,8 @@ def carregar_execucao(conn, run_root: Path) -> dict[str, int]:
     )
 
     esperado = 0
-    for ano, art, caminho in paginas:
+    for k, (ano, art, caminho) in enumerate(paginas, start=1):
+        t_pagina = time.perf_counter()
         esperado += art["records"]
         with gzip.open(caminho, "rb") as arq:
             resposta = json.loads(arq.read().decode("utf-8"))
@@ -96,17 +106,24 @@ def carregar_execucao(conn, run_root: Path) -> dict[str, int]:
             " VALUES (%s, %s, %s, %s, %s, %s)",
             (run_id, ano, art["page"], art["sha256"], len(hits), total),
         )
-        _carregar_pagina(conn, hits, run_id, ano, art["page"])
+        movimentos = _carregar_pagina(conn, hits, run_id, ano, art["page"])
+        log.info("carga %s: ano %d página %d registros=%d movimentos=%d (%d/%d páginas) %.1f s",
+                 run_id, ano, art["page"], len(hits), movimentos, k, len(paginas),
+                 time.perf_counter() - t_pagina)
 
-    if _contagens(conn, run_id)["registros"] != esperado:
+    contagens = _contagens(conn, run_id)
+    if contagens["registros"] != esperado:
         raise ExecucaoInvalida("contagem de registros difere do manifesto")
-    return _contagens(conn, run_id)
+    log.info("carga %s concluída: %s duração=%.1f s", run_id,
+             " ".join(f"{c}={v}" for c, v in contagens.items()), time.perf_counter() - inicio)
+    return contagens
 
 
-def _carregar_pagina(conn, hits: list, run_id: str, ano: int, pagina: int) -> None:
+def _carregar_pagina(conn, hits: list, run_id: str, ano: int, pagina: int) -> int:
+    """Grava a página e devolve o número de movimentos."""
     normalizados = [normalizar_hit(h, run_id=run_id, ano=ano, pagina=pagina) for h in hits]
     if not normalizados:
-        return
+        return 0
     cols = list(normalizados[0].registro)
     sql = (f"INSERT INTO silver.registro ({', '.join(cols)}) "
            f"VALUES ({', '.join('%s' for _ in cols)}) RETURNING registro_id")
@@ -128,7 +145,7 @@ def _carregar_pagina(conn, hits: list, run_id: str, ano: int, pagina: int) -> No
         )
         movs = [(rid, m) for rid, n in zip(ids, normalizados) for m in n.movimentos]
         if not movs:
-            return
+            return 0
         mids = [r[0] for r in cur.execute(
             "SELECT nextval('silver.movimento_id_seq') FROM generate_series(1, %s)",
             (len(movs),)).fetchall()]
@@ -143,3 +160,4 @@ def _carregar_pagina(conn, hits: list, run_id: str, ano: int, pagina: int) -> No
             ) as copia:
                 for linha in comps:
                     copia.write_row(linha)
+    return len(movs)

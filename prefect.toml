@@ -1,0 +1,4 @@
+# Lido pelo Prefect 3 quando o processo roda na raiz do projeto.
+# Faz o Prefect capturar os logs do pacote (equivale a PREFECT_LOGGING_EXTRA_LOGGERS=datajud_tcc).
+[logging]
+extra_loggers = "datajud_tcc"

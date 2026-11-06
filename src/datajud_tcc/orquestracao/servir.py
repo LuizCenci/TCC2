@@ -10,7 +10,11 @@ Uma execução por vez em cada implantação (limit=1).
 
 from __future__ import annotations
 
+from pathlib import Path
+
 from prefect import serve
+
+from ..registro_log import configurar_arquivo
 
 from .fluxos import CATALOGO, coleta_incremental, pipeline_incremental
 
@@ -18,6 +22,8 @@ CONFIG = "config/collection.incremental.yaml"
 
 
 def main() -> None:
+    configurar_arquivo(Path("work/logs/orquestracao.log"),
+                       ("datajud_tcc", "prefect.flow_runs", "prefect.task_runs"))
     coleta = coleta_incremental.to_deployment(
         name="tjpr-incremental-semanal",
         cron="17 3 * * 1",

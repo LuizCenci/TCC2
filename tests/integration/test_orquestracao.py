@@ -99,7 +99,8 @@ def test_pipeline_encadeia_coleta_silver_e_gold(ambiente, monkeypatch):
     resultado = fluxos.pipeline_incremental(config_path=str(ambiente), marca_inicial=MARCA_INICIAL, versao_regras="teste-v1")
     assert [c[0] for c in chamadas] == ["silver", "gold"]
     assert chamadas[1][1] == "teste-v1"
-    assert resultado["silver"] == {"registros": 1}
+    assert resultado["silver"]["registros"] == 1
+    assert resultado["silver"]["segundos"] >= 0
 
 
 def test_pipeline_nao_carrega_silver_se_coleta_falhar(ambiente, monkeypatch):
@@ -118,3 +119,18 @@ def test_pipeline_nao_carrega_silver_se_coleta_falhar(ambiente, monkeypatch):
 def test_etapa_gold_ainda_nao_implementada():
     with pytest.raises(NotImplementedError):
         etapas.construir_gold("v1")
+
+
+def test_tarefa_silver_devolve_segundos_e_cria_artefato(monkeypatch):
+    contagens = {"paginas": 1, "registros": 2, "assuntos": 3, "movimentos": 4, "complementos": 5}
+    monkeypatch.setattr(etapas, "carregar_silver", lambda run_root: dict(contagens))
+    resultado = fluxos.carga_silver("work/qualquer")
+    assert {k: resultado[k] for k in contagens} == contagens
+    assert resultado["segundos"] >= 0
+
+
+def test_prefect_captura_logger_do_pacote():
+    from prefect.settings import get_current_settings
+
+    extras = get_current_settings().logging.extra_loggers
+    assert "datajud_tcc" in (extras if isinstance(extras, (list, set, tuple)) else str(extras).split(","))

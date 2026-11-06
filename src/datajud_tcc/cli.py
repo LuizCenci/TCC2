@@ -126,8 +126,10 @@ def _silver_esquema(args: argparse.Namespace) -> int:
 
 
 def _silver_carregar(args: argparse.Namespace) -> int:
+    from .registro_log import configurar_arquivo
     from .silver import carga, conexao, esquema
 
+    configurar_arquivo(Path("work/logs/silver.log"))
     try:
         conn = conexao.conectar()
     except Exception:  # a mensagem pode conter o DSN; não exibir

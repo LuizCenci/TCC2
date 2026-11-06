@@ -170,3 +170,26 @@ def test_carga_usa_copy_para_movimentos(conn_banco, tmp_path, monkeypatch):
     monkeypatch.setattr(psycopg.Cursor, "copy", espiao)
     carregar_execucao(conn_banco, tmp_path)
     assert any("silver.movimento" in c for c in chamadas)
+
+
+def test_carga_registra_progresso_por_pagina(conn_banco, caplog, tmp_path):
+    import logging
+    aplicar_esquema(conn_banco)
+    _criar_execucao(tmp_path, anos=(2024,))
+    with caplog.at_level(logging.INFO, logger="datajud_tcc.silver.carga"):
+        carregar_execucao(conn_banco, tmp_path)
+    texto = caplog.text
+    assert "1/2 páginas" in texto and "2/2 páginas" in texto
+    assert "registros=3" in texto and "duração=" in texto
+    assert "0000001" not in texto and "postgresql://" not in texto
+
+
+def test_carga_ja_carregada_registra_que_nada_foi_gravado(conn_banco, caplog, tmp_path):
+    import logging
+    aplicar_esquema(conn_banco)
+    _criar_execucao(tmp_path)
+    carregar_execucao(conn_banco, tmp_path)
+    caplog.clear()
+    with caplog.at_level(logging.INFO, logger="datajud_tcc.silver.carga"):
+        carregar_execucao(conn_banco, tmp_path)
+    assert "nada foi gravado" in caplog.text

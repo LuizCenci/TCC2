@@ -8,6 +8,7 @@ os fluxos só a encadeiam, registram e tratam falhas.
 from __future__ import annotations
 
 import os
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -109,7 +110,16 @@ def coleta_incremental(config_path: str = "config/collection.incremental.yaml", 
 
 @task(name="carregar-silver", cache_policy=NO_CACHE)
 def _tarefa_silver(run_root: str) -> dict[str, Any]:
-    return etapas.carregar_silver(Path(run_root))
+    log = get_run_logger()
+    inicio = time.perf_counter()
+    contagens = dict(etapas.carregar_silver(Path(run_root)))
+    segundos = round(time.perf_counter() - inicio, 3)
+    log.info("Silver carregada: %s em %.1f s", contagens, segundos)
+    linhas = [f"- **run_root**: `{run_root}`"] + [f"- **{k}**: `{v}`" for k, v in contagens.items()]
+    linhas.append(f"- **segundos**: `{segundos}`")
+    create_markdown_artifact(key="carga-silver", description="Resumo da carga na Silver",
+                             markdown="\n".join(linhas))
+    return contagens | {"segundos": segundos}
 
 
 @task(name="construir-gold", cache_policy=NO_CACHE)
