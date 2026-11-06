@@ -4,7 +4,7 @@ Data: 05/11/2026. Status: escopo **aprovado pelo autor** (incluindo a construç�
 
 ## 1. Princípio
 
-A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (2019–2025) mais a recoleta de 2026 (`13`), com uma versão fixa de regras. O orquestrador opera uma **base operacional** separada, que recebe execuções automáticas **fora da análise** (`em_analise = false`). Essas execuções servem para validar a automação e como evidência dos critérios de avaliação do pipeline (CLAUDE.md §12).
+A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (2019–2025) mais a recoleta de 2026 (`13`), com uma versão fixa de regras. O orquestrador opera uma **base operacional** separada, que recebe execuções automáticas **fora da base do artigo**. A Silver guarda todas as execuções, sem marcar o que está em análise; quem aplica os critérios de análise é a Gold. Essas execuções servem para validar a automação e como evidência dos critérios de avaliação do pipeline (CLAUDE.md §12).
 
 ## 2. O que orquestrar
 
@@ -53,7 +53,7 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
 | Filtro | `src/datajud_tcc/query.py` | Com `updated_since`, acrescenta `range dataHoraUltimaAtualizacao gt <marca>`; sem ele, a consulta é idêntica à da coleta definitiva |
 | Marca d'água | `src/datajud_tcc/orquestracao/marca_dagua.py` | Estado em `work/estado/marca_dagua_tjpr.json` (fora do git), com histórico; **não pode recuar** |
 | Fluxos | `src/datajud_tcc/orquestracao/fluxos.py` | `coleta-incremental` → `verificar-completude` → atualização da marca → *artifact*; `carga-silver`; `construcao-gold`; `pipeline-incremental` (encadeia os três e **não carrega a Silver se a coleta falhar**) |
-| Etapas | `src/datajud_tcc/orquestracao/etapas.py` | Interfaces `carregar_silver` e `construir_gold` (ainda `NotImplementedError`) |
+| Etapas | `src/datajud_tcc/orquestracao/etapas.py` | `carregar_silver` implementada (chama `silver.carga.carregar_execucao`); `construir_gold` segue como interface (`NotImplementedError`) |
 | Agendamento | `src/datajud_tcc/orquestracao/servir.py` | Coleta semanal às segundas, 03:17 (fora da virada da hora); pipeline sob demanda; uma execução por vez |
 
 **Proteções:**
@@ -74,17 +74,28 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
 
 Resultado: 75 testes passando (1 ignorado, o teste ao vivo).
 
-**Pendente:** implementar `carregar_silver` e `construir_gold` com o PostgreSQL local (`10`) e testar o pipeline completo com dados simulados.
+**Pendente:** implementar `construir_gold`. `carregar_silver` já está implementada (`10`, seção 9).
 
 ## 7. Sequência de implantação (decidida com o autor em 05/11/2026)
 
 O autor optou por **não** generalizar a carga da Silver para execuções pendentes: cada execução do pipeline carrega só a coleta que acabou de fazer. Daí a ordem obrigatória:
 
 1. implementar o PostgreSQL local e `carregar_silver`;
-2. **carga inicial manual**, fora do orquestrador, das execuções da base do artigo, com `em_analise = true`: `bronze-20261018-9852486` (partições 2019–2025) e `bronze2026-20261105-b67187c` (2026). A partição 2026 da execução de 18/10 não é carregada como base de análise, por ter sido substituída (`13`);
+2. **carga inicial manual**, fora do orquestrador, das execuções da base do artigo, sem marca de análise (a Silver não a guarda): `bronze-20261018-9852486` (partições 2019–2025) e `bronze2026-20261105-b67187c` (2026). A execução de 18/10 tem uma partição 2026 substituída pela recoleta (`13`); ela é carregada junto, como qualquer partição, e a Gold escolhe a versão a usar;
 3. marca d'água inicial = maior `dataHoraUltimaAtualizacao` dessas execuções (esperado `2026-10-05T18:00:31.594Z`, a confirmar no momento);
-4. só então ligar a orquestração (`servir.py`). Cada execução: coleta incremental → Silver (`em_analise = false`) → Gold, que **falha** até ser implementada. A Bronze e a Silver já ficam atualizadas antes dessa falha.
+4. só então ligar a orquestração (`servir.py`). Cada execução: coleta incremental → Silver → Gold, que **falha** até ser implementada. A Bronze e a Silver já ficam atualizadas antes dessa falha.
 
 **Não ligar o agendamento antes da Silver.** Coletas feitas antes dela não seriam carregadas depois.
 
-**Versões do mesmo processo.** Execuções incrementais trazem processos antigos reenviados, que já estão na base congelada. Com a chave `(run_id, api_id)`, as versões convivem na Silver; a análise usa só as execuções com `em_analise = true`, e uma visão operacional pode selecionar a versão mais recente de cada processo.
+**Versões do mesmo processo.** Execuções incrementais trazem processos antigos reenviados, que já estão na base congelada. Com a chave `(run_id, api_id)`, as versões convivem na Silver; a Gold escolhe qual versão de cada registro entra na análise (critério a definir), e uma visão operacional pode selecionar a mais recente.
+
+
+## 8. Registros (logs) e validação
+
+| Onde | O que registra |
+|---|---|
+| Painel do Prefect (`prefect server start`, http://127.0.0.1:4200) | Execuções dos fluxos, tarefas, tentativas, logs e os *artifacts* `coleta-incremental` e `carga-silver` (contagens e segundos) |
+| `work/logs/orquestracao.log` | Log do processo `servir.py` e do pacote `datajud_tcc` (arquivo rotativo de 5 MB, 5 cópias) |
+| `work/logs/silver.log` | Log da carga manual (`silver-carregar`): páginas, SHA-256 verificado, registros e movimentos por página, contagens finais e duração |
+
+O `prefect.toml` na raiz faz o Prefect capturar os logs do pacote (`extra_loggers = "datajud_tcc"`). Os logs não trazem DSN, número de processo nem `_source.id`. A carga confere o manifesto da Bronze (SHA-256 e contagem de registros) antes de aceitar a execução; os testes de banco cobrem idempotência, hash divergente e registros atípicos.

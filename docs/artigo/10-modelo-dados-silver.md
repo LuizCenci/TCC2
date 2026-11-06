@@ -1,6 +1,6 @@
 # Modelo de dados da camada Silver — proposta
 
-Data: 23/10/2026. Status: **proposta de desenho**, ainda não implementada. Baseia-se nos achados de `06`, `07` e `08` e no CLAUDE.md §8–§13. As escolhas marcadas como "a decidir" dependem do autor.
+Data: 23/10/2026 (atualizado em 05/11/2026). Status: **proposta de desenho**; a parte de dados originais (`controle`, `silver`, `restrito`) está implementada (seção 9). `ref`, `deriv` e `gold` seguem como proposta. Baseia-se nos achados de `06`, `07` e `08` e no CLAUDE.md §8–§13. As escolhas marcadas como "a decidir" dependem do autor.
 
 ## 1. Princípios
 
@@ -220,7 +220,6 @@ erDiagram
         text grupo_inclusao
         bool serie_estrita
         bool serie_ampliada
-        bool em_analise "2019-2026"
         bool registro_canonico "dedup por numero"
     }
     deriv_registro_categoria {
@@ -285,7 +284,7 @@ erDiagram
 
 | Tabela | Conteúdo | Origem da regra |
 |---|---|---|
-| `classificacao` | Tipo de procedimento, grupo de inclusão, série estrita/ampliada, `em_analise` (2019–2026; partições da base do artigo conforme `13` §6), registro canônico | `01`, `07` |
+| `classificacao` | Tipo de procedimento, grupo de inclusão, série estrita/ampliada, registro canônico (a marca "em análise" não existe na Silver; ver seção 9) | `01`, `07` |
 | `registro_categoria` | Categorias multirrótulo com motivo | `07` §8 |
 | `evento` | Eventos identificados por código: decisão de MPU (concessão, em parte, não-concessão), revogação, prorrogação, julgamento, trânsito, arquivamento definitivo, reabertura | `07` §5, `08` §2 |
 | `tempo` | Primeira decisão de MPU, fim, `status_observacao` (encerrado/censurado/sem dados), tempo de acompanhamento | `08` §4; campos sugeridos no CLAUDE.md §11 |
@@ -324,8 +323,39 @@ O passo 4 é o único que se repete quando as regras mudam; os passos 1–3 só 
 ## 8. Decisões em aberto
 
 1. **SGBD:** PostgreSQL, conforme o PDF e o CLAUDE.md §9. Com cerca de 13,5 milhões de movimentos, cabe bem numa instalação local. Alternativa mais leve para o TCC: DuckDB, sem servidor, lendo direto os arquivos. *(a decidir)*
-2. **Dados de 2026:** carregar na Silver com `em_analise = false` (recomendado), ou não carregar.
+2. **Dados de 2026:** *(resolvido em 05/11/2026)* a Silver carrega todas as execuções, inclusive 2026, sem marcar o que entra na análise; a Gold decide.
 3. **Deduplicação:** critério para escolher o registro canônico entre os 70 números com mais de um registro (por exemplo, a atualização mais recente).
 4. **Chave pseudônima:** HMAC do número com segredo fora do repositório, se o dashboard precisar de algum identificador estável. Hash não equivale a anonimização (CLAUDE.md §13).
 5. **Categorias analíticas e série estrita × ampliada:** `07` §8.
 6. **Fonte territorial:** tabela de comarcas do TJPR e versão das regiões do IBGE (`09`).
+
+
+## 9. Implementação — dados originais (05/11/2026)
+
+**Decisão do autor (05/11/2026).** A Silver guarda **todos os registros de todas as execuções carregadas** e **não marca o que está em análise** (não existe `em_analise`, nem para 2026). A Gold aplica os critérios de análise: período 2019–2026, escolha de uma versão por registro entre execuções (por exemplo, 2026 aparece na coleta de 18/10, na recoleta de 05/11 e nas incrementais), séries estrita e ampliada. Também ficam para a Gold a classificação, os eventos derivados, os tempos, o enriquecimento (IBGE, PostGIS, comarcas) e as agregações. Onde a proposta das seções 1 a 5 colocava classificação, eventos e tempos em um esquema `deriv` ao lado da Silver, essa parte agora pertence à Gold: a escolha do autor é que a Silver contenha apenas dados fiéis à API.
+
+**Implementado** (`src/datajud_tcc/silver/`, PostgreSQL 16.3, banco `tcc_datajud`; DDL em `esquema.sql`, aplicado de forma idempotente):
+
+| Tabela | Observação |
+|---|---|
+| `controle.execucao_coleta` | Uma linha por execução da Bronze (catálogo, configuração, commit, status) |
+| `controle.pagina_bronze` | Uma linha por página, com SHA-256 e total informado pela API |
+| `silver.registro` | Chave natural `UNIQUE (run_id, api_id)`; guarda `data_ajuizamento_original` (texto) e `data_ajuizamento` (`timestamp`), `n_movimentos` e `hash_source` |
+| `restrito.identificador` | `numero_processo` e `id_source` isolados; só aparecem aqui |
+| `silver.registro_assunto` | **PK `(registro_id, posicao)`**, e não `(registro_id, assunto_codigo)`: o mesmo código pode se repetir no mesmo registro e a posição preserva a lista original (inclusive os 14 registros com lista aninhada, marcados em `veio_aninhado`) |
+| `silver.movimento` | `ordem_original` e `ordem_cronologica`; órgão do movimento em texto original e normalizado |
+| `silver.complemento_movimento` | PK `(movimento_id, ordem)` |
+
+**Regras de normalização** (`normalizacao.py`):
+
+- `dataAjuizamento` vem como texto `YYYYMMDDHHMMSS`, sem fuso. É convertida para `timestamp` sem fuso; se o formato for inválido, o texto original é mantido e `data_ajuizamento` fica NULL (o registro carrega mesmo assim).
+- As demais datas (`dataHora` dos movimentos, atualização, indexação) vêm em ISO 8601 com `Z` e são guardadas como `timestamptz`.
+- `dias_desde_ajuizamento` = dias inteiros (`.days`) entre a data do movimento, em UTC com o fuso removido, e `data_ajuizamento`. É NULL se qualquer uma das duas faltar. Como o ajuizamento não tem fuso informado, o valor pode divergir em até um dia; é um número de apoio, não um dado da API.
+- `ordem_cronologica` ordena por `dataHora` (datas ausentes por último) e desempata pela ordem original; a ordem recebida não é presumida cronológica.
+- Valores atípicos reais são preservados: assunto aninhado, assunto sem `nome`, `classe.codigo` como texto `"-1"` e movimento sem órgão julgador.
+
+**Carga** (`carga.py`): lê a execução página a página, verifica o SHA-256 de cada página contra o manifesto (divergência aborta sem gravar) e usa `COPY` para movimentos e complementos. Recarregar uma execução não duplica linhas. Funções de biblioteca não fazem `commit`; a CLI faz.
+
+**Fica para o plano seguinte** (depende de decisões do autor): `ref.*` (TPU, catálogo, comarcas, municípios), `deriv.*` e flags de qualidade (na Gold), critérios de seleção da Gold e eventual chave pseudônima. PostGIS 3.6.2 está instalado, mas só será usado na Gold.
+
+**Estado da carga.** A carga inicial real das duas execuções da base do artigo ainda não foi executada. Estimativa de ordem de grandeza: cerca de 158 mil registros e 15 milhões de movimentos. Resultado e tempos serão documentados aqui depois da execução.
