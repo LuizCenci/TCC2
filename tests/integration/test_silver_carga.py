@@ -193,3 +193,21 @@ def test_carga_ja_carregada_registra_que_nada_foi_gravado(conn_banco, caplog, tm
     with caplog.at_level(logging.INFO, logger="datajud_tcc.silver.carga"):
         carregar_execucao(conn_banco, tmp_path)
     assert "nada foi gravado" in caplog.text
+
+
+def test_contagem_de_movimentos_divergente_aborta(conn_banco, tmp_path, monkeypatch):
+    import dataclasses
+    from datajud_tcc.silver import carga
+    aplicar_esquema(conn_banco)
+    _criar_execucao(tmp_path, anos=(2024,))
+    original = carga.normalizar_hit
+
+    def sem_um_movimento(*args, **kwargs):
+        n = original(*args, **kwargs)
+        return dataclasses.replace(n, movimentos=n.movimentos[:-1])  # n_movimentos permanece
+
+    monkeypatch.setattr(carga, "normalizar_hit", sem_um_movimento)
+    with pytest.raises(ExecucaoInvalida):
+        carregar_execucao(conn_banco, tmp_path)
+    conn_banco.rollback()
+    assert _conta(conn_banco, "run-sint") == (0, 0, 0)

@@ -114,6 +114,11 @@ def carregar_execucao(conn, run_root: Path) -> dict[str, int]:
     contagens = _contagens(conn, run_id)
     if contagens["registros"] != esperado:
         raise ExecucaoInvalida("contagem de registros difere do manifesto")
+    declarados = conn.execute(
+        "SELECT coalesce(sum(n_movimentos), 0) FROM silver.registro WHERE run_id = %s",
+        (run_id,)).fetchone()[0]
+    if contagens["movimentos"] != int(declarados):
+        raise ExecucaoInvalida("contagem de movimentos difere da soma de n_movimentos")
     log.info("carga %s concluída: %s duração=%.1f s", run_id,
              " ".join(f"{c}={v}" for c, v in contagens.items()), time.perf_counter() - inicio)
     return contagens

@@ -21,4 +21,5 @@ def conectar(dsn: str | None = None):
     """Abre conexão psycopg com autocommit desligado."""
     import psycopg
 
-    return psycopg.connect(dsn or obter_dsn(), autocommit=False)
+    return psycopg.connect(dsn or obter_dsn(), autocommit=False,
+                           connect_timeout=10)

@@ -322,7 +322,7 @@ O passo 4 é o único que se repete quando as regras mudam; os passos 1–3 só 
 
 ## 8. Decisões em aberto
 
-1. **SGBD:** PostgreSQL, conforme o PDF e o CLAUDE.md §9. Com cerca de 13,5 milhões de movimentos, cabe bem numa instalação local. Alternativa mais leve para o TCC: DuckDB, sem servidor, lendo direto os arquivos. *(a decidir)*
+1. **SGBD:** PostgreSQL, conforme o PDF e o CLAUDE.md §9. Com cerca de 13,5 milhões de movimentos (somente a execução de 18/10/2026; as duas execuções somam cerca de 15 milhões), cabe bem numa instalação local. Alternativa mais leve para o TCC: DuckDB, sem servidor, lendo direto os arquivos. *(a decidir)*
 2. **Dados de 2026:** *(resolvido em 05/11/2026)* a Silver carrega todas as execuções, inclusive 2026, sem marcar o que entra na análise; a Gold decide.
 3. **Deduplicação:** critério para escolher o registro canônico entre os 70 números com mais de um registro (por exemplo, a atualização mais recente).
 4. **Chave pseudônima:** HMAC do número com segredo fora do repositório, se o dashboard precisar de algum identificador estável. Hash não equivale a anonimização (CLAUDE.md §13).
@@ -351,6 +351,7 @@ O passo 4 é o único que se repete quando as regras mudam; os passos 1–3 só 
 - `dataAjuizamento` vem como texto `YYYYMMDDHHMMSS`, sem fuso. É convertida para `timestamp` sem fuso; se o formato for inválido, o texto original é mantido e `data_ajuizamento` fica NULL (o registro carrega mesmo assim).
 - As demais datas (`dataHora` dos movimentos, atualização, indexação) vêm em ISO 8601 com `Z` e são guardadas como `timestamptz`.
 - `dias_desde_ajuizamento` = dias inteiros (`.days`) entre a data do movimento, em UTC com o fuso removido, e `data_ajuizamento`. É NULL se qualquer uma das duas faltar. Como o ajuizamento não tem fuso informado, o valor pode divergir em até um dia; é um número de apoio, não um dado da API.
+- **Fuso de `dias_desde_ajuizamento` (hipótese não verificada).** `movimentos[].dataHora` chega em ISO com `Z` (UTC declarado) e `dataAjuizamento` chega sem fuso (`YYYYMMDDHHMMSS`). A Silver calcula `dias_desde_ajuizamento` a partir dos date-times ingênuos, sem conversão. Se `dataAjuizamento` for horário local (Brasília, UTC−3), a diferença pode errar em um dia para eventos próximos da meia-noite. Os valores originais são preservados, então a Gold pode recalcular.
 - `ordem_cronologica` ordena por `dataHora` (datas ausentes por último) e desempata pela ordem original; a ordem recebida não é presumida cronológica.
 - Valores atípicos reais são preservados: assunto aninhado, assunto sem `nome`, `classe.codigo` como texto `"-1"` e movimento sem órgão julgador.
 
