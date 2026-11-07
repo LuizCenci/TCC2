@@ -1,0 +1,122 @@
+[
+ {
+  "orgao_codigo": 26333,
+  "orgao_nome": "CASCAVEL - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4104808,
+  "registros": 1,
+  "primeiro_ajuizamento": "2025-08-19",
+  "ultimo_ajuizamento": "2025-08-19"
+ },
+ {
+  "orgao_codigo": 26333,
+  "orgao_nome": "CASCAVEL - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4104808,
+  "registros": 4155,
+  "primeiro_ajuizamento": "2019-01-01",
+  "ultimo_ajuizamento": "2026-09-29"
+ },
+ {
+  "orgao_codigo": 8766,
+  "orgao_nome": "CURITIBA - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",
+  "municipio_sede_ibge": 4106902,
+  "registros": 3972,
+  "primeiro_ajuizamento": "2019-01-02",
+  "ultimo_ajuizamento": "2026-09-30"
+ },
+ {
+  "orgao_codigo": 78100,
+  "orgao_nome": "CURITIBA - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",
+  "municipio_sede_ibge": 4106902,
+  "registros": 2575,
+  "primeiro_ajuizamento": "2019-01-02",
+  "ultimo_ajuizamento": "2026-09-17"
+ },
+ {
+  "orgao_codigo": 8770,
+  "orgao_nome": "CURITIBA - 3º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER  CASA DA MULHER BRASILEIRA",
+  "municipio_sede_ibge": 4106902,
+  "registros": 5001,
+  "primeiro_ajuizamento": "2019-01-02",
+  "ultimo_ajuizamento": "2026-09-30"
+ },
+ {
+  "orgao_codigo": 88793,
+  "orgao_nome": "CURITIBA - 4º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",
+  "municipio_sede_ibge": 4106902,
+  "registros": 841,
+  "primeiro_ajuizamento": "2019-01-10",
+  "ultimo_ajuizamento": "2026-09-28"
+ },
+ {
+  "orgao_codigo": 8908,
+  "orgao_nome": "FOZ DO IGUAÇU - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4108304,
+  "registros": 10832,
+  "primeiro_ajuizamento": "2019-01-01",
+  "ultimo_ajuizamento": "2026-09-30"
+ },
+ {
+  "orgao_codigo": 26584,
+  "orgao_nome": "LONDRINA - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4113700,
+  "registros": 5,
+  "primeiro_ajuizamento": "2025-12-17",
+  "ultimo_ajuizamento": "2026-09-27"
+ },
+ {
+  "orgao_codigo": 16440,
+  "orgao_nome": "LONDRINA - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4113700,
+  "registros": 3147,
+  "primeiro_ajuizamento": "2019-01-02",
+  "ultimo_ajuizamento": "2026-09-30"
+ },
+ {
+  "orgao_codigo": 26584,
+  "orgao_nome": "LONDRINA - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4113700,
+  "registros": 3338,
+  "primeiro_ajuizamento": "2019-01-01",
+  "ultimo_ajuizamento": "2026-09-30"
+ },
+ {
+  "orgao_codigo": 26621,
+  "orgao_nome": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4115200,
+  "registros": 4987,
+  "primeiro_ajuizamento": "2019-01-02",
+  "ultimo_ajuizamento": "2026-09-30"
+ },
+ {
+  "orgao_codigo": 8824,
+  "orgao_nome": "PONTA GROSSA - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4119905,
+  "registros": 1103,
+  "primeiro_ajuizamento": "2019-01-08",
+  "ultimo_ajuizamento": "2026-09-29"
+ },
+ {
+  "orgao_codigo": 16412,
+  "orgao_nome": "PONTA GROSSA - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4119905,
+  "registros": 773,
+  "primeiro_ajuizamento": "2019-01-09",
+  "ultimo_ajuizamento": "2026-05-24"
+ },
+ {
+  "orgao_codigo": 16412,
+  "orgao_nome": "PONTA GROSSA - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4119905,
+  "registros": 3297,
+  "primeiro_ajuizamento": "2019-01-02",
+  "ultimo_ajuizamento": "2026-09-27"
+ },
+ {
+  "orgao_codigo": 18495,
+  "orgao_nome": "SÃO JOSÉ DOS PINHAIS - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER, VARA DE CRIMES CONTRA CRIANÇAS, ADOLESCENTES E IDOSOS",
+  "municipio_sede_ibge": 4125506,
+  "registros": 1608,
+  "primeiro_ajuizamento": "2019-01-02",
+  "ultimo_ajuizamento": "2026-09-30"
+ }
+]

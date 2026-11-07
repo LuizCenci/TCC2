@@ -1,0 +1,82 @@
+[
+ {
+  "ano": 2019,
+  "registros": 24956,
+  "sem_cartas": 21428,
+  "mpu_1268": 3171,
+  "feminicidio_12091": 372,
+  "feminicidio_acao_penal": 158,
+  "feminicidio_juri_282": 150,
+  "feminicidio_inquerito": 22
+ },
+ {
+  "ano": 2020,
+  "registros": 24766,
+  "sem_cartas": 15161,
+  "mpu_1268": 2438,
+  "feminicidio_12091": 767,
+  "feminicidio_acao_penal": 120,
+  "feminicidio_juri_282": 119,
+  "feminicidio_inquerito": 7
+ },
+ {
+  "ano": 2021,
+  "registros": 15120,
+  "sem_cartas": 13627,
+  "mpu_1268": 2283,
+  "feminicidio_12091": 420,
+  "feminicidio_acao_penal": 94,
+  "feminicidio_juri_282": 87,
+  "feminicidio_inquerito": 14
+ },
+ {
+  "ano": 2022,
+  "registros": 14492,
+  "sem_cartas": 13160,
+  "mpu_1268": 2344,
+  "feminicidio_12091": 370,
+  "feminicidio_acao_penal": 100,
+  "feminicidio_juri_282": 95,
+  "feminicidio_inquerito": 9
+ },
+ {
+  "ano": 2023,
+  "registros": 16023,
+  "sem_cartas": 14533,
+  "mpu_1268": 2437,
+  "feminicidio_12091": 414,
+  "feminicidio_acao_penal": 115,
+  "feminicidio_juri_282": 113,
+  "feminicidio_inquerito": 6
+ },
+ {
+  "ano": 2024,
+  "registros": 17631,
+  "sem_cartas": 15921,
+  "mpu_1268": 2444,
+  "feminicidio_12091": 455,
+  "feminicidio_acao_penal": 114,
+  "feminicidio_juri_282": 111,
+  "feminicidio_inquerito": 9
+ },
+ {
+  "ano": 2025,
+  "registros": 19507,
+  "sem_cartas": 17703,
+  "mpu_1268": 2458,
+  "feminicidio_12091": 491,
+  "feminicidio_acao_penal": 114,
+  "feminicidio_juri_282": 104,
+  "feminicidio_inquerito": 13
+ },
+ {
+  "ano": 2026,
+  "registros": 14507,
+  "sem_cartas": 13227,
+  "mpu_1268": 1788,
+  "feminicidio_12091": 359,
+  "feminicidio_acao_penal": 61,
+  "feminicidio_juri_282": 53,
+  "feminicidio_inquerito": 17
+ }
+]

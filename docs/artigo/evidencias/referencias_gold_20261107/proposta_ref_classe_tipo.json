@@ -1,0 +1,404 @@
+[
+ {
+  "classe_codigo": 10943,
+  "nome": "Ação Penal - Procedimento Sumário",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 35473
+ },
+ {
+  "classe_codigo": 279,
+  "nome": "Inquérito Policial",
+  "tipo_procedimento": "INQUERITO",
+  "registros": 24833
+ },
+ {
+  "classe_codigo": 283,
+  "nome": "Ação Penal - Procedimento Ordinário",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 23449
+ },
+ {
+  "classe_codigo": 355,
+  "nome": "Carta Precatória Criminal",
+  "tipo_procedimento": "CARTA",
+  "registros": 21520
+ },
+ {
+  "classe_codigo": 1268,
+  "nome": "Medidas Protetivas de Urgência (Lei Maria da Penha)  - Criminal",
+  "tipo_procedimento": "MPU",
+  "registros": 19363
+ },
+ {
+  "classe_codigo": 305,
+  "nome": "Liberdade Provisória com ou sem fiança",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 9977
+ },
+ {
+  "classe_codigo": 1727,
+  "nome": "Petição Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 2182
+ },
+ {
+  "classe_codigo": 333,
+  "nome": "Insanidade Mental do Acusado",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 1864
+ },
+ {
+  "classe_codigo": 306,
+  "nome": "Relaxamento de Prisão",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 1610
+ },
+ {
+  "classe_codigo": 282,
+  "nome": "Ação Penal de Competência do Júri",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 1012
+ },
+ {
+  "classe_codigo": 335,
+  "nome": "Carta de Ordem Criminal",
+  "tipo_procedimento": "CARTA",
+  "registros": 716
+ },
+ {
+  "classe_codigo": 1199,
+  "nome": "Pedido de Providências",
+  "tipo_procedimento": "OUTROS",
+  "registros": 589
+ },
+ {
+  "classe_codigo": 313,
+  "nome": "Pedido de Prisão Preventiva",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 563
+ },
+ {
+  "classe_codigo": 10944,
+  "nome": "Ação Penal - Procedimento Sumaríssimo",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 390
+ },
+ {
+  "classe_codigo": 280,
+  "nome": "Auto de Prisão em Flagrante",
+  "tipo_procedimento": "INQUERITO",
+  "registros": 361
+ },
+ {
+  "classe_codigo": 272,
+  "nome": "Representação Criminal/Notícia de Crime",
+  "tipo_procedimento": "INQUERITO",
+  "registros": 339
+ },
+ {
+  "classe_codigo": 11788,
+  "nome": "Exibição de Documento ou Coisa Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 327
+ },
+ {
+  "classe_codigo": 326,
+  "nome": "Restituição de Coisas Apreendidas",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 315
+ },
+ {
+  "classe_codigo": 275,
+  "nome": "Notificação para Explicações",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 315
+ },
+ {
+  "classe_codigo": 307,
+  "nome": "Habeas Corpus Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 290
+ },
+ {
+  "classe_codigo": 11793,
+  "nome": "Produção Antecipada de Provas Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 274
+ },
+ {
+  "classe_codigo": 426,
+  "nome": "Recurso em Sentido Estrito",
+  "tipo_procedimento": "RECURSO",
+  "registros": 240
+ },
+ {
+  "classe_codigo": 288,
+  "nome": "Crimes de Calúnia, Injúria e Difamação de Competência do Juiz Singular",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 223
+ },
+ {
+  "classe_codigo": 14123,
+  "nome": "Destinação de Bens Apreendidos",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 143
+ },
+ {
+  "classe_codigo": 278,
+  "nome": "Termo Circunstanciado",
+  "tipo_procedimento": "INQUERITO",
+  "registros": 72
+ },
+ {
+  "classe_codigo": 309,
+  "nome": "Pedido de Busca e Apreensão Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 66
+ },
+ {
+  "classe_codigo": 1291,
+  "nome": "Reabilitação",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 64
+ },
+ {
+  "classe_codigo": 300,
+  "nome": "Procedimento Especial da Lei Antitóxicos",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 47
+ },
+ {
+  "classe_codigo": 1733,
+  "nome": "Procedimento Investigatório Criminal (PIC-MP)",
+  "tipo_procedimento": "INQUERITO",
+  "registros": 45
+ },
+ {
+  "classe_codigo": 156,
+  "nome": "Cumprimento de sentença",
+  "tipo_procedimento": "OUTROS",
+  "registros": 39
+ },
+ {
+  "classe_codigo": 319,
+  "nome": "Exceção de Incompetência de Juízo",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 37
+ },
+ {
+  "classe_codigo": 10967,
+  "nome": "Medidas de Proteção à Pessoa Idosa - Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 27
+ },
+ {
+  "classe_codigo": 318,
+  "nome": "Exceção de Suspeição",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 20
+ },
+ {
+  "classe_codigo": 1715,
+  "nome": "Embargos do Acusado",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 19
+ },
+ {
+  "classe_codigo": -1,
+  "nome": "Inválido",
+  "tipo_procedimento": "OUTROS",
+  "registros": 18
+ },
+ {
+  "classe_codigo": 7,
+  "nome": "Procedimento Comum Cível",
+  "tipo_procedimento": "OUTROS",
+  "registros": 17
+ },
+ {
+  "classe_codigo": 322,
+  "nome": "Exceção de Coisa Julgada",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 15
+ },
+ {
+  "classe_codigo": 1719,
+  "nome": "Avaliação para atestar dependência de drogas",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 14
+ },
+ {
+  "classe_codigo": 1717,
+  "nome": "Alienação de Bens do Acusado",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 13
+ },
+ {
+  "classe_codigo": 418,
+  "nome": "Carta Testemunhável",
+  "tipo_procedimento": "RECURSO",
+  "registros": 12
+ },
+ {
+  "classe_codigo": 310,
+  "nome": "Pedido de Quebra de Sigilo de Dados e/ou Telefônico",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 12
+ },
+ {
+  "classe_codigo": 193,
+  "nome": "Produção Antecipada da Prova",
+  "tipo_procedimento": "OUTROS",
+  "registros": 12
+ },
+ {
+  "classe_codigo": 291,
+  "nome": "Restauração de Autos Criminal",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 10
+ },
+ {
+  "classe_codigo": 12729,
+  "nome": "Execução de Medidas Alternativas no Juízo Comum",
+  "tipo_procedimento": "EXECUCAO",
+  "registros": 10
+ },
+ {
+  "classe_codigo": 12727,
+  "nome": "Execução de Pena de Multa",
+  "tipo_procedimento": "EXECUCAO",
+  "registros": 10
+ },
+ {
+  "classe_codigo": 11955,
+  "nome": "Cautelar Inominada Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 7
+ },
+ {
+  "classe_codigo": 261,
+  "nome": "Carta Precatória Cível",
+  "tipo_procedimento": "CARTA",
+  "registros": 6
+ },
+ {
+  "classe_codigo": 12121,
+  "nome": "Comunicado de Mandado de Prisão",
+  "tipo_procedimento": "INQUERITO",
+  "registros": 5
+ },
+ {
+  "classe_codigo": 321,
+  "nome": "Exceção de Ilegitimidade de Parte",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 5
+ },
+ {
+  "classe_codigo": 14734,
+  "nome": "Medidas de Proteção - Criança e Adolescente (Lei 13.431) Criminais",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 3
+ },
+ {
+  "classe_codigo": 332,
+  "nome": "Incidente de Falsidade",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 3
+ },
+ {
+  "classe_codigo": 1111,
+  "nome": "Execução de Título Judicial",
+  "tipo_procedimento": "OUTROS",
+  "registros": 3
+ },
+ {
+  "classe_codigo": 11398,
+  "nome": "Recurso em sentido estrito/Recurso ex officio",
+  "tipo_procedimento": "RECURSO",
+  "registros": 3
+ },
+ {
+  "classe_codigo": 11798,
+  "nome": "Processo de Aplicação de Medida de Segurança Por Fato Não Criminoso",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 3
+ },
+ {
+  "classe_codigo": 324,
+  "nome": "Exceção da Verdade",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 3
+ },
+ {
+  "classe_codigo": 1710,
+  "nome": "Mandado de Segurança Criminal",
+  "tipo_procedimento": "ACAO_PENAL",
+  "registros": 2
+ },
+ {
+  "classe_codigo": 323,
+  "nome": "Exceção de Impedimento",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 2
+ },
+ {
+  "classe_codigo": 327,
+  "nome": "Embargos de Terceiro Criminal",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 314,
+  "nome": "Pedido de Prisão Temporária",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 12154,
+  "nome": "Execução de Título Extrajudicial",
+  "tipo_procedimento": "OUTROS",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 228,
+  "nome": "Exibição de Documento ou Coisa Cível",
+  "tipo_procedimento": "OUTROS",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 12248,
+  "nome": "Pedido de Cooperação Judiciária",
+  "tipo_procedimento": "OUTROS",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 320,
+  "nome": "Exceção de Litispendência",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 11037,
+  "nome": "Ação Penal Militar - Procedimento Ordinário",
+  "tipo_procedimento": "CAUTELAR_INCIDENTE",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 11041,
+  "nome": "Inquérito Policial Militar",
+  "tipo_procedimento": "INQUERITO",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 12227,
+  "nome": "Interpelação",
+  "tipo_procedimento": "OUTROS",
+  "registros": 1
+ },
+ {
+  "classe_codigo": 152,
+  "nome": "Liquidação de Sentença pelo Procedimento Comum",
+  "tipo_procedimento": "OUTROS",
+  "registros": 1
+ }
+]

@@ -1,0 +1,42 @@
+{
+ "Metropolitana de Curitiba": {
+  "registros": 37687,
+  "municipios_sede": 22
+ },
+ "Oeste Paranaense": {
+  "registros": 28110,
+  "municipios_sede": 18
+ },
+ "Norte Central Paranaense": {
+  "registros": 27322,
+  "municipios_sede": 30
+ },
+ "Sudoeste Paranaense": {
+  "registros": 12339,
+  "municipios_sede": 13
+ },
+ "Centro Oriental Paranaense": {
+  "registros": 9706,
+  "municipios_sede": 11
+ },
+ "Centro-Sul Paranaense": {
+  "registros": 8647,
+  "municipios_sede": 10
+ },
+ "Norte Pioneiro Paranaense": {
+  "registros": 7228,
+  "municipios_sede": 21
+ },
+ "Noroeste Paranaense": {
+  "registros": 7143,
+  "municipios_sede": 18
+ },
+ "Centro Ocidental Paranaense": {
+  "registros": 5225,
+  "municipios_sede": 10
+ },
+ "Sudeste Paranaense": {
+  "registros": 3595,
+  "municipios_sede": 10
+ }
+}
