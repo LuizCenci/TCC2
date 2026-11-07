@@ -112,6 +112,8 @@ As páginas propostas no `18` §4 continuam, agora rastreadas aos ids do catálo
 
 ---
 
+**Decisão do autor (07/11/2026): arquitetura de publicação.** O banco completo (Bronze, Silver, Gold e `restrito`) fica local. Ao fim do pipeline, uma etapa de exportação publica só os agregados `agg_*`, com a supressão de células já aplicada, em arquivos versionados (com data de corte e versão de regras). O destino final, arquivos junto do app ou banco pequeno na nuvem, será escolhido no plano do dashboard, junto com a tecnologia (CLAUDE.md §18). Motivos: privacidade (CLAUDE.md §13, `19` §9), custo e tamanho (cerca de 3,6 GB só na Silver), e o fato de o dashboard consumir apenas agregados (`19` §8).
+
 ## 6. Pendências de fonte (não inventar)
 
 1. ~~Composição das comarcas~~: dispensada (decisão C1).
