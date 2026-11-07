@@ -59,3 +59,69 @@ def validar(dir: Path = DIR_PADRAO) -> None:
         problemas.append("ref_municipio_pr.csv: esperado 399 municípios")
     if problemas:
         raise ValueError("; ".join(problemas))
+
+
+def _bool(v: str) -> bool:
+    return v.strip().lower() == "true"
+
+
+def _int_ou_none(v: str):
+    return int(v) if v.strip() else None
+
+
+def _caminho_catalogo(caminho: str, dir: Path) -> Path:
+    p = Path(caminho)
+    if p.exists():
+        return p
+    alt = Path(dir).resolve().parent.parent / caminho
+    return alt if alt.exists() else p
+
+
+def carregar_referencias(conn, dir: Path = DIR_PADRAO) -> dict[str, int]:
+    """TRUNCATE + carga das ref.* (exceto municipio/mesorregiao); sem commit."""
+    from datajud_tcc.catalog import Catalog
+
+    def carga(tabela, colunas, linhas):
+        conn.execute(f"TRUNCATE {tabela}")
+        if linhas:
+            ph = ",".join(["%s"] * len(colunas))
+            with conn.cursor() as cur:
+                cur.executemany(
+                    f"INSERT INTO {tabela} ({','.join(colunas)}) VALUES ({ph})", linhas)
+        return len(linhas)
+
+    n: dict[str, int] = {}
+    n["classe_tipo"] = carga(
+        "ref.classe_tipo", ["classe_codigo", "classe_nome", "tipo_procedimento", "juri"],
+        [(int(l["classe_codigo"]), l["classe_nome"], l["tipo_procedimento"], _bool(l["juri"]))
+         for l in ler_csv("ref_classe_tipo.csv", dir)])
+    n["assunto_categoria"] = carga(
+        "ref.assunto_categoria",
+        ["assunto_codigo", "assunto_nome", "categoria", "somente_ampliada",
+         "infracional", "antecessor"],
+        [(int(l["assunto_codigo"]), l["assunto_nome"], l["categoria"],
+          _bool(l["somente_ampliada"]), _bool(l["infracional"]), _bool(l["antecessor"]))
+         for l in ler_csv("ref_assunto_categoria.csv", dir)])
+    n["movimento_fase"] = carga(
+        "ref.movimento_fase", ["movimento_codigo", "movimento_nome", "fase", "subtipo"],
+        [(int(l["movimento_codigo"]), l["movimento_nome"], l["fase"], l["subtipo"] or None)
+         for l in ler_csv("ref_movimento_fase.csv", dir)])
+    n["orgao_especializado"] = carga(
+        "ref.orgao_especializado", ["orgao_codigo", "municipio_sede_ibge", "nome_referencia"],
+        [(int(l["orgao_codigo"]), _int_ou_none(l["municipio_sede_ibge"]), l["nome_referencia"])
+         for l in ler_csv("ref_orgao_especializado.csv", dir)])
+
+    quebras = []
+    for l in ler_csv("ref_quebras_serie.csv", dir):
+        ini, _, fim = l["data"].partition(" a ")
+        quebras.append((l["categoria"], ini.strip(), fim.strip() or None,
+                        l["tipo"], l["descricao"]))
+    n["quebra_serie"] = carga(
+        "ref.quebra_serie", ["categoria", "data_inicio", "data_fim", "tipo", "descricao"],
+        quebras)
+
+    cat = Catalog.load(_caminho_catalogo(ler_regras(dir)["catalogo"], dir))
+    linhas = [(e.codigo, e.tipo, e.grupo or "nucleo_pvd", e.natureza) for e in cat.entries]
+    linhas += [(e.codigo, e.tipo, e.grupo, e.natureza) for e in cat.extensions]
+    n["catalogo"] = carga("ref.catalogo", ["codigo", "tipo", "grupo", "natureza"], linhas)
+    return n
