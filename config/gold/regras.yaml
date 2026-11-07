@@ -19,3 +19,8 @@ arquivos:
   ref_quebras_serie.csv:
     fonte: docs/artigo/21-fontes-referencia-gold.md
     gerado_por: scripts/gerar_referencias_gold.py
+malha:
+  url: "https://servicodados.ibge.gov.br/api/v3/malhas/estados/41?formato=application/vnd.geo+json&intrarregiao=municipio&qualidade=intermediaria"
+  baixado_em: "2026-11-07"
+  qualidade: intermediaria
+  n_feicoes: 399
