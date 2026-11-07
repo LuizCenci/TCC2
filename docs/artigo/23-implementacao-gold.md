@@ -45,7 +45,7 @@ Colunas de `gold.fato_evento`: `registro_id`, `seq`, `dt_evento` (timestamptz), 
 
 **Séries.** Estrita (`serie_estrita`) e ampliada. Categorias marcadas `somente_ampliada` só entram na ampliada (`20`).
 
-**Categorias.** Dez, multirrótulo (um processo pode ter várias; não somar categorias como processos distintos): as cinco formas do art. 7º da Lei 11.340 (física, psicológica, sexual, patrimonial, moral), ameaça, perseguição, descumprimento de MPU, feminicídio e violência doméstica sem especificação. Fonte: `config/gold/ref_assunto_categoria.csv`, gerado por `scripts/gerar_referencias_gold.py`.
+**Categorias.** Dez, multirrótulo (um processo pode ter várias; não somar categorias como processos distintos): as cinco formas do art. 7º da Lei 11.340 (física, psicológica, sexual, patrimonial, moral), ameaça, perseguição, descumprimento de MPU, feminicídio e violência doméstica sem especificação. Nove vêm de `config/gold/ref_assunto_categoria.csv` (gerado por `scripts/gerar_referencias_gold.py`); a décima, `VD_SEM_ESPECIFICACAO`, é derivada em `sql/11_processo_categoria.sql`.
 
 **Território.** Só mesorregião, atribuída pelo município-sede do órgão (`municipio_sede_ibge`). Não há comarca. Município do órgão não é município do fato (CLAUDE.md §4).
 

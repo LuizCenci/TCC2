@@ -1,6 +1,6 @@
 # Orquestração com Prefect
 
-Data: 05/11/2026. Status: escopo **aprovado pelo autor** (incluindo a construção da Gold no orquestrador) e **coleta incremental implementada e testada com dados simulados** (§6). As etapas Silver e Gold estão como interfaces, a implementar com o banco de dados. O Prefect está previsto no projeto original (CLAUDE.md §9).
+Data: 05/11/2026 (atualizado em 07/11/2026). Status: escopo **aprovado pelo autor** (incluindo a construção da Gold no orquestrador) e **coleta incremental implementada e testada com dados simulados** (§6). Coleta incremental, Silver (`10`, `17`) e Gold (`23`) estão implementadas. O Prefect está previsto no projeto original (CLAUDE.md §9).
 
 ## 1. Princípio
 
@@ -13,7 +13,7 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
 | Coleta definitiva (base do artigo) | Não (manual, já feita) | Evento único, documentado e congelado |
 | Coletas incrementais → Bronze | **Sim** | Repetitiva; sujeita a 429/504; precisa de agendamento, retomada e registro |
 | Bronze → Silver | **Sim** | Carga idempotente com validação a cada execução |
-| Silver → Gold (construção das tabelas) | **Sim** | Transformação determinística por versão de regras (classificação, eventos, tempos, trajetórias, tabelas do dashboard); repetida quando as regras mudam |
+| Silver → Gold (construção das tabelas) | **Sim** | Transformação determinística por versão de regras (classificação, eventos, tempos, trajetórias, tabelas do dashboard); repetida quando as regras mudam (dashboard e trajetórias: planos futuros) |
 | Análise exploratória e clusterização | Não | Trabalho iterativo, em notebook |
 
 ## 3. Fluxos propostos
@@ -28,7 +28,7 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
    - carrega com a chave `(run_id, api_id)`;
    - confere se as contagens da Silver são iguais às do manifesto;
    - publica um relatório de qualidade como *artifact*.
-3. **`construcao_gold`** (por versão de regras): `deriv.*` e agregações, regenerado quando a versão de regras muda (`10`).
+3. **`construcao_gold`** (por versão de regras): `ref.*` e `gold.*` (base analítica; agregados e métodos ficam para o plano seguinte), regenerado quando a versão de regras muda (`10`).
 
 ## 4. Questões a resolver antes de implementar
 
@@ -87,7 +87,7 @@ O autor optou por **não** generalizar a carga da Silver para execuções penden
 
 **Não ligar o agendamento antes da Silver.** Coletas feitas antes dela não seriam carregadas depois.
 
-**Versões do mesmo processo.** Execuções incrementais trazem processos antigos reenviados, que já estão na base congelada. Com a chave `(run_id, api_id)`, as versões convivem na Silver; a Gold escolhe qual versão de cada registro entra na análise (critério a definir), e uma visão operacional pode selecionar a mais recente.
+**Versões do mesmo processo.** Execuções incrementais trazem processos antigos reenviados, que já estão na base congelada. Com a chave `(run_id, api_id)`, as versões convivem na Silver; a Gold escolhe qual versão de cada registro entra na análise (versão mais recente por `api_id`: maior `concluida_em`, desempate por `run_id`; `23` §3), e uma visão operacional pode selecionar a mais recente.
 
 
 ## 8. Registros (logs) e validação
