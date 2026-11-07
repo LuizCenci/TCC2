@@ -64,6 +64,15 @@ def base(conn_banco_modulo):
     d["nc"] = reg(conn, "T3-s", "nc", "N-unico")
     d["fa"] = reg(conn, "T3-s", "fa", "N-fa", assuntos=(12091, 5555))
     d["fb"] = reg(conn, "T3-s", "fb", "N-fb", assuntos=(12091,))
+    # catálogo diferente: execução completa posterior não conta como remoção
+    inserir_execucao(conn, "T3-k1", utc(2035, 1, 1), [2026], catalogo_sha256="a" * 64)
+    d["catalogo"] = reg(conn, "T3-k1", "api-cat", "N-cat")
+    inserir_execucao(conn, "T3-k2", utc(2035, 2, 1), [2026], catalogo_sha256="b" * 64)
+    reg(conn, "T3-k2", "api-outra", "N-outra")
+    # data_corte em UTC, mesmo com fuso de sessão diferente
+    inserir_execucao(conn, "T3-u", utc(2030, 3, 10, 1), [2026])
+    d["utc"] = reg(conn, "T3-u", "api-utc", "N-utc")
+    conn.execute("SET LOCAL TIME ZONE 'America/Sao_Paulo'")
     executar_transformacoes(conn)
     d["conn"] = conn
     return d
@@ -136,3 +145,12 @@ def test_gold_sem_identificadores(base):
         """SELECT column_name FROM information_schema.columns
             WHERE table_schema IN ('gold','ref')""").fetchall()}
     assert not cols & {"numero_processo", "id_source", "api_id"}
+
+
+def test_removido_indice_exige_mesmo_catalogo(base):
+    assert fato(base["conn"], base["catalogo"])["removido_indice"] is False
+
+
+def test_data_corte_em_utc(base):
+    from datetime import date
+    assert fato(base["conn"], base["utc"])["data_corte"] == date(2030, 3, 10)

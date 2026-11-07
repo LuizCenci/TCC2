@@ -12,7 +12,7 @@ WITH sel AS (
     SELECT DISTINCT ON (r.api_id)
            r.registro_id, r.run_id, r.api_id, r.ano_particao, r.classe_codigo,
            r.orgao_codigo, r.municipio_sede_ibge, r.data_ajuizamento, r.n_movimentos,
-           e.concluida_em
+           e.concluida_em, e.catalogo_sha256
       FROM silver.registro r
       JOIN controle.execucao_coleta e USING (run_id)
      ORDER BY r.api_id, e.concluida_em DESC NULLS LAST, r.run_id DESC
@@ -41,7 +41,7 @@ ass AS (
       LEFT JOIN ref.assunto_categoria ac USING (assunto_codigo)
      GROUP BY ra.registro_id
 )
-SELECT s.registro_id, s.run_id, s.concluida_em::date, s.ano_particao, s.classe_codigo,
+SELECT s.registro_id, s.run_id, (s.concluida_em AT TIME ZONE 'UTC')::date, s.ano_particao, s.classe_codigo,
        COALESCE(ct.tipo_procedimento, 'OUTROS'), COALESCE(ct.juri, false),
        s.orgao_codigo,
        EXISTS (SELECT 1 FROM ref.orgao_especializado oe WHERE oe.orgao_codigo = s.orgao_codigo),
@@ -61,6 +61,7 @@ SELECT s.registro_id, s.run_id, s.concluida_em::date, s.ano_particao, s.classe_c
            SELECT 1
              FROM controle.execucao_coleta f
             WHERE f.updated_since IS NULL
+              AND f.catalogo_sha256 IS NOT DISTINCT FROM s.catalogo_sha256
               AND f.concluida_em > s.concluida_em
               AND EXISTS (SELECT 1 FROM controle.pagina_bronze p
                            WHERE p.run_id = f.run_id AND p.ano = s.ano_particao)

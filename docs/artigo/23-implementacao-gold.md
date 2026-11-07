@@ -63,6 +63,15 @@ Colunas de `gold.fato_evento`: `registro_id`, `seq`, `dt_evento` (timestamptz), 
 
 Views em `gold.*`, sem identificadores: `qualidade_volume_mensal`, `qualidade_intensidade_registro`, `qualidade_movimentos_duplicados`, `qualidade_sem_mapeamento`, `qualidade_cobertura_referencias`. `gold-qualidade` imprime o resumo. As metas do `19` §10 (`OUTROS` e registros sem categoria abaixo de 2%) ainda **não foram conferidas**: dependem da primeira construção real.
 
+### Uso de `censurado` e `duracao_dias` nas análises
+
+Regras para o plano de métodos (não são resultados):
+
+- `desfecho`, `censurado` e `duracao_dias` descrevem o desfecho do julgamento. Para MPU, e para processos cujas únicas marcas são `TRANSITO_JULGADO`, `DECISAO_MPU` ou `MPU_REVOGACAO`, o desfecho é em geral `EM_ANDAMENTO` (censurado). Análises de tempo devem ser feitas por marco e por `tipo_procedimento` (por exemplo, tempo até `dt_decisao_mpu` para MPU, com censura própria em `data_corte`), nunca agrupando todos os tipos.
+- `ENCERRADO_SEM_DESFECHO` conta o arquivamento como evento. Processos com `reativado = true` devem ser filtrados ou tratados como censurados.
+- `data_corte` e as datas de evento usam datas em UTC; `data_ajuizamento` é ingênua (possivelmente horário local, doc 10 §9). Há efeito de fronteira de até um dia.
+- `removido_indice` compara apenas execuções com o mesmo catálogo (`catalogo_sha256`).
+
 ## 5. Desvio registrado
 
 O `19` §5.1 lista `numero_processo` em `gold.fato_processo`. Ele **não** entra: CLAUDE.md §13 e `19` §9 mantêm identificadores fora das camadas analíticas. `numero_processo`, `id_source` e `api_id` não aparecem em `ref.*` nem `gold.*`; o número só é lido de `restrito.identificador` para calcular `numero_repetido`.

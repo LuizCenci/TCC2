@@ -103,6 +103,16 @@ def test_pipeline_encadeia_coleta_silver_e_gold(ambiente, monkeypatch):
     assert resultado["silver"]["segundos"] >= 0
 
 
+def test_pipeline_pula_gold_sem_registros_na_silver(ambiente, monkeypatch):
+    monkeypatch.setattr(fluxos, "_cliente", lambda config: ClienteFalso([_pagina(["2026-11-01T10:00:00.000Z"])]))
+    chamadas = []
+    monkeypatch.setattr(etapas, "carregar_silver", lambda run_root: {"registros": 0})
+    monkeypatch.setattr(etapas, "construir_gold", lambda versao_regras: chamadas.append("gold") or {"tabelas": 0})
+    resultado = fluxos.pipeline_incremental(config_path=str(ambiente), marca_inicial=MARCA_INICIAL, versao_regras="teste-v1")
+    assert chamadas == []
+    assert resultado["gold"] == {"pulada": True, "motivo": "nenhum registro novo na Silver"}
+
+
 def test_pipeline_nao_carrega_silver_se_coleta_falhar(ambiente, monkeypatch):
     class ClienteQueFalha:
         def search(self, body):

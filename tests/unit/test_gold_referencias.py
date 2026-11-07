@@ -61,3 +61,17 @@ def test_validar_aceita_arquivos_do_repositorio():
     r.validar()
     with pytest.raises(ValueError):
         r.validar(Path("config/gold_inexistente"))
+
+
+def test_hierarquia_sem_caixa_e_infracional():
+    por = {x["assunto_codigo"]: x for x in r.ler_csv("ref_assunto_categoria.csv")}
+    assert por["12384"]["categoria"] == "SEXUAL" and por["12384"]["infracional"] == "true"
+    assert por["9642"]["infracional"] == "true"
+    assert por["3465"]["infracional"] == "false"
+    assert len(r.ler_csv("ref_quebras_serie.csv")) == 7
+
+
+def test_ler_regras_independe_do_cwd(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    assert r._dir_padrao().exists()
+    assert r.ler_regras(r._dir_padrao())["versao_regras"] == "gold-2026-11-07"

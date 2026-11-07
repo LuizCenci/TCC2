@@ -44,6 +44,7 @@ EXPLICITAS = {
 }
 SOMENTE_AMPLIADA = {5560, 9647}
 ANTECESSOR = {12354}
+# 12476 fica de fora de propósito ("a conferir", docs/artigo/21 §5.3).
 HIERARQUIA = [("SEXUAL", "Dignidade Sexual"), ("PATRIMONIAL", "Patrimônio"), ("MORAL", "Honra")]
 
 
@@ -58,17 +59,17 @@ def assuntos():
         fonte = "lista explícita (21 §5.2)"
         if cat is None:
             for categoria, termo in HIERARQUIA:
-                if not any(termo in n for n in nomes):
+                if not any(termo.casefold() in n.casefold() for n in nomes):
                     continue
                 if categoria == "PATRIMONIAL" and (
-                        cod == 14698 or any("Patrimônio Genético" in n for n in nomes)):
+                        cod == 14698 or any("patrimônio genético" in n.casefold() for n in nomes)):
                     continue
                 cat = categoria
                 fonte = f"hierarquia SGT: '{termo}' (21 §5.2)"
                 break
         if cat is None:
             continue
-        infr = any("DIREITO DA CRIANÇA E DO ADOLESCENTE" in n for n in nomes)
+        infr = any("direito da criança e do adolescente" in n.casefold() for n in nomes)
         linhas.append({
             "assunto_codigo": cod, "assunto_nome": nome, "categoria": cat,
             "somente_ampliada": "true" if cod in SOMENTE_AMPLIADA else "false",

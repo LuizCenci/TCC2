@@ -5,7 +5,14 @@ from pathlib import Path
 
 import yaml
 
-DIR_PADRAO = Path("config/gold")
+def _dir_padrao() -> Path:
+    local = Path("config/gold")
+    if local.exists():
+        return local
+    return Path(__file__).resolve().parents[3] / "config" / "gold"
+
+
+DIR_PADRAO = _dir_padrao()
 
 TIPOS = ("MPU", "INQUERITO", "ACAO_PENAL", "CARTA", "CAUTELAR_INCIDENTE",
          "RECURSO", "EXECUCAO", "OUTROS")

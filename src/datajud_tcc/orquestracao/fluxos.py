@@ -143,5 +143,9 @@ def pipeline_incremental(versao_regras: str, config_path: str = "config/collecti
     """Coleta → Silver → Gold. Se a coleta falhar, nada é carregado."""
     coleta = coleta_incremental(config_path=config_path, marca_inicial=marca_inicial)
     silver = carga_silver(coleta["run_root"])
-    gold = construcao_gold(versao_regras)
+    if int(silver.get("registros", 0)) == 0:
+        gold = {"pulada": True, "motivo": "nenhum registro novo na Silver"}
+        get_run_logger().info("Gold pulada: %s", gold["motivo"])
+    else:
+        gold = construcao_gold(versao_regras)
     return {"coleta": coleta, "silver": silver, "gold": gold}

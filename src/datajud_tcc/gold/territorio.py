@@ -4,12 +4,12 @@ import json
 from pathlib import Path
 
 from datajud_tcc.gold.esquema import aplicar_esquema_gold
-from datajud_tcc.gold.referencias import ler_csv
+from datajud_tcc.gold.referencias import DIR_PADRAO, ler_csv
 
 ARQ_MALHA = "malha_municipios_pr.geojson"
 
 
-def carregar_territorio(conn, dir=Path("config/gold")) -> dict:
+def carregar_territorio(conn, dir=DIR_PADRAO) -> dict:
     """Recarrega ref.municipio e ref.mesorregiao (TRUNCATE + carga); sem commit."""
     dir = Path(dir)
     aplicar_esquema_gold(conn)

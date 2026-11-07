@@ -3,10 +3,11 @@
 from datetime import datetime, timezone
 
 
-def inserir_execucao(conn, run_id, concluida_em, anos, updated_since=None):
+def inserir_execucao(conn, run_id, concluida_em, anos, updated_since=None, catalogo_sha256=None):
     conn.execute(
-        "INSERT INTO controle.execucao_coleta (run_id, updated_since, status_coleta, concluida_em)"
-        " VALUES (%s, %s, 'concluida', %s)", (run_id, updated_since, concluida_em))
+        "INSERT INTO controle.execucao_coleta (run_id, updated_since, status_coleta, concluida_em,"
+        " catalogo_sha256) VALUES (%s, %s, 'concluida', %s, %s)",
+        (run_id, updated_since, concluida_em, catalogo_sha256))
     for ano in anos:
         conn.execute(
             "INSERT INTO controle.pagina_bronze (run_id, ano, pagina, sha256, n_registros)"
