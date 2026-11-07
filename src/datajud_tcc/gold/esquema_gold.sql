@@ -201,3 +201,11 @@ CREATE TABLE IF NOT EXISTS gold.agg_taxa (
     n bigint NOT NULL, pop_feminina bigint, taxa_bruta_100k double precision,
     taxa_eb_100k double precision
 );
+CREATE TABLE IF NOT EXISTS gold.agg_tempo (
+    pergunta text NOT NULL, marco text NOT NULL, tipo_procedimento text, serie text NOT NULL,
+    estrato text NOT NULL, valor_estrato text NOT NULL, n bigint NOT NULL, n_eventos bigint NOT NULL,
+    estimavel boolean NOT NULL, mediana_dias double precision, mediana_alcancada boolean,
+    ic95_inf double precision, ic95_sup double precision,
+    pct_evento_ate_2 double precision, pct_evento_ate_30 double precision,
+    pct_evento_ate_365 double precision, pct_evento_ate_730 double precision
+);
