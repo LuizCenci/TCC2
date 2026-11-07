@@ -1,0 +1,21 @@
+versao_regras: gold-2026-11-07
+catalogo: config/catalogs/tjpr_vcm_2026-10-18.yaml
+arquivos:
+  ref_classe_tipo.csv:
+    fonte: docs/artigo/evidencias/referencias_gold_20261107/proposta_ref_classe_tipo.json
+    gerado_por: scripts/gerar_referencias_gold.py
+  ref_assunto_categoria.csv:
+    fonte: docs/artigo/evidencias/referencias_gold_20261107/codigos_silver_sgt.json
+    gerado_por: scripts/gerar_referencias_gold.py
+  ref_movimento_fase.csv:
+    fonte: docs/artigo/evidencias/referencias_gold_20261107/codigos_silver_sgt.json
+    gerado_por: scripts/gerar_referencias_gold.py
+  ref_orgao_especializado.csv:
+    fonte: docs/artigo/evidencias/referencias_gold_20261107/orgaos_especializados_silver.json
+    gerado_por: scripts/gerar_referencias_gold.py
+  ref_municipio_pr.csv:
+    fonte: docs/artigo/evidencias/referencias_gold_20261107/ref_municipio_pr.json
+    gerado_por: scripts/gerar_referencias_gold.py
+  ref_quebras_serie.csv:
+    fonte: docs/artigo/21-fontes-referencia-gold.md
+    gerado_por: scripts/gerar_referencias_gold.py

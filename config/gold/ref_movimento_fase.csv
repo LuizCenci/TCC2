@@ -1,0 +1,79 @@
+movimento_codigo,movimento_nome,fase,subtipo,fonte
+26,Distribuição,DISTRIBUICAO,,21 §5.3; nome SGT/CNJ
+36,Redistribuição,REDISTRIBUICAO,,21 §5.3; nome SGT/CNJ
+128,Prisão,CAUTELAR_PRISAO,,21 §5.3; nome SGT/CNJ
+146,Não-Homologação de prisão em flagrante,CAUTELAR_PRISAO,,21 §5.3; nome SGT/CNJ
+175,Prisão em flagrante,CAUTELAR_PRISAO,,21 §5.3; nome SGT/CNJ
+219,Procedência,SENTENCA_CONDENATORIA,TOTAL,21 §5.3; nome SGT/CNJ
+220,Improcedência,SENTENCA_ABSOLUTORIA,,21 §5.3; nome SGT/CNJ
+221,Procedência em Parte,SENTENCA_CONDENATORIA,PARCIAL,21 §5.3; nome SGT/CNJ
+245,Provisório,ARQUIVAMENTO,PROVISORIO,21 §5.3; nome SGT/CNJ
+246,Definitivo,ARQUIVAMENTO,DEFINITIVO,21 §5.3; nome SGT/CNJ
+263,Réu revel citado por edital,SUSPENSAO,,21 §5.3; nome SGT/CNJ
+264,Suspensão Condicional do Processo,SUSPENSAO,,21 §5.3; nome SGT/CNJ
+313,Sessão do Tribunal do Júri,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+388,Aditamento da denúncia,RECEBIMENTO_DENUNCIA,,21 §5.3; nome SGT/CNJ
+391,Denúncia,RECEBIMENTO_DENUNCIA,,21 §5.3; nome SGT/CNJ
+393,Queixa,RECEBIMENTO_DENUNCIA,,21 §5.3; nome SGT/CNJ
+402,Denúncia,REJEICAO_DENUNCIA,,21 §5.3; nome SGT/CNJ
+404,Queixa,REJEICAO_DENUNCIA,,21 §5.3; nome SGT/CNJ
+455,Renúncia ao direito pelo autor,SENTENCA_OUTRA,,21 §5.3; nome SGT/CNJ
+459,Ausência de pressupostos processuais,SENTENCA_OUTRA,,21 §5.3; nome SGT/CNJ
+460,"Perempção, litispendência ou coisa julgada",SENTENCA_OUTRA,,21 §5.3; nome SGT/CNJ
+461,Ausência das condições da ação,SENTENCA_OUTRA,,21 §5.3; nome SGT/CNJ
+463,Desistência,SENTENCA_OUTRA,,21 §5.3; nome SGT/CNJ
+471,Pronúncia de Decadência ou Prescrição,PRESCRICAO,,21 §5.3; nome SGT/CNJ
+818,Liberdade provisória,LIBERDADE_PROVISORIA,,21 §5.3; nome SGT/CNJ
+848,Trânsito em julgado,TRANSITO_JULGADO,,21 §5.3; nome SGT/CNJ
+849,Reativação,REATIVACAO,,21 §5.3; nome SGT/CNJ
+893,Desarquivamento,REATIVACAO,,21 §5.3; nome SGT/CNJ
+898,Por decisão judicial,SUSPENSAO,,21 §5.3; nome SGT/CNJ
+1042,Morte do agente,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+1043,"Anistia, graça ou indulto",EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+1044,Retroatividade de lei,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+1046,Renúncia do queixoso ou perdão aceito,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+1047,Retratação do agente,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+1049,Pagamento integral do débito,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+1050,Cumprimento da Pena,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+1063,Determinação de arquivamento de procedimentos investigatórios,ARQUIVAMENTO_INVESTIGACAO,,21 §5.3; nome SGT/CNJ
+10953,Pronúncia,PRONUNCIA,,21 §5.3; nome SGT/CNJ
+10961,Impronúncia,IMPRONUNCIA,,21 §5.3; nome SGT/CNJ
+11376,Ausência do autor à audiência,SENTENCA_OUTRA,,21 §5.3; nome SGT/CNJ
+11411,Cumprimento da suspensão condicional do processo,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+11423,Medida protetiva,DECISAO_MPU,DEFERIMENTO,21 §5.3; nome SGT/CNJ
+11424,Medida protetiva,DECISAO_MPU,PARCIAL,21 §5.3; nome SGT/CNJ
+11425,Medida protetiva,DECISAO_MPU,INDEFERIMENTO,21 §5.3; nome SGT/CNJ
+11426,Medida protetiva,MPU_REVOGACAO,,21 §5.3; nome SGT/CNJ
+11876,Absolvição Sumária do art. 397-CPP,SENTENCA_ABSOLUTORIA,,21 §5.3; nome SGT/CNJ
+11877,Absolvição sumária - crimes dolosos contra a vida,SENTENCA_ABSOLUTORIA,,21 §5.3; nome SGT/CNJ
+11878,Prescrição,PRESCRICAO,,21 §5.3; nome SGT/CNJ
+11879,Decadência ou perempção,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+12028,Cumprimento de transação penal,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+12140,Prisão em Flagrante em Prisão Preventiva,CAUTELAR_PRISAO,,21 §5.3; nome SGT/CNJ
+12141,Relaxamento do Flagrante,CAUTELAR_PRISAO,,21 §5.3; nome SGT/CNJ
+12146,Liberdade Provisória,LIBERDADE_PROVISORIA,,21 §5.3; nome SGT/CNJ
+12148,Prisão Domiciliar,CAUTELAR_PRISAO,,21 §5.3; nome SGT/CNJ
+12255,Redistribuição por prevenção,REDISTRIBUICAO,,21 §5.3; nome SGT/CNJ
+12430,Arquivamento,ARQUIVAMENTO_INVESTIGACAO,,21 §5.3; nome SGT/CNJ
+12459,Prejudicado,SENTENCA_OUTRA,,21 §5.3; nome SGT/CNJ
+12646,Determinada a Redistribuição,REDISTRIBUICAO,,21 §5.3; nome SGT/CNJ
+12733,Homologação do Acordo de Não Persecução Penal,SUSPENSAO,,21 §5.3; nome SGT/CNJ
+12735,Cumprimento de ANPP,EXTINCAO_PUNIBILIDADE,,21 §5.3; nome SGT/CNJ
+12737,Revogação da Suspensão Condicional do Processo,SUSPENSAO,,21 §5.3; nome SGT/CNJ
+12739,Admonitória,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+12740,de Conciliação,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+12741,de Acolhimento,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+12742,de Custódia,AUDIENCIA,CUSTODIA,21 §5.3; nome SGT/CNJ
+12743,de Interrogatório,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+12744,de Justificação,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+12745,do art. 16 da Lei 11.340,AUDIENCIA,ART16_LMP,21 §5.3; nome SGT/CNJ
+12747,Inicial,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+12749,de Instrução,AUDIENCIA,INSTRUCAO,21 §5.3; nome SGT/CNJ
+12750,de Instrução e Julgamento,AUDIENCIA,INSTRUCAO_JULGAMENTO,21 §5.3; nome SGT/CNJ
+12752,de Mediação,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+12753,Preliminar,AUDIENCIA,,21 §5.3; nome SGT/CNJ
+14733,Prorrogação de Medida Protetiva,MPU_PRORROGACAO,,21 §5.3; nome SGT/CNJ
+14999,Iniciada Tramitação Direta entre MP e Autoridade Policial,TRAMITACAO_DIRETA,,21 §5.3; nome SGT/CNJ
+15000,Finalizada Tramitação Direta entre MP e Autoridade Policial,TRAMITACAO_DIRETA,,21 §5.3; nome SGT/CNJ
+15032,Manutenção da Prisão Preventiva,CAUTELAR_PRISAO,,21 §5.3; nome SGT/CNJ
+15188,Audiência de Depoimento Especial,AUDIENCIA,,21 §5.3; nome SGT/CNJ
