@@ -23,6 +23,7 @@ Esta pasta reúne a documentação e os relatórios que fundamentam a metodologi
 | [20-parametros-gold-e-analise.md](20-parametros-gold-e-analise.md) | Parâmetros da Gold e da análise: conciliação com o `19`, decisões C1–C8, catálogo Q01–Q15 e parâmetros fixos. | Decidido (07/11/2026) |
 | [21-fontes-referencia-gold.md](21-fontes-referencia-gold.md) | Fontes de referência: IBGE (mesorregiões, população feminina do Censo 2022), marcos legais, órgãos especializados e as tabelas de tipos, categorias e fases. | Verificado + aprovado (07/11/2026) |
 | [22-validacao-cnj.md](22-validacao-cnj.md) | Validação externa contra os painéis do CNJ: cobertura do acervo público por tipo de procedimento, de 2019 a 2026. | Verificado (07/11/2026) |
+| [23-implementacao-gold.md](23-implementacao-gold.md) | Implementação da Gold: tabelas, regras de versão, séries, categorias, marcos, desfecho e censura, malha, desvio sobre `numero_processo` e pendências. | Implementada, testada com dados simulados (07/11/2026) |
 | [../exemplos/exemplos_json_por_codigo.md](../exemplos/exemplos_json_por_codigo.md) | Inventário de todos os campos da API e os 3 primeiros registros de cada código no JSON original (só identificadores mascarados). | Verificado (24/10/2026) |
 | [../anotações tcc.md](../anotações%20tcc.md) | Divergência entre a documentação e o formato real de `dataAjuizamento`. | Verificado (03/10/2026) |
 | [04-sinan-exploracao-pr-2023-2024.md](04-sinan-exploracao-pr-2023-2024.md) | Exploração do SINAN Violência (DATASUS), PR 2023–2024. | Exploratório |

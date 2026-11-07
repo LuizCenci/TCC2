@@ -53,7 +53,7 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
 | Filtro | `src/datajud_tcc/query.py` | Com `updated_since`, acrescenta `range dataHoraUltimaAtualizacao gt <marca>`; sem ele, a consulta é idêntica à da coleta definitiva |
 | Marca d'água | `src/datajud_tcc/orquestracao/marca_dagua.py` | Estado em `work/estado/marca_dagua_tjpr.json` (fora do git), com histórico; **não pode recuar** |
 | Fluxos | `src/datajud_tcc/orquestracao/fluxos.py` | `coleta-incremental` → `verificar-completude` → atualização da marca → *artifact*; `carga-silver`; `construcao-gold`; `pipeline-incremental` (encadeia os três e **não carrega a Silver se a coleta falhar**) |
-| Etapas | `src/datajud_tcc/orquestracao/etapas.py` | `carregar_silver` implementada (chama `silver.carga.carregar_execucao`); `construir_gold` segue como interface (`NotImplementedError`) |
+| Etapas | `src/datajud_tcc/orquestracao/etapas.py` | `carregar_silver` implementada (chama `silver.carga.carregar_execucao`); `construir_gold` implementada (chama `gold.construcao.construir_gold`, versão de regras `gold-2026-11-07`; ver `23`) |
 | Agendamento | `src/datajud_tcc/orquestracao/servir.py` | Coleta semanal às segundas, 03:17 (fora da virada da hora); pipeline sob demanda; uma execução por vez |
 
 **Proteções:**
@@ -74,7 +74,7 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
 
 Resultado: 75 testes passando (1 ignorado, o teste ao vivo).
 
-**Pendente:** implementar `construir_gold`. `carregar_silver` já está implementada (`10`, seção 9).
+**Atualização (07/11/2026):** a Gold passa a ser executada pelo pipeline (`construcao_gold` após `carga_silver`), versão de regras `gold-2026-11-07` (`23`). A reconstrução faz TRUNCATE e recria `gold.*`: leitores dessas tabelas ficam brevemente bloqueados durante a construção.
 
 ## 7. Sequência de implantação (decidida com o autor em 05/11/2026)
 
@@ -83,7 +83,7 @@ O autor optou por **não** generalizar a carga da Silver para execuções penden
 1. implementar o PostgreSQL local e `carregar_silver`;
 2. **carga inicial manual**, fora do orquestrador, das execuções da base do artigo, sem marca de análise (a Silver não a guarda): `bronze-20261018-9852486` (partições 2019–2025) e `bronze2026-20261105-b67187c` (2026). A execução de 18/10 tem uma partição 2026 substituída pela recoleta (`13`); ela é carregada junto, como qualquer partição, e a Gold escolhe a versão a usar;
 3. marca d'água inicial = maior `dataHoraUltimaAtualizacao` dessas execuções (esperado `2026-10-05T18:00:31.594Z`, a confirmar no momento);
-4. só então ligar a orquestração (`servir.py`). Cada execução: coleta incremental → Silver → Gold, que **falha** até ser implementada. A Bronze e a Silver já ficam atualizadas antes dessa falha.
+4. só então ligar a orquestração (`servir.py`). Cada execução: coleta incremental → Silver → Gold.
 
 **Não ligar o agendamento antes da Silver.** Coletas feitas antes dela não seriam carregadas depois.
 

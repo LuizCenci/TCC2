@@ -117,6 +117,17 @@ powershell -NoProfile -File scripts/manter_acordado.ps1 <run_id>
 
 O script só termina sozinho quando `work/logs/<run_id>.log` registra o fim do wrapper da coleta. Numa carga da Silver isso não acontece: **encerre-o manualmente (Ctrl+C) quando a carga terminar**.
 
+### Gold
+
+Com a Silver carregada, construa a base analítica (idempotente; versão de regras `gold-2026-11-07`, detalhes em `docs/artigo/23-implementacao-gold.md`):
+
+```powershell
+.\.venv\Scripts\python.exe -m datajud_tcc.cli gold-construir   # reconstrói ref.* e gold.*
+.\.venv\Scripts\python.exe -m datajud_tcc.cli gold-qualidade   # resumo de qualidade
+```
+
+Ordem: Silver carregada, depois `gold-construir`. Em cargas longas, mantenha o PC acordado com `scripts/manter_acordado.ps1 <run_id>` (encerre-o manualmente ao fim, como na Silver). Ciclo rápido de testes: `pytest -m "not gold_lento"`.
+
 ### Logs
 
 | Onde | O que mostra |
