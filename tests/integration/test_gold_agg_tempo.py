@@ -44,4 +44,4 @@ def test_agg_tempo_mpu_censura_na_data_corte(base):
     assert r is not None
     assert r[0] == 30 and r[1] == 20 and r[2] is True
     assert r[3] == pytest.approx(66.6667, abs=0.01)
-    assert r[4] == pytest.approx(66.6667, abs=0.01)
+    assert r[4] is None  # só 10 em risco aos 30 dias (< 30): horizonte não estimado

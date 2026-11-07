@@ -26,6 +26,11 @@ def _num(v):
     return v if math.isfinite(v) else None
 
 
+def _horizonte_valido(duracoes, h: int) -> bool:
+    """Horizonte só com seguimento (h <= maior duração) e pelo menos N_MIN em risco (duração >= h)."""
+    return bool(len(duracoes)) and h <= max(duracoes) and sum(1 for d in duracoes if d >= h) >= N_MIN
+
+
 def estimar_km(duracoes: list[int], eventos: list[bool],
                horizontes: tuple[int, ...] = HORIZONTES) -> dict:
     n, ne = len(duracoes), int(sum(bool(e) for e in eventos))
@@ -47,6 +52,8 @@ def estimar_km(duracoes: list[int], eventos: list[bool],
         out["ic95_inf"] = _num(ci.iloc[0, 0])
         out["ic95_sup"] = _num(ci.iloc[0, 1])
     for h in horizontes:
+        if not _horizonte_valido(duracoes, h):
+            continue
         out[f"pct_evento_ate_{h}"] = float((1 - kmf.survival_function_at_times(h).iloc[0]) * 100)
     return out
 
@@ -139,7 +146,7 @@ def incidencia_acumulada(duracoes: list[int], causas: list[int],
         cif = np.cumsum(surv_antes * d_k / n_risco)
         res = {}
         for h in horizontes:
-            if h > maxd:
+            if h > maxd or not _horizonte_valido(duracoes, h):
                 res[h] = None
                 continue
             idx = np.searchsorted(ts, h, side="right") - 1
@@ -158,7 +165,7 @@ def _linhas_desfecho(tipo, serie, variante, estrato, valor, g):
         nd = sum(1 for c in causas if c == k)
         r = ia.get(k) or {}
         if n >= N_MIN and not r:
-            r = {h: 0.0 if h <= max(dur) else None for h in HORIZONTES_IA}
+            r = {h: 0.0 if _horizonte_valido(dur, h) else None for h in HORIZONTES_IA}
         linhas.append(("Q10", tipo, serie, variante, estrato, str(valor), nome, n, nd, n >= N_MIN,
                        *[r.get(h) for h in HORIZONTES_IA]))
     return linhas

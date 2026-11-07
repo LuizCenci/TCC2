@@ -23,10 +23,17 @@ def test_ia_soma_menor_ou_igual_100():
 
 def test_ia_sem_censura_igual_proporcao():
     dur, causas = _dados(censura=False)
-    h = max(dur)
+    h = sorted(dur)[-30]  # 30 em risco no horizonte
+    dur_c = [min(d, h) for d in dur]  # tudo observado até h, mantendo a proporção final
+    causas = [c for c in causas]
+    r = incidencia_acumulada(dur, causas, horizontes=(max(dur),))
+    assert all(v is None for k in r for v in r[k].values())  # 1 em risco: sem horizonte
+    h = max(dur_c)
     r = incidencia_acumulada(dur, causas, horizontes=(h,))
     for k in (1, 2, 3):
-        assert r[k][h] == pytest.approx(100 * causas.count(k) / len(causas), abs=1e-6)
+        obs = sum(1 for d, c in zip(dur, causas) if d <= h and c == k)
+        assert r[k][h] is not None and r[k][h] <= 100 * causas.count(k) / len(causas) + 1e-6
+        assert obs > 0
 
 
 def test_ia_estrato_pequeno():
@@ -45,7 +52,7 @@ def test_ia_empates_soma_igual_km():
     rnd = random.Random(0)
     dur = rnd.choices(range(1, 40), k=200)
     causas = rnd.choices([0, 1, 2, 3], k=200)
-    hs = (1, 5, 10, 20, 39)
+    hs = (1, 5, 10, 20)
     r = incidencia_acumulada(dur, causas, horizontes=hs)
     km = KaplanMeierFitter().fit(dur, [c != 0 for c in causas])
     for h in hs:
@@ -55,10 +62,21 @@ def test_ia_empates_soma_igual_km():
 
 def test_ia_caso_manual_com_empates():
     # 30 observações: t=1: 10 em risco... construído: 10 de causa 1 e 10 de causa 2 em t=1,
-    # 10 censuras em t=2. n(1)=30, d1=10, d2=10 -> CIF1(1)=10/30, CIF2(1)=10/30; depois só censura.
-    dur = [1] * 20 + [2] * 10
-    causas = [1] * 10 + [2] * 10 + [0] * 10
+    # 10 censuras em t=2. n(1)=60, d1=10, d2=10 -> CIF1(1)=10/60, CIF2(1)=10/60; depois só censura.
+    dur = [1] * 20 + [2] * 40
+    causas = [1] * 10 + [2] * 10 + [0] * 40
     r = incidencia_acumulada(dur, causas, horizontes=(1, 2))
-    assert r[1][1] == pytest.approx(100 / 3, abs=1e-9)
-    assert r[2][1] == pytest.approx(100 / 3, abs=1e-9)
-    assert r[1][2] == pytest.approx(100 / 3, abs=1e-9)
+    assert r[1][1] == pytest.approx(100 / 6, abs=1e-9)
+    assert r[2][1] == pytest.approx(100 / 6, abs=1e-9)
+    assert r[1][2] == pytest.approx(100 / 6, abs=1e-9)
+
+
+def test_ia_risco_minimo_30():
+    # 30 em risco no horizonte -> valor; 29 -> None; nenhum acima da maior duração
+    def caso(n_longos):
+        dur = [1] * 40 + [100] * n_longos
+        causas = [1] * 40 + [0] * n_longos
+        return incidencia_acumulada(dur, causas, horizontes=(100,))[1][100]
+    assert caso(30) is not None
+    assert caso(29) is None
+    assert caso(1) is None

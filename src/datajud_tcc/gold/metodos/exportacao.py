@@ -34,6 +34,26 @@ def _colapsar(linhas, dims, somas):
             if l[c] is not None:
                 a[c] = (a[c] or 0) + l[c]
     return list(acc.values())
+DEPENDENTES = {
+    "agg_tempo": {"n_eventos": ("mediana_dias", "mediana_alcancada", "ic95_inf", "ic95_sup",
+                                "pct_evento_ate_2", "pct_evento_ate_30", "pct_evento_ate_365",
+                                "pct_evento_ate_730")},
+    "agg_desfecho": {"n_desfecho": ("ia_365", "ia_730", "ia_1095", "ia_1825")},
+}
+CONJUNTOS_ADITIVOS = {"agg_mpu": (("n_deferimento", "n_parcial", "n_indeferimento"),)}
+# Tabelas cujas contagens publicadas são arredondadas ao múltiplo de 10 mais próximo (meio para cima)
+ARREDONDAMENTO = {"agg_tempo": ("n", "n_eventos"), "agg_desfecho": ("n", "n_desfecho")}
+ARREDONDAMENTO_BASE = 10
+
+
+def _arredondar(linhas, colunas, base=ARREDONDAMENTO_BASE):
+    for l in linhas:
+        for c in colunas:
+            if l.get(c) is not None:
+                l[c] = int((l[c] + base // 2) // base * base)
+    return linhas
+
+
 # tabela: (limite, colunas_grupo, colunas_valor) ou None (sem supressão)
 REGRAS: dict[str, tuple[int, tuple[str, ...], tuple[str, ...]] | None] = {
     "agg_volume": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "tipo_procedimento", "serie"), ()),
@@ -74,6 +94,20 @@ def _celula(v) -> str:
 
 
 def exportar(conn, destino: Path = Path("outputs/publicacao")) -> Path:
+    """Exporta os agregados. Lê todas as tabelas num único snapshot (REPEATABLE READ somente
+    leitura, quando a conexão não tem transação aberta; senão, o da transação corrente).
+    Pasta existente nunca é sobrescrita: cria-se `<corte>_<versao>_<UTC>`."""
+    iniciou = conn.info.transaction_status == conn.info.transaction_status.IDLE
+    if iniciou:
+        conn.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY")
+    try:
+        return _exportar(conn, destino)
+    finally:
+        if iniciou:
+            conn.rollback()
+
+
+def _exportar(conn, destino: Path) -> Path:
     corte = conn.execute("SELECT max(data_corte) FROM gold.fato_processo").fetchone()[0]
     corte_s = corte.isoformat() if hasattr(corte, "isoformat") else str(corte)
     linha = conn.execute(
@@ -81,7 +115,10 @@ def exportar(conn, destino: Path = Path("outputs/publicacao")) -> Path:
     ).fetchone()
     versao = linha[0] if linha else referencias.ler_regras()["versao_regras"]
     pasta = Path(destino) / f"{corte_s[:10]}_{versao}"
-    pasta.mkdir(parents=True, exist_ok=True)
+    if pasta.exists():
+        carimbo = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        pasta = Path(destino) / f"{corte_s[:10]}_{versao}_{carimbo}"
+    pasta.mkdir(parents=True, exist_ok=False)
     arquivos = []
     for tabela, regra in REGRAS.items():
         cur = conn.execute(f"SELECT * FROM gold.{tabela}")  # noqa: S608 (nomes fixos)
@@ -95,7 +132,11 @@ def exportar(conn, destino: Path = Path("outputs/publicacao")) -> Path:
             limite, grupo, valor = regra
             linhas = supressao.aplicar(linhas, limite=limite, colunas_grupo=grupo,
                                        colunas_valor=valor,
-                                       colunas_contagem=CONTAGENS.get(tabela, ()))
+                                       colunas_contagem=CONTAGENS.get(tabela, ()),
+                                       dependentes=DEPENDENTES.get(tabela),
+                                       conjuntos_aditivos=CONJUNTOS_ADITIVOS.get(tabela, ()))
+            if tabela in ARREDONDAMENTO:
+                linhas = _arredondar(linhas, ARREDONDAMENTO[tabela])
             cols = cols + ["suprimido", "suprimido_parcial"]
         caminho = pasta / f"{tabela}.csv"
         with open(caminho, "w", encoding="utf-8", newline="") as f:
@@ -114,6 +155,11 @@ def exportar(conn, destino: Path = Path("outputs/publicacao")) -> Path:
                  "agregacoes_exportacao": {
                      t: "somado sobre mesorregiao_id (coluna removida); nível mesorregional "
                         "disponível em agg_taxa (n) e agg_volume_jan_ago" for t in COLAPSOS},
+                 "arredondamento": {"tabelas": list(ARREDONDAMENTO), "base": ARREDONDAMENTO_BASE},
+                 "estimativas_dependentes": {t: {c: list(d) for c, d in m.items()}
+                                             for t, m in DEPENDENTES.items()},
+                 "conjuntos_aditivos": {t: [list(c) for c in cs]
+                                        for t, cs in CONJUNTOS_ADITIVOS.items()},
                  "observacao": "estimavel é mantido (revela apenas n < 30)"}
     (pasta / "manifesto.json").write_text(json.dumps(manifesto, ensure_ascii=False, indent=2),
                                           encoding="utf-8")

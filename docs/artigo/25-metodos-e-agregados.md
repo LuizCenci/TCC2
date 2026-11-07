@@ -58,11 +58,11 @@ Duração do ajuizamento ao marco, censurada em `data_corte` quando o marco não
 | Q08 | `recebimento_denuncia` | Ação penal e inquérito |
 | Q09 | `sentenca` | Ação penal |
 
-Estratos: `total`, `ano`, `mesorregiao` e órgão especializado. Regras: n < 30 não é estimável; mediana não alcançada gera NULL (`mediana_alcancada = false`); `pct_evento_ate_2/30/365/730` é o percentual com o marco até 2, 30, 365 e 730 dias (`1 − S(t)`); horizonte além da maior duração observada do estrato gera NULL. IC 95% em `ic95_inf` e `ic95_sup`. Em MPU, `reativado` não se aplica.
+Estratos: `total`, `ano`, `mesorregiao` e órgão especializado. Regras: n < 30 não é estimável; mediana não alcançada gera NULL (`mediana_alcancada = false`); `pct_evento_ate_2/30/365/730` é o percentual com o marco até 2, 30, 365 e 730 dias (`1 − S(t)`); o percentual é NULL quando o horizonte excede a maior duração observada do estrato **ou** quando há menos de 30 observações em risco (duração ≥ horizonte). IC 95% em `ic95_inf` e `ic95_sup`. Em MPU, `reativado` não se aplica.
 
 ### 3.3 Desfechos: Aalen-Johansen exato em tempo discreto (`agg_desfecho`, Q10)
 
-Riscos competitivos com as causas 1 `CONDENACAO`, 2 `ABSOLVICAO`, 3 `EXTINCAO_PUNIBILIDADE`, 4 `PRESCRICAO` e 5 `OUTRO_ENCERRAMENTO` (agrupa `SEM_MERITO`, `REJEICAO_DENUNCIA`, `ARQUIVAMENTO_INVESTIGACAO` e `ENCERRADO_SEM_DESFECHO`); `EM_ANDAMENTO` é a censura, para ação penal e inquérito (MPU excluída). O estimador é **exato**, sem jitter nas durações empatadas; vale `Σ CIF = 1 − S` exatamente. Horizontes de 365, 730, 1095 e 1825 dias (`ia_365` a `ia_1825`); NULL além do acompanhamento. Variantes: `principal` (exclui processos com `reativado = true`) e `com_reativados`. Estratos: `total`, coorte (2019–2021, 2022–2023, 2024–2026) e mesorregião dentro da coorte 2019–2021. n < 30 gera `estimavel = false`.
+Riscos competitivos com as causas 1 `CONDENACAO`, 2 `ABSOLVICAO`, 3 `EXTINCAO_PUNIBILIDADE`, 4 `PRESCRICAO` e 5 `OUTRO_ENCERRAMENTO` (agrupa `SEM_MERITO`, `REJEICAO_DENUNCIA`, `ARQUIVAMENTO_INVESTIGACAO` e `ENCERRADO_SEM_DESFECHO`); `EM_ANDAMENTO` é a censura, para ação penal e inquérito (MPU excluída). O estimador é **exato**, sem jitter nas durações empatadas; vale `Σ CIF = 1 − S` exatamente. Horizontes de 365, 730, 1095 e 1825 dias (`ia_365` a `ia_1825`); NULL além do acompanhamento e quando há menos de 30 observações em risco no horizonte (mesma regra do KM; vale no banco e na exportação). Variantes: `principal` (exclui processos com `reativado = true`) e `com_reativados`. Estratos: `total`, coorte (2019–2021, 2022–2023, 2024–2026) e mesorregião dentro da coorte 2019–2021. n < 30 gera `estimavel = false`.
 
 Interpretação: probabilidade acumulada de cada trajetória registrada nos metadados, não eficácia nem causalidade.
 
@@ -73,9 +73,14 @@ A supressão ocorre **somente na exportação**; o banco guarda os dados complet
 - Limite **5** em toda tabela suprimida, exceto `agg_qualidade_orgao` (limite **10**, agrupada por mesorregião). `agg_cobertura_cnj` e `agg_pipeline` não sofrem supressão.
 - **Supressão secundária** dentro dos grupos: se só uma célula do grupo é suprimida, suprime-se também a menor das restantes.
 - **Subcontagens** abaixo do limite são suprimidas individualmente, com `suprimido_parcial = true` (`agg_mpu`, `agg_cautelar`).
+- **Estimativas seguem a contagem do evento:** quando `n_eventos` (`agg_tempo`) ou `n_desfecho` (`agg_desfecho`) é anulado (supressão primária ou subcontagem < 5), as estimativas dependentes (mediana, IC, `pct_evento_ate_*`; `ia_*`) também saem vazias, e a linha recebe `suprimido_parcial = true`.
+- **Subcontagens aditivas de `agg_mpu`:** `n_deferimento`, `n_parcial` e `n_indeferimento` somam `n_com_decisao`. Se exatamente uma das três é anulada, anula-se também a menor das outras duas (`suprimido_parcial = true`), para que a anulada não seja recuperada por subtração.
+- **Arredondamento:** em `agg_tempo` (`n`, `n_eventos`) e `agg_desfecho` (`n`, `n_desfecho`), as contagens publicadas são arredondadas ao múltiplo de 10 mais próximo (meio para cima; 5 a 9 viram 10; suprimidas ficam vazias). Isso impede recuperar células suprimidas de `agg_taxa` por subtração dos totais desses estratos. O manifesto registra `arredondamento` (`tabelas`, `base`). As demais tabelas não são arredondadas.
 - Células suprimidas ficam com `n` e estimativas vazios, e `suprimido = true`. A coluna `estimavel` é mantida.
 - Para evitar recuperação entre tabelas, a exportação **colapsa `agg_volume` e `agg_mpu` sobre a mesorregião**. Os volumes por mesorregião continuam em `agg_taxa` e `agg_volume_jan_ago`.
 - `agg_cobertura_cnj` e `agg_pipeline` saem sem supressão.
+- **Consistência:** a exportação lê todas as tabelas em um único snapshot (`REPEATABLE READ`, somente leitura, quando a conexão não tem transação aberta). Se a pasta de destino já existe, não é sobrescrita: cria-se `<data_corte>_<versao>_<timestamp UTC>` e o caminho efetivo é devolvido.
+- **Risco residual documentado:** `agg_categoria` e `agg_mpu_medida` saem no nível de mesorregião. As categorias se sobrepõem, então não particionam os totais; `agg_mpu_medida` conta linhas de complemento, não processos. A supressão por célula protege cada linha, mas a recuperação por diferença entre tabelas não foi eliminada para essas duas.
 - Saída: `outputs/publicacao/<data_corte>_<versao>/`, um CSV por tabela e `manifesto.json` (SHA-256 de cada arquivo, regras aplicadas, versão e data de corte). `outputs/` não é versionado.
 
 ## 5. Orquestração e comandos
