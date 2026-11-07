@@ -77,8 +77,7 @@ SELECT 'Q14', i.orgao_codigo, i.mesorregiao_id,
        i.n_processos, i.media_movimentos, i.mediana_movimentos,
        COALESCE(d.n_processos, 0)
   FROM gold.qualidade_intensidade_registro i
-  LEFT JOIN gold.qualidade_movimentos_duplicados d USING (orgao_codigo)
- WHERE i.n_processos >= 10;
+  LEFT JOIN gold.qualidade_movimentos_duplicados d USING (orgao_codigo);
 
 INSERT INTO gold.agg_cobertura_cnj
 SELECT 'Q14', r.ano, r.ano = 2026, x.medida, x.n_base,
@@ -111,4 +110,12 @@ SELECT 'Q15', versao_regras, construida_em, (SELECT count(*) FROM gold.fato_proc
   FROM controle.execucao_gold ORDER BY construida_em DESC LIMIT 1;
 
 ANALYZE gold.agg_volume;
+ANALYZE gold.agg_volume_jan_ago;
+ANALYZE gold.agg_categoria;
+ANALYZE gold.agg_mpu;
+ANALYZE gold.agg_mpu_medida;
+ANALYZE gold.agg_cautelar;
+ANALYZE gold.agg_qualidade_orgao;
+ANALYZE gold.agg_cobertura_cnj;
+ANALYZE gold.agg_pipeline;
 DROP TABLE _serie;

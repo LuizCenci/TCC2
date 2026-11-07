@@ -38,7 +38,7 @@ def base(conn_banco_modulo):
     carregar_referencias(conn)
     conn.execute("INSERT INTO ref.cnj_casos_novos VALUES (%s, 1000, 10, 100, 'teste')", (ANO,))
     inserir_execucao(conn, "T5", utc(2032, 6, 1), [ANO])
-    ids = {n: inserir_registro(conn, "T5", f"api5-{n}", ano=ANO, classe=c, orgao=1,
+    ids = {n: inserir_registro(conn, "T5", f"api5-{n}", ano=ANO, classe=c, orgao=9731,
                                municipio=4106902, ajuizamento=AJ, assuntos=a, movimentos=m,
                                numero=f"5{n}")
            for n, (c, a, m) in CENARIOS.items()}
@@ -108,6 +108,20 @@ def test_agg_cobertura_usa_ref_cnj(base):
     assert rows["feminicidio_acao_penal"] == (1, 10, 10.0)
 
 
+def test_agg_qualidade_orgao_sem_supressao(base):
+    r = um(base, "SELECT n, media_movimentos, mediana_movimentos FROM gold.agg_qualidade_orgao"
+                 " WHERE orgao_codigo=9731")
+    assert r[0] == 8 and r[0] < 10
+    assert float(r[1]) == 1.0 and float(r[2]) == 1.0  # movimentos: 0,0,3,0,1,1,1,2
+
+
+def test_agg_pipeline_resumo_execucao_gold(base):
+    base.execute("INSERT INTO controle.execucao_gold (versao_regras, construida_em)"
+                 " VALUES ('teste-2099', '2099-01-01')")
+    executar_transformacoes(base)
+    assert um(base, "SELECT n > 0 FROM gold.agg_pipeline WHERE versao_regras='teste-2099'")[0]
+
+
 def test_agg_pipeline_tem_execucao(base):
     assert um(base, "SELECT n FROM gold.agg_pipeline WHERE run_id='T5'")[0] == 8
 
@@ -115,7 +129,7 @@ def test_agg_pipeline_tem_execucao(base):
 def _tabelas(conn):
     return [r[0] for r in conn.execute(
         "SELECT table_name FROM information_schema.tables WHERE table_schema='gold'"
-        " AND table_name LIKE 'agg\_%'")]
+        " AND table_name LIKE 'agg_%'")]
 
 
 def test_agg_sem_identificadores(base):
@@ -123,7 +137,7 @@ def test_agg_sem_identificadores(base):
     assert tabs
     cols = {r[0] for r in base.execute(
         "SELECT column_name FROM information_schema.columns WHERE table_schema='gold'"
-        " AND table_name LIKE 'agg\_%'")}
+        " AND table_name LIKE 'agg_%'")}
     assert not cols & {"registro_id", "numero_processo", "api_id"}
 
 
