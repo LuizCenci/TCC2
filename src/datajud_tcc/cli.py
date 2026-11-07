@@ -53,6 +53,8 @@ def _parser() -> argparse.ArgumentParser:
     report.add_argument("--output", type=Path)
     report.add_argument("--catalog", type=Path, default=CATALOG_PATH)
     subparsers.add_parser("silver-esquema", help="aplicar o esquema da Silver")
+    subparsers.add_parser("gold-construir", help="construir a Gold a partir da Silver")
+    subparsers.add_parser("gold-qualidade", help="imprimir o resumo de qualidade da Gold")
     silver_carregar = subparsers.add_parser(
         "silver-carregar", help="carregar uma execução Bronze na Silver"
     )
@@ -179,6 +181,57 @@ def _silver_marca_dagua(args: argparse.Namespace) -> int:
     return 0
 
 
+def _gold_construir(args: argparse.Namespace) -> int:
+    from .gold import construcao, referencias
+    from .registro_log import configurar_arquivo
+    from .silver import conexao
+
+    configurar_arquivo(Path("work/logs/gold.log"))
+    try:
+        conn = conexao.conectar()
+    except Exception:  # a mensagem pode conter o DSN; não exibir
+        print("não foi possível conectar ao banco (verifique DATABASE_URL).", file=sys.stderr)
+        return 3
+    try:
+        versao = referencias.ler_regras()["versao_regras"]
+        contagens = construcao.construir_gold(conn, versao)
+        conn.commit()
+    except ValueError as exc:
+        conn.rollback()
+        print(f"regras inválidas: {exc}", file=sys.stderr)
+        return 3
+    except Exception:
+        conn.rollback()
+        print("construção da Gold não concluída (erro inesperado).", file=sys.stderr)
+        return 3
+    finally:
+        conn.close()
+    print(" ".join(f"{k}={v}" for k, v in contagens.items()))
+    return 0
+
+
+def _gold_qualidade(args: argparse.Namespace) -> int:
+    import json
+
+    from .gold import qualidade
+    from .silver import conexao
+
+    try:
+        conn = conexao.conectar()
+    except Exception:  # a mensagem pode conter o DSN; não exibir
+        print("não foi possível conectar ao banco (verifique DATABASE_URL).", file=sys.stderr)
+        return 3
+    try:
+        resumo = qualidade.resumo(conn)
+    except Exception:
+        print("resumo de qualidade não obtido (erro inesperado).", file=sys.stderr)
+        return 3
+    finally:
+        conn.close()
+    print(json.dumps(resumo, ensure_ascii=False, indent=2))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     logging.basicConfig(
@@ -194,6 +247,10 @@ def main(argv: list[str] | None = None) -> int:
         return _silver_carregar(args)
     if args.command == "silver-marca-dagua":
         return _silver_marca_dagua(args)
+    if args.command == "gold-construir":
+        return _gold_construir(args)
+    if args.command == "gold-qualidade":
+        return _gold_qualidade(args)
     return 2
 
 

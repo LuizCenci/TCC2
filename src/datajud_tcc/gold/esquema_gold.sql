@@ -118,3 +118,9 @@ CREATE TABLE IF NOT EXISTS gold.fato_evento (
     orgao_codigo integer,
     PRIMARY KEY (registro_id, seq)
 );
+
+CREATE TABLE IF NOT EXISTS controle.execucao_gold (
+    versao_regras text NOT NULL,
+    construida_em timestamptz NOT NULL DEFAULT now(),
+    contagens jsonb
+);

@@ -33,6 +33,22 @@ def carregar_silver(run_root: Path, conn: Any = None) -> dict[str, int]:
         propria.close()
 
 
-def construir_gold(versao_regras: str) -> dict[str, Any]:
-    """Recalcula derivados e agregações para uma versão de regras."""
-    raise NotImplementedError("Gold ainda não implementada (docs/artigo/10-modelo-dados-silver.md)")
+def construir_gold(versao_regras: str, conn: Any = None) -> dict[str, Any]:
+    """Reconstrói a Gold. Sem `conn`, conecta, faz commit e fecha; com `conn`, sem commit."""
+    from datajud_tcc.gold import construcao
+    from datajud_tcc.silver import conexao
+
+    if conn is not None:
+        return construcao.construir_gold(conn, versao_regras)
+    propria = conexao.conectar()
+    try:
+        contagens = construcao.construir_gold(propria, versao_regras)
+        propria.commit()
+        return contagens
+    except BaseException:
+        propria.rollback()
+        raise
+    finally:
+        propria.close()
+
+

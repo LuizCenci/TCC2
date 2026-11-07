@@ -116,11 +116,6 @@ def test_pipeline_nao_carrega_silver_se_coleta_falhar(ambiente, monkeypatch):
     assert chamadas == []
 
 
-def test_etapa_gold_ainda_nao_implementada():
-    with pytest.raises(NotImplementedError):
-        etapas.construir_gold("v1")
-
-
 def test_tarefa_silver_devolve_segundos_e_cria_artefato(monkeypatch):
     contagens = {"paginas": 1, "registros": 2, "assuntos": 3, "movimentos": 4, "complementos": 5}
     monkeypatch.setattr(etapas, "carregar_silver", lambda run_root: dict(contagens))
