@@ -175,3 +175,9 @@ CREATE TABLE IF NOT EXISTS gold.agg_pipeline (
     carregada_em timestamptz, versao_regras text, construida_em timestamptz,
     n bigint NOT NULL
 );
+CREATE TABLE IF NOT EXISTS gold.agg_taxa (
+    pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean,
+    tipo_procedimento text, serie text NOT NULL, mesorregiao_id integer,
+    n bigint NOT NULL, pop_feminina bigint, taxa_bruta_100k double precision,
+    taxa_eb_100k double precision
+);
