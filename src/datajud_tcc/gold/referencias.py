@@ -117,6 +117,10 @@ def carregar_referencias(conn, dir: Path = DIR_PADRAO) -> dict[str, int]:
         "ref.orgao_especializado", ["orgao_codigo", "municipio_sede_ibge", "nome_referencia"],
         [(int(l["orgao_codigo"]), _int_ou_none(l["municipio_sede_ibge"]), l["nome_referencia"])
          for l in ler_csv("ref_orgao_especializado.csv", dir)])
+    n["cnj_casos_novos"] = carga(
+        "ref.cnj_casos_novos", ["ano", "vd_novos", "feminicidio_novos", "mpu", "fonte"],
+        [(int(l["ano"]), int(l["vd_novos"]), int(l["feminicidio_novos"]), int(l["mpu"]),
+          l["fonte"]) for l in ler_csv("ref_cnj_casos_novos.csv", dir)])
 
     quebras = []
     for l in ler_csv("ref_quebras_serie.csv", dir):

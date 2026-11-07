@@ -23,6 +23,12 @@ orquestracao = [
   "prefect>=3.9,<4",
 ]
 
+# Métodos e agregados (docs/artigo/20).
+analise = [
+  "pandas>=2.2,<3",
+  "lifelines>=0.29,<1",
+]
+
 # Silver em PostgreSQL local (carga a partir da Bronze).
 banco = [
   "psycopg[binary]>=3.2,<4",
