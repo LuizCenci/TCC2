@@ -28,7 +28,7 @@ A **base do artigo é congelada**: coleta definitiva `bronze-20261018-9852486` (
    - carrega com a chave `(run_id, api_id)`;
    - confere se as contagens da Silver são iguais às do manifesto;
    - publica um relatório de qualidade como *artifact*.
-3. **`construcao_gold`** (por versão de regras): `ref.*` e `gold.*` (base analítica; agregados e métodos ficam para o plano seguinte), regenerado quando a versão de regras muda (`10`).
+3. **`construcao_gold`** (por versão de regras): `ref.*` e `gold.*` (base analítica; os agregados (taxas, tempos, desfechos) rodam em seguida, em outra transação, e a exportação para publicação é manual; ver `25`), regenerado quando a versão de regras muda (`10`).
 
 ## 4. Questões a resolver antes de implementar
 

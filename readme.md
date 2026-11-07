@@ -124,9 +124,11 @@ Com a Silver carregada, construa a base analítica (idempotente; versão de regr
 ```powershell
 .\.venv\Scripts\python.exe -m datajud_tcc.cli gold-construir   # reconstrói ref.* e gold.*
 .\.venv\Scripts\python.exe -m datajud_tcc.cli gold-qualidade   # resumo de qualidade
+.\.venv\Scripts\python.exe -m datajud_tcc.cli gold-agregados   # taxas, tempos e desfechos (após gold-construir)
+.\.venv\Scripts\python.exe -m datajud_tcc.cli gold-exportar    # CSV + manifesto com supressão, em outputs/publicacao/ (não versionado)
 ```
 
-Ordem: Silver carregada, depois `gold-construir`. Em cargas longas, mantenha o PC acordado com `scripts/manter_acordado.ps1 <run_id>` (encerre-o manualmente ao fim, como na Silver). Ciclo rápido de testes: `pytest -m "not gold_lento"`.
+Ordem: Silver carregada, depois `gold-construir`, `gold-agregados` e `gold-exportar` (métodos e supressão em `docs/artigo/25-metodos-e-agregados.md`). Em cargas longas, mantenha o PC acordado com `scripts/manter_acordado.ps1 <run_id>` (encerre-o manualmente ao fim, como na Silver). Ciclo rápido de testes: `pytest -m "not gold_lento"`.
 
 ### Logs
 
