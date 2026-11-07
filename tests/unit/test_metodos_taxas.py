@@ -28,3 +28,7 @@ def test_eb_valores_conhecidos():
     assert eb[1] == pytest.approx(0.02 - (870 / 890) * 0.01, abs=1e-9)
     assert eb[0] == pytest.approx(0.0480645161, abs=1e-9)
     assert eb[1] == pytest.approx(0.0102247191, abs=1e-9)
+
+
+def test_eb_casos_zero():
+    assert bayes_empirico_global([0, 0], [1000, 2000]) == [0.0, 0.0]

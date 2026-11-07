@@ -66,17 +66,17 @@ def test_referencia_cnj_valida():
 
 
 def test_agg_volume_conta_por_serie(base):
-    tot = lambda s: um(base, "SELECT sum(n) FROM gold.agg_volume WHERE ano=%s AND serie=%s",
+    tot = lambda s: um(base, "SELECT sum(n) FROM gold.agg_volume WHERE ano_ajuizamento=%s AND serie=%s",
                        ANO, s)[0]
     assert tot("ampliada") == 8 and tot("estrita") == 7  # V1 (só 5560) só na ampliada
-    assert um(base, "SELECT sum(n) FROM gold.agg_volume_jan_ago WHERE ano=%s AND serie='ampliada'",
+    assert um(base, "SELECT sum(n) FROM gold.agg_volume_jan_ago WHERE ano_ajuizamento=%s AND serie='ampliada'",
               ANO)[0] == 8
-    assert um(base, "SELECT bool_or(ano_parcial) FROM gold.agg_volume WHERE ano=%s", ANO)[0] is False
+    assert um(base, "SELECT bool_or(ano_parcial) FROM gold.agg_volume WHERE ano_ajuizamento=%s", ANO)[0] is False
 
 
 def test_agg_categoria_estrita_ignora_somente_ampliada(base):
     def n(serie):
-        return um(base, "SELECT sum(n) FROM gold.agg_categoria WHERE ano=%s AND tipo='ACAO_PENAL'"
+        return um(base, "SELECT sum(n) FROM gold.agg_categoria WHERE ano_ajuizamento=%s AND tipo_procedimento='ACAO_PENAL'"
                   " AND categoria='FISICA' AND serie=%s", ANO, serie)[0]
     assert n("ampliada") == 2 and n("estrita") == 1
 
@@ -84,25 +84,25 @@ def test_agg_categoria_estrita_ignora_somente_ampliada(base):
 def test_agg_mpu_resultados(base):
     r = um(base, "SELECT sum(n), sum(n_com_decisao), sum(n_deferimento), sum(n_parcial),"
                  " sum(n_indeferimento), sum(n_revogadas) FROM gold.agg_mpu"
-                 " WHERE ano=%s AND serie='ampliada'", ANO)
+                 " WHERE ano_ajuizamento=%s AND serie='ampliada'", ANO)
     assert tuple(r) == (4, 4, 2, 1, 1, 1)
 
 
 def test_agg_mpu_medida_le_complementos(base):
-    assert um(base, "SELECT sum(n) FROM gold.agg_mpu_medida WHERE ano=%s AND tipo_medida=%s",
+    assert um(base, "SELECT sum(n) FROM gold.agg_mpu_medida WHERE ano_ajuizamento=%s AND tipo_medida=%s",
               ANO, MED)[0] == 2
 
 
 def test_agg_cautelar_codigos(base):
     r = um(base, "SELECT sum(n), sum(n_flagrante), sum(n_preventiva),"
                  " sum(n_liberdade_provisoria_concedida) FROM gold.agg_cautelar"
-                 " WHERE ano=%s AND categoria='FEMINICIDIO' AND serie='ampliada'", ANO)
+                 " WHERE ano_ajuizamento=%s AND categoria='FEMINICIDIO' AND serie='ampliada'", ANO)
     assert tuple(r) == (1, 1, 1, 1)
 
 
 def test_agg_cobertura_usa_ref_cnj(base):
     rows = dict((m, (nb, nc, float(p))) for m, nb, nc, p in base.execute(
-        "SELECT medida, n_base, n_cnj, pct FROM gold.agg_cobertura_cnj WHERE ano=%s", (ANO,)))
+        "SELECT medida, n_base, n_cnj, pct FROM gold.agg_cobertura_cnj WHERE ano_ajuizamento=%s", (ANO,)))
     assert rows["vd_sem_cartas"] == (7, 1000, 0.7)
     assert rows["mpu"] == (4, 100, 4.0)
     assert rows["feminicidio_acao_penal"] == (1, 10, 10.0)

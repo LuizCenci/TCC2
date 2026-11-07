@@ -134,40 +134,49 @@ CREATE TABLE IF NOT EXISTS ref.cnj_casos_novos (
 );
 
 -- Agregados de contagem (sem identificadores). Reconstruídos por sql/40_agg_contagens.sql.
+-- Migração: nomes completos de colunas (só gold.agg_*; reconstruídas pela pipeline).
+DROP TABLE IF EXISTS gold.agg_volume;
+DROP TABLE IF EXISTS gold.agg_volume_jan_ago;
+DROP TABLE IF EXISTS gold.agg_categoria;
+DROP TABLE IF EXISTS gold.agg_mpu;
+DROP TABLE IF EXISTS gold.agg_mpu_medida;
+DROP TABLE IF EXISTS gold.agg_cautelar;
+DROP TABLE IF EXISTS gold.agg_qualidade_orgao;
+DROP TABLE IF EXISTS gold.agg_cobertura_cnj;
 CREATE TABLE IF NOT EXISTS gold.agg_volume (
-    pergunta text NOT NULL, ano integer, ano_parcial boolean, mes integer, tipo text,
-    meso integer, serie text NOT NULL, n bigint NOT NULL
+    pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean, mes_ajuizamento integer, tipo_procedimento text,
+    mesorregiao_id integer, serie text NOT NULL, n bigint NOT NULL
 );
 CREATE TABLE IF NOT EXISTS gold.agg_volume_jan_ago (
-    pergunta text NOT NULL, ano integer, tipo text, meso integer, serie text NOT NULL,
+    pergunta text NOT NULL, ano_ajuizamento integer, tipo_procedimento text, mesorregiao_id integer, serie text NOT NULL,
     n bigint NOT NULL
 );
 CREATE TABLE IF NOT EXISTS gold.agg_categoria (
-    pergunta text NOT NULL, ano integer, ano_parcial boolean, tipo text, meso integer,
+    pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean, tipo_procedimento text, mesorregiao_id integer,
     categoria text, serie text NOT NULL, n bigint NOT NULL
 );
 CREATE TABLE IF NOT EXISTS gold.agg_mpu (
-    pergunta text NOT NULL, ano integer, ano_parcial boolean, meso integer,
+    pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean, mesorregiao_id integer,
     orgao_especializado boolean, serie text NOT NULL, n bigint NOT NULL,
     n_com_decisao bigint, n_deferimento bigint, n_parcial bigint, n_indeferimento bigint,
     n_revogadas bigint
 );
 CREATE TABLE IF NOT EXISTS gold.agg_mpu_medida (
-    pergunta text NOT NULL, ano integer, ano_parcial boolean, meso integer,
+    pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean, mesorregiao_id integer,
     tipo_medida text, n bigint NOT NULL
 );
 CREATE TABLE IF NOT EXISTS gold.agg_cautelar (
-    pergunta text NOT NULL, ano integer, ano_parcial boolean, tipo text, categoria text,
+    pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean, tipo_procedimento text, categoria text,
     serie text NOT NULL, n bigint NOT NULL, n_flagrante bigint, n_preventiva bigint,
     n_liberdade_provisoria_concedida bigint
 );
 CREATE TABLE IF NOT EXISTS gold.agg_qualidade_orgao (
-    pergunta text NOT NULL, orgao_codigo integer, meso integer, orgao_especializado boolean,
+    pergunta text NOT NULL, orgao_codigo integer, mesorregiao_id integer, orgao_especializado boolean,
     n bigint NOT NULL, media_movimentos numeric(12,2), mediana_movimentos double precision,
     n_processos_com_duplicado bigint
 );
 CREATE TABLE IF NOT EXISTS gold.agg_cobertura_cnj (
-    pergunta text NOT NULL, ano integer, ano_parcial boolean, medida text,
+    pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean, medida text,
     n_base bigint, n_cnj bigint, pct numeric, n bigint NOT NULL
 );
 CREATE TABLE IF NOT EXISTS gold.agg_pipeline (

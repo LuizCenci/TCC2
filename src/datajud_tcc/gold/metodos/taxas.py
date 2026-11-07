@@ -38,15 +38,16 @@ def construir_agg_taxa(conn) -> int:
                      " ORDER BY mesorregiao_id").fetchall(),
         columns=["meso", "pop"])
     vol = pd.DataFrame(
-        conn.execute("SELECT ano, ano_parcial, tipo, serie, meso, sum(n) FROM gold.agg_volume"
-                     " WHERE meso IS NOT NULL GROUP BY 1, 2, 3, 4, 5").fetchall(),
+        conn.execute("SELECT ano_ajuizamento, ano_parcial, tipo_procedimento, serie, mesorregiao_id,"
+                     " sum(n) FROM gold.agg_volume WHERE mesorregiao_id IS NOT NULL GROUP BY 1, 2, 3, 4, 5").fetchall(),
         columns=["ano", "parcial", "tipo", "serie", "meso", "n"])
     conn.execute("TRUNCATE gold.agg_taxa")
     linhas = []
     if not vol.empty:
         chaves = vol[["ano", "parcial", "tipo", "serie"]].drop_duplicates()
         for ch in chaves.itertuples(index=False):
-            sub = vol[(vol.ano == ch.ano) & (vol.tipo == ch.tipo) & (vol.serie == ch.serie)]
+            sub = vol[(vol.ano == ch.ano) & (vol.parcial == ch.parcial) & (vol.tipo == ch.tipo)
+                      & (vol.serie == ch.serie)]
             nmap = dict(zip(sub.meso, sub.n))
             casos = [int(nmap.get(m, 0)) for m in meso["meso"]]
             pops = [int(p) if p == p and p is not None else 0 for p in meso["pop"]]
