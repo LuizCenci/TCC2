@@ -39,6 +39,7 @@ testpaths = ["tests"]
 markers = [
   "live: teste que acessa a API real (opt-in)",
   "banco: teste que usa o PostgreSQL local (pulado sem DATABASE_URL/psycopg)",
+  "gold_lento: roda as transformacoes da Gold sobre a Silver real (use -m \"not gold_lento\" para o ciclo rapido)",
 ]
 
 [tool.setuptools.package-data]

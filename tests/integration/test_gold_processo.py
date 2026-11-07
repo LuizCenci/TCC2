@@ -9,23 +9,64 @@ from datajud_tcc.gold.territorio import carregar_territorio
 from datajud_tcc.silver.esquema import aplicar_esquema
 from gold_dados import inserir_execucao, inserir_registro, utc
 
-pytestmark = pytest.mark.banco
+pytestmark = [pytest.mark.banco, pytest.mark.gold_lento]
 
 AJ = datetime(2026, 3, 10, 9, 0, 0)
-
-
-@pytest.fixture
-def base(conn_banco):
-    aplicar_esquema(conn_banco)
-    aplicar_esquema_gold(conn_banco)
-    carregar_territorio(conn_banco)
-    carregar_referencias(conn_banco)
-    return conn_banco
 
 
 def reg(conn, run, api, n, *, assuntos=(10949,), classe=1268, orgao=1, mun=4106902, ano=2026):
     return inserir_registro(conn, run, api, ano=ano, classe=classe, orgao=orgao,
                             municipio=mun, ajuizamento=AJ, assuntos=assuntos, numero=n)
+
+
+@pytest.fixture(scope="module")
+def base(conn_banco_modulo):
+    """Todos os cenários inseridos de uma vez; transformações rodam uma única vez.
+
+    Execuções completas usadas nos cenários de remoção ficam em datas distintas
+    (2031, 2033) para que não interfiram nos demais cenários.
+    """
+    conn = conn_banco_modulo
+    aplicar_esquema(conn)
+    aplicar_esquema_gold(conn)
+    carregar_territorio(conn)
+    carregar_referencias(conn)
+    d = {}
+    # versão mais recente
+    inserir_execucao(conn, "T3-a", utc(2030, 1, 1), [2026])
+    inserir_execucao(conn, "T3-b", utc(2030, 2, 1), [2026])
+    inserir_execucao(conn, "T3-c", utc(2030, 3, 1), [], updated_since="2030-02-01")
+    d["v1"] = reg(conn, "T3-a", "api-v", "N-v")
+    d["v2"] = reg(conn, "T3-b", "api-v", "N-v")
+    d["v3"] = reg(conn, "T3-c", "api-v", "N-v")
+    # removido do índice
+    inserir_execucao(conn, "T3-r1", utc(2031, 10, 18), [2026])
+    inserir_execucao(conn, "T3-r2", utc(2031, 11, 5), [2026])
+    d["sumiu"] = reg(conn, "T3-r1", "api-sumiu", "N-1")
+    reg(conn, "T3-r1", "api-fica", "N-2")
+    reg(conn, "T3-r2", "api-fica", "N-2")
+    # execução incremental posterior não conta como remoção
+    # (T3-i1 é completa e posterior a r2, então "api-fica" também consta nela)
+    inserir_execucao(conn, "T3-i1", utc(2033, 10, 18), [2026])
+    d["fica"] = reg(conn, "T3-i1", "api-fica", "N-2")
+    inserir_execucao(conn, "T3-i2", utc(2033, 11, 5), [], updated_since="2033-10-18")
+    d["inc"] = reg(conn, "T3-i1", "api-i", "N-i")
+    # demais cenários
+    inserir_execucao(conn, "T3-s", utc(2030, 1, 1), [2026])
+    d["sa"] = reg(conn, "T3-s", "sa", "N-sa", assuntos=(5560,), classe=999999)
+    d["sb"] = reg(conn, "T3-s", "sb", "N-sb", assuntos=(12194, 5560), classe=999999)
+    d["sc"] = reg(conn, "T3-s", "sc", "N-sc", assuntos=(10949,), classe=999999)
+    d["sd"] = reg(conn, "T3-s", "sd", "N-sd", assuntos=(3402, 10949), classe=999999)
+    d["ta"] = reg(conn, "T3-s", "ta", "N-ta", classe=1268, orgao=8766, mun=4106902)
+    d["tb"] = reg(conn, "T3-s", "tb", "N-tb", classe=355, orgao=1, mun=1234567)
+    d["na"] = reg(conn, "T3-s", "na", "N-rep")
+    d["nb"] = reg(conn, "T3-s", "nb", "N-rep")
+    d["nc"] = reg(conn, "T3-s", "nc", "N-unico")
+    d["fa"] = reg(conn, "T3-s", "fa", "N-fa", assuntos=(12091, 5555))
+    d["fb"] = reg(conn, "T3-s", "fb", "N-fb", assuntos=(12091,))
+    executar_transformacoes(conn)
+    d["conn"] = conn
+    return d
 
 
 def fato(conn, rid):
@@ -42,58 +83,35 @@ def cats(conn, rid):
 
 
 def test_versao_mais_recente_prevalece(base):
-    inserir_execucao(base, "T3-a", utc(2030, 1, 1), [2026])
-    inserir_execucao(base, "T3-b", utc(2030, 2, 1), [2026])
-    inserir_execucao(base, "T3-c", utc(2030, 3, 1), [], updated_since="2030-02-01")
-    r1 = reg(base, "T3-a", "api-v", "N-v")
-    r2 = reg(base, "T3-b", "api-v", "N-v")
-    r3 = reg(base, "T3-c", "api-v", "N-v")
-    executar_transformacoes(base)
-    assert fato(base, r1) is None and fato(base, r2) is None
-    f = fato(base, r3)
+    c = base["conn"]
+    assert fato(c, base["v1"]) is None and fato(c, base["v2"]) is None
+    f = fato(c, base["v3"])
     assert f["run_id"] == "T3-c" and str(f["data_corte"]) == "2030-03-01"
 
 
 def test_removido_indice(base):
-    inserir_execucao(base, "T3-r1", utc(2030, 10, 18), [2026])
-    inserir_execucao(base, "T3-r2", utc(2030, 11, 5), [2026])
-    sumiu = reg(base, "T3-r1", "api-sumiu", "N-1")
-    reg(base, "T3-r1", "api-fica", "N-2")
-    fica = reg(base, "T3-r2", "api-fica", "N-2")
-    executar_transformacoes(base)
-    assert fato(base, sumiu)["removido_indice"] is True
-    assert fato(base, fica)["removido_indice"] is False
+    c = base["conn"]
+    assert fato(c, base["sumiu"])["removido_indice"] is True
+    assert fato(c, base["fica"])["removido_indice"] is False
 
 
 def test_removido_indice_incremental_nao_conta(base):
-    inserir_execucao(base, "T3-i1", utc(2030, 10, 18), [2026])
-    inserir_execucao(base, "T3-i2", utc(2030, 11, 5), [], updated_since="2030-10-18")
-    rid = reg(base, "T3-i1", "api-i", "N-i")
-    executar_transformacoes(base)
-    assert fato(base, rid)["removido_indice"] is False
+    assert fato(base["conn"], base["inc"])["removido_indice"] is False
 
 
 def test_series_e_categoria_generica(base):
-    inserir_execucao(base, "T3-s", utc(2030, 1, 1), [2026])
-    a = reg(base, "T3-s", "a", "N-a", assuntos=(5560,), classe=999999)
-    b = reg(base, "T3-s", "b", "N-b", assuntos=(12194, 5560), classe=999999)
-    c = reg(base, "T3-s", "c", "N-c", assuntos=(10949,), classe=999999)
-    d = reg(base, "T3-s", "d", "N-d", assuntos=(3402, 10949), classe=999999)
-    executar_transformacoes(base)
-    assert fato(base, a)["serie_estrita"] is False
-    assert cats(base, a) == {"FISICA": True}
-    assert fato(base, b)["serie_estrita"] is True
-    assert cats(base, b)["FISICA"] is False
-    assert cats(base, c) == {"VD_SEM_ESPECIFICACAO": False}
-    assert set(cats(base, d)) == {"AMEACA"}
+    c = base["conn"]
+    assert fato(c, base["sa"])["serie_estrita"] is False
+    assert cats(c, base["sa"]) == {"FISICA": True}
+    assert fato(c, base["sb"])["serie_estrita"] is True
+    assert cats(c, base["sb"])["FISICA"] is False
+    assert cats(c, base["sc"]) == {"VD_SEM_ESPECIFICACAO": False}
+    assert set(cats(c, base["sd"])) == {"AMEACA"}
 
 
 def test_tipo_e_territorio(base):
-    inserir_execucao(base, "T3-t", utc(2030, 1, 1), [2026])
-    a = reg(base, "T3-t", "a", "N-a", classe=1268, orgao=8766, mun=4106902)
-    b = reg(base, "T3-t", "b", "N-b", classe=355, orgao=1, mun=1234567)
-    executar_transformacoes(base)
-    fa, fb = fato(base, a), fato(base, b)
+    c = base["conn"]
+    fa, fb = fato(c, base["ta"]), fato(c, base["tb"])
     assert fa["tipo_procedimento"] == "MPU" and fa["mesorregiao_id"] == 4110
     assert fa["orgao_especializado"] is True and fa["serie_estrita"] is True
     assert fb["tipo_procedimento"] == "CARTA" and fb["mesorregiao_id"] is None
@@ -101,27 +119,20 @@ def test_tipo_e_territorio(base):
 
 
 def test_numero_repetido(base):
-    inserir_execucao(base, "T3-n", utc(2030, 1, 1), [2026])
-    a = reg(base, "T3-n", "a", "N-rep")
-    b = reg(base, "T3-n", "b", "N-rep")
-    c = reg(base, "T3-n", "c", "N-unico")
-    executar_transformacoes(base)
-    assert fato(base, a)["numero_repetido"] and fato(base, b)["numero_repetido"]
-    assert fato(base, c)["numero_repetido"] is False
+    c = base["conn"]
+    assert fato(c, base["na"])["numero_repetido"] and fato(c, base["nb"])["numero_repetido"]
+    assert fato(c, base["nc"])["numero_repetido"] is False
 
 
 def test_feminicidio_tentado(base):
-    inserir_execucao(base, "T3-f", utc(2030, 1, 1), [2026])
-    a = reg(base, "T3-f", "a", "N-a", assuntos=(12091, 5555))
-    b = reg(base, "T3-f", "b", "N-b", assuntos=(12091,))
-    executar_transformacoes(base)
-    assert fato(base, a)["feminicidio_tentado"] is True
-    assert fato(base, b)["feminicidio_tentado"] is False
-    assert "FEMINICIDIO" in cats(base, b)
+    c = base["conn"]
+    assert fato(c, base["fa"])["feminicidio_tentado"] is True
+    assert fato(c, base["fb"])["feminicidio_tentado"] is False
+    assert "FEMINICIDIO" in cats(c, base["fb"])
 
 
 def test_gold_sem_identificadores(base):
-    cols = {r[0] for r in base.execute(
+    cols = {r[0] for r in base["conn"].execute(
         """SELECT column_name FROM information_schema.columns
             WHERE table_schema IN ('gold','ref')""").fetchall()}
     assert not cols & {"numero_processo", "id_source", "api_id"}
