@@ -32,6 +32,8 @@ As contagens (SQL `40_agg_contagens.sql`) rodam dentro de `construir_gold`; taxa
 | `agg_cobertura_cnj` | Q14 | `n_base`, `n_cnj`, `pct` por ano e medida | Casos novos do CNJ (`config/gold/ref_cnj_casos_novos.csv`) | Universo e definição podem diferir; 2026 parcial |
 | `agg_pipeline` | Q15 | Execuções de coleta e versão de regras | Não há | Metadados de procedência |
 
+Mapeamento das perguntas restantes: **Q12** (órgão especializado × comum) é respondida pelo estrato `orgao_especializado` de `agg_tempo` (`agg_desfecho` não o tem), pela divisão `orgao_especializado` de `agg_mpu` e pelo contexto de `agg_qualidade_orgao`. **Q11** (fluxo, mineração de processos) não tem tabela agregada e fica para a fase de análise.
+
 ## 3. Métodos
 
 ### 3.1 Taxas: Bayes empírico global (`agg_taxa`)
@@ -60,7 +62,7 @@ Estratos: `total`, `ano`, `mesorregiao` e órgão especializado. Regras: n < 30 
 
 ### 3.3 Desfechos: Aalen-Johansen exato em tempo discreto (`agg_desfecho`, Q10)
 
-Riscos competitivos com as causas 1–5 e censura `EM_ANDAMENTO`, para ação penal e inquérito (MPU excluída). O estimador é **exato**, sem jitter nas durações empatadas; vale `Σ CIF = 1 − S` exatamente. Horizontes de 365, 730, 1095 e 1825 dias (`ia_365` a `ia_1825`); NULL além do acompanhamento. Variantes: `principal` (exclui processos com `reativado = true`) e `com_reativados`. Estratos: `total`, coorte (2019–2021, 2022–2023, 2024–2026) e mesorregião dentro da coorte 2019–2021. n < 30 gera `estimavel = false`.
+Riscos competitivos com as causas 1 `CONDENACAO`, 2 `ABSOLVICAO`, 3 `EXTINCAO_PUNIBILIDADE`, 4 `PRESCRICAO` e 5 `OUTRO_ENCERRAMENTO` (agrupa `SEM_MERITO`, `REJEICAO_DENUNCIA`, `ARQUIVAMENTO_INVESTIGACAO` e `ENCERRADO_SEM_DESFECHO`); `EM_ANDAMENTO` é a censura, para ação penal e inquérito (MPU excluída). O estimador é **exato**, sem jitter nas durações empatadas; vale `Σ CIF = 1 − S` exatamente. Horizontes de 365, 730, 1095 e 1825 dias (`ia_365` a `ia_1825`); NULL além do acompanhamento. Variantes: `principal` (exclui processos com `reativado = true`) e `com_reativados`. Estratos: `total`, coorte (2019–2021, 2022–2023, 2024–2026) e mesorregião dentro da coorte 2019–2021. n < 30 gera `estimavel = false`.
 
 Interpretação: probabilidade acumulada de cada trajetória registrada nos metadados, não eficácia nem causalidade.
 
@@ -68,7 +70,7 @@ Interpretação: probabilidade acumulada de cada trajetória registrada nos meta
 
 A supressão ocorre **somente na exportação**; o banco guarda os dados completos.
 
-- Limite **5** para linhas por mesorregião; **10** para recortes mais finos (`agg_qualidade_orgao`).
+- Limite **5** em toda tabela suprimida, exceto `agg_qualidade_orgao` (limite **10**, agrupada por mesorregião). `agg_cobertura_cnj` e `agg_pipeline` não sofrem supressão.
 - **Supressão secundária** dentro dos grupos: se só uma célula do grupo é suprimida, suprime-se também a menor das restantes.
 - **Subcontagens** abaixo do limite são suprimidas individualmente, com `suprimido_parcial = true` (`agg_mpu`, `agg_cautelar`).
 - Células suprimidas ficam com `n` e estimativas vazios, e `suprimido = true`. A coluna `estimavel` é mantida.
