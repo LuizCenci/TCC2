@@ -43,3 +43,12 @@ def test_agg_taxa_por_tipo_e_serie(base):
         if r[3] > 0:
             assert r[5] == pytest.approx(r[3] / r[4] * 1e5)
         assert r[6] is not None
+
+
+def test_aplicar_esquema_gold_nao_apaga_agregados(base):
+    base.execute("INSERT INTO gold.agg_volume (pergunta, ano_ajuizamento, serie, n)"
+                 " VALUES ('Q01', 2099, 'sentinela', 7)")
+    aplicar_esquema_gold(base)
+    aplicar_esquema_gold(base)
+    assert base.execute("SELECT n FROM gold.agg_volume WHERE serie='sentinela'").fetchone()[0] == 7
+    base.execute("DELETE FROM gold.agg_volume WHERE serie='sentinela'")

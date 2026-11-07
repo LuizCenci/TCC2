@@ -134,15 +134,26 @@ CREATE TABLE IF NOT EXISTS ref.cnj_casos_novos (
 );
 
 -- Agregados de contagem (sem identificadores). Reconstruídos por sql/40_agg_contagens.sql.
--- Migração: nomes completos de colunas (só gold.agg_*; reconstruídas pela pipeline).
-DROP TABLE IF EXISTS gold.agg_volume;
-DROP TABLE IF EXISTS gold.agg_volume_jan_ago;
-DROP TABLE IF EXISTS gold.agg_categoria;
-DROP TABLE IF EXISTS gold.agg_mpu;
-DROP TABLE IF EXISTS gold.agg_mpu_medida;
-DROP TABLE IF EXISTS gold.agg_cautelar;
-DROP TABLE IF EXISTS gold.agg_qualidade_orgao;
-DROP TABLE IF EXISTS gold.agg_cobertura_cnj;
+-- Migração única: nomes completos de colunas (só gold.agg_*; reconstruídas pela pipeline).
+-- Só age se ainda existir o nome antigo; execuções normais não removem nada.
+DO $$
+BEGIN
+    IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema = 'gold'
+                AND table_name = 'agg_volume' AND column_name = 'meso') THEN
+        DROP TABLE IF EXISTS gold.agg_volume;
+        DROP TABLE IF EXISTS gold.agg_volume_jan_ago;
+        DROP TABLE IF EXISTS gold.agg_categoria;
+        DROP TABLE IF EXISTS gold.agg_mpu;
+        DROP TABLE IF EXISTS gold.agg_mpu_medida;
+        DROP TABLE IF EXISTS gold.agg_cautelar;
+        DROP TABLE IF EXISTS gold.agg_qualidade_orgao;
+        DROP TABLE IF EXISTS gold.agg_cobertura_cnj;
+    END IF;
+    IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema = 'gold'
+                AND table_name = 'agg_taxa' AND column_name IN ('meso', 'ano')) THEN
+        DROP TABLE IF EXISTS gold.agg_taxa;
+    END IF;
+END $$;
 CREATE TABLE IF NOT EXISTS gold.agg_volume (
     pergunta text NOT NULL, ano_ajuizamento integer, ano_parcial boolean, mes_ajuizamento integer, tipo_procedimento text,
     mesorregiao_id integer, serie text NOT NULL, n bigint NOT NULL
