@@ -89,7 +89,7 @@ A supressão ocorre **somente na exportação**; o banco guarda os dados complet
 
 ## 6. Limitações conhecidas e o que fica para depois
 
-- **Recuperabilidade dentro da linha:** a supressão individual de uma única subcontagem de MPU pode, em tese, ser recuperada por diferença com `n` e as demais subcontagens da mesma linha. Ponto a tratar antes da publicação.
+- **Recuperabilidade dentro da linha (tratada):** em `agg_mpu`, se só uma das subcontagens {deferimento, parcial, indeferimento} é suprimida, a menor das restantes também é (conjunto aditivo), impedindo a recuperação por diferença com `n_com_decisao`.
 - Moran/LISA (autocorrelação espacial) e mineração de processos ficam para a fase de análise.
 - O destino da publicação (dashboard) fica para o plano do dashboard.
 - Os parâmetros (n >= 30, limites 5 e 10) são regras de trabalho, não garantia de anonimização (CLAUDE.md §13).
