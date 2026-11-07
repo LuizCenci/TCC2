@@ -127,6 +127,11 @@ def _tarefa_gold(versao_regras: str) -> dict[str, Any]:
     return etapas.construir_gold(versao_regras)
 
 
+@task(name="construir-agregados", cache_policy=NO_CACHE)
+def _tarefa_agregados(versao_regras: str) -> dict[str, int]:
+    return etapas.construir_agregados(versao_regras)
+
+
 @flow(name="carga-silver")
 def carga_silver(run_root: str) -> dict[str, Any]:
     return _tarefa_silver(run_root)
@@ -134,7 +139,9 @@ def carga_silver(run_root: str) -> dict[str, Any]:
 
 @flow(name="construcao-gold")
 def construcao_gold(versao_regras: str) -> dict[str, Any]:
-    return _tarefa_gold(versao_regras)
+    gold = _tarefa_gold(versao_regras)
+    agregados = _tarefa_agregados(versao_regras)
+    return {**gold, "agregados": agregados}
 
 
 @flow(name="pipeline-incremental")

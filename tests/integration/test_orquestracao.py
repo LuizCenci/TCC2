@@ -96,11 +96,22 @@ def test_pipeline_encadeia_coleta_silver_e_gold(ambiente, monkeypatch):
     chamadas = []
     monkeypatch.setattr(etapas, "carregar_silver", lambda run_root: chamadas.append(("silver", Path(run_root).name)) or {"registros": 1})
     monkeypatch.setattr(etapas, "construir_gold", lambda versao_regras: chamadas.append(("gold", versao_regras)) or {"tabelas": 0})
-    resultado = fluxos.pipeline_incremental(config_path=str(ambiente), marca_inicial=MARCA_INICIAL, versao_regras="teste-v1")
-    assert [c[0] for c in chamadas] == ["silver", "gold"]
+    monkeypatch.setattr(etapas, "construir_agregados", lambda versao_regras: chamadas.append(("agg", versao_regras)) or {})
+    resultado =fluxos.pipeline_incremental(config_path=str(ambiente), marca_inicial=MARCA_INICIAL, versao_regras="teste-v1")
+    assert [c[0] for c in chamadas] == ["silver", "gold", "agg"]
     assert chamadas[1][1] == "teste-v1"
     assert resultado["silver"]["registros"] == 1
     assert resultado["silver"]["segundos"] >= 0
+
+
+def test_pipeline_chama_agregados_apos_gold(ambiente, monkeypatch):
+    monkeypatch.setattr(fluxos, "_cliente", lambda config: ClienteFalso([_pagina(["2026-11-01T10:00:00.000Z"])]))
+    chamadas = []
+    monkeypatch.setattr(etapas, "carregar_silver", lambda run_root: {"registros": 1})
+    monkeypatch.setattr(etapas, "construir_gold", lambda versao_regras: chamadas.append(("gold", versao_regras)) or {"tabelas": 0})
+    monkeypatch.setattr(etapas, "construir_agregados", lambda versao_regras: chamadas.append(("agg", versao_regras)) or {"agg_taxa": 0})
+    fluxos.pipeline_incremental(config_path=str(ambiente), marca_inicial=MARCA_INICIAL, versao_regras="teste-v1")
+    assert chamadas == [("gold", "teste-v1"), ("agg", "teste-v1")]
 
 
 def test_pipeline_pula_gold_sem_registros_na_silver(ambiente, monkeypatch):

@@ -52,3 +52,22 @@ def construir_gold(versao_regras: str, conn: Any = None) -> dict[str, Any]:
         propria.close()
 
 
+def construir_agregados(versao_regras: str, conn: Any = None) -> dict[str, int]:
+    """Constrói os agregados Python. Sem `conn`, conecta, faz commit e fecha; com `conn`, sem commit."""
+    from datajud_tcc.gold.metodos import construcao
+    from datajud_tcc.silver import conexao
+
+    if conn is not None:
+        return construcao.construir_agregados(conn, versao_regras)
+    propria = conexao.conectar()
+    try:
+        contagens = construcao.construir_agregados(propria, versao_regras)
+        propria.commit()
+        return contagens
+    except BaseException:
+        propria.rollback()
+        raise
+    finally:
+        propria.close()
+
+

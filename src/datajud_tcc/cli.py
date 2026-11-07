@@ -55,6 +55,9 @@ def _parser() -> argparse.ArgumentParser:
     subparsers.add_parser("silver-esquema", help="aplicar o esquema da Silver")
     subparsers.add_parser("gold-construir", help="construir a Gold a partir da Silver")
     subparsers.add_parser("gold-qualidade", help="imprimir o resumo de qualidade da Gold")
+    subparsers.add_parser("gold-agregados", help="construir os agregados (taxas, tempos, desfechos)")
+    gold_exportar = subparsers.add_parser("gold-exportar", help="exportar os agregados para publicação")
+    gold_exportar.add_argument("--destino", type=Path, default=Path("outputs/publicacao"))
     silver_carregar = subparsers.add_parser(
         "silver-carregar", help="carregar uma execução Bronze na Silver"
     )
@@ -232,6 +235,56 @@ def _gold_qualidade(args: argparse.Namespace) -> int:
     return 0
 
 
+def _gold_agregados(args: argparse.Namespace) -> int:
+    from .gold import referencias
+    from .gold.metodos import construcao
+    from .registro_log import configurar_arquivo
+    from .silver import conexao
+
+    configurar_arquivo(Path("work/logs/gold.log"))
+    try:
+        conn = conexao.conectar()
+    except Exception:  # a mensagem pode conter o DSN; não exibir
+        print("não foi possível conectar ao banco (verifique DATABASE_URL).", file=sys.stderr)
+        return 3
+    try:
+        versao = referencias.ler_regras()["versao_regras"]
+        contagens = construcao.construir_agregados(conn, versao)
+        conn.commit()
+    except ValueError as exc:
+        conn.rollback()
+        print(f"regras inválidas: {exc}", file=sys.stderr)
+        return 3
+    except Exception:
+        conn.rollback()
+        print("construção dos agregados não concluída (erro inesperado).", file=sys.stderr)
+        return 3
+    finally:
+        conn.close()
+    print(" ".join(f"{k}={v}" for k, v in contagens.items()))
+    return 0
+
+
+def _gold_exportar(args: argparse.Namespace) -> int:
+    from .gold.metodos import exportacao
+    from .silver import conexao
+
+    try:
+        conn = conexao.conectar()
+    except Exception:  # a mensagem pode conter o DSN; não exibir
+        print("não foi possível conectar ao banco (verifique DATABASE_URL).", file=sys.stderr)
+        return 3
+    try:
+        pasta = exportacao.exportar(conn, args.destino)
+    except Exception:
+        print("exportação não concluída (erro inesperado).", file=sys.stderr)
+        return 3
+    finally:
+        conn.close()
+    print(f"pasta={pasta}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     logging.basicConfig(
@@ -251,6 +304,10 @@ def main(argv: list[str] | None = None) -> int:
         return _gold_construir(args)
     if args.command == "gold-qualidade":
         return _gold_qualidade(args)
+    if args.command == "gold-agregados":
+        return _gold_agregados(args)
+    if args.command == "gold-exportar":
+        return _gold_exportar(args)
     return 2
 
 
