@@ -106,3 +106,15 @@ CREATE TABLE IF NOT EXISTS gold.processo_categoria (
     somente_ampliada boolean NOT NULL,
     PRIMARY KEY (registro_id, categoria)
 );
+
+CREATE TABLE IF NOT EXISTS gold.fato_evento (
+    registro_id bigint NOT NULL,
+    seq integer NOT NULL,
+    dt_evento timestamptz,
+    dias_desde_ajuizamento integer,
+    movimento_codigo integer,
+    fase text NOT NULL,
+    subtipo text,
+    orgao_codigo integer,
+    PRIMARY KEY (registro_id, seq)
+);

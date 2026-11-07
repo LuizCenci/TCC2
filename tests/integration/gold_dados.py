@@ -33,9 +33,10 @@ def inserir_registro(conn, run_id, api_id, *, ano, classe, orgao, municipio, aju
     for i, (cod, dh) in enumerate(movimentos):
         conn.execute(
             """INSERT INTO silver.movimento (movimento_id, registro_id, codigo, data_hora,
-                   ordem_original, ordem_cronologica)
-               VALUES (nextval('silver.movimento_id_seq'), %s, %s, %s, %s, %s)""",
-            (rid, cod, dh, i, i))
+                   dias_desde_ajuizamento, ordem_original, ordem_cronologica)
+               VALUES (nextval('silver.movimento_id_seq'), %s, %s, %s, %s, %s, %s)""",
+            (rid, cod, dh, None if dh is None else (dh.replace(tzinfo=None) - ajuizamento).days,
+             i, i))
     return rid
 
 
