@@ -114,29 +114,36 @@ def incidencia_acumulada(duracoes: list[int], causas: list[int],
                          horizontes: tuple[int, ...] = HORIZONTES_IA) -> dict[int, dict[int, float]]:
     """Causa -> {horizonte -> incidência acumulada (%)}; causa 0 = censura.
 
-    Horizonte maior que a maior duração observada no estrato devolve None (sem extrapolar).
+    Aalen-Johansen exato em tempo discreto (sem jitter): em cada duração distinta t,
+    n(t) = em risco (duração >= t), d(t) = eventos de qualquer causa, d_k(t) = eventos da causa k;
+    censuras em t saem do risco depois dos eventos de t. S(t) = prod(1 - d/n),
+    CIF_k(t) = soma de S(u-) * d_k(u)/n(u). O valor no horizonte h é o do maior t <= h.
+    n < 30 devolve {}; horizonte maior que a maior duração observada devolve None;
+    causa sem eventos em estrato estimável devolve 0.0.
     """
-    import warnings
+    import numpy as np
 
     if len(duracoes) < N_MIN:
         return {}
-    from lifelines import AalenJohansenFitter
-
-    maxd = max(duracoes)
+    dur = np.asarray(duracoes, dtype=float)
+    cau = np.asarray(causas, dtype=int)
+    ts = np.unique(dur)
+    n_risco = np.array([(dur >= t).sum() for t in ts], dtype=float)
+    d_tot = np.array([((dur == t) & (cau != 0)).sum() for t in ts], dtype=float)
+    surv = np.cumprod(1 - d_tot / n_risco)
+    surv_antes = np.concatenate(([1.0], surv[:-1]))
+    maxd = ts[-1]
     out: dict[int, dict[int, float]] = {}
-    for k in sorted({c for c in causas if c != 0}):
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            aj = AalenJohansenFitter(calculate_variance=False, seed=0)
-            aj.fit(duracoes, causas, event_of_interest=k)
-        cif = aj.cumulative_density_.iloc[:, 0]
+    for k in sorted({int(c) for c in cau if c != 0}):
+        d_k = np.array([((dur == t) & (cau == k)).sum() for t in ts], dtype=float)
+        cif = np.cumsum(surv_antes * d_k / n_risco)
         res = {}
         for h in horizontes:
             if h > maxd:
                 res[h] = None
                 continue
-            v = cif[cif.index <= h]
-            res[h] = _num(float(v.iloc[-1]) * 100) if len(v) else 0.0
+            idx = np.searchsorted(ts, h, side="right") - 1
+            res[h] = float(cif[idx] * 100) if idx >= 0 else 0.0
         out[k] = res
     return out
 

@@ -74,3 +74,11 @@ def test_agg_desfecho_exclui_mpu(base):
     assert base.execute(
         "SELECT count(*) FROM gold.agg_desfecho WHERE tipo_procedimento NOT IN"
         " ('ACAO_PENAL','INQUERITO')").fetchone()[0] == 0
+
+
+def test_agg_desfecho_estrato_pequeno_nao_estimavel(base):
+    assert base.execute(
+        "SELECT count(*) FROM gold.agg_desfecho WHERE (n < 30) <> (NOT estimavel)").fetchone()[0] == 0
+    assert base.execute(
+        "SELECT count(*) FROM gold.agg_desfecho WHERE n < 30 AND (ia_365 IS NOT NULL OR"
+        " ia_730 IS NOT NULL OR ia_1095 IS NOT NULL OR ia_1825 IS NOT NULL)").fetchone()[0] == 0

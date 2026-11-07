@@ -37,3 +37,28 @@ def test_ia_horizonte_alem_do_observado_e_nulo():
     dur, causas = _dados()
     r = incidencia_acumulada(dur, causas, horizontes=(10**6,))
     assert all(r[k][10**6] is None for k in r)
+
+
+def test_ia_empates_soma_igual_km():
+    from lifelines import KaplanMeierFitter
+
+    rnd = random.Random(0)
+    dur = rnd.choices(range(1, 40), k=200)
+    causas = rnd.choices([0, 1, 2, 3], k=200)
+    hs = (1, 5, 10, 20, 39)
+    r = incidencia_acumulada(dur, causas, horizontes=hs)
+    km = KaplanMeierFitter().fit(dur, [c != 0 for c in causas])
+    for h in hs:
+        s = float(km.survival_function_at_times(h).iloc[0])
+        assert sum(r[k][h] for k in r) == pytest.approx(100 * (1 - s), abs=1e-9)
+
+
+def test_ia_caso_manual_com_empates():
+    # 30 observações: t=1: 10 em risco... construído: 10 de causa 1 e 10 de causa 2 em t=1,
+    # 10 censuras em t=2. n(1)=30, d1=10, d2=10 -> CIF1(1)=10/30, CIF2(1)=10/30; depois só censura.
+    dur = [1] * 20 + [2] * 10
+    causas = [1] * 10 + [2] * 10 + [0] * 10
+    r = incidencia_acumulada(dur, causas, horizontes=(1, 2))
+    assert r[1][1] == pytest.approx(100 / 3, abs=1e-9)
+    assert r[2][1] == pytest.approx(100 / 3, abs=1e-9)
+    assert r[1][2] == pytest.approx(100 / 3, abs=1e-9)
