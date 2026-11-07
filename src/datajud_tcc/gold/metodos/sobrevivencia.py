@@ -96,3 +96,101 @@ def construir_agg_tempo(conn) -> int:
                 " pct_evento_ate_730) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                 linhas)
     return len(linhas)
+
+
+# ---------------------------------------------------------------- Q10: riscos competitivos
+HORIZONTES_IA = (365, 730, 1095, 1825)
+CAUSAS = {1: "CONDENACAO", 2: "ABSOLVICAO", 3: "EXTINCAO_PUNIBILIDADE", 4: "PRESCRICAO",
+          5: "OUTRO_ENCERRAMENTO"}
+DESFECHO_PARA_CAUSA = {
+    "CONDENACAO": 1, "ABSOLVICAO": 2, "EXTINCAO_PUNIBILIDADE": 3, "PRESCRICAO": 4,
+    "SEM_MERITO": 5, "REJEICAO_DENUNCIA": 5, "ARQUIVAMENTO_INVESTIGACAO": 5,
+    "ENCERRADO_SEM_DESFECHO": 5, "EM_ANDAMENTO": 0,
+}
+COORTES = (("2019-2021", 2019, 2021), ("2022-2023", 2022, 2023), ("2024-2026", 2024, 2026))
+
+
+def incidencia_acumulada(duracoes: list[int], causas: list[int],
+                         horizontes: tuple[int, ...] = HORIZONTES_IA) -> dict[int, dict[int, float]]:
+    """Causa -> {horizonte -> incidência acumulada (%)}; causa 0 = censura.
+
+    Horizonte maior que a maior duração observada no estrato devolve None (sem extrapolar).
+    """
+    import warnings
+
+    if len(duracoes) < N_MIN:
+        return {}
+    from lifelines import AalenJohansenFitter
+
+    maxd = max(duracoes)
+    out: dict[int, dict[int, float]] = {}
+    for k in sorted({c for c in causas if c != 0}):
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            aj = AalenJohansenFitter(calculate_variance=False, seed=0)
+            aj.fit(duracoes, causas, event_of_interest=k)
+        cif = aj.cumulative_density_.iloc[:, 0]
+        res = {}
+        for h in horizontes:
+            if h > maxd:
+                res[h] = None
+                continue
+            v = cif[cif.index <= h]
+            res[h] = _num(float(v.iloc[-1]) * 100) if len(v) else 0.0
+        out[k] = res
+    return out
+
+
+def _linhas_desfecho(tipo, serie, variante, estrato, valor, g):
+    dur = [int(x) for x in g.duracao_dias]
+    causas = [int(x) for x in g.causa]
+    n = len(dur)
+    ia = incidencia_acumulada(dur, causas) if n >= N_MIN else {}
+    linhas = []
+    for k, nome in CAUSAS.items():
+        nd = sum(1 for c in causas if c == k)
+        r = ia.get(k) or {}
+        if n >= N_MIN and not r:
+            r = {h: 0.0 if h <= max(dur) else None for h in HORIZONTES_IA}
+        linhas.append(("Q10", tipo, serie, variante, estrato, str(valor), nome, n, nd, n >= N_MIN,
+                       *[r.get(h) for h in HORIZONTES_IA]))
+    return linhas
+
+
+def construir_agg_desfecho(conn) -> int:
+    cols = ["tipo_procedimento", "serie_estrita", "ano_ajuizamento", "mesorregiao_id",
+            "desfecho", "duracao_dias", "reativado"]
+    df = pd.DataFrame(
+        conn.execute(f"SELECT {', '.join(cols)} FROM gold.fato_processo"
+                     " WHERE tipo_procedimento IN ('ACAO_PENAL','INQUERITO')"
+                     " AND duracao_dias IS NOT NULL AND duracao_dias >= 0").fetchall(), columns=cols)
+    df["causa"] = df["desfecho"].map(DESFECHO_PARA_CAUSA)
+    df = df[df.causa.notna()].copy()
+    df["causa"] = df["causa"].astype(int)
+    df["reativado"] = df["reativado"].fillna(False).astype(bool)
+    linhas = []
+    for tipo in ("ACAO_PENAL", "INQUERITO"):
+        t = df[df.tipo_procedimento == tipo]
+        for serie in ("estrita", "ampliada"):
+            s = t[t.serie_estrita.astype(bool)] if serie == "estrita" else t
+            for variante in ("principal", "com_reativados"):
+                v = s[~s.reativado] if variante == "principal" else s
+                if v.empty:
+                    continue
+                linhas += _linhas_desfecho(tipo, serie, variante, "total", "total", v)
+                for nome, a, b in COORTES:
+                    c = v[(v.ano_ajuizamento >= a) & (v.ano_ajuizamento <= b)]
+                    if not c.empty:
+                        linhas += _linhas_desfecho(tipo, serie, variante, "coorte", nome, c)
+                c = v[(v.ano_ajuizamento >= 2019) & (v.ano_ajuizamento <= 2021)]
+                for valor, g in c.groupby("mesorregiao_id", dropna=True):
+                    linhas += _linhas_desfecho(tipo, serie, variante, "mesorregiao_id",
+                                               int(valor), g)
+    conn.execute("TRUNCATE gold.agg_desfecho")
+    if linhas:
+        with conn.cursor() as cur:
+            cur.executemany(
+                "INSERT INTO gold.agg_desfecho (pergunta, tipo_procedimento, serie, variante,"
+                " estrato, valor_estrato, desfecho, n, n_desfecho, estimavel, ia_365, ia_730,"
+                " ia_1095, ia_1825) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", linhas)
+    return len(linhas)

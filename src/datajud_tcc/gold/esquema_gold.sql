@@ -209,3 +209,12 @@ CREATE TABLE IF NOT EXISTS gold.agg_tempo (
     pct_evento_ate_2 double precision, pct_evento_ate_30 double precision,
     pct_evento_ate_365 double precision, pct_evento_ate_730 double precision
 );
+
+CREATE TABLE IF NOT EXISTS gold.agg_desfecho (
+    pergunta text NOT NULL DEFAULT 'Q10', tipo_procedimento text NOT NULL, serie text NOT NULL,
+    variante text NOT NULL, estrato text NOT NULL, valor_estrato text NOT NULL,
+    desfecho text NOT NULL, n bigint NOT NULL, n_desfecho bigint NOT NULL,
+    estimavel boolean NOT NULL,
+    ia_365 double precision, ia_730 double precision, ia_1095 double precision,
+    ia_1825 double precision
+);
