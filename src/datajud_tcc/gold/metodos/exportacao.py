@@ -10,17 +10,39 @@ from pathlib import Path
 from datajud_tcc.gold import referencias
 from datajud_tcc.gold.metodos import supressao
 
-_DIM_VOL = ("pergunta", "ano_ajuizamento", "ano_parcial", "mes_ajuizamento", "tipo_procedimento",
-            "serie")
+CONTAGENS = {
+    "agg_mpu": ("n_com_decisao", "n_deferimento", "n_parcial", "n_indeferimento", "n_revogadas"),
+    "agg_cautelar": ("n_flagrante", "n_preventiva", "n_liberdade_provisoria_concedida"),
+    "agg_tempo": ("n_eventos",), "agg_desfecho": ("n_desfecho",),
+    "agg_qualidade_orgao": ("n_processos_com_duplicado",),
+}
+# Colapso (só na exportação) sobre mesorregiao_id: (dimensões mantidas, somas)
+COLAPSOS = {
+    "agg_volume": (("pergunta", "ano_ajuizamento", "ano_parcial", "mes_ajuizamento",
+                    "tipo_procedimento", "serie"), ("n",)),
+    "agg_mpu": (("pergunta", "ano_ajuizamento", "ano_parcial", "orgao_especializado", "serie"),
+                ("n",) + CONTAGENS["agg_mpu"]),
+}
+
+
+def _colapsar(linhas, dims, somas):
+    acc: dict[tuple, dict] = {}
+    for l in linhas:
+        k = tuple(l[d] for d in dims)
+        a = acc.setdefault(k, {**{d: l[d] for d in dims}, **{c: None for c in somas}})
+        for c in somas:
+            if l[c] is not None:
+                a[c] = (a[c] or 0) + l[c]
+    return list(acc.values())
 # tabela: (limite, colunas_grupo, colunas_valor) ou None (sem supressão)
 REGRAS: dict[str, tuple[int, tuple[str, ...], tuple[str, ...]] | None] = {
-    "agg_volume": (5, _DIM_VOL, ()),
+    "agg_volume": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "tipo_procedimento", "serie"), ()),
     "agg_volume_jan_ago": (5, ("pergunta", "ano_ajuizamento", "tipo_procedimento", "serie"), ()),
     "agg_categoria": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "tipo_procedimento",
                           "categoria", "serie"), ()),
     "agg_taxa": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "tipo_procedimento", "serie"),
                  ("taxa_bruta_100k", "taxa_eb_100k")),
-    "agg_mpu": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "orgao_especializado", "serie"),
+    "agg_mpu": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "serie"),
                 ("n_com_decisao", "n_deferimento", "n_parcial", "n_indeferimento", "n_revogadas")),
     "agg_mpu_medida": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "tipo_medida"), ()),
     "agg_cautelar": (5, ("pergunta", "ano_ajuizamento", "ano_parcial", "tipo_procedimento",
@@ -65,11 +87,16 @@ def exportar(conn, destino: Path = Path("outputs/publicacao")) -> Path:
         cur = conn.execute(f"SELECT * FROM gold.{tabela}")  # noqa: S608 (nomes fixos)
         cols = [d.name for d in cur.description]
         linhas = [dict(zip(cols, r)) for r in cur.fetchall()]
+        if tabela in COLAPSOS:
+            dims, somas = COLAPSOS[tabela]
+            linhas = _colapsar(linhas, dims, somas)
+            cols = list(dims) + list(somas)
         if regra is not None:
             limite, grupo, valor = regra
             linhas = supressao.aplicar(linhas, limite=limite, colunas_grupo=grupo,
-                                       colunas_valor=valor)
-            cols = cols + ["suprimido"]
+                                       colunas_valor=valor,
+                                       colunas_contagem=CONTAGENS.get(tabela, ()))
+            cols = cols + ["suprimido", "suprimido_parcial"]
         caminho = pasta / f"{tabela}.csv"
         with open(caminho, "w", encoding="utf-8", newline="") as f:
             w = csv.writer(f)
@@ -82,7 +109,12 @@ def exportar(conn, destino: Path = Path("outputs/publicacao")) -> Path:
                       if r else "sem supressão") for t, r in REGRAS.items()}
     manifesto = {"versao_regras": versao, "data_corte_max": corte_s,
                  "gerado_em": datetime.now(timezone.utc).isoformat(),
-                 "arquivos": arquivos, "regras_supressao": regras_txt}
+                 "arquivos": arquivos, "regras_supressao": regras_txt,
+                 "subcontagens_suprimidas_abaixo_do_limite": {t: list(c) for t, c in CONTAGENS.items()},
+                 "agregacoes_exportacao": {
+                     t: "somado sobre mesorregiao_id (coluna removida); nível mesorregional "
+                        "disponível em agg_taxa (n) e agg_volume_jan_ago" for t in COLAPSOS},
+                 "observacao": "estimavel é mantido (revela apenas n < 30)"}
     (pasta / "manifesto.json").write_text(json.dumps(manifesto, ensure_ascii=False, indent=2),
                                           encoding="utf-8")
     return pasta

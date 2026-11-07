@@ -25,3 +25,20 @@ def test_supressao_nao_altera_entrada():
     copia = [dict(x) for x in ent]
     aplicar(ent, limite=5, colunas_grupo=G, colunas_valor=V)
     assert ent == copia
+
+
+def test_secundaria_limpa_valores():
+    r = aplicar([_l(1, 1, 3), _l(1, 2, 8)], limite=5, colunas_grupo=G, colunas_valor=V)
+    assert r[1]["suprimido"] and r[1]["n"] is None and r[1]["v"] is None
+
+
+def test_subcontagem_com_n_acima_do_limite():
+    ent = [{"ano": 1, "n": 20, "a": 3, "b": 9, "est": 0.5}]
+    r = aplicar(ent, limite=5, colunas_grupo=G, colunas_valor=("est",), colunas_contagem=("a", "b"))
+    assert r[0]["a"] is None and r[0]["b"] == 9 and r[0]["n"] == 20 and r[0]["est"] == 0.5
+    assert r[0]["suprimido_parcial"] is True and r[0]["suprimido"] is False
+
+
+def test_n_none_nao_quebra():
+    r = aplicar([{"ano": 1, "n": None, "v": 1}], limite=5, colunas_grupo=G, colunas_valor=V)
+    assert r[0]["suprimido"] is True and r[0]["v"] is None

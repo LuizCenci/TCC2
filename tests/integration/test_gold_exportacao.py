@@ -66,3 +66,27 @@ def test_exportacao_sem_identificadores_e_suprimida(pasta):
     assert len(man["arquivos"]) == 12
     for a in man["arquivos"]:
         assert hashlib.sha256((pasta / a["arquivo"]).read_bytes()).hexdigest() == a["sha256"]
+
+
+def test_colapso_e_subcontagem(pasta, conn_banco_modulo):
+    for nome in ("agg_volume.csv", "agg_mpu.csv"):
+        assert "mesorregiao_id" not in _ler(pasta, nome)[0]
+    db = conn_banco_modulo.execute(
+        "SELECT coalesce(sum(n),0) FROM gold.agg_volume WHERE ano_ajuizamento=%s", (ANO,)
+    ).fetchone()[0]
+    assert 0 < db < 10  # soma sintética por série; cada linha colapsada < 5 sai suprimida
+    man = json.loads((pasta / "manifesto.json").read_text(encoding="utf-8"))
+    assert set(man["agregacoes_exportacao"]) == {"agg_volume", "agg_mpu"}
+    assert man["regras_supressao"]["agg_mpu"]["limite"] == 5
+
+
+def test_subcontagem_no_csv(conn_banco_modulo, tmp_path):
+    from datajud_tcc.gold.metodos import exportacao, supressao
+    r = supressao.aplicar([{"ano": 1, "n": 50, "n_flagrante": 2, "n_preventiva": 40}], limite=5,
+                          colunas_grupo=("ano",), colunas_valor=(),
+                          colunas_contagem=exportacao.CONTAGENS["agg_cautelar"])
+    assert r[0]["n_flagrante"] is None and r[0]["n_preventiva"] == 40 and r[0]["suprimido_parcial"]
+    p = exportacao.exportar(conn_banco_modulo, tmp_path)
+    for rr in _ler(p, "agg_cautelar.csv"):
+        if rr["suprimido_parcial"] == "true":
+            assert "" in (rr["n_flagrante"], rr["n_preventiva"], rr["n_liberdade_provisoria_concedida"])
