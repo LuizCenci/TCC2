@@ -1,4 +1,5 @@
 """Mapa coroplético das mesorregiões do Paraná."""
+import pandas as pd
 import plotly.graph_objects as go
 
 from painel.exibicao import formatar_decimal
@@ -14,7 +15,7 @@ def figura_mapa(df_taxa, coluna_valor: str, titulo: str) -> go.Figure:
         r = linhas.get(mid)
         if r is None:
             cinza.append((mid, "sem dado"))
-        elif bool(r.get("suprimido", False)) or r[coluna_valor] is None or r[coluna_valor] != r[coluna_valor]:
+        elif (not pd.isna(r.get("suprimido", False)) and bool(r.get("suprimido", False))) or pd.isna(r[coluna_valor]):
             cinza.append((mid, "suprimido"))
         else:
             valores.append((mid, float(r[coluna_valor])))

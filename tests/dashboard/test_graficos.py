@@ -37,3 +37,14 @@ def test_figura_incidencia_anos():
                        "ia_1095": [0.3, 0.4], "ia_1825": [0.4, 0.5]})
     fig = figura_incidencia(df)
     assert len(fig.data) == 2 and list(fig.data[0].x) == [1, 2, 3, 5]
+
+
+def test_figura_incidencia_percentual():
+    from painel.dados import carregar_tabela
+    t = carregar_tabela("agg_desfecho")
+    r = t[(t.tipo_procedimento == "ACAO_PENAL") & (t.serie == "estrita")
+          & (t.variante == "principal") & (t.estrato == "coorte")
+          & (t.valor_estrato == "2019-2021")]
+    fig = figura_incidencia(r)
+    tr = next(x for x in fig.data if x.name == "Condenação")
+    assert tr.text[-1] == "46,0%"

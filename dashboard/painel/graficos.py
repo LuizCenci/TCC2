@@ -2,7 +2,8 @@
 import pandas as pd
 import plotly.graph_objects as go
 
-from painel.exibicao import formatar_decimal, formatar_inteiro
+from painel.exibicao import formatar_inteiro, formatar_pct
+from painel.rotulos import DESFECHO
 
 COR_PRINCIPAL = "#6A3D9A"
 PALETA_CATEGORICA = ["#6A3D9A", "#9E9AC8", "#3F007D", "#BCBDDC",
@@ -46,7 +47,7 @@ def figura_linhas(df, x, y, cor, titulo, rotulo_y) -> go.Figure:
 
 
 def figura_barras(df, x, y, cor, titulo, rotulo_y, horizontal=False):
-    visiveis = df[~df["suprimido"].fillna(False).astype(bool)]
+    visiveis = df[~df["suprimido"].fillna(False).astype(bool) & df[y].notna()]
     if visiveis.empty:
         return None
     fig = go.Figure()
@@ -72,10 +73,11 @@ def figura_incidencia(df_desfecho) -> go.Figure:
     for i, (_, linha) in enumerate(df_desfecho.iterrows()):
         ys = [None if pd.isna(linha[c]) else float(linha[c]) for c in anos.values()]
         fig.add_trace(go.Scatter(
-            x=list(anos), y=ys, mode="lines+markers", name=str(linha.get("desfecho", i)),
+            x=list(anos), y=ys, mode="lines+markers", name=DESFECHO.get(linha.get("desfecho"), str(linha.get("desfecho", i))),
             line={"color": PALETA_CATEGORICA[i % len(PALETA_CATEGORICA)]},
-            text=[formatar_decimal(v * 100) + "%" if v is not None else "—" for v in ys],
+            text=[formatar_pct(v) for v in ys],
             hovertemplate="%{x} ano(s): %{text}<extra>%{fullData.name}</extra>"))
-    _layout(fig, "Incidência acumulada", "incidência acumulada")
+    _layout(fig, "Incidência acumulada", "% de processos")
+    fig.update_yaxes(rangemode="tozero")
     fig.update_layout(xaxis={"title": "anos desde o ajuizamento", "tickvals": list(anos)})
     return fig
