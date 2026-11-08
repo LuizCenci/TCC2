@@ -13,6 +13,7 @@ COLUNAS_BOOL = [
     "ano_parcial", "suprimido", "suprimido_parcial",
     "estimavel", "mediana_alcancada", "orgao_especializado",
 ]
+CHAVES_INT = {"ano_ajuizamento", "mes_ajuizamento", "mesorregiao_id", "orgao_codigo"}
 
 
 class ErroIntegridade(Exception):
@@ -20,7 +21,7 @@ class ErroIntegridade(Exception):
 
 
 def _pasta(pasta: Path | None) -> Path:
-    return pasta or config.PASTA_EXPORTACAO
+    return pasta if pasta is not None else config.PASTA_EXPORTACAO
 
 
 def carregar_manifesto(pasta: Path | None = None) -> dict:
@@ -45,7 +46,7 @@ def carregar_tabela(nome: str, pasta: Path | None = None) -> pd.DataFrame:
     for col in df.columns:
         if col in COLUNAS_BOOL:
             continue
-        if col == "n" or col.startswith("n_") or col == "pop_feminina":
+        if col in CHAVES_INT or col == "n" or col.startswith("n_") or col == "pop_feminina":
             df[col] = pd.to_numeric(df[col].replace("", pd.NA)).astype("Int64")
         elif col.startswith(("taxa_", "media", "mediana_dias", "ic95", "pct", "ia_")):
             df[col] = pd.to_numeric(df[col].replace("", pd.NA))

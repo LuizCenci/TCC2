@@ -39,3 +39,13 @@ def test_carregar_tabela_tipos():
 
 def test_total_processos():
     assert total_processos() == 147020
+
+
+def test_chaves_inteiras():
+    for nome in ("agg_taxa", "agg_volume", "agg_volume_jan_ago"):
+        t = carregar_tabela(nome)
+        for col in ("ano_ajuizamento", "mes_ajuizamento", "mesorregiao_id"):
+            if col in t.columns:
+                assert str(t[col].dtype) == "Int64", (nome, col)
+    assert (carregar_tabela("agg_taxa").ano_ajuizamento == 2025).sum() > 0
+    assert str(carregar_tabela("agg_qualidade_orgao")["orgao_codigo"].dtype) == "Int64"
