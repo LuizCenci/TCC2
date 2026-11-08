@@ -22,7 +22,7 @@ st.subheader("Pipeline")
 st.write("Bronze (respostas originais da API) → Silver (dados normalizados) → Gold (agregações "
          "publicadas neste painel). Execuções registradas:")
 pipe = componentes.tabela("agg_pipeline").drop(columns=["pergunta"], errors="ignore")
-st.dataframe(pipe, hide_index=True, use_container_width=True)
+st.dataframe(pipe, hide_index=True, width="stretch")
 man = carregar_manifesto()
 st.caption(f"Versão das regras: {man['versao_regras']}. Data de corte: {man['data_corte_max']}.")
 

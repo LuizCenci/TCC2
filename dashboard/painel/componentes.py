@@ -48,4 +48,4 @@ def grafico_ou_aviso(fig: go.Figure | None) -> None:
     if fig is None:
         st.info(MSG_TUDO_SUPRIMIDO)
     else:
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")

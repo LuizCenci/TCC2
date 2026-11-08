@@ -17,7 +17,7 @@ O app não consulta banco nem API, não atualiza sozinho e não tem contas de us
 | `data_corte_max` | 2026-11-05 |
 | SHA-256 do `manifesto.json` | `ff18678fb719aa5f9e4e709b583dcae2ef7c2c85465abf874e6cd68b1688790a` |
 
-O app confere o SHA-256 de cada CSV contra o manifesto ao iniciar. Se um arquivo faltar ou diferir, mostra o nome do arquivo e nenhum número. Os CSVs nunca são editados; correções de rótulo existem só na exibição. A pasta é configurada num único lugar (`PASTA_EXPORTACAO` em `dashboard/painel/config.py`).
+O app confere o SHA-256 de cada CSV contra o manifesto a cada execução do aplicativo (`dashboard/app.py`). Se um arquivo faltar ou diferir, mostra o nome do arquivo e nenhum número. Os CSVs nunca são editados; correções de rótulo existem só na exibição. A pasta é configurada num único lugar (`PASTA_EXPORTACAO` em `dashboard/painel/config.py`).
 
 ## 3. Páginas e perguntas
 
@@ -26,7 +26,7 @@ Navegação por menu lateral; a lateral também tem o filtro global de série (e
 | Página | Tabelas | Perguntas |
 |---|---|---|
 | Visão geral | `agg_pipeline`, `agg_tempo`, `agg_desfecho`, `agg_cobertura_cnj`, `manifesto.json` | Q15 (procedência), Q14 (cobertura no rodapé) e destaques de Q05, Q09 e Q10 |
-| Volume no tempo | `agg_volume`, `agg_volume_jan_ago`, `agg_categoria` | Q01, Q03 |
+| Volume no tempo | `agg_volume`, `agg_cautelar` | Q01, Q03 |
 | Território | `agg_taxa`, `agg_tempo` (estrato mesorregião) | Q02 e tempos por mesorregião (Q05, Q08, Q09) |
 | Medidas protetivas | `agg_mpu`, `agg_mpu_medida`, `agg_tempo` | Q04, Q05, Q06, Q07 e Q12 (filtro de órgão especializado) |
 | Ações penais | `agg_tempo`, `agg_desfecho`, `agg_cautelar` | Q08, Q09, Q10, Q13 |
@@ -96,4 +96,10 @@ As mesorregiões são geradas uma única vez, offline, por `dashboard/scripts/ge
 
 - `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`: **44 testes passando**, sem Streamlit em execução (carga e integridade SHA-256, formatação, rótulos, figuras, tratamento de suprimido e não estimável) e com `AppTest` (pasta corrompida, filtro extremo).
 - Conferência visual feita em navegador, em 1400×900, nas 7 páginas. Problemas encontrados e corrigidos: métricas truncadas, caixas "Mostra/Não mostra", faixa de cobertura, texto da definição das séries, percentuais de incidência (erro de ×100) e ordem do eixo jan–ago.
+- Rodada de correções da revisão final:
+  - **EOL:** o índice do git guardava os CSVs com LF, enquanto o manifesto registra o SHA-256 dos arquivos CRLF da cópia de trabalho; em um clone Linux a conferência falharia. `.gitattributes` passou a ter `outputs/publicacao/** -text` e a pasta foi renormalizada sem alterar conteúdo nem manifesto (SHA-256 do `manifesto.json` continua o citado na seção 2). Agora o SHA-256 dos bytes commitados (`git show HEAD:...`) confere com o manifesto nos 12 CSVs, o que o teste `test_integridade_conteudo_commitado` verifica. Exportações futuras gravam CSV e manifesto com LF.
+  - **Categorias por ano** (página Volume) passam a usar `agg_cautelar.n` (contagem estadual por ano, tipo, categoria e série), que bate com a soma de `agg_categoria`; barras suprimidas são omitidas e listadas em legenda. A página não usa mais `agg_volume_jan_ago`: a comparação jan–ago vem de `agg_volume`.
+  - **Tempos por mesorregião** (Território) filtram também o tipo de procedimento, sem misturar ação penal e inquérito, e a legenda informa que agregam todos os anos de ajuizamento.
+  - Versões de dependências fixadas em `dashboard/requirements.txt` (`streamlit==1.67.*`, `pandas==2.3.*`, `plotly==6.9.*`); `use_container_width` trocado por `width="stretch"`.
+  - Ajustes menores: download de qualidade sem `orgao_codigo`; rodapé de cobertura redigido como razão entre contagens; ordem fixa dos anos e legenda de anos sem valor na resposta cautelar; faixa "2026 parcial" na série mensal.
 - Publicação: ainda não feita (ver `dashboard/README.md`).

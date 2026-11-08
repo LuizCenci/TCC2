@@ -30,7 +30,7 @@ tab = pd.DataFrame({
     "Painel CNJ": [formatar_inteiro(v) for v in cob["n_cnj"]],
     "Razão base pública / CNJ (%)": [formatar_pct(v) for v in cob["pct"]],
 })
-st.dataframe(tab, hide_index=True, use_container_width=True)
+st.dataframe(tab, hide_index=True, width="stretch")
 
 fig = go.Figure()
 for i, (medida, g) in enumerate(cob.groupby("medida", sort=False)):
@@ -42,7 +42,7 @@ for i, (medida, g) in enumerate(cob.groupby("medida", sort=False)):
         hovertemplate="%{x}: %{text}<extra>%{fullData.name}</extra>"))
 _layout(fig, "Razão base pública / CNJ (%) por ano e medida", "razão entre contagens de registros (%)")
 fig.update_layout(barmode="group")
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 componentes.rodape("Contagem da base pública dividida pela contagem do painel do CNJ, por ano de ajuizamento "
                    "e medida; razão entre registros, não cobertura exata.", "agg_cobertura_cnj.csv")
 componentes.botao_download(cob[["ano_ajuizamento", "medida", "n_base", "n_cnj", "pct"]], "cobertura_cnj.csv")
@@ -60,20 +60,20 @@ else:
                                 hovertemplate="%{x}: %{y} órgãos<extra></extra>"))
     _layout(h1, "Mediana de movimentos por processo, por órgão", "órgãos")
     h1.update_layout(xaxis_title="mediana de movimentos por processo")
-    st.plotly_chart(h1, use_container_width=True)
+    st.plotly_chart(h1, width="stretch")
     dup = vis["n_processos_com_duplicado"].dropna()
     if len(dup):
         h2 = go.Figure(go.Histogram(x=dup, marker={"color": COR_PRINCIPAL}, nbinsx=20,
                                     hovertemplate="%{x}: %{y} órgãos<extra></extra>"))
         _layout(h2, "Processos com movimento duplicado, por órgão", "órgãos")
         h2.update_layout(xaxis_title="processos públicos com movimento duplicado")
-        st.plotly_chart(h2, use_container_width=True)
+        st.plotly_chart(h2, width="stretch")
     if vis["suprimido_parcial"].any():
         st.caption("Em alguns órgãos, a contagem de processos com movimento duplicado está oculta; "
                    "esses órgãos não entram no segundo gráfico.")
     st.caption(f"Mediana das medianas de movimentos: {formatar_decimal(vis['mediana_movimentos'].median())}.")
 componentes.rodape("Distribuição, entre órgãos não suprimidos, da mediana de movimentos por processo e "
                    "do número de processos com movimento duplicado.", "agg_qualidade_orgao.csv")
-_q = vis[["orgao_codigo", "mesorregiao_id", "orgao_especializado", "n", "media_movimentos",
+_q = vis[["mesorregiao_id", "orgao_especializado", "n", "media_movimentos",
           "mediana_movimentos", "n_processos_com_duplicado"]]
 componentes.botao_download(_q, "qualidade_orgao.csv")

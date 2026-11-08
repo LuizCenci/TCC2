@@ -93,6 +93,20 @@ def _celula(v) -> str:
     return str(v)
 
 
+def _escrever_csv(caminho: Path, cols, linhas) -> None:
+    # LF fixo: os bytes publicados não dependem do SO nem do autocrlf do git.
+    with open(caminho, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f, lineterminator="\n")
+        w.writerow(cols)
+        for l in linhas:
+            w.writerow([_celula(l.get(c)) for c in cols])
+
+
+def _escrever_manifesto(caminho: Path, manifesto: dict) -> None:
+    with open(caminho, "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(manifesto, ensure_ascii=False, indent=2))
+
+
 def exportar(conn, destino: Path = Path("outputs/publicacao")) -> Path:
     """Exporta os agregados. Lê todas as tabelas num único snapshot (REPEATABLE READ somente
     leitura, quando a conexão não tem transação aberta; senão, o da transação corrente).
@@ -139,11 +153,7 @@ def _exportar(conn, destino: Path) -> Path:
                 linhas = _arredondar(linhas, ARREDONDAMENTO[tabela])
             cols = cols + ["suprimido", "suprimido_parcial"]
         caminho = pasta / f"{tabela}.csv"
-        with open(caminho, "w", encoding="utf-8", newline="") as f:
-            w = csv.writer(f)
-            w.writerow(cols)
-            for l in linhas:
-                w.writerow([_celula(l.get(c)) for c in cols])
+        _escrever_csv(caminho, cols, linhas)
         arquivos.append({"arquivo": caminho.name, "linhas": len(linhas),
                          "sha256": hashlib.sha256(caminho.read_bytes()).hexdigest()})
     regras_txt = {t: ({"limite": r[0], "colunas_grupo": list(r[1]), "colunas_valor": list(r[2])}
@@ -161,7 +171,6 @@ def _exportar(conn, destino: Path) -> Path:
                  "conjuntos_aditivos": {t: [list(c) for c in cs]
                                         for t, cs in CONJUNTOS_ADITIVOS.items()},
                  "observacao": "estimavel é mantido (revela apenas n < 30)"}
-    (pasta / "manifesto.json").write_text(json.dumps(manifesto, ensure_ascii=False, indent=2),
-                                          encoding="utf-8")
+    _escrever_manifesto(pasta / "manifesto.json", manifesto)
     return pasta
 

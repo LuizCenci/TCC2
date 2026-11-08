@@ -1,6 +1,6 @@
 # Dashboard de resultados
 
-App Streamlit que exibe os agregados da camada Gold (exportação `outputs/publicacao/2026-11-05_gold-2026-11-07/`). Todos os resultados vêm exclusivamente dos metadados públicos do Datajud (CNJ), TJPR, primeiro grau, 2019–2026. O app lê somente CSVs, sem acessar banco nem API, e confere o SHA-256 de cada arquivo contra o `manifesto.json` ao iniciar. Descrição completa: `docs/artigo/27-dashboard.md`.
+App Streamlit que exibe os agregados da camada Gold (exportação `outputs/publicacao/2026-11-05_gold-2026-11-07/`). Todos os resultados vêm exclusivamente dos metadados públicos do Datajud (CNJ), TJPR, primeiro grau, 2019–2026. O app lê somente CSVs, sem acessar banco nem API, e confere o SHA-256 de cada arquivo contra o `manifesto.json` a cada execução do aplicativo. Descrição completa: `docs/artigo/27-dashboard.md`.
 
 ## Execução local
 
@@ -18,6 +18,7 @@ Testes: `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`.
 A conta e o deploy são feitos pelo autor.
 
 - Repositório: `LuizCenci/TCC2`; branch: `master`; arquivo principal: `dashboard/app.py`.
+- No Cloud, escolha Python 3.12 e confira no log de build que foi usado `dashboard/requirements.txt` (versões fixadas).
 - O Cloud instala `dashboard/requirements.txt` (só `streamlit`, `pandas` e `plotly`) e lê `.streamlit/config.toml` (tema lilás).
 - O plano gratuito hiberna o app sem uso; acordá-lo leva cerca de 30 s. Na defesa, abrir o link antes.
 

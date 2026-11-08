@@ -43,7 +43,7 @@ def bloco_tempos(tipo: str, marcos: list[str], chave: str) -> None:
             "Ano de ajuizamento": [rotulo_ano(a, a == 2026) for a in ta["_ano"]],
             "Tempo mediano": ["suprimido" if x else texto_mediana(r) for x, (_, r) in zip(s, ta.iterrows())],
             "Processos (n, arredondado)": ["suprimido" if x else formatar_inteiro(v) for x, v in zip(s, ta["n"])],
-        }), hide_index=True, use_container_width=True)
+        }), hide_index=True, width="stretch")
         componentes.rodape(f"Tempo mediano entre o ajuizamento e o marco ({MARCO[marco].lower()}), com IC 95%; "
                            "contagens arredondadas na base 10.", "agg_tempo.csv", serie)
         d = ta[["marco", "valor_estrato", "n", "estimavel", "mediana_dias", "mediana_alcancada",
@@ -70,7 +70,7 @@ def bloco_desfecho(tipo: str, chave: str) -> None:
     if vis.empty:
         st.info("Nenhum desfecho estimável neste recorte.")
         return
-    st.plotly_chart(figura_incidencia(vis), use_container_width=True)
+    st.plotly_chart(figura_incidencia(vis), width="stretch")
     st.caption("Incidência acumulada: percentual de processos da coorte com o desfecho até 1, 2, 3 e 5 anos "
                "após o ajuizamento. Coortes recentes não têm 5 anos de acompanhamento.")
     componentes.rodape("Incidência acumulada de desfechos por coorte de ajuizamento; contagens arredondadas "
@@ -109,7 +109,14 @@ with aba_ap:
                         f"Resposta cautelar, {TIPO_PROCEDIMENTO[tipo_c].lower()}, {CATEGORIA[cat_c].lower()}", UNID)
     if fig is not None:
         fig.update_layout(barmode="group")
+        fig.update_xaxes(categoryorder="array",
+                         categoryarray=[rotulo_ano(a_, a_ == 2026) for a_ in range(2019, 2027)])
     componentes.grafico_ou_aviso(fig)
+    _vis = long[~long["suprimido"].astype(bool) & long["valor"].notna()]
+    _sem = [rotulo_ano(a_, a_ == 2026) for a_ in range(2019, 2027)
+            if a_ not in set(_vis["ano_ajuizamento"].astype(int))]
+    if _sem:
+        st.caption("Anos sem valor visível (suprimidos ou sem dados): " + "; ".join(_sem) + ".")
     if cd["suprimido_parcial"].any():
         st.caption("Há subcontagens ocultas em parte dos anos; valores ausentes não são zero.")
     componentes.rodape("Processos com o movimento indicado (flagrante, preventiva, liberdade provisória "

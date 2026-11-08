@@ -48,10 +48,10 @@ else:
     fig = figura_barras(long, "ano", "valor", "decisão",
                         "Decisões sobre o pedido de medida protetiva, entre os processos com decisão", UNID)
     fig.update_layout(barmode="stack")
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
     rev = dec.assign(suprimido=False)
     st.plotly_chart(figura_linhas(rev, "ano", "n_revogadas", None, "Medidas revogadas por ano", UNID),
-                    use_container_width=True)
+                    width="stretch")
 if omitidos:
     st.caption("Anos omitidos por supressão (sem soma parcial): " + "; ".join(omitidos) + ".")
 componentes.rodape("Decisões entre processos de medida protetiva com decisão identificada nos movimentos; "
@@ -86,7 +86,7 @@ if len(ta):
         "Até 365 dias": ["suprimido" if x else formatar_pct(v) for x, v in zip(s, ta["pct_evento_ate_365"])],
         "Processos (n, arredondado)": ["suprimido" if x else formatar_inteiro(v) for x, v in zip(s, ta["n"])],
     })
-    st.dataframe(tab, hide_index=True, use_container_width=True)
+    st.dataframe(tab, hide_index=True, width="stretch")
 componentes.rodape("Tempo entre o ajuizamento e a decisão da medida protetiva; percentuais de processos com "
                    "decisão no prazo; contagens arredondadas na base 10.", "agg_tempo.csv", serie)
 _t = t[["estrato", "valor_estrato", "n", "estimavel", "mediana_dias", "mediana_alcancada", "ic95_inf", "ic95_sup",

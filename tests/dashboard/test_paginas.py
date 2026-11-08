@@ -39,7 +39,8 @@ def test_visao_geral_metricas_e_rodape():
         assert "…" not in v and len(v) <= 12
     texto = " ".join(c.value for c in at.caption)
     assert "Nos anos completos de 2020 a 2025" in texto
-    assert "2,7% a 6,0%" in texto
+    assert ("a razão entre os processos de medida protetiva da base pública e os registrados nos painéis "
+            "do CNJ fica entre 2,7% e 6,0%") in texto
     assert "gold-2026-11-07" in texto
 
 
@@ -137,3 +138,51 @@ def test_nenhuma_pagina_mostra_taxa_de_violencia():
         assert "taxa de violência" not in texto, pagina
         if pagina not in ("visao_geral", "sobre"):
             assert "vítimas" not in texto, pagina
+
+
+def test_territorio_tempo_filtra_tipo_procedimento():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "territorio.py"), default_timeout=30).run()
+    at.selectbox(key="territorio_tipo").set_value("ACAO_PENAL")
+    at.selectbox(key="territorio_marco").set_value("recebimento_denuncia").run()
+    assert not at.exception
+    tab = at.dataframe[-1].value
+    assert len(tab) == 10
+    assert tab["Mesorregião"].is_unique
+
+
+def test_territorio_tempo_sem_dados_para_tipo():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "territorio.py"), default_timeout=30).run()
+    at.selectbox(key="territorio_tipo").set_value("EXECUCAO")
+    at.selectbox(key="territorio_marco").set_value("recebimento_denuncia").run()
+    assert not at.exception
+    assert "Sem dados de tempo para este tipo de procedimento e marco." in [i.value for i in at.info]
+
+
+def test_volume_categorias_usam_contagem_estadual():
+    import json
+    at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
+    assert not at.exception
+    figs = [json.loads(p.proto.spec) for p in at.get("plotly_chart")]
+    f = [f for f in figs if f["layout"]["title"]["text"] == "Processos públicos por categoria e ano"][0]
+    pares = sum(1 for tr in f["data"] for y in tr["y"] if y is not None)
+    assert pares >= 70
+    assert any("agg_cautelar.csv" in c.value for c in at.caption)
+
+
+def test_volume_serie_mensal_marca_2026_parcial():
+    import json
+    at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
+    figs = [json.loads(p.proto.spec) for p in at.get("plotly_chart")]
+    f = [f for f in figs if f["layout"]["title"]["text"] == "Processos públicos ajuizados por mês"][0]
+    assert any("2026 parcial" in a.get("text", "") for a in f["layout"].get("annotations", []))
+    assert any(s.get("type") == "rect" for s in f["layout"].get("shapes", []))
+
+
+def test_acoes_penais_cautelar_anos_em_ordem_fixa():
+    import json
+    at = AppTest.from_file(str(RAIZ / "paginas" / "acoes_penais.py"), default_timeout=30).run()
+    assert not at.exception
+    figs = [json.loads(p.proto.spec) for p in at.get("plotly_chart")]
+    f = [f for f in figs if f["layout"]["title"]["text"].startswith("Resposta cautelar")][0]
+    arr = f["layout"]["xaxis"]["categoryarray"]
+    assert arr[0] == "2019" and arr[-1] == "2026 (parcial)" and len(arr) == 8

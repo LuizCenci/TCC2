@@ -49,3 +49,19 @@ def test_chaves_inteiras():
                 assert str(t[col].dtype) == "Int64", (nome, col)
     assert (carregar_tabela("agg_taxa").ano_ajuizamento == 2025).sum() > 0
     assert str(carregar_tabela("agg_qualidade_orgao")["orgao_codigo"].dtype) == "Int64"
+
+
+def test_integridade_conteudo_commitado():
+    import hashlib
+    import subprocess
+    from painel import config
+    rel = config.PASTA_EXPORTACAO.relative_to(config.RAIZ_REPO).as_posix()
+    try:
+        subprocess.run(["git", "--version"], check=True, capture_output=True)
+        subprocess.run(["git", "rev-parse", "HEAD"], check=True, capture_output=True, cwd=config.RAIZ_REPO)
+    except (OSError, subprocess.CalledProcessError):
+        pytest.skip("git indisponível")
+    for item in carregar_manifesto()["arquivos"]:
+        blob = subprocess.run(["git", "show", f"HEAD:{rel}/{item['arquivo']}"], check=True,
+                              capture_output=True, cwd=config.RAIZ_REPO).stdout
+        assert hashlib.sha256(blob).hexdigest() == item["sha256"], item["arquivo"]

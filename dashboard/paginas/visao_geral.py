@@ -80,7 +80,7 @@ cob = componentes.tabela("agg_cobertura_cnj")
 mpu = cob[(cob["medida"] == "mpu") & cob["ano_ajuizamento"].between(2020, 2025)]["pct"].dropna()
 man = carregar_manifesto()
 st.caption(
-    f"Nos anos completos de 2020 a 2025, o acervo público reúne de {formatar_pct(mpu.min())} a {formatar_pct(mpu.max())} das medidas "
-    f"protetivas registradas nos painéis do CNJ. Data de corte: {man['data_corte_max']}. "
+    f"Nos anos completos de 2020 a 2025, a razão entre os processos de medida protetiva da base pública e os "
+    f"registrados nos painéis do CNJ fica entre {formatar_pct(mpu.min())} e {formatar_pct(mpu.max())}. Data de corte: {man['data_corte_max']}. "
     f"Versão das regras: {man['versao_regras']}. Unidade: processos públicos."
 )

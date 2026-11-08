@@ -43,7 +43,7 @@ if not len(rec):
     st.info("Sem dados para este recorte.")
 elif rec["suprimido"].all():
     st.info(MSG_TUDO_SUPRIMIDO)
-st.plotly_chart(figura_mapa(rec, coluna, titulo), use_container_width=True)
+st.plotly_chart(figura_mapa(rec, coluna, titulo), width="stretch")
 if rec["suprimido_parcial"].any():
     st.caption("Há subcontagens ocultas em parte do recorte.")
 
@@ -67,7 +67,7 @@ tab = pd.DataFrame({
     "Taxa suavizada (EB)": [valor_ou_suprimido(v, s, formatar_decimal)
                             for v, s in zip(rank["taxa_eb_100k"], rank["suprimido"])],
 })
-st.dataframe(tab, hide_index=True, use_container_width=True)
+st.dataframe(tab, hide_index=True, width="stretch")
 componentes.rodape(f"Taxa de {ROTULO_TAXA}; a suavizada é bayesiana empírica e não pode ser somada "
                    "entre anos ou tipos.", "agg_taxa.csv", serie)
 _r = rec.copy()
@@ -80,18 +80,20 @@ st.subheader("Tempos medianos por mesorregião")
 marco = st.selectbox("Marco", list(MARCO), format_func=MARCO.get, key="territorio_marco")
 tempo = componentes.tabela("agg_tempo")
 t = tempo[(tempo["marco"] == marco) & (tempo["serie"] == serie)
+          & (tempo["tipo_procedimento"] == tipo)
           & (tempo["estrato"] == "mesorregiao_id")].copy()
 if t.empty:
-    st.info("Sem dados para este marco.")
+    st.info("Sem dados de tempo para este tipo de procedimento e marco.")
 else:
     t["Mesorregião"] = t["valor_estrato"].map(lambda v: nomes.get(int(v), str(v)))
     t["Tempo mediano"] = ["suprimido" if r["suprimido"] else texto_mediana(r) for _, r in t.iterrows()]
     t["Processos (n, arredondado)"] = [valor_ou_suprimido(r["n"], r["suprimido"]) for _, r in t.iterrows()]
     st.dataframe(t[["Mesorregião", "Tempo mediano", "Processos (n, arredondado)"]],
-                 hide_index=True, use_container_width=True)
+                 hide_index=True, width="stretch")
     componentes.rodape("Tempo mediano entre o ajuizamento e o marco; contagens arredondadas na base 10.",
                        "agg_tempo.csv", serie)
-    _t = t[["marco", "valor_estrato", "n", "estimavel", "mediana_dias", "mediana_alcancada", "suprimido"]].copy()
+    st.caption("A tabela agrega todos os anos de ajuizamento e usa o tipo de procedimento selecionado acima.")
+    _t = t[["tipo_procedimento", "marco", "valor_estrato", "n", "estimavel", "mediana_dias", "mediana_alcancada", "suprimido"]].copy()
     for _c in ["n", "mediana_dias"]:
         _t[_c] = _t[_c].mask(_t["suprimido"], pd.NA)
     componentes.botao_download(_t, "territorio_tempo.csv")
