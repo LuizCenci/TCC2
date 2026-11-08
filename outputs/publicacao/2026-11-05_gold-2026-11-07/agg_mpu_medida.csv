@@ -1,0 +1,1294 @@
+pergunta,ano_ajuizamento,ano_parcial,mesorregiao_id,tipo_medida,n,suprimido,suprimido_parcial
+Q06,2019,false,4101,Proibição de aproximação da ofendida,6,false,false
+Q06,2019,false,4101,Proibição de condutas quaisquer,,true,false
+Q06,2019,false,4101,Proibição de contato com a ofendida,6,false,false
+Q06,2019,false,4101,Proibição de frequência de determinados lugares,,true,false
+Q06,2019,false,4101,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2019,false,4102,Proibição de aproximação da ofendida,,true,false
+Q06,2019,false,4102,Proibição de contato com a ofendida,,true,false
+Q06,2019,false,4103,Acolhimento institucional,5,false,false
+Q06,2019,false,4103,Afastamento do lar ou domicílio,,true,false
+Q06,2019,false,4103,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2019,false,4103,Encaminhamento a curador,,true,false
+Q06,2019,false,4103,Encaminhamento À  família,,true,false
+Q06,2019,false,4103,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2019,false,4103,Orientação,,true,false
+Q06,2019,false,4103,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2019,false,4103,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2019,false,4103,Proibição de aproximação da ofendida,106,false,false
+Q06,2019,false,4103,Proibição de condutas quaisquer,,true,false
+Q06,2019,false,4103,Proibição de contato com a ofendida,102,false,false
+Q06,2019,false,4103,Proibição de frequência de determinados lugares,9,false,false
+Q06,2019,false,4103,Requisição para tratamento de sua saúde,6,false,false
+Q06,2019,false,4103,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2019,false,4103,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2019,false,4104,Proibição de aproximação da ofendida,8,false,false
+Q06,2019,false,4104,Proibição de condutas quaisquer,,true,false
+Q06,2019,false,4104,Proibição de contato com a ofendida,8,false,false
+Q06,2019,false,4104,Proibição de frequência de determinados lugares,,true,false
+Q06,2019,false,4105,Orientação,,true,false
+Q06,2019,false,4105,Proibição de aproximação da ofendida,12,false,false
+Q06,2019,false,4105,Proibição de contato com a ofendida,12,false,false
+Q06,2019,false,4106,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2019,false,4106,Orientação,,true,false
+Q06,2019,false,4106,Proibição de aproximação da ofendida,12,false,false
+Q06,2019,false,4106,Proibição de contato com a ofendida,12,false,false
+Q06,2019,false,4106,Proibição de frequência de determinados lugares,,true,false
+Q06,2019,false,4107,Proibição de aproximação da ofendida,,true,false
+Q06,2019,false,4107,Proibição de contato com a ofendida,,true,false
+Q06,2019,false,4108,Acolhimento institucional,,true,false
+Q06,2019,false,4108,Afastamento do lar ou domicílio,,true,false
+Q06,2019,false,4108,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2019,false,4108,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2019,false,4108,Proibição de aproximação da ofendida,84,false,false
+Q06,2019,false,4108,Proibição de contato com a ofendida,84,false,false
+Q06,2019,false,4108,Proibição de frequência de determinados lugares,,true,false
+Q06,2019,false,4108,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2019,false,4109,Proibição de aproximação da ofendida,,true,false
+Q06,2019,false,4109,Proibição de contato com a ofendida,5,false,false
+Q06,2019,false,4109,Proibição de frequência de determinados lugares,,true,false
+Q06,2019,false,4110,Acolhimento institucional,,true,false
+Q06,2019,false,4110,Afastamento do lar ou domicílio,,true,false
+Q06,2019,false,4110,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2019,false,4110,Orientação,,true,false
+Q06,2019,false,4110,outras medidas protetivas de urgência (art. 22,29,false,false
+Q06,2019,false,4110,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2019,false,4110,Prestação de caução provisória,,true,false
+Q06,2019,false,4110,Proibição de aproximação da ofendida,26,false,false
+Q06,2019,false,4110,Proibição de condutas quaisquer,,true,false
+Q06,2019,false,4110,Proibição de contato com a ofendida,25,false,false
+Q06,2019,false,4110,Proibição de frequência de determinados lugares,,true,false
+Q06,2019,false,4110,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2019,false,4110,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2019,false,4110,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2019,false,4110,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2020,false,4101,Acolhimento institucional,9,false,false
+Q06,2020,false,4101,Acompanhamento psicossocial do agressor,,true,false
+Q06,2020,false,4101,Afastamento do lar ou domicílio,,true,false
+Q06,2020,false,4101,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2020,false,4101,inclusão em serviços e programas oficiais ou comunitários de proteção,15,false,false
+Q06,2020,false,4101,Orientação,17,false,false
+Q06,2020,false,4101,outras medidas protetivas de urgência (art. 22,13,false,false
+Q06,2020,false,4101,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2020,false,4101,Proibição de aproximação da ofendida,69,false,false
+Q06,2020,false,4101,Proibição de condutas quaisquer,29,false,false
+Q06,2020,false,4101,Proibição de contato com a ofendida,52,false,false
+Q06,2020,false,4101,Proibição de frequência de determinados lugares,24,false,false
+Q06,2020,false,4101,Restrição ou suspensão de visitas aos dependentes menores,7,false,false
+Q06,2020,false,4101,Suspensão da posse ou restrição do porte de armas,5,false,false
+Q06,2020,false,4102,Acompanhamento psicossocial do agressor,19,false,false
+Q06,2020,false,4102,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,28,false,false
+Q06,2020,false,4106,Orientação,77,false,false
+Q06,2020,false,4102,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2020,false,4102,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2020,false,4102,Orientação,,true,false
+Q06,2020,false,4102,outras medidas protetivas de urgência (art. 22,24,false,false
+Q06,2020,false,4102,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2020,false,4102,Proibição de aproximação da ofendida,63,false,false
+Q06,2020,false,4102,Proibição de condutas quaisquer,,true,false
+Q06,2020,false,4102,Proibição de contato com a ofendida,49,false,false
+Q06,2020,false,4102,Proibição de frequência de determinados lugares,30,false,false
+Q06,2020,false,4102,Restrição ou suspensão de visitas aos dependentes menores,5,false,false
+Q06,2020,false,4102,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2020,false,4102,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2020,false,4103,Abrigo em entidade,,true,false
+Q06,2020,false,4103,Abrigo temporário,,true,false
+Q06,2020,false,4103,Acolhimento institucional,12,false,false
+Q06,2020,false,4103,Acompanhamento psicossocial do agressor,11,false,false
+Q06,2020,false,4103,Afastamento do lar ou domicílio,,true,false
+Q06,2020,false,4103,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2020,false,4103,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,12,false,false
+Q06,2020,false,4103,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2020,false,4103,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,5,false,false
+Q06,2020,false,4103,Determinar a separação de corpos (art. 23,10,false,false
+Q06,2020,false,4103,Encaminhamento a curador,7,false,false
+Q06,2020,false,4103,Encaminhamento À  família,7,false,false
+Q06,2020,false,4103,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2020,false,4103,Orientação,13,false,false
+Q06,2020,false,4103,outras medidas protetivas de urgência (art. 22,14,false,false
+Q06,2020,false,4103,Prestação de alimentos provisionais ou provisórios,68,false,false
+Q06,2020,false,4103,Prestação de caução provisória,5,false,false
+Q06,2020,false,4103,Proibição de aproximação da ofendida,574,false,false
+Q06,2020,false,4103,Proibição de condutas quaisquer,62,false,false
+Q06,2020,false,4103,Proibição de contato com a ofendida,541,false,false
+Q06,2020,false,4103,Proibição de frequência de determinados lugares,56,false,false
+Q06,2020,false,4103,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2020,false,4103,Requisição para tratamento de sua saúde,21,false,false
+Q06,2020,false,4103,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,9,false,false
+Q06,2020,false,4103,Restrição ou suspensão de visitas aos dependentes menores,53,false,false
+Q06,2020,false,4103,Suspensão da posse ou restrição do porte de armas,54,false,false
+Q06,2020,false,4103,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,5,false,false
+Q06,2020,false,4103,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,5,false,false
+Q06,2020,false,4104,Acolhimento institucional,14,false,false
+Q06,2020,false,4104,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2020,false,4104,Orientação,,true,false
+Q06,2020,false,4104,outras medidas protetivas de urgência (art. 22,15,false,false
+Q06,2020,false,4104,Prestação de caução provisória,,true,false
+Q06,2020,false,4104,Proibição de aproximação da ofendida,66,false,false
+Q06,2020,false,4104,Proibição de condutas quaisquer,,true,false
+Q06,2020,false,4104,Proibição de contato com a ofendida,54,false,false
+Q06,2020,false,4104,Proibição de frequência de determinados lugares,33,false,false
+Q06,2020,false,4104,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2020,false,4104,Restrição ou suspensão de visitas aos dependentes menores,8,false,false
+Q06,2020,false,4104,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2020,false,4105,Acolhimento institucional,,true,false
+Q06,2020,false,4105,Acompanhamento psicossocial do agressor,13,false,false
+Q06,2020,false,4105,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2020,false,4105,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2020,false,4105,Orientação,,true,false
+Q06,2020,false,4105,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2020,false,4105,Prestação de alimentos provisionais ou provisórios,18,false,false
+Q06,2020,false,4105,Proibição de aproximação da ofendida,63,false,false
+Q06,2020,false,4105,Proibição de condutas quaisquer,19,false,false
+Q06,2020,false,4105,Proibição de contato com a ofendida,56,false,false
+Q06,2020,false,4105,Proibição de frequência de determinados lugares,11,false,false
+Q06,2020,false,4105,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2020,false,4105,Restrição ou suspensão de visitas aos dependentes menores,19,false,false
+Q06,2020,false,4105,Suspensão da posse ou restrição do porte de armas,18,false,false
+Q06,2020,false,4106,Acolhimento institucional,9,false,false
+Q06,2020,false,4106,Acompanhamento psicossocial do agressor,5,false,false
+Q06,2020,false,4106,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2020,false,4106,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,6,false,false
+Q06,2020,false,4106,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2020,false,4106,Determinar a separação de corpos (art. 23,7,false,false
+Q06,2020,false,4106,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2020,false,4106,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2020,false,4106,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2020,false,4106,Prestação de alimentos provisionais ou provisórios,6,false,false
+Q06,2020,false,4106,Proibição de aproximação da ofendida,192,false,false
+Q06,2020,false,4106,Proibição de condutas quaisquer,15,false,false
+Q06,2020,false,4106,Proibição de contato com a ofendida,158,false,false
+Q06,2020,false,4106,Proibição de frequência de determinados lugares,29,false,false
+Q06,2020,false,4106,reabilitação do agressor (art. 35,,true,false
+Q06,2020,false,4106,Restrição ou suspensão de visitas aos dependentes menores,8,false,false
+Q06,2020,false,4106,Suspensão da posse ou restrição do porte de armas,8,false,false
+Q06,2020,false,4106,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2020,false,4106,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2020,false,4107,Acolhimento institucional,9,false,false
+Q06,2020,false,4107,Acompanhamento psicossocial do agressor,6,false,false
+Q06,2020,false,4107,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2020,false,4107,Orientação,18,false,false
+Q06,2020,false,4107,outras medidas protetivas de urgência (art. 22,15,false,false
+Q06,2020,false,4107,Prestação de alimentos provisionais ou provisórios,13,false,false
+Q06,2020,false,4107,Proibição de aproximação da ofendida,95,false,false
+Q06,2020,false,4107,Proibição de condutas quaisquer,27,false,false
+Q06,2020,false,4107,Proibição de contato com a ofendida,272,false,false
+Q06,2020,false,4107,Proibição de frequência de determinados lugares,12,false,false
+Q06,2020,false,4107,Restrição ou suspensão de visitas aos dependentes menores,13,false,false
+Q06,2020,false,4107,Suspensão da posse ou restrição do porte de armas,13,false,false
+Q06,2020,false,4107,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2020,false,4108,Acolhimento institucional,,true,false
+Q06,2020,false,4108,Afastamento do lar ou domicílio,,true,false
+Q06,2020,false,4108,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2020,false,4108,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2020,false,4108,Determinar a separação de corpos (art. 23,,true,false
+Q06,2020,false,4108,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2020,false,4108,Orientação,,true,false
+Q06,2020,false,4108,outras medidas protetivas de urgência (art. 22,10,false,false
+Q06,2020,false,4108,Prestação de alimentos provisionais ou provisórios,8,false,false
+Q06,2020,false,4108,Proibição de aproximação da ofendida,136,false,false
+Q06,2020,false,4108,Proibição de condutas quaisquer,11,false,false
+Q06,2020,false,4108,Proibição de contato com a ofendida,129,false,false
+Q06,2020,false,4108,Proibição de frequência de determinados lugares,,true,false
+Q06,2020,false,4108,reabilitação do agressor (art. 35,,true,false
+Q06,2020,false,4108,Restrição ou suspensão de visitas aos dependentes menores,10,false,false
+Q06,2020,false,4108,Suspensão da posse ou restrição do porte de armas,6,false,false
+Q06,2020,false,4108,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2020,false,4109,Acolhimento institucional,,true,false
+Q06,2020,false,4109,Acompanhamento psicossocial do agressor,,true,false
+Q06,2020,false,4109,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2020,false,4109,Determinar a separação de corpos (art. 23,,true,false
+Q06,2020,false,4109,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2020,false,4109,Prestação de alimentos provisionais ou provisórios,9,false,false
+Q06,2020,false,4109,Proibição de aproximação da ofendida,24,false,false
+Q06,2020,false,4109,Proibição de condutas quaisquer,11,false,false
+Q06,2020,false,4109,Proibição de contato com a ofendida,28,false,false
+Q06,2020,false,4109,Proibição de frequência de determinados lugares,,true,false
+Q06,2020,false,4109,Restrição ou suspensão de visitas aos dependentes menores,9,false,false
+Q06,2020,false,4109,Suspensão da posse ou restrição do porte de armas,10,false,false
+Q06,2020,false,4110,Acolhimento institucional,38,false,false
+Q06,2020,false,4110,Acompanhamento psicossocial do agressor,23,false,false
+Q06,2020,false,4110,Afastamento do lar ou domicílio,,true,false
+Q06,2020,false,4110,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2020,false,4110,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,18,false,false
+Q06,2020,false,4110,Determinação do afastamento da ofendida do lar,18,false,false
+Q06,2020,false,4110,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,11,false,false
+Q06,2020,false,4110,Determinar a separação de corpos (art. 23,49,false,false
+Q06,2020,false,4110,Orientação,37,false,false
+Q06,2020,false,4110,outras medidas protetivas de urgência (art. 22,16,false,false
+Q06,2020,false,4110,Prestação de alimentos provisionais ou provisórios,128,false,false
+Q06,2020,false,4110,Prestação de caução provisória,,true,false
+Q06,2020,false,4110,Proibição de aproximação da ofendida,765,false,false
+Q06,2020,false,4110,Proibição de condutas quaisquer,74,false,false
+Q06,2020,false,4110,Proibição de contato com a ofendida,419,false,false
+Q06,2020,false,4110,Proibição de frequência de determinados lugares,312,false,false
+Q06,2020,false,4110,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2020,false,4110,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2020,false,4110,Restrição ou suspensão de visitas aos dependentes menores,103,false,false
+Q06,2020,false,4110,Suspensão da posse ou restrição do porte de armas,86,false,false
+Q06,2020,false,4110,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2020,false,4110,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2021,false,4101,Acolhimento institucional,5,false,false
+Q06,2021,false,4101,Afastamento do lar ou domicílio,,true,false
+Q06,2021,false,4101,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2021,false,4101,inclusão em serviços e programas oficiais ou comunitários de proteção,6,false,false
+Q06,2021,false,4101,Orientação,5,false,false
+Q06,2021,false,4101,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2021,false,4101,Prestação de alimentos provisionais ou provisórios,5,false,false
+Q06,2021,false,4101,Proibição de aproximação da ofendida,71,false,false
+Q06,2021,false,4101,Proibição de condutas quaisquer,24,false,false
+Q06,2021,false,4101,Proibição de contato com a ofendida,67,false,false
+Q06,2021,false,4101,Proibição de frequência de determinados lugares,28,false,false
+Q06,2021,false,4101,Restrição ou suspensão de visitas aos dependentes menores,8,false,false
+Q06,2021,false,4101,Suspensão da posse ou restrição do porte de armas,7,false,false
+Q06,2021,false,4102,Acolhimento institucional,,true,false
+Q06,2021,false,4102,Acompanhamento psicossocial do agressor,34,false,false
+Q06,2021,false,4102,Afastamento do lar ou domicílio,27,false,false
+Q06,2021,false,4102,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,33,false,false
+Q06,2021,false,4102,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2021,false,4102,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2021,false,4102,inclusão em programa de acolhimento familiar,,true,false
+Q06,2021,false,4102,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2021,false,4102,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2021,false,4102,Orientação,39,false,false
+Q06,2021,false,4102,outras medidas protetivas de urgência (art. 22,44,false,false
+Q06,2021,false,4102,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2021,false,4102,Proibição de aproximação da ofendida,119,false,false
+Q06,2021,false,4102,Proibição de condutas quaisquer,,true,false
+Q06,2021,false,4102,Proibição de contato com a ofendida,119,false,false
+Q06,2021,false,4102,Proibição de frequência de determinados lugares,89,false,false
+Q06,2021,false,4102,reabilitação do agressor (art. 35,,true,false
+Q06,2021,false,4102,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2021,false,4102,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2021,false,4102,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2021,false,4103,Acolhimento institucional,,true,false
+Q06,2021,false,4103,Acompanhamento psicossocial do agressor,8,false,false
+Q06,2021,false,4103,Afastamento do lar ou domicílio,24,false,false
+Q06,2021,false,4103,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2021,false,4103,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2021,false,4103,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2021,false,4103,Determinar a separação de corpos (art. 23,,true,false
+Q06,2021,false,4103,Encaminhamento a curador,,true,false
+Q06,2021,false,4103,Encaminhamento À  família,,true,false
+Q06,2021,false,4103,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2021,false,4103,inclusão em serviços e programas oficiais ou comunitários de proteção,9,false,false
+Q06,2021,false,4103,Orientação,,true,false
+Q06,2021,false,4103,outras medidas protetivas de urgência (art. 22,13,false,false
+Q06,2021,false,4103,Prestação de alimentos provisionais ou provisórios,24,false,false
+Q06,2021,false,4103,Prestação de caução provisória,,true,false
+Q06,2021,false,4103,Proibição de aproximação da ofendida,259,false,false
+Q06,2021,false,4103,Proibição de condutas quaisquer,22,false,false
+Q06,2021,false,4103,Proibição de contato com a ofendida,258,false,false
+Q06,2021,false,4103,Proibição de frequência de determinados lugares,56,false,false
+Q06,2021,false,4103,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2021,false,4103,Requisição para tratamento de sua saúde,,true,false
+Q06,2021,false,4103,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2021,false,4103,Restrição ou suspensão de visitas aos dependentes menores,21,false,false
+Q06,2021,false,4103,Suspensão da posse ou restrição do porte de armas,17,false,false
+Q06,2021,false,4103,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2021,false,4103,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2021,false,4104,Acolhimento institucional,50,false,false
+Q06,2021,false,4104,Afastamento do lar ou domicílio,34,false,false
+Q06,2021,false,4104,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2021,false,4104,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2021,false,4104,Orientação,,true,false
+Q06,2021,false,4104,outras medidas protetivas de urgência (art. 22,25,false,false
+Q06,2021,false,4104,Proibição de aproximação da ofendida,175,false,false
+Q06,2021,false,4104,Proibição de condutas quaisquer,35,false,false
+Q06,2021,false,4104,Proibição de contato com a ofendida,143,false,false
+Q06,2021,false,4104,Proibição de frequência de determinados lugares,72,false,false
+Q06,2021,false,4104,Restrição ou suspensão de visitas aos dependentes menores,8,false,false
+Q06,2021,false,4104,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2021,false,4104,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2021,false,4105,Acompanhamento psicossocial do agressor,,true,false
+Q06,2021,false,4105,Afastamento do lar ou domicílio,15,false,false
+Q06,2021,false,4105,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2021,false,4105,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2021,false,4105,Orientação,,true,false
+Q06,2021,false,4105,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2021,false,4105,Prestação de alimentos provisionais ou provisórios,5,false,false
+Q06,2021,false,4105,Proibição de aproximação da ofendida,55,false,false
+Q06,2021,false,4105,Proibição de condutas quaisquer,5,false,false
+Q06,2021,false,4105,Proibição de contato com a ofendida,55,false,false
+Q06,2021,false,4105,Proibição de frequência de determinados lugares,,true,false
+Q06,2021,false,4105,Restrição ou suspensão de visitas aos dependentes menores,5,false,false
+Q06,2021,false,4105,Suspensão da posse ou restrição do porte de armas,6,false,false
+Q06,2021,false,4105,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2021,false,4106,Abrigo temporário,,true,false
+Q06,2021,false,4106,Acolhimento institucional,6,false,false
+Q06,2021,false,4106,Acompanhamento psicossocial do agressor,5,false,false
+Q06,2021,false,4106,Afastamento do lar ou domicílio,74,false,false
+Q06,2021,false,4106,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2021,false,4106,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,22,false,false
+Q06,2021,false,4106,Determinação do afastamento da ofendida do lar,5,false,false
+Q06,2021,false,4106,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2021,false,4106,Determinar a separação de corpos (art. 23,5,false,false
+Q06,2021,false,4106,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2021,false,4106,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2021,false,4106,inclusão em serviços e programas oficiais ou comunitários de proteção,52,false,false
+Q06,2021,false,4106,Orientação,57,false,false
+Q06,2021,false,4106,outras medidas protetivas de urgência (art. 22,16,false,false
+Q06,2021,false,4106,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2021,false,4106,Proibição de aproximação da ofendida,348,false,false
+Q06,2021,false,4106,Proibição de condutas quaisquer,28,false,false
+Q06,2021,false,4106,Proibição de contato com a ofendida,329,false,false
+Q06,2021,false,4106,Proibição de frequência de determinados lugares,141,false,false
+Q06,2021,false,4106,reabilitação do agressor (art. 35,46,false,false
+Q06,2021,false,4106,Restrição ou suspensão de visitas aos dependentes menores,9,false,false
+Q06,2021,false,4106,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2021,false,4106,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2021,false,4106,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2021,false,4107,Acolhimento institucional,,true,false
+Q06,2021,false,4107,Acompanhamento psicossocial do agressor,,true,false
+Q06,2021,false,4107,Afastamento do lar ou domicílio,42,false,false
+Q06,2021,false,4107,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2021,false,4107,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2021,false,4107,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2021,false,4107,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2021,false,4107,Orientação,5,false,false
+Q06,2021,false,4107,outras medidas protetivas de urgência (art. 22,6,false,false
+Q06,2021,false,4107,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2021,false,4107,Proibição de aproximação da ofendida,87,false,false
+Q06,2021,false,4107,Proibição de condutas quaisquer,,true,false
+Q06,2021,false,4107,Proibição de contato com a ofendida,323,false,false
+Q06,2021,false,4107,Proibição de frequência de determinados lugares,11,false,false
+Q06,2021,false,4107,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2021,false,4107,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2021,false,4107,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2021,false,4108,Acolhimento institucional,,true,false
+Q06,2021,false,4108,Acompanhamento psicossocial do agressor,,true,false
+Q06,2021,false,4108,Afastamento do lar ou domicílio,20,false,false
+Q06,2021,false,4108,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2021,false,4108,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,6,false,false
+Q06,2021,false,4108,Determinar a separação de corpos (art. 23,,true,false
+Q06,2021,false,4108,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2021,false,4108,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2021,false,4108,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2021,false,4108,Orientação,18,false,false
+Q06,2021,false,4108,outras medidas protetivas de urgência (art. 22,14,false,false
+Q06,2021,false,4108,Prestação de alimentos provisionais ou provisórios,6,false,false
+Q06,2021,false,4108,Proibição de aproximação da ofendida,122,false,false
+Q06,2021,false,4108,Proibição de condutas quaisquer,19,false,false
+Q06,2021,false,4108,Proibição de contato com a ofendida,95,false,false
+Q06,2021,false,4108,Proibição de frequência de determinados lugares,6,false,false
+Q06,2021,false,4108,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2021,false,4108,reabilitação do agressor (art. 35,,true,false
+Q06,2021,false,4108,Requisição de tratamento médico,,true,false
+Q06,2021,false,4108,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2021,false,4108,Restrição ou suspensão de visitas aos dependentes menores,12,false,false
+Q06,2021,false,4108,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2021,false,4108,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2022,false,4106,Orientação,15,false,false
+Q06,2021,false,4109,Acolhimento institucional,,true,false
+Q06,2021,false,4109,Acompanhamento psicossocial do agressor,,true,false
+Q06,2021,false,4109,Afastamento do lar ou domicílio,,true,false
+Q06,2021,false,4109,Determinar a separação de corpos (art. 23,,true,false
+Q06,2021,false,4109,inclusão em programa de acolhimento familiar,,true,false
+Q06,2021,false,4109,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2021,false,4109,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2021,false,4109,Proibição de aproximação da ofendida,19,false,false
+Q06,2021,false,4109,Proibição de condutas quaisquer,,true,false
+Q06,2021,false,4109,Proibição de contato com a ofendida,17,false,false
+Q06,2021,false,4109,Proibição de frequência de determinados lugares,,true,false
+Q06,2021,false,4109,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2021,false,4109,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2021,false,4110,Acolhimento institucional,9,false,false
+Q06,2021,false,4110,Acompanhamento psicossocial do agressor,10,false,false
+Q06,2021,false,4110,Afastamento do lar ou domicílio,54,false,false
+Q06,2021,false,4110,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2021,false,4110,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2021,false,4110,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,5,false,false
+Q06,2021,false,4110,Determinar a separação de corpos (art. 23,10,false,false
+Q06,2021,false,4110,inclusão em serviços e programas oficiais ou comunitários de proteção,5,false,false
+Q06,2021,false,4110,Orientação,44,false,false
+Q06,2021,false,4110,outras medidas protetivas de urgência (art. 22,13,false,false
+Q06,2021,false,4110,Prestação de alimentos provisionais ou provisórios,32,false,false
+Q06,2021,false,4110,Proibição de aproximação da ofendida,500,false,false
+Q06,2021,false,4110,Proibição de condutas quaisquer,25,false,false
+Q06,2021,false,4110,Proibição de contato com a ofendida,349,false,false
+Q06,2021,false,4110,Proibição de frequência de determinados lugares,190,false,false
+Q06,2021,false,4110,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2021,false,4110,Requisição de tratamento psicológico,,true,false
+Q06,2021,false,4110,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2021,false,4110,Restrição ou suspensão de visitas aos dependentes menores,37,false,false
+Q06,2021,false,4110,Suspensão da posse ou restrição do porte de armas,26,false,false
+Q06,2021,false,4110,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2021,false,4110,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2022,false,4101,Acolhimento institucional,,true,false
+Q06,2022,false,4101,Acompanhamento psicossocial do agressor,,true,false
+Q06,2022,false,4101,Afastamento do lar ou domicílio,,true,false
+Q06,2022,false,4101,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2022,false,4101,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2022,false,4101,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2022,false,4101,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2022,false,4101,Orientação,5,false,false
+Q06,2022,false,4101,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2022,false,4101,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2022,false,4101,Proibição de aproximação da ofendida,61,false,false
+Q06,2022,false,4101,Proibição de condutas quaisquer,5,false,false
+Q06,2022,false,4101,Proibição de contato com a ofendida,55,false,false
+Q06,2022,false,4101,Proibição de frequência de determinados lugares,29,false,false
+Q06,2022,false,4101,reabilitação do agressor (art. 35,,true,false
+Q06,2022,false,4101,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2022,false,4101,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2022,false,4101,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2022,false,4102,Acolhimento institucional,,true,false
+Q06,2022,false,4102,Acompanhamento psicossocial do agressor,8,false,false
+Q06,2022,false,4102,Afastamento do lar ou domicílio,22,false,false
+Q06,2022,false,4102,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,25,false,false
+Q06,2022,false,4102,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2022,false,4102,Orientação,20,false,false
+Q06,2022,false,4102,outras medidas protetivas de urgência (art. 22,10,false,false
+Q06,2022,false,4102,Proibição de aproximação da ofendida,116,false,false
+Q06,2022,false,4102,Proibição de condutas quaisquer,5,false,false
+Q06,2022,false,4102,Proibição de contato com a ofendida,108,false,false
+Q06,2022,false,4102,Proibição de frequência de determinados lugares,63,false,false
+Q06,2022,false,4102,reabilitação do agressor (art. 35,,true,false
+Q06,2022,false,4102,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2022,false,4102,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2022,false,4103,Acolhimento institucional,,true,false
+Q06,2022,false,4103,Acompanhamento psicossocial do agressor,,true,false
+Q06,2022,false,4103,Afastamento do lar ou domicílio,22,false,false
+Q06,2022,false,4103,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,8,false,false
+Q06,2022,false,4103,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2022,false,4103,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2022,false,4103,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2022,false,4103,Determinar a separação de corpos (art. 23,,true,false
+Q06,2022,false,4106,inclusão em serviços e programas oficiais ou comunitários de proteção,75,false,false
+Q06,2022,false,4103,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2022,false,4103,Orientação,,true,false
+Q06,2022,false,4103,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2022,false,4103,Prestação de alimentos provisionais ou provisórios,9,false,false
+Q06,2022,false,4103,Proibição de aproximação da ofendida,109,false,false
+Q06,2022,false,4103,Proibição de condutas quaisquer,14,false,false
+Q06,2022,false,4103,Proibição de contato com a ofendida,98,false,false
+Q06,2022,false,4103,Proibição de frequência de determinados lugares,15,false,false
+Q06,2022,false,4103,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2022,false,4103,Requisição de tratamento médico,,true,false
+Q06,2022,false,4103,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2022,false,4103,Restrição ou suspensão de visitas aos dependentes menores,9,false,false
+Q06,2022,false,4103,Suspensão da posse ou restrição do porte de armas,8,false,false
+Q06,2022,false,4103,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2022,false,4104,Abrigo em entidade,,true,false
+Q06,2022,false,4104,Abrigo temporário,,true,false
+Q06,2022,false,4104,Acolhimento institucional,9,false,false
+Q06,2022,false,4104,Acompanhamento psicossocial do agressor,,true,false
+Q06,2022,false,4104,Afastamento do lar ou domicílio,46,false,false
+Q06,2022,false,4104,Colocação em família substituta,,true,false
+Q06,2022,false,4104,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2022,false,4104,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2022,false,4104,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2022,false,4104,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2022,false,4104,Determinar a separação de corpos (art. 23,,true,false
+Q06,2022,false,4104,Encaminhamento a curador,,true,false
+Q06,2022,false,4104,Encaminhamento À  família,,true,false
+Q06,2022,false,4104,Encaminhamento ao responsável,,true,false
+Q06,2022,false,4104,Encaminhamento aos pais,,true,false
+Q06,2022,false,4104,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2022,false,4104,inclusão em programa de acolhimento familiar,,true,false
+Q06,2022,false,4104,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2022,false,4104,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2022,false,4104,Orientação,,true,false
+Q06,2022,false,4104,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2022,false,4104,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2022,false,4104,Prestação de caução provisória,,true,false
+Q06,2022,false,4104,Proibição de aproximação da ofendida,160,false,false
+Q06,2022,false,4104,Proibição de condutas quaisquer,14,false,false
+Q06,2022,false,4104,Proibição de contato com a ofendida,162,false,false
+Q06,2022,false,4104,Proibição de frequência de determinados lugares,72,false,false
+Q06,2022,false,4104,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2022,false,4104,reabilitação do agressor (art. 35,,true,false
+Q06,2022,false,4104,Requisição de tratamento médico,,true,false
+Q06,2022,false,4104,Requisição de tratamento psicológico,,true,false
+Q06,2022,false,4104,Requisição de tratamento psiquiátrico,,true,false
+Q06,2022,false,4104,Requisição de tratamento psiquiátrico em regime hospitalar,,true,false
+Q06,2022,false,4104,Requisição para tratamento de sua saúde,,true,false
+Q06,2022,false,4104,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2022,false,4104,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2022,false,4104,Suspensão da posse ou restrição do porte de armas,8,false,false
+Q06,2022,false,4104,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2022,false,4104,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2022,false,4105,Acompanhamento psicossocial do agressor,,true,false
+Q06,2022,false,4105,Afastamento do lar ou domicílio,19,false,false
+Q06,2022,false,4105,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2022,false,4105,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2022,false,4105,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2022,false,4105,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2022,false,4105,Orientação,,true,false
+Q06,2022,false,4105,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2022,false,4105,Proibição de aproximação da ofendida,47,false,false
+Q06,2022,false,4105,Proibição de condutas quaisquer,,true,false
+Q06,2022,false,4105,Proibição de contato com a ofendida,45,false,false
+Q06,2022,false,4105,Proibição de frequência de determinados lugares,,true,false
+Q06,2022,false,4105,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2022,false,4106,Acolhimento institucional,14,false,false
+Q06,2022,false,4106,Acompanhamento psicossocial do agressor,18,false,false
+Q06,2022,false,4106,Afastamento do lar ou domicílio,93,false,false
+Q06,2022,false,4106,Colocação em família substituta,,true,false
+Q06,2022,false,4106,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,21,false,false
+Q06,2022,false,4106,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,15,false,false
+Q06,2022,false,4106,Determinação do afastamento da ofendida do lar,6,false,false
+Q06,2022,false,4106,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2022,false,4106,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2022,false,4106,outras medidas protetivas de urgência (art. 22,23,false,false
+Q06,2022,false,4106,Prestação de alimentos provisionais ou provisórios,19,false,false
+Q06,2022,false,4106,Prestação de caução provisória,,true,false
+Q06,2022,false,4106,Proibição de aproximação da ofendida,415,false,false
+Q06,2022,false,4106,Proibição de condutas quaisquer,31,false,false
+Q06,2022,false,4106,Proibição de contato com a ofendida,395,false,false
+Q06,2022,false,4106,Proibição de frequência de determinados lugares,217,false,false
+Q06,2022,false,4106,reabilitação do agressor (art. 35,,true,false
+Q06,2022,false,4106,Requisição de tratamento psicológico,,true,false
+Q06,2022,false,4106,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,6,false,false
+Q06,2022,false,4106,Restrição ou suspensão de visitas aos dependentes menores,24,false,false
+Q06,2022,false,4106,Suspensão da posse ou restrição do porte de armas,22,false,false
+Q06,2022,false,4106,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,14,false,false
+Q06,2022,false,4107,Acolhimento institucional,,true,false
+Q06,2022,false,4107,Acompanhamento psicossocial do agressor,,true,false
+Q06,2022,false,4107,Afastamento do lar ou domicílio,73,false,false
+Q06,2022,false,4107,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2022,false,4107,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2022,false,4107,Orientação,5,false,false
+Q06,2022,false,4107,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2022,false,4107,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2022,false,4107,Proibição de aproximação da ofendida,89,false,false
+Q06,2022,false,4107,Proibição de condutas quaisquer,,true,false
+Q06,2022,false,4107,Proibição de contato com a ofendida,362,false,false
+Q06,2022,false,4107,Proibição de frequência de determinados lugares,5,false,false
+Q06,2022,false,4107,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2022,false,4107,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2022,false,4108,Acolhimento institucional,,true,false
+Q06,2022,false,4108,Acompanhamento psicossocial do agressor,29,false,false
+Q06,2022,false,4108,Afastamento do lar ou domicílio,23,false,false
+Q06,2022,false,4108,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,47,false,false
+Q06,2022,false,4108,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2022,false,4108,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,14,false,false
+Q06,2022,false,4108,inclusão em programa de acolhimento familiar,,true,false
+Q06,2022,false,4108,inclusão em serviços e programas oficiais ou comunitários de proteção,5,false,false
+Q06,2022,false,4108,Orientação,,true,false
+Q06,2022,false,4108,outras medidas protetivas de urgência (art. 22,6,false,false
+Q06,2022,false,4108,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2022,false,4108,Proibição de aproximação da ofendida,126,false,false
+Q06,2022,false,4108,Proibição de condutas quaisquer,10,false,false
+Q06,2022,false,4108,Proibição de contato com a ofendida,122,false,false
+Q06,2022,false,4108,Proibição de frequência de determinados lugares,9,false,false
+Q06,2022,false,4108,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2022,false,4108,reabilitação do agressor (art. 35,,true,false
+Q06,2022,false,4108,Restrição ou suspensão de visitas aos dependentes menores,6,false,false
+Q06,2022,false,4108,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2022,false,4108,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2022,false,4109,Acompanhamento psicossocial do agressor,,true,false
+Q06,2022,false,4109,Afastamento do lar ou domicílio,,true,false
+Q06,2022,false,4109,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2022,false,4109,inclusão em programa de acolhimento familiar,,true,false
+Q06,2022,false,4109,Orientação,,true,false
+Q06,2022,false,4109,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2022,false,4109,Proibição de aproximação da ofendida,19,false,false
+Q06,2022,false,4109,Proibição de condutas quaisquer,,true,false
+Q06,2022,false,4109,Proibição de contato com a ofendida,18,false,false
+Q06,2022,false,4109,Proibição de frequência de determinados lugares,,true,false
+Q06,2022,false,4109,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2022,false,4109,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2022,false,4109,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2022,false,4110,Acolhimento institucional,,true,false
+Q06,2022,false,4110,Acompanhamento psicossocial do agressor,9,false,false
+Q06,2022,false,4110,Afastamento do lar ou domicílio,54,false,false
+Q06,2022,false,4110,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,30,false,false
+Q06,2022,false,4110,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2022,false,4110,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2022,false,4110,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,7,false,false
+Q06,2022,false,4110,Determinar a separação de corpos (art. 23,,true,false
+Q06,2022,false,4110,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2022,false,4110,inclusão em programa de acolhimento familiar,,true,false
+Q06,2022,false,4110,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2022,false,4110,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2022,false,4110,Orientação,8,false,false
+Q06,2022,false,4110,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2022,false,4110,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2022,false,4110,Proibição de aproximação da ofendida,238,false,false
+Q06,2022,false,4110,Proibição de condutas quaisquer,10,false,false
+Q06,2022,false,4110,Proibição de contato com a ofendida,218,false,false
+Q06,2022,false,4110,Proibição de frequência de determinados lugares,70,false,false
+Q06,2022,false,4110,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,5,false,false
+Q06,2022,false,4110,Restrição ou suspensão de visitas aos dependentes menores,10,false,false
+Q06,2022,false,4110,Suspensão da posse ou restrição do porte de armas,6,false,false
+Q06,2022,false,4110,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,5,false,false
+Q06,2023,false,4101,Acompanhamento psicossocial do agressor,,true,false
+Q06,2023,false,4101,Afastamento do lar ou domicílio,,true,false
+Q06,2023,false,4101,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2023,false,4101,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2023,false,4101,Determinar a separação de corpos (art. 23,,true,false
+Q06,2023,false,4101,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2023,false,4101,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2023,false,4101,Proibição de aproximação da ofendida,22,false,false
+Q06,2023,false,4101,Proibição de contato com a ofendida,22,false,false
+Q06,2023,false,4101,Proibição de frequência de determinados lugares,,true,false
+Q06,2023,false,4101,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2023,false,4102,Acompanhamento psicossocial do agressor,7,false,false
+Q06,2023,false,4102,Afastamento do lar ou domicílio,47,false,false
+Q06,2023,false,4102,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,36,false,false
+Q06,2023,false,4102,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2023,false,4102,Orientação,,true,false
+Q06,2023,false,4102,Proibição de aproximação da ofendida,131,false,false
+Q06,2023,false,4102,Proibição de condutas quaisquer,29,false,false
+Q06,2023,false,4102,Proibição de contato com a ofendida,124,false,false
+Q06,2023,false,4102,Proibição de frequência de determinados lugares,52,false,false
+Q06,2023,false,4102,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2023,false,4102,Requisição de tratamento psiquiátrico em regime hospitalar,,true,false
+Q06,2023,false,4102,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2023,false,4102,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2023,false,4103,Abrigo em entidade,,true,false
+Q06,2023,false,4103,Abrigo temporário,,true,false
+Q06,2023,false,4103,Acolhimento institucional,,true,false
+Q06,2023,false,4103,Acompanhamento psicossocial do agressor,22,false,false
+Q06,2023,false,4103,Afastamento do lar ou domicílio,36,false,false
+Q06,2023,false,4103,Colocação em família substituta,,true,false
+Q06,2023,false,4103,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,34,false,false
+Q06,2023,false,4103,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2023,false,4103,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2023,false,4103,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2023,false,4103,Determinar a separação de corpos (art. 23,,true,false
+Q06,2023,false,4103,Encaminhamento a curador,,true,false
+Q06,2023,false,4103,Encaminhamento À  família,,true,false
+Q06,2023,false,4103,Encaminhamento ao responsável,,true,false
+Q06,2023,false,4103,Encaminhamento aos pais,,true,false
+Q06,2023,false,4103,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2023,false,4103,inclusão em programa de acolhimento familiar,,true,false
+Q06,2023,false,4103,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2023,false,4103,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2023,false,4103,Orientação,,true,false
+Q06,2023,false,4103,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2023,false,4103,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2023,false,4103,Prestação de caução provisória,,true,false
+Q06,2023,false,4103,Proibição de aproximação da ofendida,121,false,false
+Q06,2023,false,4103,Proibição de condutas quaisquer,5,false,false
+Q06,2023,false,4103,Proibição de contato com a ofendida,121,false,false
+Q06,2023,false,4103,Proibição de frequência de determinados lugares,26,false,false
+Q06,2023,false,4103,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2023,false,4103,reabilitação do agressor (art. 35,,true,false
+Q06,2023,false,4103,Requisição de tratamento médico,,true,false
+Q06,2023,false,4103,Requisição de tratamento psicológico,,true,false
+Q06,2023,false,4103,Requisição de tratamento psiquiátrico,,true,false
+Q06,2023,false,4103,Requisição de tratamento psiquiátrico em regime hospitalar,,true,false
+Q06,2023,false,4103,Requisição para tratamento de sua saúde,,true,false
+Q06,2023,false,4103,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2023,false,4103,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2023,false,4103,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2023,false,4103,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2023,false,4103,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2023,false,4104,Acompanhamento psicossocial do agressor,,true,false
+Q06,2023,false,4104,Afastamento do lar ou domicílio,20,false,false
+Q06,2023,false,4104,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,5,false,false
+Q06,2023,false,4104,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2023,false,4104,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2023,false,4104,Determinar a separação de corpos (art. 23,,true,false
+Q06,2023,false,4104,Proibição de aproximação da ofendida,43,false,false
+Q06,2023,false,4104,Proibição de condutas quaisquer,,true,false
+Q06,2023,false,4104,Proibição de contato com a ofendida,41,false,false
+Q06,2023,false,4104,Proibição de frequência de determinados lugares,12,false,false
+Q06,2023,false,4104,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2023,false,4104,Requisição para tratamento de sua saúde,,true,false
+Q06,2023,false,4105,Acompanhamento psicossocial do agressor,,true,false
+Q06,2023,false,4105,Afastamento do lar ou domicílio,30,false,false
+Q06,2023,false,4105,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,10,false,false
+Q06,2023,false,4105,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2023,false,4105,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,5,false,false
+Q06,2023,false,4105,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2023,false,4105,Orientação,,true,false
+Q06,2023,false,4105,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2023,false,4105,Proibição de aproximação da ofendida,104,false,false
+Q06,2023,false,4105,Proibição de condutas quaisquer,,true,false
+Q06,2023,false,4105,Proibição de contato com a ofendida,105,false,false
+Q06,2023,false,4105,Proibição de frequência de determinados lugares,7,false,false
+Q06,2023,false,4105,Requisição de tratamento psicológico,,true,false
+Q06,2023,false,4105,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2023,false,4105,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2023,false,4105,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2023,false,4105,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2023,false,4106,Abrigo temporário,,true,false
+Q06,2023,false,4106,Acompanhamento psicossocial do agressor,75,false,false
+Q06,2023,false,4106,Afastamento do lar ou domicílio,108,false,false
+Q06,2023,false,4106,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,100,false,false
+Q06,2023,false,4106,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2023,false,4106,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2023,false,4106,Determinar a separação de corpos (art. 23,,true,false
+Q06,2023,false,4106,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2023,false,4106,inclusão em programa oficial ou comunitário de auxílio,5,false,false
+Q06,2023,false,4106,inclusão em serviços e programas oficiais ou comunitários de proteção,15,false,false
+Q06,2023,false,4106,Orientação,,true,false
+Q06,2023,false,4106,Proibição de aproximação da ofendida,380,false,false
+Q06,2023,false,4106,Proibição de condutas quaisquer,6,false,false
+Q06,2023,false,4106,Proibição de contato com a ofendida,368,false,false
+Q06,2023,false,4106,Proibição de frequência de determinados lugares,122,false,false
+Q06,2023,false,4106,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2023,false,4106,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2023,false,4106,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2023,false,4106,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,5,false,false
+Q06,2023,false,4107,Acompanhamento psicossocial do agressor,,true,false
+Q06,2023,false,4107,Afastamento do lar ou domicílio,101,false,false
+Q06,2023,false,4107,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,24,false,false
+Q06,2023,false,4107,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2023,false,4107,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2023,false,4107,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2023,false,4107,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2023,false,4107,Orientação,,true,false
+Q06,2023,false,4107,outras medidas protetivas de urgência (art. 22,5,false,false
+Q06,2023,false,4107,Proibição de aproximação da ofendida,133,false,false
+Q06,2023,false,4107,Proibição de condutas quaisquer,,true,false
+Q06,2023,false,4107,Proibição de contato com a ofendida,385,false,false
+Q06,2023,false,4107,Proibição de frequência de determinados lugares,8,false,false
+Q06,2023,false,4107,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2023,false,4107,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2023,false,4107,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2023,false,4108,Acompanhamento psicossocial do agressor,68,false,false
+Q06,2023,false,4108,Afastamento do lar ou domicílio,41,false,false
+Q06,2023,false,4108,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,107,false,false
+Q06,2023,false,4108,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2023,false,4108,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2023,false,4108,Determinar a separação de corpos (art. 23,,true,false
+Q06,2023,false,4108,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,38,false,false
+Q06,2023,false,4108,inclusão em programa de acolhimento familiar,,true,false
+Q06,2023,false,4108,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2023,false,4108,Orientação,,true,false
+Q06,2023,false,4108,outras medidas protetivas de urgência (art. 22,27,false,false
+Q06,2023,false,4108,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2023,false,4108,Proibição de aproximação da ofendida,205,false,false
+Q06,2023,false,4108,Proibição de contato com a ofendida,209,false,false
+Q06,2023,false,4108,Proibição de frequência de determinados lugares,20,false,false
+Q06,2023,false,4108,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2023,false,4108,reabilitação do agressor (art. 35,,true,false
+Q06,2023,false,4108,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2023,false,4108,Restrição ou suspensão de visitas aos dependentes menores,6,false,false
+Q06,2023,false,4108,Suspensão da posse ou restrição do porte de armas,7,false,false
+Q06,2023,false,4108,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2023,false,4109,Afastamento do lar ou domicílio,,true,false
+Q06,2023,false,4109,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2023,false,4109,Proibição de aproximação da ofendida,8,false,false
+Q06,2023,false,4109,Proibição de contato com a ofendida,9,false,false
+Q06,2023,false,4109,Proibição de frequência de determinados lugares,,true,false
+Q06,2023,false,4109,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2023,false,4110,Abrigo temporário,,true,false
+Q06,2023,false,4110,Acompanhamento psicossocial do agressor,11,false,false
+Q06,2023,false,4110,Afastamento do lar ou domicílio,80,false,false
+Q06,2023,false,4110,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,46,false,false
+Q06,2023,false,4110,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2023,false,4110,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2023,false,4110,Determinar a separação de corpos (art. 23,,true,false
+Q06,2023,false,4110,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2023,false,4110,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2023,false,4110,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2023,false,4110,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2023,false,4110,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2023,false,4110,Prestação de caução provisória,,true,false
+Q06,2023,false,4110,Proibição de aproximação da ofendida,237,false,false
+Q06,2023,false,4110,Proibição de condutas quaisquer,,true,false
+Q06,2023,false,4110,Proibição de contato com a ofendida,235,false,false
+Q06,2023,false,4110,Proibição de frequência de determinados lugares,76,false,false
+Q06,2023,false,4110,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2023,false,4110,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2023,false,4110,Restrição ou suspensão de visitas aos dependentes menores,5,false,false
+Q06,2023,false,4110,Suspensão da posse ou restrição do porte de armas,7,false,false
+Q06,2024,false,4101,Acompanhamento psicossocial do agressor,,true,false
+Q06,2024,false,4101,Afastamento do lar ou domicílio,,true,false
+Q06,2024,false,4101,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2024,false,4101,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2024,false,4101,Proibição de aproximação da ofendida,19,false,false
+Q06,2024,false,4101,Proibição de contato com a ofendida,18,false,false
+Q06,2024,false,4101,Proibição de frequência de determinados lugares,6,false,false
+Q06,2024,false,4102,Acompanhamento psicossocial do agressor,,true,false
+Q06,2024,false,4102,Afastamento do lar ou domicílio,46,false,false
+Q06,2024,false,4102,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,58,false,false
+Q06,2024,false,4102,inclusão em programa de acolhimento familiar,,true,false
+Q06,2024,false,4102,inclusão em programa oficial ou comunitário de auxílio,5,false,false
+Q06,2024,false,4102,Prestação de caução provisória,,true,false
+Q06,2024,false,4102,Proibição de aproximação da ofendida,126,false,false
+Q06,2024,false,4102,Proibição de condutas quaisquer,43,false,false
+Q06,2024,false,4102,Proibição de contato com a ofendida,127,false,false
+Q06,2024,false,4102,Proibição de frequência de determinados lugares,53,false,false
+Q06,2024,false,4102,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2024,false,4102,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4102,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,7,false,false
+Q06,2024,false,4103,Acompanhamento psicossocial do agressor,12,false,false
+Q06,2024,false,4103,Afastamento do lar ou domicílio,28,false,false
+Q06,2024,false,4103,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,32,false,false
+Q06,2024,false,4103,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2024,false,4103,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2024,false,4103,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2024,false,4103,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2024,false,4103,Orientação,,true,false
+Q06,2024,false,4103,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2024,false,4103,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2024,false,4103,Proibição de aproximação da ofendida,89,false,false
+Q06,2024,false,4103,Proibição de condutas quaisquer,,true,false
+Q06,2024,false,4103,Proibição de contato com a ofendida,85,false,false
+Q06,2024,false,4103,Proibição de frequência de determinados lugares,46,false,false
+Q06,2024,false,4103,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2024,false,4103,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2024,false,4103,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4103,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2024,false,4103,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,13,false,false
+Q06,2024,false,4104,Acompanhamento psicossocial do agressor,5,false,false
+Q06,2024,false,4104,Afastamento do lar ou domicílio,16,false,false
+Q06,2024,false,4104,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,14,false,false
+Q06,2024,false,4104,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2024,false,4104,Determinar a separação de corpos (art. 23,,true,false
+Q06,2024,false,4104,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2024,false,4104,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2024,false,4104,Proibição de aproximação da ofendida,44,false,false
+Q06,2024,false,4104,Proibição de condutas quaisquer,,true,false
+Q06,2024,false,4104,Proibição de contato com a ofendida,44,false,false
+Q06,2024,false,4104,Proibição de frequência de determinados lugares,37,false,false
+Q06,2024,false,4104,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2024,false,4104,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4104,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2024,false,4104,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2024,false,4105,Acompanhamento psicossocial do agressor,,true,false
+Q06,2024,false,4105,Afastamento do lar ou domicílio,27,false,false
+Q06,2024,false,4105,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2024,false,4105,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2024,false,4105,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2024,false,4105,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2024,false,4105,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2024,false,4105,outras medidas protetivas de urgência (art. 22,5,false,false
+Q06,2024,false,4105,Proibição de aproximação da ofendida,84,false,false
+Q06,2024,false,4105,Proibição de condutas quaisquer,5,false,false
+Q06,2024,false,4105,Proibição de contato com a ofendida,86,false,false
+Q06,2024,false,4105,Proibição de frequência de determinados lugares,11,false,false
+Q06,2024,false,4105,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2024,false,4105,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4105,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2024,false,4106,Acolhimento institucional,,true,false
+Q06,2024,false,4106,Acompanhamento psicossocial do agressor,168,false,false
+Q06,2024,false,4106,Afastamento do lar ou domicílio,112,false,false
+Q06,2024,false,4106,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,175,false,false
+Q06,2024,false,4106,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2024,false,4106,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2024,false,4106,Determinar a separação de corpos (art. 23,,true,false
+Q06,2024,false,4106,Orientação,,true,false
+Q06,2024,false,4106,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2024,false,4106,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2024,false,4106,Proibição de aproximação da ofendida,295,false,false
+Q06,2024,false,4106,Proibição de condutas quaisquer,7,false,false
+Q06,2024,false,4106,Proibição de contato com a ofendida,288,false,false
+Q06,2024,false,4106,Proibição de frequência de determinados lugares,167,false,false
+Q06,2024,false,4106,reabilitação do agressor (art. 35,,true,false
+Q06,2024,false,4106,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2024,false,4106,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2024,false,4106,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4106,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,17,false,false
+Q06,2024,false,4107,Abrigo em entidade,,true,false
+Q06,2024,false,4107,Abrigo temporário,,true,false
+Q06,2024,false,4107,Acolhimento institucional,,true,false
+Q06,2024,false,4107,Acompanhamento psicossocial do agressor,,true,false
+Q06,2024,false,4107,Afastamento do lar ou domicílio,151,false,false
+Q06,2024,false,4107,Colocação em família substituta,,true,false
+Q06,2024,false,4107,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,14,false,false
+Q06,2024,false,4107,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2024,false,4107,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2024,false,4107,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2024,false,4107,Determinar a separação de corpos (art. 23,,true,false
+Q06,2024,false,4107,Encaminhamento a curador,,true,false
+Q06,2024,false,4107,Encaminhamento À  família,,true,false
+Q06,2024,false,4107,Encaminhamento ao responsável,,true,false
+Q06,2024,false,4107,Encaminhamento aos pais,,true,false
+Q06,2024,false,4107,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2024,false,4107,inclusão em programa de acolhimento familiar,,true,false
+Q06,2024,false,4107,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2024,false,4107,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2024,false,4107,Orientação,,true,false
+Q06,2024,false,4107,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2024,false,4107,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2024,false,4107,Prestação de caução provisória,,true,false
+Q06,2024,false,4107,Proibição de aproximação da ofendida,207,false,false
+Q06,2024,false,4107,Proibição de condutas quaisquer,9,false,false
+Q06,2024,false,4107,Proibição de contato com a ofendida,531,false,false
+Q06,2025,false,4101,Proibição de condutas quaisquer,,true,false
+Q06,2024,false,4107,Proibição de frequência de determinados lugares,84,false,false
+Q06,2024,false,4107,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2024,false,4107,reabilitação do agressor (art. 35,,true,false
+Q06,2024,false,4107,Requisição de tratamento médico,,true,false
+Q06,2024,false,4107,Requisição de tratamento psicológico,,true,false
+Q06,2024,false,4107,Requisição de tratamento psiquiátrico,,true,false
+Q06,2024,false,4107,Requisição de tratamento psiquiátrico em regime hospitalar,,true,false
+Q06,2024,false,4107,Requisição para tratamento de sua saúde,,true,false
+Q06,2024,false,4107,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2024,false,4107,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2024,false,4107,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4107,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2024,false,4107,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,44,false,false
+Q06,2024,false,4108,Acompanhamento psicossocial do agressor,155,false,false
+Q06,2024,false,4108,Afastamento do lar ou domicílio,95,false,false
+Q06,2024,false,4108,Colocação em família substituta,,true,false
+Q06,2024,false,4108,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,86,false,false
+Q06,2024,false,4108,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2024,false,4108,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,7,false,false
+Q06,2024,false,4108,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2024,false,4108,Orientação,,true,false
+Q06,2024,false,4108,outras medidas protetivas de urgência (art. 22,6,false,false
+Q06,2024,false,4108,Proibição de aproximação da ofendida,334,false,false
+Q06,2024,false,4108,Proibição de condutas quaisquer,,true,false
+Q06,2024,false,4108,Proibição de contato com a ofendida,325,false,false
+Q06,2024,false,4108,Proibição de frequência de determinados lugares,197,false,false
+Q06,2024,false,4108,Restrição ou suspensão de visitas aos dependentes menores,6,false,false
+Q06,2024,false,4108,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4108,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,84,false,false
+Q06,2024,false,4109,Afastamento do lar ou domicílio,,true,false
+Q06,2024,false,4109,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2024,false,4109,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2024,false,4109,Proibição de aproximação da ofendida,10,false,false
+Q06,2024,false,4109,Proibição de contato com a ofendida,10,false,false
+Q06,2024,false,4109,Proibição de frequência de determinados lugares,5,false,false
+Q06,2024,false,4109,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2024,false,4110,Acompanhamento psicossocial do agressor,6,false,false
+Q06,2024,false,4110,Afastamento do lar ou domicílio,47,false,false
+Q06,2024,false,4110,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,20,false,false
+Q06,2024,false,4110,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2024,false,4110,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2024,false,4110,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2024,false,4110,Orientação,,true,false
+Q06,2024,false,4110,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2024,false,4110,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2024,false,4110,Proibição de aproximação da ofendida,193,false,false
+Q06,2024,false,4110,Proibição de condutas quaisquer,5,false,false
+Q06,2024,false,4110,Proibição de contato com a ofendida,190,false,false
+Q06,2024,false,4110,Proibição de frequência de determinados lugares,95,false,false
+Q06,2024,false,4110,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2024,false,4110,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,5,false,false
+Q06,2025,false,4101,Abrigo em entidade,,true,false
+Q06,2025,false,4101,Abrigo temporário,,true,false
+Q06,2025,false,4101,Acolhimento institucional,,true,false
+Q06,2025,false,4101,Acompanhamento psicossocial do agressor,,true,false
+Q06,2025,false,4101,Afastamento do lar ou domicílio,,true,false
+Q06,2025,false,4101,Colocação em família substituta,,true,false
+Q06,2025,false,4101,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,10,false,false
+Q06,2025,false,4101,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2025,false,4101,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2025,false,4101,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2025,false,4101,Determinar a separação de corpos (art. 23,,true,false
+Q06,2025,false,4101,Encaminhamento a curador,,true,false
+Q06,2025,false,4101,Encaminhamento À  família,,true,false
+Q06,2025,false,4101,Encaminhamento ao responsável,,true,false
+Q06,2025,false,4101,Encaminhamento aos pais,,true,false
+Q06,2025,false,4101,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2025,false,4101,inclusão em programa de acolhimento familiar,,true,false
+Q06,2025,false,4101,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2025,false,4101,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2025,false,4101,Orientação,,true,false
+Q06,2025,false,4101,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4101,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2025,false,4101,Prestação de caução provisória,,true,false
+Q06,2025,false,4101,Proibição de aproximação da ofendida,18,false,false
+Q06,2025,false,4101,Proibição de contato com a ofendida,16,false,false
+Q06,2025,false,4101,Proibição de frequência de determinados lugares,9,false,false
+Q06,2025,false,4101,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2025,false,4101,reabilitação do agressor (art. 35,,true,false
+Q06,2025,false,4101,Requisição de tratamento médico,,true,false
+Q06,2025,false,4101,Requisição de tratamento psicológico,,true,false
+Q06,2025,false,4101,Requisição de tratamento psiquiátrico,,true,false
+Q06,2025,false,4101,Requisição de tratamento psiquiátrico em regime hospitalar,,true,false
+Q06,2025,false,4101,Requisição para tratamento de sua saúde,,true,false
+Q06,2025,false,4101,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2025,false,4101,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2025,false,4101,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2025,false,4101,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2025,false,4101,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,8,false,false
+Q06,2025,false,4102,Afastamento do lar ou domicílio,6,false,false
+Q06,2025,false,4102,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2025,false,4102,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4102,Proibição de aproximação da ofendida,30,false,false
+Q06,2025,false,4102,Proibição de condutas quaisquer,,true,false
+Q06,2025,false,4102,Proibição de contato com a ofendida,29,false,false
+Q06,2025,false,4102,Proibição de frequência de determinados lugares,16,false,false
+Q06,2025,false,4102,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2025,false,4102,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2025,false,4102,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2025,false,4103,Acompanhamento psicossocial do agressor,11,false,false
+Q06,2025,false,4103,Afastamento do lar ou domicílio,38,false,false
+Q06,2025,false,4103,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,30,false,false
+Q06,2025,false,4103,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2025,false,4103,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2025,false,4103,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2025,false,4103,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4103,Proibição de aproximação da ofendida,111,false,false
+Q06,2025,false,4103,Proibição de condutas quaisquer,7,false,false
+Q06,2025,false,4103,Proibição de contato com a ofendida,103,false,false
+Q06,2025,false,4103,Proibição de frequência de determinados lugares,68,false,false
+Q06,2025,false,4103,reabilitação do agressor (art. 35,,true,false
+Q06,2025,false,4103,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2025,false,4103,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,29,false,false
+Q06,2025,false,4104,Acompanhamento psicossocial do agressor,5,false,false
+Q06,2025,false,4104,Afastamento do lar ou domicílio,7,false,false
+Q06,2025,false,4104,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,6,false,false
+Q06,2025,false,4104,Determinar a separação de corpos (art. 23,,true,false
+Q06,2025,false,4104,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2025,false,4104,Proibição de aproximação da ofendida,22,false,false
+Q06,2025,false,4104,Proibição de contato com a ofendida,22,false,false
+Q06,2025,false,4104,Proibição de frequência de determinados lugares,13,false,false
+Q06,2025,false,4104,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2025,false,4104,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2025,false,4104,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2025,false,4104,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,7,false,false
+Q06,2025,false,4105,Acompanhamento psicossocial do agressor,,true,false
+Q06,2025,false,4105,Afastamento do lar ou domicílio,19,false,false
+Q06,2025,false,4105,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,10,false,false
+Q06,2025,false,4105,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2025,false,4105,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2025,false,4105,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2025,false,4105,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4105,Proibição de aproximação da ofendida,80,false,false
+Q06,2025,false,4105,Proibição de condutas quaisquer,,true,false
+Q06,2025,false,4105,Proibição de contato com a ofendida,78,false,false
+Q06,2025,false,4105,Proibição de frequência de determinados lugares,14,false,false
+Q06,2025,false,4105,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2025,false,4105,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,13,false,false
+Q06,2025,false,4106,Acompanhamento psicossocial do agressor,256,false,false
+Q06,2025,false,4106,Afastamento do lar ou domicílio,145,false,false
+Q06,2025,false,4106,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,229,false,false
+Q06,2025,false,4106,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,5,false,false
+Q06,2025,false,4106,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2025,false,4106,Orientação,,true,false
+Q06,2025,false,4106,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4106,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2025,false,4106,Proibição de aproximação da ofendida,408,false,false
+Q06,2025,false,4106,Proibição de condutas quaisquer,12,false,false
+Q06,2025,false,4106,Proibição de contato com a ofendida,400,false,false
+Q06,2025,false,4106,Proibição de frequência de determinados lugares,301,false,false
+Q06,2025,false,4106,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2025,false,4106,Suspensão da posse ou restrição do porte de armas,6,false,false
+Q06,2025,false,4106,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,88,false,false
+Q06,2025,false,4107,Abrigo temporário,,true,false
+Q06,2025,false,4107,Acompanhamento psicossocial do agressor,11,false,false
+Q06,2025,false,4107,Afastamento do lar ou domicílio,204,false,false
+Q06,2025,false,4107,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,23,false,false
+Q06,2025,false,4107,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2025,false,4107,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2025,false,4107,Orientação,,true,false
+Q06,2025,false,4107,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4107,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2025,false,4107,Proibição de aproximação da ofendida,501,false,false
+Q06,2025,false,4107,Proibição de condutas quaisquer,8,false,false
+Q06,2025,false,4107,Proibição de contato com a ofendida,503,false,false
+Q06,2025,false,4107,Proibição de frequência de determinados lugares,114,false,false
+Q06,2025,false,4107,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2025,false,4107,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2025,false,4107,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2025,false,4107,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,68,false,false
+Q06,2025,false,4108,Acompanhamento psicossocial do agressor,,true,false
+Q06,2025,false,4108,Afastamento do lar ou domicílio,19,false,false
+Q06,2025,false,4108,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,17,false,false
+Q06,2025,false,4108,Encaminhamento À  família,,true,false
+Q06,2025,false,4108,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,22,false,false
+Q06,2025,false,4108,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4108,Proibição de aproximação da ofendida,93,false,false
+Q06,2025,false,4108,Proibição de condutas quaisquer,,true,false
+Q06,2025,false,4108,Proibição de contato com a ofendida,95,false,false
+Q06,2025,false,4108,Proibição de frequência de determinados lugares,49,false,false
+Q06,2025,false,4108,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2025,false,4108,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2025,false,4108,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,9,false,false
+Q06,2025,false,4109,Afastamento do lar ou domicílio,,true,false
+Q06,2025,false,4109,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2025,false,4109,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2025,false,4109,Proibição de aproximação da ofendida,11,false,false
+Q06,2025,false,4109,Proibição de contato com a ofendida,11,false,false
+Q06,2025,false,4109,Proibição de frequência de determinados lugares,6,false,false
+Q06,2025,false,4109,reabilitação do agressor (art. 35,,true,false
+Q06,2025,false,4109,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2025,false,4110,Acompanhamento psicossocial do agressor,46,false,false
+Q06,2025,false,4110,Afastamento do lar ou domicílio,68,false,false
+Q06,2025,false,4110,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,67,false,false
+Q06,2025,false,4110,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,6,false,false
+Q06,2025,false,4110,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2025,false,4110,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2025,false,4110,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2025,false,4110,Orientação,,true,false
+Q06,2025,false,4110,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2025,false,4110,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2025,false,4110,Proibição de aproximação da ofendida,263,false,false
+Q06,2025,false,4110,Proibição de condutas quaisquer,8,false,false
+Q06,2025,false,4110,Proibição de contato com a ofendida,264,false,false
+Q06,2025,false,4110,Proibição de frequência de determinados lugares,152,false,false
+Q06,2025,false,4110,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2025,false,4110,reabilitação do agressor (art. 35,,true,false
+Q06,2025,false,4110,Requisição de tratamento psicológico,,true,false
+Q06,2025,false,4110,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2025,false,4110,Restrição ou suspensão de visitas aos dependentes menores,5,false,false
+Q06,2025,false,4110,Suspensão da posse ou restrição do porte de armas,10,false,false
+Q06,2025,false,4110,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,22,false,false
+Q06,2026,true,4101,Abrigo em entidade,,true,false
+Q06,2026,true,4101,Abrigo temporário,,true,false
+Q06,2026,true,4101,Acolhimento institucional,,true,false
+Q06,2026,true,4101,Acompanhamento psicossocial do agressor,,true,false
+Q06,2026,true,4101,Afastamento do lar ou domicílio,9,false,false
+Q06,2026,true,4101,Colocação em família substituta,,true,false
+Q06,2026,true,4101,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,9,false,false
+Q06,2026,true,4101,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2026,true,4101,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2026,true,4101,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2026,true,4101,Determinar a separação de corpos (art. 23,,true,false
+Q06,2026,true,4101,Encaminhamento a curador,,true,false
+Q06,2026,true,4101,Encaminhamento À  família,,true,false
+Q06,2026,true,4101,Encaminhamento ao responsável,,true,false
+Q06,2026,true,4101,Encaminhamento aos pais,,true,false
+Q06,2026,true,4101,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2026,true,4101,inclusão em programa de acolhimento familiar,,true,false
+Q06,2026,true,4101,inclusão em programa oficial ou comunitário de auxílio,8,false,false
+Q06,2026,true,4101,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2026,true,4101,Orientação,,true,false
+Q06,2026,true,4101,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4101,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2026,true,4101,Prestação de caução provisória,,true,false
+Q06,2026,true,4101,Proibição de aproximação da ofendida,19,false,false
+Q06,2026,true,4101,Proibição de condutas quaisquer,7,false,false
+Q06,2026,true,4101,Proibição de contato com a ofendida,20,false,false
+Q06,2026,true,4101,Proibição de frequência de determinados lugares,12,false,false
+Q06,2026,true,4101,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2026,true,4101,reabilitação do agressor (art. 35,,true,false
+Q06,2026,true,4101,Requisição de tratamento médico,,true,false
+Q06,2026,true,4101,Requisição de tratamento psicológico,,true,false
+Q06,2026,true,4101,Requisição de tratamento psiquiátrico,,true,false
+Q06,2026,true,4101,Requisição de tratamento psiquiátrico em regime hospitalar,,true,false
+Q06,2026,true,4101,Requisição para tratamento de sua saúde,,true,false
+Q06,2026,true,4101,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2026,true,4101,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2026,true,4101,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2026,true,4101,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2026,true,4101,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,6,false,false
+Q06,2026,true,4102,Afastamento do lar ou domicílio,,true,false
+Q06,2026,true,4102,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2026,true,4102,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2026,true,4102,Proibição de aproximação da ofendida,10,false,false
+Q06,2026,true,4102,Proibição de condutas quaisquer,,true,false
+Q06,2026,true,4102,Proibição de contato com a ofendida,9,false,false
+Q06,2026,true,4102,Proibição de frequência de determinados lugares,,true,false
+Q06,2026,true,4102,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2026,true,4103,Acompanhamento psicossocial do agressor,7,false,false
+Q06,2026,true,4103,Afastamento do lar ou domicílio,19,false,false
+Q06,2026,true,4103,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,17,false,false
+Q06,2026,true,4103,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2026,true,4103,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2026,true,4103,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4103,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2026,true,4103,Proibição de aproximação da ofendida,64,false,false
+Q06,2026,true,4103,Proibição de condutas quaisquer,5,false,false
+Q06,2026,true,4103,Proibição de contato com a ofendida,61,false,false
+Q06,2026,true,4103,Proibição de frequência de determinados lugares,44,false,false
+Q06,2026,true,4103,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,23,false,false
+Q06,2026,true,4104,Afastamento do lar ou domicílio,10,false,false
+Q06,2026,true,4104,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,12,false,false
+Q06,2026,true,4104,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2026,true,4104,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2026,true,4104,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4104,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2026,true,4104,Proibição de aproximação da ofendida,32,false,false
+Q06,2026,true,4104,Proibição de condutas quaisquer,,true,false
+Q06,2026,true,4104,Proibição de contato com a ofendida,32,false,false
+Q06,2026,true,4104,Proibição de frequência de determinados lugares,16,false,false
+Q06,2026,true,4104,reabilitação do agressor (art. 35,,true,false
+Q06,2026,true,4104,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2026,true,4104,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,9,false,false
+Q06,2026,true,4105,Afastamento do lar ou domicílio,18,false,false
+Q06,2026,true,4105,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,6,false,false
+Q06,2026,true,4105,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2026,true,4105,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2026,true,4105,Orientação,,true,false
+Q06,2026,true,4105,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4105,Proibição de aproximação da ofendida,52,false,false
+Q06,2026,true,4105,Proibição de contato com a ofendida,52,false,false
+Q06,2026,true,4105,Proibição de frequência de determinados lugares,18,false,false
+Q06,2026,true,4105,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,15,false,false
+Q06,2026,true,4106,Acompanhamento psicossocial do agressor,126,false,false
+Q06,2026,true,4106,Afastamento do lar ou domicílio,80,false,false
+Q06,2026,true,4106,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,129,false,false
+Q06,2026,true,4106,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2026,true,4106,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,5,false,false
+Q06,2026,true,4106,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2026,true,4106,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4106,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2026,true,4106,Proibição de aproximação da ofendida,233,false,false
+Q06,2026,true,4106,Proibição de condutas quaisquer,,true,false
+Q06,2026,true,4106,Proibição de contato com a ofendida,227,false,false
+Q06,2026,true,4106,Proibição de frequência de determinados lugares,167,false,false
+Q06,2026,true,4106,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2026,true,4106,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,61,false,false
+Q06,2026,true,4107,Acompanhamento psicossocial do agressor,10,false,false
+Q06,2026,true,4107,Afastamento do lar ou domicílio,124,false,false
+Q06,2026,true,4107,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,23,false,false
+Q06,2026,true,4107,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2026,true,4107,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2026,true,4107,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2026,true,4107,Orientação,,true,false
+Q06,2026,true,4107,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4107,Proibição de aproximação da ofendida,368,false,false
+Q06,2026,true,4107,Proibição de condutas quaisquer,5,false,false
+Q06,2026,true,4107,Proibição de contato com a ofendida,371,false,false
+Q06,2026,true,4107,Proibição de frequência de determinados lugares,77,false,false
+Q06,2026,true,4107,Suspensão da posse ou restrição do porte de armas,7,false,false
+Q06,2026,true,4107,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,217,false,false
+Q06,2026,true,4108,Abrigo em entidade,,true,false
+Q06,2026,true,4108,Abrigo temporário,,true,false
+Q06,2026,true,4108,Acolhimento institucional,,true,false
+Q06,2026,true,4108,Acompanhamento psicossocial do agressor,,true,false
+Q06,2026,true,4108,Afastamento do lar ou domicílio,11,false,false
+Q06,2026,true,4108,Colocação em família substituta,,true,false
+Q06,2026,true,4108,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,11,false,false
+Q06,2026,true,4108,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,,true,false
+Q06,2026,true,4108,Determinação do afastamento da ofendida do lar,,true,false
+Q06,2026,true,4108,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2026,true,4108,Determinar a separação de corpos (art. 23,,true,false
+Q06,2026,true,4108,Encaminhamento a curador,,true,false
+Q06,2026,true,4108,Encaminhamento À  família,,true,false
+Q06,2026,true,4108,Encaminhamento ao responsável,,true,false
+Q06,2026,true,4108,Encaminhamento aos pais,,true,false
+Q06,2026,true,4108,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,16,false,false
+Q06,2026,true,4108,inclusão em programa de acolhimento familiar,,true,false
+Q06,2026,true,4108,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2026,true,4108,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2026,true,4108,Orientação,,true,false
+Q06,2026,true,4108,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4108,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2026,true,4108,Prestação de caução provisória,,true,false
+Q06,2026,true,4108,Proibição de aproximação da ofendida,72,false,false
+Q06,2026,true,4108,Proibição de condutas quaisquer,5,false,false
+Q06,2026,true,4108,Proibição de contato com a ofendida,70,false,false
+Q06,2026,true,4108,Proibição de frequência de determinados lugares,35,false,false
+Q06,2026,true,4108,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2026,true,4108,reabilitação do agressor (art. 35,,true,false
+Q06,2026,true,4108,Requisição de tratamento médico,,true,false
+Q06,2026,true,4108,Requisição de tratamento psicológico,,true,false
+Q06,2026,true,4108,Requisição de tratamento psiquiátrico,,true,false
+Q06,2026,true,4108,Requisição de tratamento psiquiátrico em regime hospitalar,,true,false
+Q06,2026,true,4108,Requisição para tratamento de sua saúde,,true,false
+Q06,2026,true,4108,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,,true,false
+Q06,2026,true,4108,Restrição ou suspensão de visitas aos dependentes menores,,true,false
+Q06,2026,true,4108,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2026,true,4108,Suspensão de procuração conferidas pela ofendida ao agressor (art. 24,,true,false
+Q06,2026,true,4108,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,13,false,false
+Q06,2026,true,4109,Afastamento do lar ou domicílio,,true,false
+Q06,2026,true,4109,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,,true,false
+Q06,2026,true,4109,Encaminhamento da ofendida e seus dependentes a programa oficial ou comunitário de proteção ou de atendimento,,true,false
+Q06,2026,true,4109,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4109,Proibição de aproximação da ofendida,6,false,false
+Q06,2026,true,4109,Proibição de condutas quaisquer,,true,false
+Q06,2026,true,4109,Proibição de contato com a ofendida,6,false,false
+Q06,2026,true,4109,Proibição de frequência de determinados lugares,,true,false
+Q06,2026,true,4109,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2026,true,4109,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,,true,false
+Q06,2026,true,4110,Acompanhamento psicossocial do agressor,37,false,false
+Q06,2026,true,4110,Afastamento do lar ou domicílio,61,false,false
+Q06,2026,true,4110,Comparecimento do agressor a programas de recuperação e reeducação (art. 22,19,false,false
+Q06,2026,true,4110,Determinação da recondução da ofendida e de seus dependentes ao respectivo domicílio,5,false,false
+Q06,2026,true,4110,Determinar a matricula dos dependentes da ofendida em instituição básica mais prÃ³xima do seu domicílio,,true,false
+Q06,2026,true,4110,inclusão em programa oficial ou comunitário de auxílio,,true,false
+Q06,2026,true,4110,inclusão em serviços e programas oficiais ou comunitários de proteção,,true,false
+Q06,2026,true,4110,outras medidas protetivas de urgência (art. 22,,true,false
+Q06,2026,true,4110,Prestação de alimentos provisionais ou provisórios,,true,false
+Q06,2026,true,4110,Proibição de aproximação da ofendida,217,false,false
+Q06,2026,true,4110,Proibição de condutas quaisquer,11,false,false
+Q06,2026,true,4110,Proibição de contato com a ofendida,214,false,false
+Q06,2026,true,4110,Proibição de frequência de determinados lugares,149,false,false
+Q06,2026,true,4110,Proibição temporária para a celebração de atos e contratos de compra,,true,false
+Q06,2026,true,4110,Restituição de bens indevidamente subtraídos pelo agressor Ã  ofendida (art. 24,5,false,false
+Q06,2026,true,4110,Restrição ou suspensão de visitas aos dependentes menores,5,false,false
+Q06,2026,true,4110,Suspensão da posse ou restrição do porte de armas,,true,false
+Q06,2026,true,4110,utilização de monitoramento eletrônico ou outros dispositivos (art. 9Âº,57,false,false
