@@ -1,6 +1,26 @@
-# Datajud/TJPR — coleta Bronze
+# Judicialização da violência contra a mulher no Paraná — Datajud/TJPR
 
-O projeto implementa o piloto de coleta de metadados públicos do TJPR descrito em `docs/superpowers/specs/2026-09-22-datajud-bronze-pilot-design.md`.
+Trabalho de Conclusão de Curso (UTFPR, Campus Dois Vizinhos) que analisa a judicialização da violência contra a mulher no Paraná a partir dos metadados públicos do TJPR na API Pública do Datajud (CNJ).
+
+O projeto implementa um pipeline reproduzível na Arquitetura Medalhão:
+
+| Camada | O que faz | Documentação |
+|---|---|---|
+| Bronze | Coleta paginada da API, com as respostas originais preservadas e SHA-256 por página | `docs/artigo/01`, `06`, `13` |
+| Silver | Normalização em PostgreSQL (registros, assuntos, movimentos, complementos); identificadores isolados no esquema `restrito` | `docs/artigo/10`, `17` |
+| Gold | Base analítica com regras versionadas, mesorregiões (PostGIS), tempos (Kaplan-Meier), desfechos (Aalen-Johansen) e taxas suavizadas | `docs/artigo/20`, `23`–`26` |
+| Publicação | Apenas agregados com supressão de células, com manifesto | `outputs/publicacao/` |
+| Orquestração | Prefect: coleta incremental → Silver → Gold → agregados | `docs/artigo/15` |
+
+**Recorte:** TJPR, 1º grau, ajuizamentos de 2019 a 2026 (2026 parcial, até 30/09/2026), somente processos públicos (`nivelSigilo` 0), catálogo temático `config/catalogs/tjpr_vcm_2026-10-18.yaml`. A base reúne 147.002 registros coletados, ou 147.020 processos na Gold.
+
+**Limites de leitura:** os dados contam processos públicos, não vítimas nem ocorrências. A localização é a do órgão julgador, não a do fato. O acervo público é uma fração do total registrado pelo CNJ (`docs/artigo/22-validacao-cnj.md`).
+
+Toda a documentação de parâmetros, decisões e resultados fica em `docs/artigo/` (índice em `docs/artigo/README.md`). Um dashboard interativo para a apresentação está em desenvolvimento.
+
+## Dados publicados
+
+`outputs/publicacao/2026-11-05_gold-2026-11-07/` contém os agregados usados no artigo: 12 CSVs e um `manifesto.json` com a versão das regras (`gold-2026-11-07`), a data de corte e o SHA-256 de cada arquivo. Eles não contêm identificadores processuais. As células abaixo de 5 processos (10 por órgão julgador) são suprimidas, há supressão secundária, e as contagens de tempos e desfechos são arredondadas na base 10 (`docs/artigo/25-metodos-e-agregados.md`). As respostas brutas da API e o banco ficam apenas locais.
 
 ## Ambiente
 
@@ -56,7 +76,7 @@ O piloto limita cada partição anual a uma página de 100 registros; a coleta d
 
 ## Orquestração (base operacional)
 
-Coletas incrementais automáticas com Prefect, **fora da base do artigo** (ver `docs/artigo/15-orquestracao-prefect.md`). Instale o extra opcional:
+Coletas incrementais com Prefect, encadeando coleta, carga na Silver, construção da Gold e agregados (ver `docs/artigo/15-orquestracao-prefect.md`). Coletas sem registros novos não disparam as etapas seguintes. A exportação para `outputs/publicacao/` continua manual, porque é o ponto em que os dados se tornam públicos. As coletas incrementais **não fazem parte da base congelada do artigo**. Instale o extra opcional:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -e ".[dev,orquestracao]"
@@ -97,7 +117,7 @@ Comandos:
 
 Os testes de banco têm o marcador `banco` e são pulados sem `DATABASE_URL`, sem `psycopg` ou sem conexão (`pytest -m "not banco"` os exclui).
 
-### Carga inicial manual (ainda não executada)
+### Carga inicial manual (executada em 06/11/2026)
 
 Carregar as duas execuções da base do artigo, a recoleta de 2026 primeiro (é a menor e serve para medir o tempo real da carga):
 
@@ -107,7 +127,7 @@ Carregar as duas execuções da base do artigo, a recoleta de 2026 primeiro (é 
 .\.venv\Scripts\python.exe -m datajud_tcc.cli silver-marca-dagua
 ```
 
-Cada execução é carregada com todas as partições; a Silver não marca o que entra na análise (isso é decidido na Gold). Estimativa: cerca de 158 mil registros e 15 milhões de movimentos no total. A saída de `silver-marca-dagua` é a marca inicial do orquestrador (`docs/artigo/15-orquestracao-prefect.md`, §7).
+Cada execução é carregada com todas as partições; a Silver não marca o que entra na análise (isso é decidido na Gold). Resultado: 157.844 registros (147.020 identificadores distintos), 13.674.340 movimentos e 6.888.510 complementos, em cerca de 9,5 minutos (`docs/artigo/17-carga-inicial-silver.md`). A saída de `silver-marca-dagua` é a marca inicial do orquestrador (`docs/artigo/15-orquestracao-prefect.md`, §7).
 
 Para cargas longas, mantenha o computador acordado em outro terminal (o script não altera configurações de energia):
 
@@ -117,7 +137,7 @@ powershell -NoProfile -File scripts/manter_acordado.ps1 <run_id>
 
 O script só termina sozinho quando `work/logs/<run_id>.log` registra o fim do wrapper da coleta. Numa carga da Silver isso não acontece: **encerre-o manualmente (Ctrl+C) quando a carga terminar**.
 
-### Gold
+## Gold
 
 Com a Silver carregada, construa a base analítica (idempotente; versão de regras `gold-2026-11-07`, detalhes em `docs/artigo/23-implementacao-gold.md`):
 
@@ -125,12 +145,14 @@ Com a Silver carregada, construa a base analítica (idempotente; versão de regr
 .\.venv\Scripts\python.exe -m datajud_tcc.cli gold-construir   # reconstrói ref.* e gold.*
 .\.venv\Scripts\python.exe -m datajud_tcc.cli gold-qualidade   # resumo de qualidade
 .\.venv\Scripts\python.exe -m datajud_tcc.cli gold-agregados   # taxas, tempos e desfechos (após gold-construir)
-.\.venv\Scripts\python.exe -m datajud_tcc.cli gold-exportar    # CSV + manifesto com supressão, em outputs/publicacao/ (não versionado)
+.\.venv\Scripts\python.exe -m datajud_tcc.cli gold-exportar    # CSV + manifesto com supressão, em uma pasta nova de outputs/publicacao/
 ```
 
 Ordem: Silver carregada, depois `gold-construir`, `gold-agregados` e `gold-exportar` (métodos e supressão em `docs/artigo/25-metodos-e-agregados.md`). Em cargas longas, mantenha o PC acordado com `scripts/manter_acordado.ps1 <run_id>` (encerre-o manualmente ao fim, como na Silver). Ciclo rápido de testes: `pytest -m "not gold_lento"`.
 
-### Logs
+A exportação nunca sobrescreve uma pasta existente. Para publicar uma nova versão, confira os arquivos gerados e versione a nova pasta; a pasta citada no artigo permanece inalterada.
+
+## Logs
 
 | Onde | O que mostra |
 |---|---|
