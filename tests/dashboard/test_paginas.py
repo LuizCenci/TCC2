@@ -71,12 +71,25 @@ def test_territorio_taxa_acao_penal_2025_faixa_artigo():
 
 
 def test_territorio_recorte_extremo_nao_quebra():
+    from painel.exibicao import MSG_TUDO_SUPRIMIDO
     at = AppTest.from_file(str(RAIZ / "paginas" / "territorio.py"), default_timeout=30).run()
-    at.selectbox(key="territorio_ano").set_value(2026)
+    at.selectbox(key="territorio_ano").set_value(2021)
     at.selectbox(key="territorio_tipo").set_value("EXECUCAO").run()
     assert not at.exception
-    from painel.exibicao import MSG_TUDO_SUPRIMIDO
-    assert MSG_TUDO_SUPRIMIDO in [i.value for i in at.info] or len(at.dataframe) > 0
+    assert MSG_TUDO_SUPRIMIDO in [i.value for i in at.info]
+    assert len(at.get("plotly_chart")) == 1  # só o mapa, sem ranking
+
+
+def test_volume_jan_ago_ordem_e_suprimidos():
+    import json
+    at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
+    at.multiselect(key="volume_tipos").select("CARTA").select("EXECUCAO").select("OUTROS").select("RECURSO").run()
+    assert not at.exception
+    assert any(c.value.startswith("Combinações suprimidas") for c in at.caption)
+    figs = [json.loads(p.proto.spec) for p in at.get("plotly_chart")]
+    jan = [f for f in figs if f["layout"]["title"]["text"] == "Comparação jan–ago entre anos"][0]
+    assert jan["layout"]["xaxis"]["categoryarray"][0] == "2019"
+    assert jan["layout"]["xaxis"]["categoryarray"][-1] == "2026 (parcial)"
 
 
 def test_volume_aviso_sobreposicao():

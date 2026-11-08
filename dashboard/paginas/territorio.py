@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 
 from painel import componentes
-from painel.exibicao import MSG_TUDO_SUPRIMIDO, formatar_decimal, formatar_inteiro, texto_mediana, valor_ou_suprimido
+from painel.exibicao import rotulo_ano, MSG_TUDO_SUPRIMIDO, formatar_decimal, formatar_inteiro, texto_mediana, valor_ou_suprimido
 from painel.graficos import figura_barras
 from painel.mapa import figura_mapa
 from painel.rotulos import MARCO, TIPO_PROCEDIMENTO
@@ -33,7 +33,7 @@ nomes = NOMES_MESORREGIAO()
 taxa = componentes.tabela("agg_taxa")
 rec = taxa[(taxa["serie"] == serie) & (taxa["ano_ajuizamento"] == ano)
            & (taxa["tipo_procedimento"] == tipo)].copy()
-titulo = f"{TIPO_PROCEDIMENTO[tipo]}, {ano}: {ROTULO_TAXA}"
+titulo = f"{TIPO_PROCEDIMENTO[tipo]}, {rotulo_ano(ano, ano == 2026)}: {ROTULO_TAXA}"
 if ano == 2026:
     st.caption("2026 é parcial (ajuizamentos até 30/09/2026); a taxa não é comparável com anos completos.")
 if ano == 2019:
@@ -49,12 +49,13 @@ if rec["suprimido_parcial"].any():
 
 rank = rec.copy()
 rank["mesorregião"] = rank["mesorregiao_id"].map(lambda m: nomes.get(int(m), str(m)))
-vis = rank[~rank["suprimido"] & rank[coluna].notna()].sort_values(coluna, ascending=False)
-fig = figura_barras(vis, "mesorregião", coluna, None, "Ranking das mesorregiões", ROTULO_TAXA, horizontal=True)
-if fig is not None:
-    fig.update_traces(text=[formatar_decimal(v) for v in vis[coluna]])
-    fig.update_yaxes(categoryorder="array", categoryarray=list(vis["mesorregião"])[::-1])
 if len(rec) and not rec["suprimido"].all():
+    vis = rank[~rank["suprimido"] & rank[coluna].notna()].sort_values(coluna, ascending=False)
+    fig = figura_barras(vis, "mesorregião", coluna, None, "Ranking das mesorregiões", ROTULO_TAXA,
+                        horizontal=True)
+    if fig is not None:
+        fig.update_traces(text=[formatar_decimal(v) for v in vis[coluna]])
+        fig.update_yaxes(categoryorder="array", categoryarray=list(vis["mesorregião"])[::-1])
     componentes.grafico_ou_aviso(fig)
 
 tab = pd.DataFrame({
@@ -69,7 +70,10 @@ tab = pd.DataFrame({
 st.dataframe(tab, hide_index=True, use_container_width=True)
 componentes.rodape(f"Taxa de {ROTULO_TAXA}; a suavizada é bayesiana empírica e não pode ser somada "
                    "entre anos ou tipos.", "agg_taxa.csv", serie)
-componentes.botao_download(rec, "territorio_taxa.csv")
+_r = rec.copy()
+for _c in ["n", "taxa_bruta_100k", "taxa_eb_100k"]:
+    _r[_c] = _r[_c].mask(_r["suprimido"], pd.NA)
+componentes.botao_download(_r, "territorio_taxa.csv")
 
 # tempos medianos
 st.subheader("Tempos medianos por mesorregião")
@@ -87,5 +91,7 @@ else:
                  hide_index=True, use_container_width=True)
     componentes.rodape("Tempo mediano entre o ajuizamento e o marco; contagens arredondadas na base 10.",
                        "agg_tempo.csv", serie)
-    componentes.botao_download(t[["marco", "valor_estrato", "n", "estimavel", "mediana_dias",
-                                  "mediana_alcancada", "suprimido"]], "territorio_tempo.csv")
+    _t = t[["marco", "valor_estrato", "n", "estimavel", "mediana_dias", "mediana_alcancada", "suprimido"]].copy()
+    for _c in ["n", "mediana_dias"]:
+        _t[_c] = _t[_c].mask(_t["suprimido"], pd.NA)
+    componentes.botao_download(_t, "territorio_tempo.csv")
