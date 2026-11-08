@@ -49,3 +49,37 @@ def test_sobre_define_series_por_assuntos():
     texto = " ".join(m.value for m in at.markdown)
     assert "assuntos" in texto
     assert "tipo de procedimento" not in texto
+
+
+def test_territorio_padrao_acao_penal_2025():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "territorio.py"), default_timeout=30).run()
+    assert not at.exception
+    assert at.selectbox(key="territorio_ano").value == 2025
+    assert at.selectbox(key="territorio_tipo").value == "ACAO_PENAL"
+    assert any("município-sede" in w.value for w in at.warning)
+
+
+def test_territorio_taxa_acao_penal_2025_faixa_artigo():
+    import sys
+    sys.path.insert(0, str(RAIZ))
+    from painel import componentes
+    t = componentes.tabela("agg_taxa")
+    r = t[(t["serie"] == "estrita") & (t["ano_ajuizamento"] == 2025)
+          & (t["tipo_procedimento"] == "ACAO_PENAL") & ~t["suprimido"]]
+    assert len(r) > 0
+    assert 67 <= r["taxa_eb_100k"].min() and r["taxa_eb_100k"].max() <= 237
+
+
+def test_territorio_recorte_extremo_nao_quebra():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "territorio.py"), default_timeout=30).run()
+    at.selectbox(key="territorio_ano").set_value(2026)
+    at.selectbox(key="territorio_tipo").set_value("EXECUCAO").run()
+    assert not at.exception
+    from painel.exibicao import MSG_TUDO_SUPRIMIDO
+    assert MSG_TUDO_SUPRIMIDO in [i.value for i in at.info] or len(at.dataframe) > 0
+
+
+def test_volume_aviso_sobreposicao():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
+    assert not at.exception
+    assert any("se sobrepõem" in w.value for w in at.warning)
