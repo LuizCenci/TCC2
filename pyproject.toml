@@ -23,6 +23,9 @@ orquestracao = [
   "prefect>=3.9,<4",
 ]
 
+# Dashboard público (dashboard/).
+dashboard = ["streamlit>=1.40,<2", "plotly>=5.24,<7"]
+
 # Métodos e agregados (docs/artigo/20).
 analise = [
   "pandas>=2.2,<3",
