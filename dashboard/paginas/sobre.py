@@ -35,9 +35,9 @@ st.markdown(
 )
 
 st.subheader("Séries estrita e ampliada")
-st.write("A série estrita usa critérios mais restritos para classificar o tipo de procedimento; a "
-         "ampliada inclui casos ambíguos adicionais. A diferença entre as duas indica a sensibilidade "
-         "dos resultados à regra de classificação.")
+st.write("A série estrita reúne os processos com assuntos do núcleo e das extensões específicas do "
+         "catálogo temático. A série ampliada inclui também os assuntos ambíguos e secundários, e serve "
+         "como análise de sensibilidade da regra de seleção.")
 
 st.subheader("Limitações")
 st.markdown(

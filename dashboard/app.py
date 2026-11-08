@@ -20,8 +20,9 @@ except ErroIntegridade as erro:
 with st.sidebar:
     st.radio(
         "Série", options=list(SERIE), format_func=SERIE.get, key="serie",
-        help=("Estrita: critérios mais restritos de classificação do tipo de procedimento. "
-              "Ampliada: inclui casos ambíguos adicionais. Vale para todas as páginas."),
+        help=("Estrita: assuntos do núcleo e das extensões específicas do catálogo temático. "
+              "Ampliada: inclui também assuntos ambíguos e secundários (sensibilidade). "
+              "Vale para todas as páginas."),
     )
     st.caption("Estrita é o padrão; a ampliada mostra a sensibilidade ao critério.")
 

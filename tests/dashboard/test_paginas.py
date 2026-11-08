@@ -29,10 +29,23 @@ def test_app_para_com_integridade_quebrada(monkeypatch, pasta_copia):
 
 def test_visao_geral_metricas_e_rodape():
     at = AppTest.from_file(str(RAIZ / "paginas" / "visao_geral.py"), default_timeout=30).run()
+    assert not at.exception
     valores = {m.label: m.value for m in at.metric}
-    assert valores["Processos na base analítica"] == "147.020"
-    assert "758 dias" in valores["Mediana até a sentença (ação penal)"]
-    assert valores["Condenação em 5 anos (ajuizados 2019–2021)"].startswith("46")
+    assert valores["Processos na base"] == "147.020"
+    assert valores["Mediana até a sentença"] == "758 dias"
+    assert valores["Mediana até decisão da MPU"] == "1 dia"
+    assert valores["Condenação em 5 anos"].startswith("46")
+    for v in valores.values():
+        assert "…" not in v and len(v) <= 12
     texto = " ".join(c.value for c in at.caption)
-    assert "O acervo público reúne de 2,4% a 9,0%" in texto
+    assert "Nos anos completos de 2020 a 2025" in texto
+    assert "2,7% a 6,0%" in texto
     assert "gold-2026-11-07" in texto
+
+
+def test_sobre_define_series_por_assuntos():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "sobre.py"), default_timeout=30).run()
+    assert not at.exception
+    texto = " ".join(m.value for m in at.markdown)
+    assert "assuntos" in texto
+    assert "tipo de procedimento" not in texto
