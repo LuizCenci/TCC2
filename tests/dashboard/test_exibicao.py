@@ -37,3 +37,9 @@ def test_texto_mediana():
 def test_rotulo_ano_parcial():
     assert rotulo_ano(2026, True) == "2026 (parcial)"
     assert rotulo_ano(2025, False) == "2025"
+
+
+def test_texto_mediana_singular():
+    base = {"estimavel": True, "mediana_alcancada": True, "ic95_inf": 1.0, "ic95_sup": 1.0}
+    assert texto_mediana(pd.Series({**base, "mediana_dias": 1.0})) == "1 dia (IC 95%: 1–1)"
+    assert texto_mediana(pd.Series({**base, "mediana_dias": 2.0})).startswith("2 dias")

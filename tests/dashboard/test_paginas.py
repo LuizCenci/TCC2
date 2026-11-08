@@ -96,3 +96,44 @@ def test_volume_aviso_sobreposicao():
     at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
     assert not at.exception
     assert any("se sobrepõem" in w.value for w in at.warning)
+
+
+def test_mpu_mediana_um_dia():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "mpu.py"), default_timeout=30).run()
+    assert not at.exception
+    assert any("1 dia" in m.value for m in at.metric)
+
+
+def test_mpu_tipos_medida_e_minimo():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "mpu.py"), default_timeout=30).run()
+    texto = " ".join(c.value for c in list(at.caption) + list(at.markdown))
+    assert "mínimo (soma das mesorregiões não suprimidas)" in texto
+
+
+def test_acoes_penais_coorte_padrao():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "acoes_penais.py"), default_timeout=30).run()
+    assert not at.exception
+    assert at.selectbox(key="ap_coorte").value == "2019-2021"
+    assert at.selectbox(key="ap_variante").value == "principal"
+    at.selectbox(key="ap_coorte").set_value("2024-2026").run()
+    at.selectbox(key="ap_variante").set_value("com_reativados").run()
+    assert not at.exception
+
+
+def test_cobertura_nota_2019():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "cobertura.py"), default_timeout=30).run()
+    assert not at.exception
+    assert any("2019 é anômalo" in c.value for c in list(at.markdown) + list(at.caption) + list(at.info))
+    assert "Razão base pública / CNJ (%)" in at.dataframe[0].value.columns
+
+
+def test_nenhuma_pagina_mostra_taxa_de_violencia():
+    for pagina in ["visao_geral", "volume", "territorio", "mpu", "acoes_penais", "cobertura", "sobre"]:
+        at = AppTest.from_file(str(RAIZ / "paginas" / f"{pagina}.py"), default_timeout=30).run()
+        assert not at.exception, pagina
+        elementos = (list(at.markdown) + list(at.caption) + list(at.title) + list(at.header)
+                     + list(at.subheader) + list(at.info) + list(at.warning))
+        texto = " ".join(e.value for e in elementos).lower()
+        assert "taxa de violência" not in texto, pagina
+        if pagina not in ("visao_geral", "sobre"):
+            assert "vítimas" not in texto, pagina

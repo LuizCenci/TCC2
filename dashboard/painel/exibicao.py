@@ -43,7 +43,8 @@ def texto_mediana(linha: pd.Series) -> str:
         return "não estimável"
     if not linha["mediana_alcancada"]:
         return "mediana não alcançada"
-    return (f"{formatar_inteiro(linha['mediana_dias'])} dias "
+    dias = "dia" if int(round(float(linha["mediana_dias"]))) == 1 else "dias"
+    return (f"{formatar_inteiro(linha['mediana_dias'])} {dias} "
             f"(IC 95%: {formatar_inteiro(linha['ic95_inf'])}–{formatar_inteiro(linha['ic95_sup'])})")
 
 
