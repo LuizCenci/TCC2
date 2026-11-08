@@ -16,7 +16,7 @@ O projeto implementa um pipeline reproduzível na Arquitetura Medalhão:
 
 **Limites de leitura:** os dados contam processos públicos, não vítimas nem ocorrências. A localização é a do órgão julgador, não a do fato. O acervo público é uma fração do total registrado pelo CNJ (`docs/artigo/22-validacao-cnj.md`).
 
-Toda a documentação de parâmetros, decisões e resultados fica em `docs/artigo/` (índice em `docs/artigo/README.md`). Um dashboard interativo para a apresentação está em desenvolvimento.
+Toda a documentação de parâmetros, decisões e resultados fica em `docs/artigo/` (índice em `docs/artigo/README.md`). O dashboard interativo para a apresentação está descrito na seção "Dashboard" abaixo e em `dashboard/README.md`.
 
 ## Dados publicados
 
@@ -161,3 +161,7 @@ A exportação nunca sobrescreve uma pasta existente. Para publicar uma nova ver
 | `work/logs/silver.log` | Carga manual: SHA-256 verificado, registros e movimentos por página, contagens e duração |
 
 O `prefect.toml` na raiz faz o Prefect capturar os logs do pacote `datajud_tcc`. Os logs não contêm DSN, número de processo nem chave da API.
+
+## Dashboard
+
+App Streamlit em `dashboard/` que exibe os agregados da Gold (exportação `outputs/publicacao/2026-11-05_gold-2026-11-07/`). Execução: `pip install -e ".[dashboard]"` e `streamlit run dashboard/app.py`. Publicação, atualização dos dados e geometria: `dashboard/README.md`; registro no artigo: `docs/artigo/27-dashboard.md`.
