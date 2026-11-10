@@ -20,7 +20,7 @@ Toda a documentação de parâmetros, decisões e resultados fica em `docs/artig
 
 ## Dados publicados
 
-`outputs/publicacao/2026-11-05_gold-2026-11-07/` contém os agregados usados no artigo: 12 CSVs e um `manifesto.json` com a versão das regras (`gold-2026-11-07`), a data de corte e o SHA-256 de cada arquivo. Eles não contêm identificadores processuais. As células abaixo de 5 processos (10 por órgão julgador) são suprimidas, há supressão secundária, e as contagens de tempos e desfechos são arredondadas na base 10 (`docs/artigo/25-metodos-e-agregados.md`). As respostas brutas da API e o banco ficam apenas locais.
+`outputs/publicacao/2026-11-05_gold-2026-11-07/` contém os agregados usados no artigo: 12 CSVs e um `manifesto.json` com a versão das regras (`gold-2026-11-07`), a data de corte e o SHA-256 de cada arquivo. Eles não contêm identificadores processuais. As células abaixo de 5 processos (10 por órgão julgador) são suprimidas, há supressão secundária, e as contagens de tempos e desfechos são arredondadas na base 10 (`docs/artigo/25-metodos-e-agregados.md`). O esquema SQL de todas as camadas está em `banco/esquema_completo.sql`, e o backup público do banco (sem números de processo) está na release `dados-2026-11-07`; instruções em `banco/README.md`. As respostas brutas da API ficam apenas locais.
 
 ## Ambiente
 
