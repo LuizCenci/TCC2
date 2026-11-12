@@ -1,0 +1,276 @@
+{
+  "versao_regras": "gold-2026-11-11",
+  "data_corte_max": "2026-11-05",
+  "gerado_em": "2026-11-12T02:00:12.838132+00:00",
+  "arquivos": [
+    {
+      "arquivo": "agg_volume.csv",
+      "linhas": 1298,
+      "sha256": "b5a9ecdafa9a3d1b0f3e0cd743711205ebd5665c8a7403c0e3d71faed595c33c"
+    },
+    {
+      "arquivo": "agg_volume_jan_ago.csv",
+      "linhas": 1047,
+      "sha256": "021e8beb9b34a95088d77503290c7f09856367609f0899eb5181677cf0a3a96d"
+    },
+    {
+      "arquivo": "agg_categoria.csv",
+      "linhas": 6859,
+      "sha256": "14b5ed2709cbc4e8940dccbf2a8dd3dc07aa6d9c937ab79152d5c208a9922d1e"
+    },
+    {
+      "arquivo": "agg_taxa.csv",
+      "linhas": 1260,
+      "sha256": "39ed2a199b8d7280cddd18129b06f8e9ee1c165c550ddb0dd0213aea6728bd48"
+    },
+    {
+      "arquivo": "agg_mpu.csv",
+      "linhas": 32,
+      "sha256": "cc9f073433b0c47d4edc82f0f02698c00382c66a76dc51f4ea5e5566e12be547"
+    },
+    {
+      "arquivo": "agg_mpu_medida.csv",
+      "linhas": 1293,
+      "sha256": "7a53db46e6bc7e5ed589926f7ed81d93040f96a8ec5b6bae3475eb1f3a29f0ce"
+    },
+    {
+      "arquivo": "agg_cautelar.csv",
+      "linhas": 1036,
+      "sha256": "98f872d6b53ff2d89335aefb18ccd727830b184d2314b26ee17c8ae4a72c4fa6"
+    },
+    {
+      "arquivo": "agg_tempo.csv",
+      "linhas": 210,
+      "sha256": "ba28f2419b5e2b4687776e98807ec835915f0bae03312a222fc04a108fb17e91"
+    },
+    {
+      "arquivo": "agg_desfecho.csv",
+      "linhas": 560,
+      "sha256": "4af6be6e4145f1a088bf5bbaeb71da9a155e6936df18e1775fdfe7a9e489855d"
+    },
+    {
+      "arquivo": "agg_qualidade_orgao.csv",
+      "linhas": 313,
+      "sha256": "ae9c6a089c41047e24cfe0a03700740da2ea9647331df4799c07d8707cceab73"
+    },
+    {
+      "arquivo": "agg_cobertura_cnj.csv",
+      "linhas": 14,
+      "sha256": "175f81ead6b47206d63e88d53bdb16a9bc58b07a4e0717aa5c9a569fb16c3e7e"
+    },
+    {
+      "arquivo": "agg_pipeline.csv",
+      "linhas": 3,
+      "sha256": "dd76fc64ccfc6c6be4928bacdb92125c4fd8ec4af44fe95b316fdc880711b113"
+    }
+  ],
+  "regras_supressao": {
+    "agg_volume": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "ano_ajuizamento",
+        "ano_parcial",
+        "tipo_procedimento",
+        "serie"
+      ],
+      "colunas_valor": []
+    },
+    "agg_volume_jan_ago": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "ano_ajuizamento",
+        "tipo_procedimento",
+        "serie"
+      ],
+      "colunas_valor": []
+    },
+    "agg_categoria": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "ano_ajuizamento",
+        "ano_parcial",
+        "tipo_procedimento",
+        "categoria",
+        "serie"
+      ],
+      "colunas_valor": []
+    },
+    "agg_taxa": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "ano_ajuizamento",
+        "ano_parcial",
+        "tipo_procedimento",
+        "serie"
+      ],
+      "colunas_valor": [
+        "taxa_bruta_100k",
+        "taxa_eb_100k"
+      ]
+    },
+    "agg_mpu": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "ano_ajuizamento",
+        "ano_parcial",
+        "serie"
+      ],
+      "colunas_valor": [
+        "n_com_decisao",
+        "n_deferimento",
+        "n_parcial",
+        "n_indeferimento",
+        "n_revogadas"
+      ]
+    },
+    "agg_mpu_medida": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "ano_ajuizamento",
+        "ano_parcial",
+        "tipo_medida"
+      ],
+      "colunas_valor": []
+    },
+    "agg_cautelar": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "ano_ajuizamento",
+        "ano_parcial",
+        "tipo_procedimento",
+        "categoria",
+        "serie"
+      ],
+      "colunas_valor": [
+        "n_flagrante",
+        "n_preventiva",
+        "n_liberdade_provisoria_concedida"
+      ]
+    },
+    "agg_tempo": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "marco",
+        "tipo_procedimento",
+        "serie",
+        "estrato"
+      ],
+      "colunas_valor": [
+        "n_eventos",
+        "mediana_dias",
+        "mediana_alcancada",
+        "ic95_inf",
+        "ic95_sup",
+        "pct_evento_ate_2",
+        "pct_evento_ate_30",
+        "pct_evento_ate_365",
+        "pct_evento_ate_730"
+      ]
+    },
+    "agg_desfecho": {
+      "limite": 5,
+      "colunas_grupo": [
+        "pergunta",
+        "tipo_procedimento",
+        "serie",
+        "variante",
+        "estrato",
+        "desfecho"
+      ],
+      "colunas_valor": [
+        "n_desfecho",
+        "ia_365",
+        "ia_730",
+        "ia_1095",
+        "ia_1825"
+      ]
+    },
+    "agg_qualidade_orgao": {
+      "limite": 10,
+      "colunas_grupo": [
+        "mesorregiao_id"
+      ],
+      "colunas_valor": [
+        "media_movimentos",
+        "mediana_movimentos",
+        "n_processos_com_duplicado"
+      ]
+    },
+    "agg_cobertura_cnj": "sem supressão",
+    "agg_pipeline": "sem supressão"
+  },
+  "subcontagens_suprimidas_abaixo_do_limite": {
+    "agg_mpu": [
+      "n_com_decisao",
+      "n_deferimento",
+      "n_parcial",
+      "n_indeferimento",
+      "n_revogadas"
+    ],
+    "agg_cautelar": [
+      "n_flagrante",
+      "n_preventiva",
+      "n_liberdade_provisoria_concedida"
+    ],
+    "agg_tempo": [
+      "n_eventos"
+    ],
+    "agg_desfecho": [
+      "n_desfecho"
+    ],
+    "agg_qualidade_orgao": [
+      "n_processos_com_duplicado"
+    ]
+  },
+  "agregacoes_exportacao": {
+    "agg_volume": "somado sobre mesorregiao_id (coluna removida); nível mesorregional disponível em agg_taxa (n) e agg_volume_jan_ago",
+    "agg_mpu": "somado sobre mesorregiao_id (coluna removida); nível mesorregional disponível em agg_taxa (n) e agg_volume_jan_ago"
+  },
+  "arredondamento": {
+    "tabelas": [
+      "agg_tempo",
+      "agg_desfecho"
+    ],
+    "base": 10
+  },
+  "estimativas_dependentes": {
+    "agg_tempo": {
+      "n_eventos": [
+        "mediana_dias",
+        "mediana_alcancada",
+        "ic95_inf",
+        "ic95_sup",
+        "pct_evento_ate_2",
+        "pct_evento_ate_30",
+        "pct_evento_ate_365",
+        "pct_evento_ate_730"
+      ]
+    },
+    "agg_desfecho": {
+      "n_desfecho": [
+        "ia_365",
+        "ia_730",
+        "ia_1095",
+        "ia_1825"
+      ]
+    }
+  },
+  "conjuntos_aditivos": {
+    "agg_mpu": [
+      [
+        "n_deferimento",
+        "n_parcial",
+        "n_indeferimento"
+      ]
+    ]
+  },
+  "observacao": "estimavel é mantido (revela apenas n < 30)"
+}
