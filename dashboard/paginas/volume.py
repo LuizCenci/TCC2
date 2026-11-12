@@ -16,8 +16,7 @@ UNID = "processos públicos"
 
 st.title("Volume no tempo")
 st.caption("2026 é parcial: ajuizamentos até 30/09/2026, com setembro incompleto. "
-           "2019 é tratado como ano de sensibilidade (a referência do CNJ para esse ano vem de outro "
-           "produto e pode seguir critério diferente).")
+           "2019 é tratado como ano de sensibilidade e não entra na comparação com o painel do CNJ.")
 
 tipos = st.multiselect("Tipos de procedimento", list(TIPO_PROCEDIMENTO), default=["ACAO_PENAL", "INQUERITO", "MPU"],
                        format_func=TIPO_PROCEDIMENTO.get, key="volume_tipos")

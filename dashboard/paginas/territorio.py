@@ -37,7 +37,7 @@ titulo = f"{TIPO_PROCEDIMENTO[tipo]}, {rotulo_ano(ano, ano == 2026)}: {ROTULO_TA
 if ano == 2026:
     st.caption("2026 é parcial (ajuizamentos até 30/09/2026); a taxa não é comparável com anos completos.")
 if ano == 2019:
-    st.caption("2019 é ano de sensibilidade: a referência do CNJ para esse ano pode seguir critério diferente.")
+    st.caption("2019 é ano de sensibilidade e não entra na comparação com o painel do CNJ.")
 
 if not len(rec):
     st.info("Sem dados para este recorte.")

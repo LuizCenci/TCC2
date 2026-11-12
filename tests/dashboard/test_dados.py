@@ -25,7 +25,7 @@ def test_integridade_detecta_ausencia(pasta_copia):
 
 def test_manifesto():
     m = carregar_manifesto()
-    assert m["versao_regras"] == "gold-2026-11-07"
+    assert m["versao_regras"] == "gold-2026-11-11"
     assert m["data_corte_max"] == "2026-11-05"
     assert len(m["arquivos"]) == 12
 

@@ -20,8 +20,10 @@ st.caption("Esta página compara contagens de registros entre duas fontes e desc
 st.subheader("Base pública e painel do CNJ")
 st.markdown("A razão base pública / CNJ é a razão entre duas contagens de registros, de fontes e critérios "
             "diferentes. Não é cobertura exata nem taxa de judicialização.")
-st.info("2019 é anômalo: a referência do CNJ para esse ano vem de outro produto, com critério possivelmente "
-           "diferente, e o ano é tratado como de sensibilidade (feminicídio chega a 115%).")
+st.info("A base pública foi contada com os critérios do painel do CNJ (assuntos e classes de violência "
+        "doméstica e de feminicídio, sem as cartas precatórias), para anos completos de 2020 em diante. "
+        "As medidas protetivas do painel são decisões (concedidas, denegadas, revogadas, prorrogadas e "
+        "homologadas), não processos, e por isso não são comparadas.")
 cob = componentes.tabela("agg_cobertura_cnj").sort_values(["medida", "ano_ajuizamento"])
 tab = pd.DataFrame({
     "Ano": [rotulo_ano(int(a), bool(p)) for a, p in zip(cob["ano_ajuizamento"], cob["ano_parcial"])],

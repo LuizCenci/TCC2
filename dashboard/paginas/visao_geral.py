@@ -77,10 +77,11 @@ m4.metric("Condenação em 5 anos", condenacao,
                "5 anos após o ajuizamento.")
 
 cob = componentes.tabela("agg_cobertura_cnj")
-mpu = cob[(cob["medida"] == "mpu") & cob["ano_ajuizamento"].between(2020, 2025)]["pct"].dropna()
+vd = cob[(cob["medida"] == "vd_criterio_cnj") & cob["ano_ajuizamento"].between(2020, 2025)]["pct"].dropna()
 man = carregar_manifesto()
 st.caption(
-    f"Nos anos completos de 2020 a 2025, a razão entre os processos de medida protetiva da base pública e os "
-    f"registrados nos painéis do CNJ fica entre {formatar_pct(mpu.min())} e {formatar_pct(mpu.max())}. Data de corte: {man['data_corte_max']}. "
+    f"Nos anos completos de 2020 a 2025, a base pública reúne entre {formatar_pct(vd.min())} e "
+    f"{formatar_pct(vd.max())} dos casos novos de violência doméstica informados pelo painel do CNJ "
+    f"(mesmos critérios). Data de corte: {man['data_corte_max']}. "
     f"Versão das regras: {man['versao_regras']}. Unidade: processos públicos."
 )

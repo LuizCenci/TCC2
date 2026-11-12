@@ -65,10 +65,9 @@ st.write("Alguns nomes de medida protetiva chegam truncados e com codificação 
          "na fonte. O painel corrige apenas o rótulo exibido; os dados publicados não são alterados.")
 
 st.subheader("2019 como ano de sensibilidade")
-st.write("A base de 2019 ultrapassa os casos novos de feminicídio do CNJ (115%) e tem 50,6% dos casos "
-         "de violência doméstica, contra cerca de 20% nos demais anos. A tabela de 2019 do CNJ vem de "
-         "outro produto, anterior ao painel, com critério possivelmente diferente. Por isso 2019 é "
-         "tratado como ano de sensibilidade nas séries.")
+st.write("A referência do CNJ para 2019 vem de outra publicação, com critério não informado, e por isso "
+         "2019 não entra na comparação de cobertura. O ano continua nas séries, tratado como ano de "
+         "sensibilidade.")
 
 st.subheader("Código-fonte")
 st.markdown("Repositório: https://github.com/LuizCenci/TCC2")

@@ -38,9 +38,8 @@ MARCO = {
 }
 SERIE = {"estrita": "Estrita", "ampliada": "Ampliada"}
 MEDIDA_COBERTURA = {
-    "mpu": "Medidas protetivas",
-    "vd_sem_cartas": "Violência doméstica (sem cartas precatórias)",
-    "feminicidio_acao_penal": "Feminicídio (ações penais)",
+    "vd_criterio_cnj": "Violência doméstica (critério do CNJ)",
+    "feminicidio_criterio_cnj": "Feminicídio (critério do CNJ)",
 }
 
 

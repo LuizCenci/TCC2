@@ -39,9 +39,10 @@ def test_visao_geral_metricas_e_rodape():
         assert "…" not in v and len(v) <= 12
     texto = " ".join(c.value for c in at.caption)
     assert "Nos anos completos de 2020 a 2025" in texto
-    assert ("a razão entre os processos de medida protetiva da base pública e os registrados nos painéis "
-            "do CNJ fica entre 2,7% e 6,0%") in texto
-    assert "gold-2026-11-07" in texto
+    assert "violência doméstica informados pelo painel do CNJ" in texto
+    assert "16,7%" in texto and "21,8%" in texto
+    assert "medida protetiva" not in texto
+    assert "gold-2026-11-11" in texto
 
 
 def test_sobre_define_series_por_assuntos():
@@ -121,10 +122,13 @@ def test_acoes_penais_coorte_padrao():
     assert not at.exception
 
 
-def test_cobertura_nota_2019():
+def test_cobertura_criterio_cnj():
     at = AppTest.from_file(str(RAIZ / "paginas" / "cobertura.py"), default_timeout=30).run()
     assert not at.exception
-    assert any("2019 é anômalo" in c.value for c in list(at.markdown) + list(at.caption) + list(at.info))
+    texto = " ".join(c.value for c in list(at.markdown) + list(at.caption) + list(at.info))
+    assert "critérios do painel do CNJ" in texto
+    assert "decisões" in texto and "não são comparadas" in texto
+    assert "2019 é anômalo" not in texto and "115" not in texto
     assert "Razão base pública / CNJ (%)" in at.dataframe[0].value.columns
 
 
