@@ -9,7 +9,7 @@ from gold_dados import inserir_execucao, inserir_registro, utc
 
 pytestmark = pytest.mark.banco
 
-VERSAO = "gold-2026-11-07"
+VERSAO = "gold-2026-11-11"
 AJ = datetime(2026, 3, 10, 9, 0, 0)
 
 

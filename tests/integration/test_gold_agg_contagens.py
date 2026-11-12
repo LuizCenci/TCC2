@@ -29,6 +29,19 @@ CENARIOS = {
 }
 
 
+ANO_CNJ = 2032
+AJ_CNJ = datetime(2032, 3, 10, 9, 0, 0)
+# nome: (classe, assuntos)
+CENARIOS_CNJ = {
+    "A": (283, (10949, 12091)),  # VD + feminicídio em ação penal: só feminicídio
+    "B": (283, (12091,)),        # feminicídio em ação penal
+    "C": (7, (12091,)),        # feminicídio em classe fora da lista, sem assunto do núcleo: nenhum
+    "D": (1268, (5560,)),        # MPU sem assunto do núcleo: VD pela classe
+    "E": (7, (10949,)),        # VD
+    "F": (7, (12091, 10949)),  # feminicídio fora da lista, mas com assunto do núcleo: VD
+}
+
+
 @pytest.fixture(scope="module")
 def base(conn_banco_modulo):
     conn = conn_banco_modulo
@@ -49,6 +62,14 @@ def base(conn_banco_modulo):
         conn.execute(
             "INSERT INTO silver.complemento_movimento (movimento_id, ordem, codigo, descricao,"
             " valor, nome) VALUES (%s,1,32,'tipo_de_medida_protetiva',130,%s)", (mid, MED))
+    # Ano separado (2032, execução T6) para a cobertura com o critério do painel do CNJ.
+    conn.execute("INSERT INTO ref.cnj_casos_novos VALUES (%s, 100, 10, 100, 'teste')", (ANO_CNJ,))
+    conn.execute("INSERT INTO ref.cnj_casos_novos VALUES (2018, 100, 10, 100, 'teste')")
+    inserir_execucao(conn, "T6", utc(2032, 6, 2), [ANO_CNJ])
+    for n, (c, a) in CENARIOS_CNJ.items():
+        inserir_registro(conn, "T6", f"api6-{n}", ano=ANO_CNJ, classe=c, orgao=9732,
+                         municipio=4106902, ajuizamento=AJ_CNJ, assuntos=a, movimentos=[],
+                         numero=f"6{n}")
     executar_transformacoes(conn)
     return conn
 
@@ -100,12 +121,12 @@ def test_agg_cautelar_codigos(base):
     assert tuple(r) == (1, 1, 1, 1)
 
 
-def test_agg_cobertura_usa_ref_cnj(base):
+def test_agg_cobertura_usa_criterio_cnj(base):
     rows = dict((m, (nb, nc, float(p))) for m, nb, nc, p in base.execute(
-        "SELECT medida, n_base, n_cnj, pct FROM gold.agg_cobertura_cnj WHERE ano_ajuizamento=%s", (ANO,)))
-    assert rows["vd_sem_cartas"] == (7, 1000, 0.7)
-    assert rows["mpu"] == (4, 100, 4.0)
-    assert rows["feminicidio_acao_penal"] == (1, 10, 10.0)
+        "SELECT medida, n_base, n_cnj, pct FROM gold.agg_cobertura_cnj WHERE ano_ajuizamento=%s",
+        (ANO_CNJ,)))
+    assert rows == {"vd_criterio_cnj": (3, 100, 3.0), "feminicidio_criterio_cnj": (2, 10, 20.0)}
+    assert um(base, "SELECT count(*) FROM gold.agg_cobertura_cnj WHERE ano_ajuizamento<2020")[0] == 0
 
 
 def test_agg_qualidade_orgao_sem_supressao(base):

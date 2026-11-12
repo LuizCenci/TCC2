@@ -32,7 +32,7 @@ def main() -> None:
     )
     pipeline = pipeline_incremental.to_deployment(
         name="tjpr-pipeline-sob-demanda",
-        parameters={"config_path": CONFIG, "versao_regras": "gold-2026-11-07"},
+        parameters={"config_path": CONFIG, "versao_regras": "gold-2026-11-11"},
         tags=["datajud", "base-operacional"],
     )
     serve(coleta, pipeline, limit=1)

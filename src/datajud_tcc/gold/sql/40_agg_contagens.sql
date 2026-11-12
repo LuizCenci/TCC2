@@ -79,26 +79,36 @@ SELECT 'Q14', i.orgao_codigo, i.mesorregiao_id,
   FROM gold.qualidade_intensidade_registro i
   LEFT JOIN gold.qualidade_movimentos_duplicados d USING (orgao_codigo);
 
+-- Critérios do painel do CNJ (lidos em 11/11/2026): feminicídio = assunto 12091/12358 com classe
+-- de ação penal, execução penal, inquérito ou ato infracional; violência doméstica = assuntos do
+-- núcleo ou classes de MPU, excluídos os processos de feminicídio e as cartas.
 INSERT INTO gold.agg_cobertura_cnj
-SELECT 'Q14', r.ano, r.ano = 2026, x.medida, x.n_base,
-       CASE x.medida WHEN 'vd_sem_cartas' THEN r.vd_novos
-                     WHEN 'mpu' THEN r.mpu ELSE r.feminicidio_novos END,
-       100.0 * x.n_base / NULLIF(CASE x.medida WHEN 'vd_sem_cartas' THEN r.vd_novos
-                     WHEN 'mpu' THEN r.mpu ELSE r.feminicidio_novos END, 0),
-       x.n_base
+WITH cls AS (
+    SELECT f.ano_ajuizamento AS ano, f.tipo_procedimento,
+           (EXISTS (SELECT 1 FROM silver.registro_assunto a WHERE a.registro_id = f.registro_id
+                    AND a.assunto_codigo IN (12091, 12358))
+           AND COALESCE(f.classe_codigo IN (282, 283, 1033, 1317, 10943, 10944, 11037, 11528,
+                                   386, 1714, 11399, 12727, 12728, 12729, 14696, 279, 1464), false)) AS fem,
+           (EXISTS (SELECT 1 FROM silver.registro_assunto a WHERE a.registro_id = f.registro_id
+                     AND a.assunto_codigo IN (10948, 10949, 11979, 12194, 12196, 14226, 14227,
+                                              14228, 14229, 14942, 14943, 14944, 14945, 14097, 14098))
+            OR f.classe_codigo IN (1268, 12423, 15309)) AS vd_cand
+      FROM gold.fato_processo f
+), cont AS (
+    SELECT ano,
+           count(*) FILTER (WHERE vd_cand AND NOT fem AND tipo_procedimento <> 'CARTA') AS vd,
+           count(*) FILTER (WHERE fem) AS fem
+      FROM cls GROUP BY ano
+)
+SELECT 'Q14', r.ano, r.ano = 2026, x.medida, x.n_base, x.n_cnj,
+       100.0 * x.n_base / NULLIF(x.n_cnj, 0), x.n_base
   FROM ref.cnj_casos_novos r
-  CROSS JOIN LATERAL (
-    SELECT 'vd_sem_cartas' AS medida, count(*) AS n_base FROM gold.fato_processo f
-     WHERE f.ano_ajuizamento = r.ano AND f.tipo_procedimento <> 'CARTA'
-    UNION ALL
-    SELECT 'mpu', count(*) FROM gold.fato_processo f
-     WHERE f.ano_ajuizamento = r.ano AND f.tipo_procedimento = 'MPU'
-    UNION ALL
-    SELECT 'feminicidio_acao_penal', count(DISTINCT f.registro_id) FROM gold.fato_processo f
-      JOIN gold.processo_categoria pc USING (registro_id)
-     WHERE f.ano_ajuizamento = r.ano AND f.tipo_procedimento = 'ACAO_PENAL'
-       AND pc.categoria = 'FEMINICIDIO'
-  ) x;
+  LEFT JOIN cont c ON c.ano = r.ano
+  CROSS JOIN LATERAL (VALUES
+    ('vd_criterio_cnj', COALESCE(c.vd, 0), r.vd_novos),
+    ('feminicidio_criterio_cnj', COALESCE(c.fem, 0), r.feminicidio_novos)
+  ) x (medida, n_base, n_cnj)
+ WHERE r.ano >= 2020;
 
 INSERT INTO gold.agg_pipeline (pergunta, run_id, concluida_em, updated_since, carregada_em, n)
 SELECT 'Q15', e.run_id, e.concluida_em, e.updated_since, e.carregada_em,

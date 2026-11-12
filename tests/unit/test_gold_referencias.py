@@ -6,7 +6,7 @@ from datajud_tcc.gold import referencias as r
 
 
 def test_regras_versao():
-    assert r.ler_regras()["versao_regras"] == "gold-2026-11-07"
+    assert r.ler_regras()["versao_regras"] == "gold-2026-11-11"
 
 
 def test_classes_cobrem_67_e_tipos_validos():
@@ -74,4 +74,4 @@ def test_hierarquia_sem_caixa_e_infracional():
 def test_ler_regras_independe_do_cwd(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     assert r._dir_padrao().exists()
-    assert r.ler_regras(r._dir_padrao())["versao_regras"] == "gold-2026-11-07"
+    assert r.ler_regras(r._dir_padrao())["versao_regras"] == "gold-2026-11-11"

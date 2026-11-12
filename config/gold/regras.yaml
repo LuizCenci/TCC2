@@ -1,4 +1,4 @@
-versao_regras: gold-2026-11-07
+versao_regras: gold-2026-11-11
 catalogo: config/catalogs/tjpr_vcm_2026-10-18.yaml
 arquivos:
   ref_classe_tipo.csv:
