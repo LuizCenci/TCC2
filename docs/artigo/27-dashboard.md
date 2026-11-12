@@ -40,7 +40,7 @@ Q11 (fluxo, mineração de processos) não tem tabela agregada e não aparece (`
 Detalhes por página:
 
 - **Visão geral:** números lidos dos CSVs (nada digitado no código): processos na base analítica (147.020, linha da Gold em `agg_pipeline`; o artigo cita 147.002 registros coletados, e a diferença são os 18 registros de 2026 que saíram do índice), mediana até a decisão da MPU, mediana até a sentença na ação penal e condenação em 5 anos (coorte 2019–2021). O total não muda com a série. O rodapé traz a faixa de cobertura das MPUs frente ao painel do CNJ, a data de corte e a versão das regras.
-- **Volume no tempo:** série mensal por tipo (abre com Ação penal, Inquérito e MPU), com 2026 marcado como parcial; comparação anual jan–ago; categorias de violência por ano.
+- **Volume no tempo:** série mensal por tipo (abre com Ação penal, Inquérito e MPU), com 2026 marcado como parcial; comparação entre anos (padrão: totais anuais de anos completos, com 2026 parcial hachurado; opção "Janeiro a agosto"); categorias de violência por ano.
 - **Território:** mapa coroplético das 10 mesorregiões com ano e tipo à escolha (padrão: Ação penal, 2025, série estrita, taxa suavizada Bayes empírico, faixa de cerca de 68 a 236 processos por 100 mil mulheres, o mesmo recorte do `26`), opção de taxa bruta, ranking em barras e tempos medianos por mesorregião.
 - **Medidas protetivas:** decisões e revogações por ano, tempo até a decisão (mediana e percentuais em até 2, 30 e 365 dias) e tipos de medida.
 - **Ações penais:** tempo até denúncia e sentença (mediana e IC 95%), desfechos acumulados por coorte (variantes `principal` e `com_reativados`) e resposta cautelar (flagrante, preventiva, liberdade provisória).
@@ -62,7 +62,7 @@ Definidas na spec do dashboard (rascunho interno, não versionado) e resumidas a
 
 ### Decisões tomadas na implementação
 
-- **Comparação jan–ago:** soma os meses 1–8 de `agg_volume` (nível estadual). Ano ou tipo com algum mês suprimido fica sem barra e é listado como suprimido. A série mensal abre com Ação penal, Inquérito e MPU.
+- **Comparação entre anos:** por padrão soma os meses 1–12 de cada ano (2026: meses 1–9, rótulo "2026 (parcial, jan–set)", barra hachurada e com opacidade reduzida, com nota de não comparabilidade); o seletor `volume_periodo` oferece "Janeiro a agosto", que soma os meses 1–8 de `agg_volume` (nível estadual). Ano ou tipo com algum mês suprimido fica sem barra e é listado como suprimido. A série mensal abre com Ação penal, Inquérito e MPU.
 - **Categorias por ano:** `agg_categoria` não tem linha estadual; mostram-se só as combinações em que nenhuma mesorregião está suprimida. Categorias se sobrepõem e nunca são somadas.
 - **Cobertura no rodapé da Visão geral:** usa só os anos completos e fora da sensibilidade, 2020–2025 (2,7% a 6,0%), coerente com o artigo e o `22`; 2019 é ano de sensibilidade.
 - **Tipos de medida:** são um limite inferior ("mínimo, soma das mesorregiões não suprimidas"), não um total.
@@ -96,7 +96,7 @@ As mesorregiões são geradas uma única vez, offline, por `dashboard/scripts/ge
 
 ## 8. Testes e conferências
 
-- `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`: **50 testes passando**, sem Streamlit em execução (carga e integridade SHA-256, formatação, rótulos, figuras, tratamento de suprimido e não estimável) e com `AppTest` (pasta corrompida, filtro extremo).
+- `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`: **53 testes passando**, sem Streamlit em execução (carga e integridade SHA-256, formatação, rótulos, figuras, tratamento de suprimido e não estimável) e com `AppTest` (pasta corrompida, filtro extremo).
 - Conferência visual feita em navegador, em 1400×900, nas 7 páginas. Problemas encontrados e corrigidos: métricas truncadas, caixas "Mostra/Não mostra", faixa de cobertura, texto da definição das séries, percentuais de incidência (erro de ×100) e ordem do eixo jan–ago.
 - Rodada de correções da revisão final:
   - **EOL:** o índice do git guardava os CSVs com LF, enquanto o manifesto registra o SHA-256 dos arquivos CRLF da cópia de trabalho; em um clone Linux a conferência falharia. `.gitattributes` passou a ter `outputs/publicacao/** -text` e a pasta foi renormalizada sem alterar conteúdo nem manifesto (SHA-256 do `manifesto.json` continua o citado na seção 2). Agora o SHA-256 dos bytes commitados (`git show HEAD:...`) confere com o manifesto nos 12 CSVs, o que o teste `test_integridade_conteudo_commitado` verifica. Exportações futuras gravam CSV e manifesto com LF.

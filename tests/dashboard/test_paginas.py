@@ -86,6 +86,7 @@ def test_volume_jan_ago_ordem_e_suprimidos():
     import json
     at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
     at.multiselect(key="volume_tipos").select("CARTA").select("EXECUCAO").select("OUTROS").select("RECURSO").run()
+    at.radio(key="volume_periodo").set_value("Janeiro a agosto").run()
     assert not at.exception
     assert any(c.value.startswith("Combinações suprimidas") for c in at.caption)
     figs = [json.loads(p.proto.spec) for p in at.get("plotly_chart")]
@@ -190,3 +191,44 @@ def test_acoes_penais_cautelar_anos_em_ordem_fixa():
     f = [f for f in figs if f["layout"]["title"]["text"].startswith("Resposta cautelar")][0]
     arr = f["layout"]["xaxis"]["categoryarray"]
     assert arr[0] == "2019" and arr[-1] == "2026 (parcial)" and len(arr) == 8
+
+
+def _figs_volume(at):
+    import json
+    return [json.loads(p.proto.spec) for p in at.get("plotly_chart")]
+
+
+def test_volume_padrao_ano_completo_com_2026_parcial():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
+    assert not at.exception
+    assert at.radio(key="volume_periodo").value == "Ano completo (2026 parcial)"
+    fig = [f for f in _figs_volume(at) if f["layout"]["title"]["text"] == "Processos públicos ajuizados por ano"][0]
+    assert "2026 (parcial, jan–set)" in fig["layout"]["xaxis"]["categoryarray"]
+    assert any(c.value.startswith("2026 é parcial: ajuizamentos até 30/09/2026, com setembro incompleto; a barra")
+               for c in at.caption)
+
+
+def test_volume_total_anual_bate_com_soma_mensal():
+    import sys
+    sys.path.insert(0, str(RAIZ))
+    from painel import componentes
+    at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
+    serie = at.session_state["serie"] if "serie" in at.session_state else "estrita"
+    v = componentes.tabela("agg_volume")
+    v = v[(v["serie"] == serie) & (v["tipo_procedimento"] == "ACAO_PENAL") & (v["ano_ajuizamento"] == 2025)]
+    assert len(v) == 12
+    fig = [f for f in _figs_volume(at) if f["layout"]["title"]["text"] == "Processos públicos ajuizados por ano"][0]
+    tr = [t for t in fig["data"] if t["name"] == "Ação penal"][0]
+    y = dict(zip(tr["x"], tr["y"]))["2025"]
+    assert y == int(v["n"].sum())
+
+
+def test_volume_alternativo_jan_ago():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "volume.py"), default_timeout=30).run()
+    at.radio(key="volume_periodo").set_value("Janeiro a agosto").run()
+    assert not at.exception
+    titulos = [f["layout"]["title"]["text"] for f in _figs_volume(at)]
+    assert "Comparação jan–ago entre anos" in titulos
+    assert "Processos públicos ajuizados por ano" not in titulos
+    jan = [f for f in _figs_volume(at) if f["layout"]["title"]["text"] == "Comparação jan–ago entre anos"][0]
+    assert "2026 (parcial, jan–set)" not in jan["layout"]["xaxis"]["categoryarray"]

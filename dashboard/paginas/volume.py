@@ -43,30 +43,58 @@ _v = vol[["ano_ajuizamento", "mes_ajuizamento", "tipo_procedimento", "n", "supri
 _v["n"] = _v["n"].mask(_v["suprimido"], pd.NA)
 componentes.botao_download(_v, "volume_mensal.csv")
 
-# (b) jan-ago, calculado a partir da série mensal estadual
-st.subheader("Comparação jan–ago entre anos")
+# (b) comparação entre anos, calculada a partir da série mensal estadual
+st.subheader("Comparação entre anos")
+MODO_ANUAL = "Ano completo (2026 parcial)"
+modo = st.radio("Período comparado", [MODO_ANUAL, "Janeiro a agosto"], key="volume_periodo", horizontal=True)
+anual = modo == MODO_ANUAL
+ROT_2026 = "2026 (parcial, jan–set)"
+
+
+def _rot(ano_):
+    ano_ = int(ano_)
+    if anual:
+        return ROT_2026 if ano_ == 2026 else str(ano_)
+    return rotulo_ano(ano_, ano_ == 2026)
+
+
+meses = 12 if anual else 8
 base = componentes.tabela("agg_volume")
-base = base[(base["serie"] == serie) & base["tipo_procedimento"].isin(tipos) & base["mes_ajuizamento"].between(1, 8)]
+base = base[(base["serie"] == serie) & base["tipo_procedimento"].isin(tipos) & base["mes_ajuizamento"].between(1, meses)]
 linhas, omitidos = [], []
 for (ano_, tp), g_ in base.groupby(["ano_ajuizamento", "tipo_procedimento"]):
-    if len(g_) < 8 or g_["suprimido"].any() or g_["n"].isna().any():
-        omitidos.append(f"{rotulo_ano(int(ano_), int(ano_) == 2026)} / {TIPO_PROCEDIMENTO[tp]}")
+    g_ = g_[g_["mes_ajuizamento"] <= (9 if int(ano_) == 2026 else meses)]
+    esperado = 9 if int(ano_) == 2026 and anual else meses
+    if len(g_) < esperado or g_["suprimido"].any() or g_["n"].isna().any():
+        omitidos.append(f"{_rot(ano_)} / {TIPO_PROCEDIMENTO[tp]}")
         continue
-    linhas.append({"ano": rotulo_ano(int(ano_), int(ano_) == 2026), "ano_ajuizamento": int(ano_),
+    linhas.append({"ano": _rot(ano_), "ano_ajuizamento": int(ano_),
                    "tipo": TIPO_PROCEDIMENTO[tp], "n": int(g_["n"].sum()), "suprimido": False})
 exib = pd.DataFrame(linhas, columns=["ano", "ano_ajuizamento", "tipo", "n", "suprimido"])
 exib = exib.sort_values(["ano_ajuizamento", "tipo"])
-fig_b = figura_barras(exib, "ano", "n", "tipo", "Comparação jan–ago entre anos", UNID)
+titulo_b = "Processos públicos ajuizados por ano" if anual else "Comparação jan–ago entre anos"
+fig_b = figura_barras(exib, "ano", "n", "tipo", titulo_b, UNID)
 if fig_b is not None:
     fig_b.update_layout(barmode="group")
-    fig_b.update_xaxes(categoryorder="array",
-                       categoryarray=[rotulo_ano(a_, a_ == 2026) for a_ in range(2019, 2027)])
+    fig_b.update_xaxes(categoryorder="array", categoryarray=[_rot(a_) for a_ in range(2019, 2027)])
+    if anual:
+        for tr_ in fig_b.data:
+            parcial_ = [x_ == ROT_2026 for x_ in tr_.x]
+            tr_.marker.opacity = [0.55 if p_ else 1 for p_ in parcial_]
+            tr_.marker.pattern = {"shape": ["/" if p_ else "" for p_ in parcial_]}
 componentes.grafico_ou_aviso(fig_b)
+if anual:
+    st.caption("2026 é parcial: ajuizamentos até 30/09/2026, com setembro incompleto; a barra não é comparável "
+               "com anos completos. Use \"Janeiro a agosto\" para comparar no mesmo intervalo de meses.")
 if omitidos:
     st.caption("Combinações suprimidas (barra não desenhada, sem soma parcial): " + "; ".join(omitidos) + ".")
-componentes.rodape("Processos ajuizados de janeiro a agosto (soma dos meses 1 a 8 da série mensal), "
-                   "para comparar anos no mesmo intervalo de meses.", "agg_volume.csv", serie)
-componentes.botao_download(exib[["ano_ajuizamento", "tipo", "n"]], "volume_jan_ago.csv")
+if anual:
+    componentes.rodape("Processos ajuizados em cada ano (soma dos meses 1 a 12 da série mensal; 2026, meses 1 a 9).",
+                       "agg_volume.csv", serie)
+else:
+    componentes.rodape("Processos ajuizados de janeiro a agosto (soma dos meses 1 a 8 da série mensal), "
+                       "para comparar anos no mesmo intervalo de meses.", "agg_volume.csv", serie)
+componentes.botao_download(exib[["ano_ajuizamento", "tipo", "n"]], "volume_anual.csv" if anual else "volume_jan_ago.csv")
 
 # (c) categorias
 st.subheader("Categorias de violência por ano")
