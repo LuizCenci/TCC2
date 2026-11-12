@@ -2,7 +2,7 @@
 
 Data: 07/11/2026. Status: **implementada e testada com dados simulados; construção real ainda não executada.** Nenhuma contagem real da Gold é afirmada aqui. Base: [19](19-processo_analise_violencia_mulher_pr.md), [20](20-parametros-gold-e-analise.md), [21](21-fontes-referencia-gold.md), [22](22-validacao-cnj.md).
 
-Versão de regras: `gold-2026-11-07` (`config/gold/regras.yaml`). `construir_gold(conn, versao)` lança `ValueError` se a versão diferir.
+Versão de regras: `gold-2026-11-11` (`config/gold/regras.yaml`). `construir_gold(conn, versao)` lança `ValueError` se a versão diferir.
 
 ## 1. Como executar
 

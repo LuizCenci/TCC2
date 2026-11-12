@@ -4,7 +4,7 @@ Data: 10/11/2026. Status: **gerado e verificado**; restauração do backup públ
 
 ## 1. Motivo
 
-O orientador pediu que o trabalho possa ser reproduzido: SQL de criação das camadas, backup com os dados e CSVs exportados. Os CSVs já estavam em `outputs/publicacao/2026-11-05_gold-2026-11-07/`.
+O orientador pediu que o trabalho possa ser reproduzido: SQL de criação das camadas, backup com os dados e CSVs exportados. Os CSVs já estavam em `outputs/publicacao/2026-11-05_gold-2026-11-11/`.
 
 ## 2. O que foi gerado
 

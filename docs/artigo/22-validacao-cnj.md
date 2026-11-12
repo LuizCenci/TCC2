@@ -57,6 +57,28 @@ Outras contagens de feminicídio na base (assunto 12091), por ano: em qualquer t
 - **Taxas por 100 mil mulheres (Q02):** mantêm o rótulo "processos públicos" e o aviso de cobertura. A diferença de cobertura entre tipos de procedimento recomenda **calcular as taxas por tipo**, nunca com todos os tipos somados.
 - **Sensibilidade:** séries com e sem 2019 (e 2020).
 
+## 6. Atualização de 11/11/2026: critérios do painel do CNJ
+
+As seções 1 a 5 acima ficam como histórico e foram **substituídas** neste ponto pela comparação com os critérios do painel (https://justica-em-numeros.cnj.jus.br/painel-violencia-contra-mulher/, lidos em 11/11/2026).
+
+- **Violência doméstica:** assuntos 10948, 10949, 11979, 12194, 12196, 14226, 14227, 14228, 14229, 14942, 14943, 14944, 14945, 14097 e 14098, ou classes 1268, 12423 e 15309, excluídos os processos de feminicídio. Na base, as cartas precatórias também são excluídas.
+- **Feminicídio:** assuntos 12091 e 12358, desde que a classe atual seja ação penal (282, 283, 1033, 1317, 10943, 10944, 11037, 11528), execução penal (386, 1714, 11399, 12727, 12728, 12729, 14696), inquérito (279) ou ato infracional (1464). Conta consumado e tentado. A base é só de 1º grau.
+- **Medidas protetivas:** o total do painel é de **decisões** (concedidas, denegadas, revogadas, prorrogadas e homologadas), não de processos. Não é comparável com a base e saiu da comparação.
+- **2019** deixa de ser comparado: a referência vem de outra publicação do CNJ, com critério não informado. Os denominadores de 2020 a 2025 (TJPR, 1º grau, casos novos) foram conferidos pelo autor e coincidem com `config/gold/ref_cnj_casos_novos.csv`.
+- Filtros aplicados à versão mais recente de cada registro, com os assuntos dele e a classe atual (`gold.fato_processo`); SQL em `src/datajud_tcc/gold/sql/40_agg_contagens.sql`.
+
+| Ano | Violência doméstica: base | CNJ | % | Feminicídio: base | CNJ | % |
+|---|---:|---:|---:|---:|---:|---:|
+| 2020 | 13.110 | 60.097 | 21,8 | 127 | 338 | 37,6 |
+| 2021 | 12.924 | 63.355 | 20,4 | 108 | 216 | 50,0 |
+| 2022 | 12.749 | 66.355 | 19,2 | 109 | 206 | 52,9 |
+| 2023 | 14.034 | 82.714 | 17,0 | 121 | 265 | 45,7 |
+| 2024 | 15.315 | 91.658 | 16,7 | 123 | 279 | 44,1 |
+| 2025 | 17.025 | 97.143 | 17,5 | 127 | 289 | 43,9 |
+| 2026 (parcial) | 12.724 | 82.111 | 15,5 | 78 | 250 | 31,2 |
+
+Leitura: razão entre contagens de registros com critérios equivalentes, não cobertura exata nem taxa de judicialização. Exportação: `outputs/publicacao/2026-11-05_gold-2026-11-11/`; versão de regras `gold-2026-11-11`.
+
 ## 5. Pendentes e julgados
 
 Não são necessários para esta validação. A comparação usa **casos novos**, que correspondem ao que a base mede (processos por ano de ajuizamento). Pendentes, baixados e julgados medem estoque e produtividade, que a base pública não reproduz.

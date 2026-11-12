@@ -12,12 +12,14 @@ O app não consulta banco nem API, não atualiza sozinho e não tem contas de us
 
 | Item | Valor |
 |---|---|
-| Pasta | `outputs/publicacao/2026-11-05_gold-2026-11-07/` (12 CSVs e `manifesto.json`, versionada) |
-| `versao_regras` | `gold-2026-11-07` |
+| Pasta | `outputs/publicacao/2026-11-05_gold-2026-11-11/` (12 CSVs e `manifesto.json`, versionada) |
+| `versao_regras` | `gold-2026-11-11` |
 | `data_corte_max` | 2026-11-05 |
-| SHA-256 do `manifesto.json` | `ff18678fb719aa5f9e4e709b583dcae2ef7c2c85465abf874e6cd68b1688790a` |
+| SHA-256 do `manifesto.json` | `faa4b64e02311c87eae893f34f1aa6a5a7c6870c2d06b48a2888a4a9352dcff1` |
 
 O app confere o SHA-256 de cada CSV contra o manifesto a cada execução do aplicativo (`dashboard/app.py`). Se um arquivo faltar ou diferir, mostra o nome do arquivo e nenhum número. Os CSVs nunca são editados; correções de rótulo existem só na exibição. A pasta é configurada num único lugar (`PASTA_EXPORTACAO` em `dashboard/painel/config.py`).
+
+**Atualização (11/11/2026):** a exportação `gold-2026-11-07` foi substituída pela `gold-2026-11-11`, cuja única mudança de conteúdo é a tabela de cobertura (`agg_cobertura_cnj`, ver `22` §6). A página "Cobertura e qualidade" compara a base com o painel do CNJ pelas medidas "Violência doméstica (critério do CNJ)" e "Feminicídio (critério do CNJ)", só de 2020 em diante; as medidas protetivas do painel são decisões, não processos, e não são comparadas. O rodapé da visão geral cita a faixa de violência doméstica de 2020 a 2025 (16,7% a 21,8%). A nota de 2019 como anômalo e a razão de medidas protetivas foram retiradas.
 
 ## 3. Páginas e perguntas
 
@@ -94,7 +96,7 @@ As mesorregiões são geradas uma única vez, offline, por `dashboard/scripts/ge
 
 ## 8. Testes e conferências
 
-- `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`: **44 testes passando**, sem Streamlit em execução (carga e integridade SHA-256, formatação, rótulos, figuras, tratamento de suprimido e não estimável) e com `AppTest` (pasta corrompida, filtro extremo).
+- `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`: **50 testes passando**, sem Streamlit em execução (carga e integridade SHA-256, formatação, rótulos, figuras, tratamento de suprimido e não estimável) e com `AppTest` (pasta corrompida, filtro extremo).
 - Conferência visual feita em navegador, em 1400×900, nas 7 páginas. Problemas encontrados e corrigidos: métricas truncadas, caixas "Mostra/Não mostra", faixa de cobertura, texto da definição das séries, percentuais de incidência (erro de ×100) e ordem do eixo jan–ago.
 - Rodada de correções da revisão final:
   - **EOL:** o índice do git guardava os CSVs com LF, enquanto o manifesto registra o SHA-256 dos arquivos CRLF da cópia de trabalho; em um clone Linux a conferência falharia. `.gitattributes` passou a ter `outputs/publicacao/** -text` e a pasta foi renormalizada sem alterar conteúdo nem manifesto (SHA-256 do `manifesto.json` continua o citado na seção 2). Agora o SHA-256 dos bytes commitados (`git show HEAD:...`) confere com o manifesto nos 12 CSVs, o que o teste `test_integridade_conteudo_commitado` verifica. Exportações futuras gravam CSV e manifesto com LF.

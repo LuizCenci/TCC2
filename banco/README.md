@@ -1,6 +1,6 @@
 # Banco de dados
 
-Esquema e backup do banco PostgreSQL usado no TCC (versão de regras `gold-2026-11-07`).
+Esquema e backup do banco PostgreSQL usado no TCC (versão de regras `gold-2026-11-11`).
 
 ## Arquivos
 

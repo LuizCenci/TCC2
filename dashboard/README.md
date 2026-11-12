@@ -1,6 +1,6 @@
 # Dashboard de resultados
 
-App Streamlit que exibe os agregados da camada Gold (exportação `outputs/publicacao/2026-11-05_gold-2026-11-07/`). Todos os resultados vêm exclusivamente dos metadados públicos do Datajud (CNJ), TJPR, primeiro grau, 2019–2026. O app lê somente CSVs, sem acessar banco nem API, e confere o SHA-256 de cada arquivo contra o `manifesto.json` a cada execução do aplicativo. Descrição completa: `docs/artigo/27-dashboard.md`.
+App Streamlit que exibe os agregados da camada Gold (exportação `outputs/publicacao/2026-11-05_gold-2026-11-11/`). Todos os resultados vêm exclusivamente dos metadados públicos do Datajud (CNJ), TJPR, primeiro grau, 2019–2026. O app lê somente CSVs, sem acessar banco nem API, e confere o SHA-256 de cada arquivo contra o `manifesto.json` a cada execução do aplicativo. Descrição completa: `docs/artigo/27-dashboard.md`.
 
 ## Execução local
 

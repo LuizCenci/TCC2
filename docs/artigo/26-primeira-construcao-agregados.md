@@ -8,7 +8,7 @@ Data: 07/11/2026. Status: **verificado**. Execução real de `gold-construir` �
 |---|---|---|
 | `gold-construir` (inclui as contagens `sql/40`) | 67 s | 147.020 processos; metas do `24` mantidas |
 | `gold-agregados` (taxa, tempo, desfecho) | 14 s | `agg_taxa` 1.260 linhas, `agg_tempo` 210, `agg_desfecho` 560 |
-| `gold-exportar` | menos de 1 s | `outputs/publicacao/2026-11-05_gold-2026-11-07/` (12 CSV + `manifesto.json`, cerca de 1 MB; não versionado) |
+| `gold-exportar` | menos de 1 s | `outputs/publicacao/2026-11-05_gold-2026-11-11/` (12 CSV + `manifesto.json`, cerca de 1 MB; não versionado) |
 
 Linhas das tabelas de contagem:
 
