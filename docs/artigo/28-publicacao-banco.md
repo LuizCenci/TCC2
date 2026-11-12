@@ -10,10 +10,10 @@ O orientador pediu que o trabalho possa ser reproduzido: SQL de criação das ca
 
 | Item | Origem | Destino |
 |---|---|---|
-| `banco/esquema_completo.sql` | `pg_restore --schema-only` sobre o backup de 09/11/2026 | Repositório |
-| `tcc_datajud_publico_2026-11-07.sql.gz` (326 MB) | `pg_restore` do mesmo backup para SQL puro, com transformação dos campos identificadores | Release `dados-2026-11-07` |
+| `banco/esquema_completo.sql` | `pg_restore --schema-only` sobre o backup de 09/11/2026 (inalterado no de 11/11/2026) | Repositório |
+| `tcc_datajud_publico_2026-11-11.sql.gz` (326 MB) | `pg_restore` do backup de 11/11/2026 (após a regra de cobertura `gold-2026-11-11`) para SQL puro, com transformação dos campos identificadores | Release `dados-2026-11-11` |
 
-SHA-256 do backup público: `a5164ffb490b346170cc79df0f0f482ae7a3bbf0192e89227635fb1031560aed`.
+SHA-256 do backup público: `a1ac299ebac535d7c3659259f866d38ee384321767ecef0e53dd372c2b05e2c0`.
 
 ## 3. Tratamento dos identificadores
 
@@ -33,3 +33,7 @@ SHA-256 do backup público: `a5164ffb490b346170cc79df0f0f482ae7a3bbf0192e8922763
 - A Bronze (JSON original) não é publicada, porque traz o número do processo; é recoletável pela API.
 - `gold.fato_processo` é microdado por processo (sem número). Como a fonte é uma API pública, um registro poderia ser reencontrado cruzando datas, órgão e classe com a própria API. O backup não acrescenta informação que a API não ofereça.
 - A restauração completa ainda precisa ser testada.
+
+## 6. Regeneração em 11/11/2026
+
+Após a mudança da cobertura para os critérios do painel do CNJ (`22`, versão de regras `gold-2026-11-11`), o backup completo e o público foram gerados de novo. O DDL não mudou. O dump público de 10/11/2026 (`tcc_datajud_publico_2026-11-07.sql.gz`) foi descartado antes de ser publicado. As conferências da seção 4 foram repetidas, com os mesmos resultados.

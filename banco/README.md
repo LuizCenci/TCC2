@@ -7,11 +7,11 @@ Esquema e backup do banco PostgreSQL usado no TCC (versão de regras `gold-2026-
 | Arquivo | Onde | Conteúdo |
 |---|---|---|
 | `esquema_completo.sql` | Esta pasta | DDL de todas as camadas no banco: `controle` (execuções e páginas da Bronze), `silver`, `restrito`, `ref` e `gold`, mais a extensão PostGIS. Sem dados. |
-| `tcc_datajud_publico_2026-11-07.sql.gz` | Release [`dados-2026-11-07`](https://github.com/LuizCenci/TCC2/releases/tag/dados-2026-11-07) | Esquema + dados de todas as tabelas (SQL puro comprimido, cerca de 330 MB). |
+| `tcc_datajud_publico_2026-11-11.sql.gz` | Release [`dados-2026-11-11`](https://github.com/LuizCenci/TCC2/releases/tag/dados-2026-11-11) | Esquema + dados de todas as tabelas (SQL puro comprimido, cerca de 330 MB). |
 
 A camada Bronze não tem SQL: são os arquivos JSON originais da API, que não são publicados porque trazem o número do processo. Eles podem ser recoletados com `datajud-tcc collect` (ver `readme.md` na raiz).
 
-SHA-256 do backup público: `a5164ffb490b346170cc79df0f0f482ae7a3bbf0192e89227635fb1031560aed`.
+SHA-256 do backup público: `a1ac299ebac535d7c3659259f866d38ee384321767ecef0e53dd372c2b05e2c0`.
 
 ## O que foi alterado no backup público
 
@@ -28,7 +28,7 @@ Requer PostgreSQL 16 com PostGIS instalado.
 
 ```bash
 createdb -U postgres tcc_datajud
-gunzip -c tcc_datajud_publico_2026-11-07.sql.gz | psql -U postgres -d tcc_datajud
+gunzip -c tcc_datajud_publico_2026-11-11.sql.gz | psql -U postgres -d tcc_datajud
 ```
 
 Para criar só a estrutura vazia:
