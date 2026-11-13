@@ -77,13 +77,21 @@ componentes.botao_download(_r, "territorio_taxa.csv")
 
 # tempos medianos
 st.subheader("Tempos medianos por mesorregião")
-marco = st.selectbox("Marco", list(MARCO), format_func=MARCO.get, key="territorio_marco")
 tempo = componentes.tabela("agg_tempo")
-t = tempo[(tempo["marco"] == marco) & (tempo["serie"] == serie)
-          & (tempo["tipo_procedimento"] == tipo)
-          & (tempo["estrato"] == "mesorregiao_id")].copy()
+_base = tempo[(tempo["serie"] == serie) & (tempo["tipo_procedimento"] == tipo)
+              & (tempo["estrato"] == "mesorregiao_id")]
+_disp = [m for m in MARCO if m in set(_base["marco"])]
+if not _disp:
+    st.info("Não há tempos calculados para este tipo de procedimento. Os tempos existem para ação penal, inquérito e medida protetiva de urgência.")
+    t = _base.iloc[0:0].copy()
+else:
+    _padrao = "sentenca" if "sentenca" in _disp else ("decisao_mpu" if "decisao_mpu" in _disp else _disp[0])
+    marco = st.selectbox("Marco", _disp, index=_disp.index(_padrao), format_func=MARCO.get,
+                         key=f"territorio_marco_{tipo}")
+    t = _base[_base["marco"] == marco].copy()
 if t.empty:
-    st.info("Sem dados de tempo para este tipo de procedimento e marco.")
+    if _disp:
+        st.info("Sem dados de tempo para este tipo de procedimento e marco.")
 else:
     t["Mesorregião"] = t["valor_estrato"].map(lambda v: nomes.get(int(v), str(v)))
     t["Tempo mediano"] = ["suprimido" if r["suprimido"] else texto_mediana(r) for _, r in t.iterrows()]

@@ -145,22 +145,32 @@ def test_nenhuma_pagina_mostra_taxa_de_violencia():
             assert "vítimas" not in texto, pagina
 
 
-def test_territorio_tempo_filtra_tipo_procedimento():
+def _territorio_tipo(tipo=None):
     at = AppTest.from_file(str(RAIZ / "paginas" / "territorio.py"), default_timeout=30).run()
-    at.selectbox(key="territorio_tipo").set_value("ACAO_PENAL")
-    at.selectbox(key="territorio_marco").set_value("recebimento_denuncia").run()
+    if tipo:
+        at.selectbox(key="territorio_tipo").set_value(tipo).run()
     assert not at.exception
+    return at
+
+
+def test_territorio_tempo_padrao_acao_penal_sentenca():
+    at = _territorio_tipo()
+    assert at.selectbox(key="territorio_marco_ACAO_PENAL").value == "sentenca"
     tab = at.dataframe[-1].value
     assert len(tab) == 10
     assert tab["Mesorregião"].is_unique
 
 
-def test_territorio_tempo_sem_dados_para_tipo():
-    at = AppTest.from_file(str(RAIZ / "paginas" / "territorio.py"), default_timeout=30).run()
-    at.selectbox(key="territorio_tipo").set_value("EXECUCAO")
-    at.selectbox(key="territorio_marco").set_value("recebimento_denuncia").run()
-    assert not at.exception
-    assert "Sem dados de tempo para este tipo de procedimento e marco." in [i.value for i in at.info]
+def test_territorio_tempo_mpu_padrao_decisao_mpu():
+    at = _territorio_tipo("MPU")
+    assert at.selectbox(key="territorio_marco_MPU").value == "decisao_mpu"
+    assert len(at.dataframe[-1].value) == 10
+
+
+def test_territorio_tempo_tipo_sem_marco_mostra_mensagem():
+    at = _territorio_tipo("CARTA")
+    assert "Não há tempos calculados para este tipo de procedimento. Os tempos existem para ação penal, inquérito e medida protetiva de urgência." in [i.value for i in at.info]
+    assert not [s for s in at.selectbox if s.key and s.key.startswith("territorio_marco")]
 
 
 def test_volume_categorias_usam_contagem_estadual():
