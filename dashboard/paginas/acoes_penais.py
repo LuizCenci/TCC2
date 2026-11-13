@@ -45,7 +45,8 @@ def bloco_tempos(tipo: str, marcos: list[str], chave: str) -> None:
         ta = ta.sort_values("_ano")
         tab = colunas_tempo(ta)
         tab.insert(0, "Ano de ajuizamento", [rotulo_ano(a, a == 2026) for a in ta["_ano"]])
-        st.dataframe(tab, hide_index=True, width="stretch", column_config={
+        st.dataframe(tab, hide_index=True, width="stretch", placeholder="", column_config={
+        "Situação": st.column_config.TextColumn(width="large"),
             "Mediana (dias)": st.column_config.NumberColumn(format="localized"),
             "Processos (n, arredondado)": st.column_config.NumberColumn(format="localized")})
         componentes.rodape(f"Tempo mediano entre o ajuizamento e o marco ({MARCO[marco].lower()}), com IC 95%; "

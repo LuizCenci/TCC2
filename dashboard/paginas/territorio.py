@@ -96,7 +96,8 @@ else:
     t["Mesorregião"] = t["valor_estrato"].map(lambda v: nomes.get(int(v), str(v)))
     _tab = colunas_tempo(t)
     _tab.insert(0, "Mesorregião", t["Mesorregião"])
-    st.dataframe(_tab, hide_index=True, width="stretch", column_config={
+    st.dataframe(_tab, hide_index=True, width="stretch", placeholder="", column_config={
+        "Situação": st.column_config.TextColumn(width="large"),
         "Mediana (dias)": st.column_config.NumberColumn(format="localized"),
         "Processos (n, arredondado)": st.column_config.NumberColumn(format="localized")})
     componentes.rodape("Tempo mediano entre o ajuizamento e o marco; contagens arredondadas na base 10.",

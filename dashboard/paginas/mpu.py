@@ -84,7 +84,8 @@ if len(ta):
                      ("Até 365 dias (%)", "pct_evento_ate_365")]:
         tab[rot] = ta[col].astype(float).mask(s)
     _nc = st.column_config.NumberColumn
-    st.dataframe(tab, hide_index=True, width="stretch", column_config={
+    st.dataframe(tab, hide_index=True, width="stretch", placeholder="", column_config={
+        "Situação": st.column_config.TextColumn(width="large"),
         "Mediana (dias)": _nc(format="localized"), "Processos (n, arredondado)": _nc(format="localized"),
         "Até 2 dias (%)": _nc(format="localized"), "Até 30 dias (%)": _nc(format="localized"),
         "Até 365 dias (%)": _nc(format="localized")})

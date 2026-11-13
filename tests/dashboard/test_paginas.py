@@ -291,3 +291,14 @@ def test_territorio_tempo_mediana_numerica():
 def test_acoes_penais_nota_flagrante():
     at = AppTest.from_file(str(RAIZ / "paginas" / "acoes_penais.py"), default_timeout=30).run()
     assert NOTA_FLAGRANTE in [c.value for c in at.caption]
+
+
+def test_tabelas_tempo_vazio_em_branco_e_situacao_larga():
+    import json
+    for pagina in ["acoes_penais", "mpu", "territorio"]:
+        at = AppTest.from_file(str(RAIZ / "paginas" / f"{pagina}.py"), default_timeout=30).run()
+        assert not at.exception
+        pr = at.dataframe[-1].proto
+        assert pr.placeholder == "", pagina
+        cfg = json.loads(pr.columns)
+        assert cfg["Situação"]["width"] == "large", pagina
