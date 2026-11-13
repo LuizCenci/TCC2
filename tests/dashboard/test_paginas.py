@@ -242,3 +242,52 @@ def test_volume_alternativo_jan_ago():
     assert "Processos públicos ajuizados por ano" not in titulos
     jan = [f for f in _figs_volume(at) if f["layout"]["title"]["text"] == "Comparação jan–ago entre anos"][0]
     assert "2026 (parcial, jan–set)" not in jan["layout"]["xaxis"]["categoryarray"]
+
+
+NOTA_FLAGRANTE = ("O código de prisão em flagrante (175) praticamente deixou de ser usado a partir de 2021, "
+                  "por isso os valores aparecem suprimidos; no mesmo período cresce o código de flagrante "
+                  "convertido em preventiva (12140), contado em \"Prisão preventiva\". "
+                  "A série de flagrante não serve para comparar anos após 2020.")
+
+
+def _linha_ano(tab, ano):
+    return tab[tab["Ano de ajuizamento"] == str(ano)].iloc[0]
+
+
+def test_acoes_penais_tempos_sentenca_numericos():
+    import pandas as pd
+    at = AppTest.from_file(str(RAIZ / "paginas" / "acoes_penais.py"), default_timeout=30).run()
+    assert not at.exception
+    tab = at.dataframe[1].value
+    assert "Mediana (dias)" in tab.columns
+    assert pd.api.types.is_numeric_dtype(tab["Mediana (dias)"])
+    assert pd.api.types.is_numeric_dtype(tab["Processos (n, arredondado)"])
+    assert _linha_ano(tab, 2019)["Mediana (dias)"] == 1048
+    r = _linha_ano(tab, 2025)
+    assert pd.isna(r["Mediana (dias)"])
+    assert r["Situação"] in ("não estimável", "mediana não alcançada", "suprimido")
+    assert _linha_ano(tab, 2019)["Situação"] == ""
+
+
+def test_mpu_tempos_percentuais_numericos():
+    import pandas as pd
+    at = AppTest.from_file(str(RAIZ / "paginas" / "mpu.py"), default_timeout=30).run()
+    assert not at.exception
+    tab = at.dataframe[-1].value
+    for c in ["Até 2 dias (%)", "Até 30 dias (%)", "Até 365 dias (%)", "Mediana (dias)",
+              "Processos (n, arredondado)"]:
+        assert pd.api.types.is_numeric_dtype(tab[c]), c
+
+
+def test_territorio_tempo_mediana_numerica():
+    import pandas as pd
+    at = _territorio_tipo()
+    tab = at.dataframe[-1].value
+    assert len(tab) == 10
+    assert pd.api.types.is_numeric_dtype(tab["Mediana (dias)"])
+    assert "Situação" in tab.columns
+
+
+def test_acoes_penais_nota_flagrante():
+    at = AppTest.from_file(str(RAIZ / "paginas" / "acoes_penais.py"), default_timeout=30).run()
+    assert NOTA_FLAGRANTE in [c.value for c in at.caption]

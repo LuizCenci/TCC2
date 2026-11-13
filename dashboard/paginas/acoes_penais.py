@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 
 from painel import componentes
-from painel.exibicao import MSG_TUDO_SUPRIMIDO, formatar_inteiro, rotulo_ano, texto_mediana
+from painel.exibicao import MSG_TUDO_SUPRIMIDO, colunas_tempo, rotulo_ano, texto_mediana
 from painel.graficos import figura_barras, figura_incidencia
 from painel.rotulos import CATEGORIA, MARCO, TIPO_PROCEDIMENTO
 
@@ -15,6 +15,11 @@ serie = componentes.serie_selecionada()
 UNID = "processos públicos"
 COORTES = ["2019-2021", "2022-2023", "2024-2026"]
 VARIANTES = {"principal": "Principal", "com_reativados": "Com processos reativados"}
+
+NOTA_FLAGRANTE = ("O código de prisão em flagrante (175) praticamente deixou de ser usado a partir de 2021, "
+                  "por isso os valores aparecem suprimidos; no mesmo período cresce o código de flagrante "
+                  "convertido em preventiva (12140), contado em \"Prisão preventiva\". "
+                  "A série de flagrante não serve para comparar anos após 2020.")
 
 st.title("Ações penais")
 st.caption("2026 é parcial: ajuizamentos até 30/09/2026, com setembro incompleto. "
@@ -38,12 +43,11 @@ def bloco_tempos(tipo: str, marcos: list[str], chave: str) -> None:
         ta = t[t["estrato"] == "ano_ajuizamento"].copy()
         ta["_ano"] = ta["valor_estrato"].astype(int)
         ta = ta.sort_values("_ano")
-        s = ta["suprimido"].tolist()
-        st.dataframe(pd.DataFrame({
-            "Ano de ajuizamento": [rotulo_ano(a, a == 2026) for a in ta["_ano"]],
-            "Tempo mediano": ["suprimido" if x else texto_mediana(r) for x, (_, r) in zip(s, ta.iterrows())],
-            "Processos (n, arredondado)": ["suprimido" if x else formatar_inteiro(v) for x, v in zip(s, ta["n"])],
-        }), hide_index=True, width="stretch")
+        tab = colunas_tempo(ta)
+        tab.insert(0, "Ano de ajuizamento", [rotulo_ano(a, a == 2026) for a in ta["_ano"]])
+        st.dataframe(tab, hide_index=True, width="stretch", column_config={
+            "Mediana (dias)": st.column_config.NumberColumn(format="localized"),
+            "Processos (n, arredondado)": st.column_config.NumberColumn(format="localized")})
         componentes.rodape(f"Tempo mediano entre o ajuizamento e o marco ({MARCO[marco].lower()}), com IC 95%; "
                            "contagens arredondadas na base 10.", "agg_tempo.csv", serie)
         d = ta[["marco", "valor_estrato", "n", "estimavel", "mediana_dias", "mediana_alcancada",
@@ -112,6 +116,7 @@ with aba_ap:
         fig.update_xaxes(categoryorder="array",
                          categoryarray=[rotulo_ano(a_, a_ == 2026) for a_ in range(2019, 2027)])
     componentes.grafico_ou_aviso(fig)
+    st.caption(NOTA_FLAGRANTE)
     _vis = long[~long["suprimido"].astype(bool) & long["valor"].notna()]
     _sem = [rotulo_ano(a_, a_ == 2026) for a_ in range(2019, 2027)
             if a_ not in set(_vis["ano_ajuizamento"].astype(int))]

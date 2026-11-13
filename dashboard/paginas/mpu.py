@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 
 from painel import componentes
-from painel.exibicao import MSG_TUDO_SUPRIMIDO, formatar_inteiro, formatar_pct, rotulo_ano, texto_mediana
+from painel.exibicao import MSG_TUDO_SUPRIMIDO, colunas_tempo, formatar_pct, rotulo_ano, texto_mediana
 from painel.graficos import figura_barras, figura_linhas
 from painel.rotulos import rotulo_medida
 
@@ -77,16 +77,17 @@ ta = t[t["estrato"] == "ano_ajuizamento"].copy()
 ta["_ano"] = ta["valor_estrato"].astype(int)
 ta = ta.sort_values("_ano")
 if len(ta):
-    s = ta["suprimido"].tolist()
-    tab = pd.DataFrame({
-        "Ano de ajuizamento": [rotulo_ano(a, a == 2026) for a in ta["_ano"]],
-        "Mediana": ["suprimido" if x else texto_mediana(r) for x, (_, r) in zip(s, ta.iterrows())],
-        "Até 2 dias": ["suprimido" if x else formatar_pct(v) for x, v in zip(s, ta["pct_evento_ate_2"])],
-        "Até 30 dias": ["suprimido" if x else formatar_pct(v) for x, v in zip(s, ta["pct_evento_ate_30"])],
-        "Até 365 dias": ["suprimido" if x else formatar_pct(v) for x, v in zip(s, ta["pct_evento_ate_365"])],
-        "Processos (n, arredondado)": ["suprimido" if x else formatar_inteiro(v) for x, v in zip(s, ta["n"])],
-    })
-    st.dataframe(tab, hide_index=True, width="stretch")
+    s = ta["suprimido"].astype(bool)
+    tab = colunas_tempo(ta)
+    tab.insert(0, "Ano de ajuizamento", [rotulo_ano(a, a == 2026) for a in ta["_ano"]])
+    for rot, col in [("Até 2 dias (%)", "pct_evento_ate_2"), ("Até 30 dias (%)", "pct_evento_ate_30"),
+                     ("Até 365 dias (%)", "pct_evento_ate_365")]:
+        tab[rot] = ta[col].astype(float).mask(s)
+    _nc = st.column_config.NumberColumn
+    st.dataframe(tab, hide_index=True, width="stretch", column_config={
+        "Mediana (dias)": _nc(format="localized"), "Processos (n, arredondado)": _nc(format="localized"),
+        "Até 2 dias (%)": _nc(format="localized"), "Até 30 dias (%)": _nc(format="localized"),
+        "Até 365 dias (%)": _nc(format="localized")})
 componentes.rodape("Tempo entre o ajuizamento e a decisão da medida protetiva; percentuais de processos com "
                    "decisão no prazo; contagens arredondadas na base 10.", "agg_tempo.csv", serie)
 _t = t[["estrato", "valor_estrato", "n", "estimavel", "mediana_dias", "mediana_alcancada", "ic95_inf", "ic95_sup",

@@ -50,3 +50,24 @@ def texto_mediana(linha: pd.Series) -> str:
 
 def rotulo_ano(ano: int, parcial: bool) -> str:
     return f"{ano} (parcial)" if parcial else str(ano)
+
+
+def colunas_tempo(linhas: pd.DataFrame) -> pd.DataFrame:
+    """Colunas numéricas de tempo (mediana, IC, situação, n); suprimido vira vazio com motivo."""
+    sup = linhas["suprimido"].astype(bool).tolist()
+    med, ic, sit, n = [], [], [], []
+    for x, (_, r) in zip(sup, linhas.iterrows()):
+        if x:
+            med.append(float("nan")); ic.append(""); sit.append("suprimido"); n.append(float("nan"))
+            continue
+        n.append(float(r["n"]) if not _ausente(r["n"]) else float("nan"))
+        if not r["estimavel"]:
+            med.append(float("nan")); ic.append(""); sit.append("não estimável")
+        elif not r["mediana_alcancada"]:
+            med.append(float("nan")); ic.append(""); sit.append("mediana não alcançada")
+        else:
+            med.append(float(r["mediana_dias"]))
+            ic.append(f"{formatar_inteiro(r['ic95_inf'])}–{formatar_inteiro(r['ic95_sup'])}")
+            sit.append("")
+    return pd.DataFrame({"Mediana (dias)": med, "IC 95% (dias)": ic, "Situação": sit,
+                         "Processos (n, arredondado)": n}, index=linhas.index)

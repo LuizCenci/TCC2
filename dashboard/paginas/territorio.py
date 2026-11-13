@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 
 from painel import componentes
-from painel.exibicao import rotulo_ano, MSG_TUDO_SUPRIMIDO, formatar_decimal, formatar_inteiro, texto_mediana, valor_ou_suprimido
+from painel.exibicao import rotulo_ano, MSG_TUDO_SUPRIMIDO, formatar_decimal, formatar_inteiro, colunas_tempo, valor_ou_suprimido
 from painel.graficos import figura_barras
 from painel.mapa import figura_mapa
 from painel.rotulos import MARCO, TIPO_PROCEDIMENTO
@@ -94,10 +94,11 @@ if t.empty:
         st.info("Sem dados de tempo para este tipo de procedimento e marco.")
 else:
     t["Mesorregião"] = t["valor_estrato"].map(lambda v: nomes.get(int(v), str(v)))
-    t["Tempo mediano"] = ["suprimido" if r["suprimido"] else texto_mediana(r) for _, r in t.iterrows()]
-    t["Processos (n, arredondado)"] = [valor_ou_suprimido(r["n"], r["suprimido"]) for _, r in t.iterrows()]
-    st.dataframe(t[["Mesorregião", "Tempo mediano", "Processos (n, arredondado)"]],
-                 hide_index=True, width="stretch")
+    _tab = colunas_tempo(t)
+    _tab.insert(0, "Mesorregião", t["Mesorregião"])
+    st.dataframe(_tab, hide_index=True, width="stretch", column_config={
+        "Mediana (dias)": st.column_config.NumberColumn(format="localized"),
+        "Processos (n, arredondado)": st.column_config.NumberColumn(format="localized")})
     componentes.rodape("Tempo mediano entre o ajuizamento e o marco; contagens arredondadas na base 10.",
                        "agg_tempo.csv", serie)
     st.caption("A tabela agrega todos os anos de ajuizamento e usa o tipo de procedimento selecionado acima.")
