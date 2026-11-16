@@ -98,7 +98,7 @@ As mesorregiões são geradas uma única vez, offline, por `dashboard/scripts/ge
 
 ## 8. Testes e conferências
 
-- `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`: **62 testes passando**, sem Streamlit em execução (carga e integridade SHA-256, formatação, rótulos, figuras, tratamento de suprimido e não estimável) e com `AppTest` (pasta corrompida, filtro extremo).
+- `.\.venv\Scripts\python.exe -m pytest tests/dashboard -q`: **65 testes passando**, sem Streamlit em execução (carga e integridade SHA-256, formatação, rótulos, figuras, tratamento de suprimido e não estimável) e com `AppTest` (pasta corrompida, filtro extremo).
 - Conferência visual feita em navegador, em 1400×900, nas 7 páginas. Problemas encontrados e corrigidos: métricas truncadas, caixas "Mostra/Não mostra", faixa de cobertura, texto da definição das séries, percentuais de incidência (erro de ×100) e ordem do eixo jan–ago.
 - Rodada de correções da revisão final:
   - **EOL:** o índice do git guardava os CSVs com LF, enquanto o manifesto registra o SHA-256 dos arquivos CRLF da cópia de trabalho; em um clone Linux a conferência falharia. `.gitattributes` passou a ter `outputs/publicacao/** -text` e a pasta foi renormalizada sem alterar conteúdo nem manifesto (SHA-256 do `manifesto.json` continua o citado na seção 2). Agora o SHA-256 dos bytes commitados (`git show HEAD:...`) confere com o manifesto nos 12 CSVs, o que o teste `test_integridade_conteudo_commitado` verifica. Exportações futuras gravam CSV e manifesto com LF.
@@ -107,3 +107,6 @@ As mesorregiões são geradas uma única vez, offline, por `dashboard/scripts/ge
   - Versões de dependências fixadas em `dashboard/requirements.txt` (`streamlit==1.67.*`, `pandas==2.3.*`, `plotly==6.9.*`); `use_container_width` trocado por `width="stretch"`.
   - Ajustes menores: download de qualidade sem `orgao_codigo`; rodapé de cobertura redigido como razão entre contagens; ordem fixa dos anos e legenda de anos sem valor na resposta cautelar; faixa "2026 parcial" na série mensal.
 - Publicação: ainda não feita (ver `dashboard/README.md`).
+
+
+**Marcadores e padrões (16/11/2026):** o gráfico de desfechos acumulados usa um marcador distinto por desfecho (círculo, x, triângulo, quadrado, losango), e os gráficos de decisões de MPU e de resposta cautelar usam um padrão de preenchimento distinto por série (sólido, "/", ".", ...), para não depender só da cor.

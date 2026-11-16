@@ -46,7 +46,8 @@ else:
     long["suprimido"] = False
     long = long.sort_values(["ano_ajuizamento", "decisão"])
     fig = figura_barras(long, "ano", "valor", "decisão",
-                        "Decisões sobre o pedido de medida protetiva, entre os processos com decisão", UNID)
+                        "Decisões sobre o pedido de medida protetiva, entre os processos com decisão", UNID,
+                        padroes=True)
     fig.update_layout(barmode="stack")
     st.plotly_chart(fig, width="stretch")
     rev = dec.assign(suprimido=False)

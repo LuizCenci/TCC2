@@ -111,7 +111,8 @@ with aba_ap:
     long["evento"] = long["evento"].map(nomes)
     long["ano"] = [rotulo_ano(int(a), int(a) == 2026) for a in long["ano_ajuizamento"]]
     fig = figura_barras(long, "ano", "valor", "evento",
-                        f"Resposta cautelar, {TIPO_PROCEDIMENTO[tipo_c].lower()}, {CATEGORIA[cat_c].lower()}", UNID)
+                        f"Resposta cautelar, {TIPO_PROCEDIMENTO[tipo_c].lower()}, {CATEGORIA[cat_c].lower()}", UNID,
+                        padroes=True)
     if fig is not None:
         fig.update_layout(barmode="group")
         fig.update_xaxes(categoryorder="array",

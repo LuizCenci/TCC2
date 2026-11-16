@@ -70,3 +70,30 @@ def test_figura_linhas_simbolos_ciclam():
 def test_figura_linhas_serie_unica_circulo():
     fig = figura_linhas(_df_series(1), "mes", "n", None, "t", "r")
     assert fig.data[0].marker.symbol == "circle"
+
+
+def test_figura_incidencia_simbolos_distintos_na_ordem():
+    df = pd.DataFrame({"desfecho": ["a", "b", "c", "d", "e"],
+                       "ia_365": [1.0] * 5, "ia_730": [2.0] * 5,
+                       "ia_1095": [3.0] * 5, "ia_1825": [4.0] * 5})
+    fig = figura_incidencia(df)
+    assert [t.marker.symbol for t in fig.data] == [
+        "circle", "x", "triangle-up", "square", "diamond"]
+
+
+def _df_barras():
+    return pd.DataFrame({"ano": [2020, 2021] * 3, "n": [1, 2, 3, 4, 5, 6],
+                         "g": ["a", "a", "b", "b", "c", "c"],
+                         "suprimido": [False] * 6})
+
+
+def test_figura_barras_padroes_por_serie():
+    fig = figura_barras(_df_barras(), "ano", "n", "g", "t", "u", padroes=True)
+    assert [t.marker.pattern.shape for t in fig.data] == ["", "/", "."]
+    assert all(t.marker.pattern.fillmode == "overlay" for t in fig.data)
+    assert all(t.marker.pattern.fgcolor == "white" for t in fig.data)
+
+
+def test_figura_barras_sem_padroes_nao_define_pattern():
+    fig = figura_barras(_df_barras(), "ano", "n", "g", "t", "u")
+    assert all(t.marker.pattern.shape is None for t in fig.data)

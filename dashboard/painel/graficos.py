@@ -51,7 +51,10 @@ def figura_linhas(df, x, y, cor, titulo, rotulo_y) -> go.Figure:
     return _layout(fig, titulo, rotulo_y)
 
 
-def figura_barras(df, x, y, cor, titulo, rotulo_y, horizontal=False):
+PADROES = ["", "/", ".", "x", "\\", "+", "-", "|"]
+
+
+def figura_barras(df, x, y, cor, titulo, rotulo_y, horizontal=False, padroes=False):
     visiveis = df[~df["suprimido"].fillna(False).astype(bool) & df[y].notna()]
     if visiveis.empty:
         return None
@@ -60,11 +63,15 @@ def figura_barras(df, x, y, cor, titulo, rotulo_y, horizontal=False):
         xs, ys = list(g[x]), _valores(g[y], g["suprimido"])
         textos = [formatar_inteiro(v) for v in ys]
         cor_barra = COR_PRINCIPAL if cor is None else PALETA_CATEGORICA[i % len(PALETA_CATEGORICA)]
+        marcador = {"color": cor_barra}
+        if padroes:
+            marcador["pattern"] = {"shape": PADROES[i % len(PADROES)],
+                                   "fillmode": "overlay", "fgcolor": "white"}
         fig.add_trace(go.Bar(
             x=ys if horizontal else xs, y=xs if horizontal else ys,
             orientation="h" if horizontal else "v",
             name=str(nome) if nome is not None else rotulo_y,
-            marker={"color": cor_barra}, text=textos,
+            marker=marcador, text=textos,
             hovertemplate="%{text}<extra>%{fullData.name}</extra>"))
     _layout(fig, titulo, None if horizontal else rotulo_y)
     if horizontal:
@@ -80,6 +87,7 @@ def figura_incidencia(df_desfecho) -> go.Figure:
         fig.add_trace(go.Scatter(
             x=list(anos), y=ys, mode="lines+markers", name=DESFECHO.get(linha.get("desfecho"), str(linha.get("desfecho", i))),
             line={"color": PALETA_CATEGORICA[i % len(PALETA_CATEGORICA)]},
+            marker={"symbol": SIMBOLOS[i % len(SIMBOLOS)], "size": 8},
             text=[formatar_pct(v) for v in ys],
             hovertemplate="%{x} ano(s): %{text}<extra>%{fullData.name}</extra>"))
     _layout(fig, "Incidência acumulada", "% de processos")
