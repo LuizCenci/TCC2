@@ -32,6 +32,10 @@ def _grupos(df: pd.DataFrame, cor: str | None):
             yield nome, g
 
 
+SIMBOLOS = ["circle", "x", "triangle-up", "square", "diamond", "cross", "star",
+            "triangle-down"]
+
+
 def figura_linhas(df, x, y, cor, titulo, rotulo_y) -> go.Figure:
     fig = go.Figure()
     for i, (nome, g) in enumerate(_grupos(df, cor)):
@@ -42,6 +46,7 @@ def figura_linhas(df, x, y, cor, titulo, rotulo_y) -> go.Figure:
             name=str(nome) if nome is not None else rotulo_y,
             line={"color": COR_PRINCIPAL if cor is None
                   else PALETA_CATEGORICA[i % len(PALETA_CATEGORICA)]},
+            marker={"symbol": SIMBOLOS[i % len(SIMBOLOS)], "size": 8},
             text=textos, hovertemplate="%{x}: %{text}<extra>%{fullData.name}</extra>"))
     return _layout(fig, titulo, rotulo_y)
 

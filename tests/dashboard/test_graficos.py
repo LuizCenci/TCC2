@@ -48,3 +48,25 @@ def test_figura_incidencia_percentual():
     fig = figura_incidencia(r)
     tr = next(x for x in fig.data if x.name == "Condenação")
     assert tr.text[-1] == "46,0%"
+
+
+def _df_series(k):
+    linhas = [{"mes": m, "tipo": f"s{i}", "n": 5, "suprimido": False}
+              for i in range(k) for m in (1, 2)]
+    return pd.DataFrame(linhas)
+
+
+def test_figura_linhas_simbolos_por_serie():
+    fig = figura_linhas(_df_series(3), "mes", "n", "tipo", "t", "r")
+    assert [t.marker.symbol for t in fig.data] == ["circle", "x", "triangle-up"]
+    assert all(t.marker.size == 8 for t in fig.data)
+
+
+def test_figura_linhas_simbolos_ciclam():
+    fig = figura_linhas(_df_series(9), "mes", "n", "tipo", "t", "r")
+    assert fig.data[8].marker.symbol == fig.data[0].marker.symbol == "circle"
+
+
+def test_figura_linhas_serie_unica_circulo():
+    fig = figura_linhas(_df_series(1), "mes", "n", None, "t", "r")
+    assert fig.data[0].marker.symbol == "circle"
